@@ -1,0 +1,56 @@
+\documentclass[showNotes,
+               showLineNumbers,
+               showWatermark]
+               {PhDThesisED182}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\include{Covers/FrontCover}
+% go back to default geometry settings
+\setlength\oddsidemargin{\defaultOddsidemargin}
+\setlength\evensidemargin{\defaultEvensidemargin}
+
+\cleardoublepage
+\pagenumbering{roman}
+
+\dominitoc % use a mini table of contents for each chapter
+
+\ifshowLineNumbers\linenumbers\fi % show line numbers if switched on
+
+\include{Chapters/ch-Résumé}
+\include{Chapters/ch-Abstract}
+
+\pagenumbering{gobble}
+\tableofcontents
+
+\include{Chapters/ch-Introduction}
+
+\adjustmtc  % to avoid minitoc position issue in the following chapters
+\include{Chapters/ch-Chapitre1}
+\include{Chapters/ch-Chapitre2}
+
+\pagestyle{headings}
+\include{Chapters/ch-Conclusion}
+
+\begin{appendices}
+\adjustmtc
+\include{Appendices/app-AppendixA}
+\end{appendices}
+
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{biblio}
+
+\newpage 
+\listoffigures \mtcaddchapter    % do not forget "\mtcaddchapter" (ohterwise, conflict with minitoc)
+
+\newpage 
+\listoftables \mtcaddchapter     % do not forget "\mtcaddchapter" (ohterwise, conflict with minitoc)
+
+\cleardoublepage
+\include{Covers/BackCover}
+% go back to default geometry settings
+\setlength\oddsidemargin{\defaultOddsidemargin}
+\setlength\evensidemargin{\defaultEvensidemargin}
+
+\end{document}
