@@ -23,7 +23,7 @@
 %% Load packages
 \PassOptionsToPackage{T1}{fontenc}\RequirePackage{fontenc} % Standard package for selecting font encodings
 \PassOptionsToPackage{comma,square,numbers,sort&compress}{natbib}\RequirePackage{natbib} % Flexible bibliography support
-\PassOptionsToPackage{french}{babel}\RequirePackage{babel} % Multilingual support
+\PassOptionsToPackage{english}{babel}\RequirePackage{babel} % Multilingual support
 \RequirePackage{fancyhdr} % Extensive control of page headers and footers
 \RequirePackage{graphicx} % Enhanced support for graphics
 \RequirePackage{xcolor} % Driver-independent color extensions
@@ -39,6 +39,7 @@
 \PassOptionsToPackage{title}{appendix}\RequirePackage{appendix} % Extra control of appendices
 \RequirePackage{geometry} % Flexible and complete interface to document dimensions
 \RequirePackage{lineno} % Line numbers on paragraphs
+\RequirePackage{mathrsfs}
 
 
 %% Import packages and fefine commands for watermark
@@ -83,7 +84,7 @@
 
 
 %% Table of contents configuration
-\addto\captionsfrench{% Replace "french" with the language you use
+\addto\captionsenglish{% Replace "french" with the language you use
   \renewcommand{\contentsname}%
     {Table des matières}%
 }

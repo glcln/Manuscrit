@@ -2,14 +2,99 @@
 \chaptermark{Search for Heavy Stable Charged Particles}
 \label{ch:chapitre4}
 
+
+Splitter en deux sous-chapitres
+
 \section{Experimental signature}
 
 \subsection{Description of the method}
 
 \subsection{$dE/dx$ discriminator}
 
+Rediscuter de Ih,
 Fpixel
 Gstrip (if used)
+
+\subsubsection{Gstrip}
+
+$G_{strip}$ est un discrimateur de Smirnov-Cramér-Von-Mises
+
+T. W. Anderson. “On the Distribution of the Two-Sample Cramer-von Mises
+Criterion”. In: The Annals of Mathematical Statistics 33.3 (1962), pp. 1148
+–1159. doi: 10.1214/aoms/1177704477.
+
+Tout part de la proba que l'on observe une particule au MIP déposé moins d'énergie que le ième dépôt, ie $p_i$ est une CDF.
+
+Sur une trajectoire de $N$ dépôts on peut ranger les $p_i$ sur une droite de [0,1] par ordre croissant. On s'attend pour une particule au MIP que ces $p_i$ soit uniformément répartis (autant de chance de déposer au dessus du MIP que en dessous). 
+
+Alors dans ce cas la position de $p_i$ sur cet axe est environ autour de $\frac{2i-1}{2N}$ qui est le milieu de $\left[ \frac{i-1}{N} , \frac{i}{N}\right]$. 
+
+A partir de là on veut voir à quel point on s'éloigne de cette valeur attendu, on peut alors s'intéresser à la quantité $\left( p_i - \frac{2i-1}{2N}\right)^2$ et même $p_i \left( p_i - \frac{2i-1}{2N}\right)^2$ qui est la version asymétrique.
+
+En ajoutant maintenant l'ensemble des dépôts on a alors: 
+
+\begin{equation}
+    G_{strip} = \frac{3}{N}\left(\frac{1}{12N}+\sum_{i=1}^{N}p_i\left(p_i-\frac{2i-1}{N}\right)^{2}\right)
+\end{equation}
+
+Le terme $\frac{1}{12N}$ est une correction analytique du test de Cramér–von Mises qui assure une distribution uniforme. Et $\frac{3}{N}$ normalise le tout entre 0 et 1.
+
+On à alors construit un discriminateur sur la compatibilité d'une particule fortement ionisante avec une autre au MIP. 
+
+
+
+
+
+
+
+\subsubsection{Fpixel}
+
+Simu pixelAV qui reproduit les dépôts de charge et la manière dont sont collectés les paires électrons-trous.
+
+On donne un cluster pixel de charge $Q_{cluster}$, on sait que normalement ça suit une loi de Vavilov.
+
+On définit $p_Q= \int_{Q_{cluster}}^{+\infty} V(Q)\textrm{d}Q$, en gros ça quantifie la proba que tu déposes une charge supérieure à $Q_{cluster}$ quand tu regardes une particule au MIP.
+
+$p_Q \sim U(0,1)$ si $Q_{cluster}\sim V(Q)$: si la particule est au MIP et si le modèle $V(Q)$ est correct alors $p_Q$ est uniforme par construction (Probability Integral Transform).
+
+Comme on a 4 couches de pixels on définit des coeff. $\alpha_n$ tel que $\alpha_n = \prod_{i=1}^4 p_i$ où $p_i$ sont les dépôts $Q_{cluster}$ de chaque couche de pixel.: $\alpha_n$ est la probabilité jointe d’observer simultanément des charges au moins aussi grandes dans toutes les couches (si une seule couche est très ionisante, $\alpha_n$ chute, si toutes le sont alors $\alpha_n$ devient minuscule).
+
+Problème : $\alpha_n$ n’est pas uniforme, même pour un MIP. Sa distribution dépend fortement de $n$, et donc impossible de comparer proprement $n=3$ avec $n=4$ par exemple. Il faut construire une autre variable pour trouver un comportement/coupure intéressant.
+
+
+La variable $-\ln(\alpha_n)$ suit une loi Gamma de paramètres $(n,1)$.
+
+En effet si on a $p_n$ suit une loi uniforme sur [0,1] alors $-\sum_n ln(p_n)$ suit une loie gamma de paramètres (n,1) ($\Gamma\left(n,1\right)$). source: $https://en.wikipedia.org/wiki/Gamma_distribution$
+
+En sachant que $\Gamma\left(n,1\right) = \frac{x^{n-1}e^{-x}}{n!}$ avec $x=-\ln(\alpha_n)$
+
+La fonction de répartition associée est donnée analytiquement par :
+\begin{equation}
+\beta_n
+= \alpha_n \sum_{m=0}^{n-1}
+\frac{\left[-\ln(\alpha_n)\right]^m}{m!}.
+\end{equation}
+
+La variable $\beta_n$ correspond ainsi à la probabilité cumulée (CDF) associée à $\alpha_n$ sous l’hypothèse que la particule est un MIP.
+
+
+Afin de construire une variable discriminante universelle, indépendante du nombre
+de couches de pixels considérées, on définit :
+\begin{equation}
+F_{\text{pixel}} = 1 - \beta_n.
+\end{equation}
+
+Par construction, la variable $F_{\text{pixel}}$ est distribuée uniformément
+sur l’intervalle $[0,1]$ pour des particules de type MIP. En revanche, pour des
+particules fortement ionisantes, telles que des particules BSM, les dépôts de charge
+dans chaque couche sont plus élevés que ceux attendus pour un MIP, conduisant
+à des valeurs de $p_i$ petites et donc à $F_{\text{pixel}}$ proche de l’unité.
+
+La variable $F_{\text{pixel}}$ constitue ainsi un discriminateur efficace entre
+les processus du BSM.
+
+
+
 
 \subsection{Signal considered}
 
@@ -30,7 +115,7 @@ MET
 
 Mass parametrization
 
-\subsection{Background estimation method}
+\section{Background estimation method}
 
 \subsection{Systematics uncertainties}
 
@@ -45,3 +130,6 @@ Mass parametrization
 
 
 \section{Perspectives}
+
+
+Ajouter listes du travail personnel
