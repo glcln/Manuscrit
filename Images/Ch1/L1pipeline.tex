@@ -1,0 +1,122 @@
+\begin{tikzpicture}[
+  % Node styles
+  inputnode/.style={
+    draw, rounded corners=8pt,
+    fill=orange!15, draw=orange!60!black,
+    text centered, font=\small,
+    minimum width=1.5cm, minimum height=1cm,
+    align=center
+  },
+  inputnodepurple/.style={
+    draw, rounded corners=8pt,
+    fill=cyan!15, draw=cyan!60!black,
+    text centered, font=\small,
+    minimum width=1.5cm, minimum height=1cm,
+    align=center
+  },
+  triggernode/.style={
+    draw, rounded corners=8pt,
+    fill=green!25, draw=green!60!black,
+    text centered, font=\small\bfseries,
+    minimum width=2.8cm, minimum height=1.2cm,
+    align=center
+  },
+  muonnode/.style={
+    draw, rounded corners=8pt,
+    fill=blue!20, draw=blue!60!black,
+    text centered, font=\small,
+    minimum width=2cm, minimum height=1cm,
+    align=center
+  },
+  globalnode/.style={
+    draw, rounded corners=8pt,
+    fill=red!25, draw=red!60!black,
+    text centered, font=\small\bfseries,
+    minimum width=3cm, minimum height=1.2cm,
+    align=center
+  },
+  arrow/.style={-{Stealth[length=6pt]}, thick},
+  label/.style={font=\tiny, midway}
+]
+
+%% ============ CALORIMETER SIDE (left) ============
+
+% Input nodes row 1
+\node[inputnode] (HF)   at (0,0)    {HF\\energy};
+\node[inputnode] (HCAL) at (1.8,0)  {HCAL\\energy};
+\node[inputnode] (ECAL) at (3.6,0)  {ECAL\\energy};
+
+% Regional Calo Trigger
+\node[triggernode] (RCT) at (1.8,-3) {Regional\\Calo Trigger};
+
+% Arrows from inputs to RCT
+\draw[arrow] (HF)   -- (RCT);
+\draw[arrow] (HCAL) -- (RCT);
+\draw[arrow] (ECAL) -- (RCT);
+
+% Global Calo Trigger
+\node[triggernode] (GCT) at (1.8,-6) {Global\\Calo Trigger};
+
+% Arrows RCT -> GCT
+\draw[arrow] (1.3, -3.6) -- node[left, font=\tiny, align=right] {EM\\candidates} (1.3, -5.4);
+\draw[arrow] (2.2, -3.6) -- node[right, font=\tiny, align=left] {Region energies\\+ fine-grain} (2.2, -5.4);
+
+%% ============ MUON SIDE (right) ============
+
+% Input nodes row 1
+\node[inputnodepurple] (RPC) at (6.2,0)  {RPC\\hits};
+\node[inputnodepurple] (DT)  at (8.5,0)  {DT\\hits};
+\node[inputnodepurple] (CSC) at (10.8,0)  {CSC\\hits};
+
+% Pattern comparator (from RPC)
+\node[muonnode] (PC) at (6.2,-3) {pattern\\comparator};
+
+% Segment finders (from DT and CSC)
+\node[muonnode] (SF1) at (8.5,-2.2)  {segment\\finder};
+\node[muonnode] (SF2) at (10.8,-2.2) {segment\\finder};
+
+% Track finders
+\node[muonnode] (TF1) at (8.5,-4.0) {track\\finder};
+\node[muonnode] (TF2) at (10.8,-4.0) {track\\finder};
+
+% Arrows muon inputs
+\draw[arrow] (RPC) -- (PC);
+\draw[arrow] (DT)  -- (SF1);
+\draw[arrow] (CSC) -- (SF2);
+
+
+% SF -> TF
+\draw[arrow] (SF1) -- (TF1);
+\draw[arrow] (SF1) -- (TF2);
+\draw[arrow] (SF2) -- (TF2);
+\draw[arrow] (SF2) -- (TF1);
+
+% Global Muon Trigger
+\node[triggernode, fill=blue!35, draw=blue!60!black, minimum width=3cm] (GMT) at (8.5,-6) {Global\\Muon Trigger};
+
+% TF -> GMT
+\draw[arrow] (TF1) -- (GMT);
+\draw[arrow] (TF2) -- (GMT);
+
+% PC -> GMT
+\draw[arrow] (PC) -- (GMT);
+
+%% ============ CONNECTIONS BETWEEN SIDES ============
+
+% GCT -> GMT (Quiet/MIP map)
+\draw[arrow] (GCT.east) -- node[above, font=\tiny] {Quiet/MIP map} (GMT.west);
+
+% Global Trigger
+\node[globalnode] (GT) at (5.2,-8.5) {Global\\Trigger};
+
+% GCT -> GT
+\draw[arrow] (GCT) -- node[left, font=\tiny, align=left, pos=0.5] {EM candidates\\Jet candidates\\Global energy sums} (GT);
+
+
+% GMT -> GT
+\draw[arrow] (GMT) -- node[right, font=\tiny, pos=0.5] {Muon candidates} (GT);
+
+% Level-1 Accept output
+\draw[arrow] (GT.south) -- ++(0,-0.8) node[below, font=\small] {Level-1 Accept};
+
+\end{tikzpicture}

@@ -29,7 +29,6 @@
 \RequirePackage{xcolor} % Driver-independent color extensions
 \RequirePackage{amsmath} % AMS mathematical facilities
 \RequirePackage{amsfonts} % TeX fonts from the American Mathematical Society
-\RequirePackage{xcolor} % Driver-independent color extensions
 \RequirePackage{xspace} % Define commands that appear not to eat spaces
 \RequirePackage{xifthen} % Extended conditional commands
 \RequirePackage{hyperref} % Extensive support for hypertext
@@ -40,6 +39,19 @@
 \RequirePackage{geometry} % Flexible and complete interface to document dimensions
 \RequirePackage{lineno} % Line numbers on paragraphs
 \RequirePackage{mathrsfs}
+
+\RequirePackage{physics}
+\RequirePackage{tikz}
+\RequirePackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta} % for arrow size
+\usetikzlibrary{3d} % for canvas is
+\RequirePackage[outline]{contour} % glow around text
+\contourlength{0.9pt}
+\usetikzlibrary{bending} % for arrow head angle
+\RequirePackage{makecell}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+
 
 
 %% Import packages and fefine commands for watermark

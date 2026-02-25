@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+
+    \node[anchor=south west,inner sep=0] (img) at (0,0)
+        {\includegraphics[width=0.8\textwidth]{Images/Ch1/phase1pixels.pdf}};
+
+    \begin{scope}[
+        x={(img.south east)},
+        y={(img.north west)}
+    ]
+
+    \node[anchor=east] at (0.3,1.02) {\textbf{BPIX}};
+    \node[anchor=east] at (0.75,1.02) {\textbf{FPIX}};
+
+    \node[anchor=east] at (-0.18,0.7) {Phase-1};
+    \node[anchor=east] at (-0.18,0.63) {upgrade};
+
+    \node[anchor=east] at (-0.18,0.3) {Original};
+
+    \node[anchor=east] at (-0.02,0.55) {\scriptsize $r = 2.9\,\mathrm{cm}$};
+    \node[anchor=east] at (-0.02,0.62) {\scriptsize $r = 6.8\,\mathrm{cm}$};
+    \node[anchor=east] at (-0.02,0.71) {\scriptsize $r = 10.9\,\mathrm{cm}$};
+    \node[anchor=east] at (-0.02,0.82) {\scriptsize $r = 16.0\,\mathrm{cm}$};
+
+    \node[anchor=east] at (-0.02,0.40) {\scriptsize $r = 4.4\,\mathrm{cm}$};
+    \node[anchor=east] at (-0.02,0.33) {\scriptsize $r = 7.3\,\mathrm{cm}$};
+    \node[anchor=east] at (-0.02,0.26) {\scriptsize $r = 10.2\,\mathrm{cm}$};
+
+    % ====================================
+    % ====================================
+
+    \end{scope}
+
+\end{tikzpicture}
