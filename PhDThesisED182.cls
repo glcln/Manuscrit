@@ -51,6 +51,7 @@
 \RequirePackage{makecell}
 \RequirePackage{caption}
 \RequirePackage{subcaption}
+\RequirePackage[nameinlink,noabbrev,capitalise]{cleveref}
 
 
 
@@ -101,6 +102,8 @@
     {Table des matières}%
 }
 \setcounter{minitocdepth}{3} 
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \setlength{\mtcindent}{24pt} 
 \renewcommand{\mtcfont}{\small\rm} 
 \renewcommand{\mtcSfont}{\small\bf} 

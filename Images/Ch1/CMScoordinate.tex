@@ -18,7 +18,7 @@
 
 % CMS detector - east perspective
 \tdplotsetmaincoords{70}{125} % to reset previous setting
-\begin{tikzpicture}[scale=2.8,tdplot_main_coords,rotate around x=90]
+\scalebox{0.7}{\begin{tikzpicture}[scale=2.8,tdplot_main_coords,rotate around x=90]
   
   % VARIABLES
   \def\rvec{\L/2/cos(\thetavec)}
@@ -135,4 +135,4 @@
   \draw[->,thick,orange!30!black] (1.4*\w,-\R,0.1*\L) --++ (2*\w,0,0)
     node[below=1,left,scale=0.8,align=center] {center of\\[-1pt]the LHC};
 
-\end{tikzpicture}
+\end{tikzpicture}}
