@@ -4,34 +4,190 @@
 
 \section{Interaction of charged particles with matter}
 
+A charged particle passing through a material loses energy through ionisation or Coulomb scattering. Energy loss through ionisation in a material is described by the Bethe-Bloch formula \cite{PDG} in the case of a particle with a mass $M$ much greater than that of an electron $m_e$:
 
-Landau
-Description Bethe-Bloch
+\begin{equation} 
+    \left\langle - \frac{\mathrm{d}E}{\mathrm{d}x} \right\rangle = Kz^2 \frac{Z}{A} \frac{1}{\beta^2} \left[ \frac{1}{2} \ln \left( \frac{2m_ec^2\beta^2\gamma^2W_{\mathrm{max}}}{I^2} \right) - \beta^2 - \frac{\delta(\beta\gamma)}{2} \right]
+    \label{eq:BetheBloch_formula}
+\end{equation}
+
+With
+
+\begin{equation}
+    W_{\max} = \frac{2m_e c^2 \beta^2 \gamma^2}{1 + 2\gamma m_e/M + (m_e/M)^2}
+    \label{eq:Wmax}
+\end{equation}
+
+And
+
+\begin{equation}
+    \delta(\beta\gamma) = \begin{cases} 2(\ln 10)x - \overline{C} & \text{if } x \geq x_1; \\ 2(\ln 10)x - \overline{C} + a(x_1 - x)^k & \text{if } x_0 \leq x < x_1; \\ 0 & \text{if } x < x_0 \textrm{ (non conductors)}; \\ \delta_0 10^{2(x - x_0)} & \text{if } x < x_0 \text{ (conductors)} \end{cases}
+    \label{eq:deltabetagamma}
+\end{equation}
+
+where the term $\beta\gamma= p/Mc$ represents the kinematics of the particle with mass $M$ and momentum $p$. The term $\beta$ is equal to $v/c$ (where $v$ is the velocity of the particle), $A$ and $Z$ correspond respectively to the mass number and atomic number of the material traversed, $z$ is the algebraic charge of the particle and $K\simeq0.307075 \,\, \textrm{MeV.mol}^{-1}.\textrm{cm}^2$. $W_{\mathrm{max}}$ [MeV] is the maximum energy transferred in a single collision described in \cref{eq:Wmax}, $I$ [eV] is the average excitation energy of the material, and $\delta(\beta\gamma)$ is the density correction for the ultra-relativistic regime.
+
+As for the latter, \cref{eq:deltabetagamma} gives an empirical expression depending on the $\beta\gamma$ regime with $x=\log_{10}(\beta\gamma)$; and $x_0$, $x_1$, $\overline{C}$, $a$, $k$ and $\delta_0$ are constants related to the material, one can find numerical values of them in \cite{DeltaBetaGamma}.
+
+\vspace{0.5 cm}
+
+The average stopping power $\langle \mathrm{d}E/\mathrm{d}x \rangle $ is usually depicted in MeV.$\mathrm{g}^{-1}.\mathrm{cm}^2$, by multiplying this value with the material density, the average ionisation loss is therefore express in [MeV/cm]. The $\langle \mathrm{d}E/\mathrm{d}x \rangle $ value depends on $p/M$, so that for slow moving particle and/or heavy ones, $\mathrm{d}E/\mathrm{d}x$ decreases as $-\ln(p/M)$ before reaching a minimum at around $3-4$ MeV/cm for $\beta\gamma\sim3-4$, before gradually increasing due to the relativistic-regime term induced by $\delta(\beta\gamma)$. \cref{fig:BetheBloch} shows the energy deposition per unit distance travelled for different particles passing through silicon according to \cref{eq:BetheBloch_formula}.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/bethebloch_multiparticle_Si.pdf}
+    \caption{Average ionisation loss of muons, pions, Kaons and protons in the Silicon derived from \cref{eq:BetheBloch_formula}. Numerical values of the parameters were taken in \cite{DeltaBetaGamma}.}
+    \label{fig:BetheBloch}
+\end{figure}
+
+Most of the particles produced by proton-proton collisions at CMS are low energetic particles, they release some of their energy at the minimum of the curve. The silicon tracker has been optimised to detect such particles, labelled as \textit{Minimum Ionising Particles} (MIPs).
+
+Note that for high relativistic particles at $\beta\gamma\sim1000$, the average deposit is 2.5 times higher than the MIP. Thus, by measuring the $\mathrm{d}E/\mathrm{d}x$ information, one could identify the $\beta\gamma$ regime of the particle. This information will be later use to discriminate HSCPs deposits than SM processes.
+
+
+\vspace{0.5 cm}
+
+While the Bethe–Bloch formula provides an accurate description of the average energy loss over a given path length, it becomes inadequate when considering thin absorbers such as the strip or pixel silicon sensors of the CMS tracker, where the energy deposit is measured locally, layer by layer.
+
+In this regime, the number of collisions experienced by the particle is relatively small, and the deposited energy is no longer a well-defined quantity but must instead be described by a probability distribution. This distribution is dominated by rare but large energy transfers to $\delta$-rays\footnote{Secondary electrons with enough energy to escape a significant distance away from the primary radiation beam and produce further ionization.}, which distort it away from a symmetric Gaussian shape and produce a characteristic asymmetric tail toward large energy losses.
+
+In 1944, Landau addressed this problem analytically. Starting from the differential cross section for individual collisions, he showed that in the limit of a sufficiently thin absorber the energy-loss fluctuations follow a universal functional form, now known as the \textit{Landau distribution} \cite{Landau}.
+
+\vspace{0.5 cm}
+
+The Landau distribution does not have a finite mean and standard-deviation (as the tail goes to infinity). Instead, it is commonly described by the \textit{Most Probable Value} (MPV), defined as the position of the maximum of the Landau distribution. The MPV depends on the thickness of the material traversed by the particle and increases approximately linearly with it, as a thicker layer results in a larger number of ionizing collisions. 
+
+The Landau Probability Density Function (PDF) is a function of the particle mass and momentum, the crossed material and the thickness of the latter. A example is shown in \cref{fig:landau} for a pion with a 10 GeV/$c$ momentum going through two different silicon sensors with different thickness.
+
+Note that particles can't actually lose more energy than it carries, thus the infinite tail of the Landau distribution is purely conceptual.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/landau_total_keV.pdf}
+    \caption{Landau PDF for a 10 GeV pion passing through a $320 \, \mu\mathrm{m}$ and $500 \, \mu\mathrm{m}$ silicon sensor.}
+    \label{fig:landau}
+\end{figure}
+
+\vspace{0.5 cm}
+
+Another important point is the dependency between the MPV, the relativistic regime $\beta\gamma$, and the material thickness. The slower the particle is, the lower the MPV is, and, in the relativistic regime, the MPV converges asymptotically to a value that depends solely on the thickness of the material. An example of the evolution of the MPV in two different thicknesses of silicon sensors is depicted on \cref{fig:MPV}.
+
+The Landau distribution shows the total energy deposited in a finite silicon layer (here for 320 and 500 $\mu\mathrm{m}$), while the MPV curve gives the energy loss per unit length (MeV/cm). Multiplying the MPV at the MIP value ($\sim$2.6-2.7 MeV/cm) by the layer thickness naturally yields a deposit in the keV range, consistent with the MPV observed in the Landau PDF of \cref{fig:landau}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/MPV.pdf}
+    \caption{Most Probable Value of the Landau PDF as a function of the relativistic regime $\beta\gamma$ for two silicon sensors of different thickness.}
+    \label{fig:MPV}
+\end{figure}
+
+
+\vspace{0.5 cm}
+
+Finally, one could also present a more general description of energy-loss fluctuations, that is provided by the \textit{Vavilov distribution}, which extends the Landau model to absorbers of finite thickness. In the limit of very thin materials, it reduces to the Landau distribution, while for thicker absorbers it gradually approaches a Gaussian shape. This behaviour reflects the Central Limit Theorem: as the number of independent collisions increases, the sum of many small energy transfers tends toward a normal distribution \cite{VavilovFunctionPixels}.
+
+This function is, for instance, used in the simulation of charge deposits in pixel sensors. Particles at high pseudo-rapidity traverse a larger amount of material than those produced in the central region, thus the Landau distribution is no longer representative of their energy distribution. Modelling this effect in the simulation allows the detector response to be tuned in order to better reproduce the behaviour observed in data.
 
 \section{Charge deposit in the silicon modules}
 
-\subsection{Principle of semi-conductors}
+A typical semiconductor detector is made up of a sensitive layer along with read-out electronics responsible for processing the analogue signals. The following sections will cover the underlying physics governing semiconductor sensors, and will present an example of a typical read-out electronics chain used for data acquisition.
 
-Distribution de Fermi
-Bande de conduction et de valence
-Gap
-Dopé P et N
-Jonction PN
+\subsection{Semiconductor sensors}
 
-\subsection{Silicon strip modules}
+\subsubsection{Basic concept of semiconductor physics}
 
-Schéma module + explications
-Shéma électronique
+The Pauli exclusion principle states that no two identical fermions can simultaneously occupy the same quantum state. The distribution of energy levels in fermionic systems is therefore described by the Fermi-Dirac distribution, as expressed in \cref{eq:fermidirac}.
+
+\begin{equation}
+    f(E)=\frac{1}{1+\exp\left( \displaystyle \frac{E-E_F}{k_BT} \right)}
+    \label{eq:fermidirac}
+\end{equation}
+
+where $k_B$ denotes the Boltzmann constant, $T$ the temperature of the system, and $E_F$ the Fermi level.
+
+The distribution gives the probability density of finding a fermion at a given energy, while the Fermi level corresponds to the energy at which this probability equals 1/2. At $T$ = 0 K, all energy states up to $E_F$ are filled, and as temperature rises, electrons begin to populate higher-energy excited states. Unlike isolated atoms, where electrons occupy discrete orbitals with well-defined binding energies, electrons in crystalline solids arrange themselves into continuous energy bands. The band structure of various materials is illustrated schematically in \cref{fig:EnergyBand}. The valence band is the highest band fully occupied at $T$ = 0 K, while the partially filled band above it is known as the conduction band. Between these two bands lies a forbidden region with no allowed energy states, referred to as the band gap. Electrons residing in the conduction band are those that contribute to the electrical conductivity of the material. Based on this band picture, materials can be classified into three broad categories: conductors, semiconductors, and insulators. Conductors already possess electrons in the conduction band at $T$ = 0 K, whereas semiconductors and insulators do not, making them behave similarly at absolute zero. At elevated temperatures, however, thermally excited electrons in semiconductors can acquire enough energy to bridge the band gap, rendering the material conductive. These thermally generated carriers are known as intrinsic charge carriers, and a semiconductor free of any impurities is accordingly called an intrinsic semiconductor.
+
+\begin{figure}[h]
+    \centering
+    \input{Images/Ch2/EnergyBand.tex}
+    \caption{Sketch of the energy band structure for three different material at $T=0$ K: insulators, semiconductors and conductors. The darker part represents the states containing electrons.}
+    \label{fig:EnergyBand}
+\end{figure}
+
+Band theory is grounded in the nature of chemical bonds between atoms, which arise from interactions between electron shells. The valence shell, in particular, determines the electrical conductivity of an element. A completely filled valence shell results in a chemically inert, gaseous, and poorly conductive element, while a nearly full shell, as in F, Cl and Br, leads to the formation of non-conductive solids called insulators. Elements with a single valence electron, such as Li, Na and Cu, are good conductors due to the free movement of that electron across the lattice. Atoms like C, Si and Ge, which have four valence electrons, form covalent bonds by sharing electrons with neighbouring atoms. The resulting elements, known as semiconductors, bind their electrons less tightly than insulators, enabling electrical conduction under certain conditions.
+
+Electrical conductivity in a crystal lattice is driven by the movement of charge carriers, namely electrons and holes. When an electron vacates its position, it leaves behind an empty site in the lattice, referred to as a hole. This hole is quickly occupied by a neighbouring electron, which in turn creates a new vacancy elsewhere. Through this successive displacement mechanism, holes effectively travel across the lattice, giving rise to hole conductivity. The velocity at which electrons and holes move, determined by their mobility, varies depending on both the material and the applied electric field. In an intrinsic semiconductor, electrons and holes are present in equal numbers, meaning that neither carrier type is dominant.
+
+The conduction properties of semiconductors can be tailored by deliberately introducing impurities into the crystal lattice, a process known as doping, which is schematically illustrated for Silicon in \cref{fig:DopedSemiConductor}. To enhance electron conductivity, atoms carrying an extra valence electron are incorporated into the lattice. These impurity atoms are called donors, and the resulting material is designated as an n-type, or n-doped, semiconductor. In the case of n-doped Silicon, Phosphorus, which possesses five valence electrons, is a typical donor atom. P-type semiconductors, on the other hand, are obtained by introducing acceptor atoms into the intrinsic semiconductor, these being atoms with one fewer electron in their outer shell, making hole conductivity the dominant transport mechanism. Boron is commonly used as an acceptor in p-doped Silicon. Both n-type and p-type semiconductors fall under the category of extrinsic semiconductors, as their electrical properties have been deliberately altered from those of the intrinsic material.
+
+\begin{figure}[h]
+    \centering
+    \input{Images/Ch2/DopedSemiConductor.tex}
+    \caption{Sketch of a Silicon lattice (Left) where one of the atom has been replaced by a Phosphorus one in a n-doped material (Center) or a Boron in a p-doped material (Right).}
+    \label{fig:DopedSemiConductor}
+\end{figure}
+
+\subsubsection{p-n junctions}
+
+Semiconductor sensors are built around a p-n junction, which consists of a p-type and an n-type semiconductor brought into contact. The corresponding energy state diagram for doped semiconductors and a pn-junction is depicted in \cref{fig:PNEnergy}. Doping shifts the Fermi energy level as a result of the increased concentration of electrons or holes in the extrinsic semiconductor. At the interface between the p-type and n-type regions, electrons and holes begin to recombine, leaving a positively charged region on the n-doped side and a negatively charged region on the p-doped side. The resulting built-in electric field counteracts further diffusion of charge carriers, giving rise to a carrier-free region known as the depletion zone. This zone can be extended by attaching electrodes to both sides of the junction to establish electrical contacts, and then applying an external voltage across the p-n junction. When a positive voltage is applied to the n-side, the induced electric field draws charge carriers away from the junction, and beyond a certain voltage threshold, the field extends across the entire thickness of the sensor, which is then said to be fully depleted. This threshold, known as the \textit{full depletion voltage} depends on both the doping concentration and the physical thickness of the sensor.
+
+\begin{figure}[h]
+    \centering
+    \input{Images/Ch2/PNEnergy.tex}
+    \caption{Energy diagram of doped semiconductors and a p-n junction. $E_A$ and $E_D$ are the energy levels of acceptor and donor atoms respectively.}
+    \label{fig:PNEnergy}
+\end{figure}
+
+
+\subsection{Silicon strip sensors}
+
+The CMS detector makes use of silicon p-n junctions of the tracker for particle detection. Among the various natural semiconductors, the collaboration opted for silicon based sensors for various reasons. It is the most common semiconductor (thus cheaper), with natural radiation tolerant and efficient band gap.
+
+\subsubsection{Anatomy of strip sensors}
+
+To enable precise hit reconstruction and accurate track reconstruction, the standard p–n junction is segmented into multiple $\mathrm{p^+}$-type strips sharing a common phosphorus-doped n-type bulk, as illustrated in \cref{fig:SiliconStripSensor}. A heavily doped $\mathrm{n^+}$ metallized layer is implanted both on the rear face of the sensor, to establish an ohmic contact between the bulk and the aluminium electrode, and along the lateral edges, to confine the depletion region within the active volume and suppress the injection of minority carriers into the bulk. The $\mathrm{n^+}$ backside implant is contacted via an aluminium layer through which the high-voltage bias is applied.
+
+On the front side, a layer of silicon dioxide and silicon nitride is deposited to enhance the mechanical and electrical stability of the module, referred to as the insulating layer in \cref{fig:SiliconStripSensor}. The active volume is laterally bounded by two $\mathrm{p^+}$-implanted rings, each covered by an aluminium layer. The outermost ring, denoted the guard ring, acts to grade the electric field between the $\mathrm{n^+}$ edge implant and the inner ring, denoted the bias ring, which is connected to ground and serves to bias the strips. A coupling capacitor is integrated on top of each strip for signal readout. The centre-to-centre distance between adjacent strips defines the strip pitch $P$, while their implant width is denoted $W$. Since the silicon strip tracker spans a large tracking volume, both parameters vary with the position of the module within the tracker to keep the $W/P$ ratio close to 0.25, as summarised in \cref{tab:tracker_modules}. This value has been chosen to minimise the total strip capacitance while maintaining a sufficiently large electric field peak at the $\mathrm{p^+}$ strip edges.
+
+\vspace{0.5 cm}
+
+As a MIP traverses a depleted Silicon sensor, it generates approximately 70 electron-hole pairs per micrometre of sensor thickness, with each pair requiring an energy of 3.62 eV to be created \cite{ElectronHolePairsEnergy}. This threshold value is less than any gaseous detector (34.6 eV for an $\mathrm{H}_2$ gas detector), making silicon one of the main materials used for particle tracking.
+
+For a 300 $\mu$m thick silicon strip sensor, a MIP typically generates $\sim 2\cdot10^4$ electron-hole pairs. Under the applied electric field, these carriers drift toward their respective electrodes, inducing a measurable current. However, this signal is several orders of magnitude smaller than the leakage current, which arises from the $\sim 10^8$ electron-hole pairs continuously generated by thermal excitation within the bulk. This parasitic current flows through the detector even in the absence of any particle interaction, constituting a significant source of noise. To mitigate this effect, the sensors are cooled in order to suppress thermal generation and thus improve the signal-to-noise ratio for MIP charge collection \cite{ElectronHoleInSilicon}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/SiliconStripSensorSketch.png}
+    \caption{Caption \cite{SiliconLayout}.}
+    \label{fig:SiliconStripSensor}
+\end{figure}
+
+\subsubsection{Read-out system}
+
+
+
+
+\subsubsection{Radiation effects}
+
+The performance of silicon tracking detectors inevitably degrades under the intense radiation environment of the LHC. Energy loss of traversing particles occurs through two distinct mechanisms: Ionising Energy Loss (IEL), arising from collisions with atomic electrons, and Non-Ionising Energy Loss (NIEL), in which nuclear interactions displace lattice atoms. Both processes induce radiation damage, which can be classified as bulk or surface damage.
+
+\vspace{0.5 cm}
+
+Bulk damage, primarily driven by NIEL, arises when recoiling atoms displace neighbouring lattice sites, forming defect clusters. These introduce new energy levels within the silicon bandgap, leading to increased leakage current, charge carrier trapping, and local electric field distortions, all of which degrade charge collection efficiency and ultimately the sensor resolution.
+
+Surface damage is instead dominated by ionising radiation, which generates positive charges trapped at the Si–Si$\mathrm{O}_2$ interface. This accumulated charge can induce inter-strip short circuits, increasing both the bulk current and the cross-talk between readout channels, thereby degrading the detector noise performance.
+
+Beyond permanent damage, ionising particles can also flip the state of memory cells in the front-end electronics, an effect known as Single Event Upset (SEU). Unlike bulk or surface damage, SEUs are non-permanent and can be recovered by reconfiguring the affected circuits; nevertheless, data triplication and error-correction schemes are systematically employed to mitigate their impact.
+
+To cope with the cumulative effects of permanent radiation damage, detectors can be recalibrated and operated at higher bias voltages and lower temperatures. However, once the signal-to-noise ratio becomes too degraded, front-end modules must be replaced -- a typical operational lifetime for the inner layers of a silicon tracker at the LHC being of the order of 5 to 10 years.
+
+
 
 \subsection{Charge cluster}
 
 Crosstalk
 Front End Driver
-
-\section{Hit reconstruction and hit efficiency}
-
-Dead module
-Hit eff. algorithm 
 
 
 \section{Charge saturation in the electronics}
@@ -44,7 +200,7 @@ Saturation 254 et 255
 \subsection{Bias on the dE/dx measurement}
 
 Introduction of Ih, why harmonic mean
-Data dependance
+
 
 \subsection{Charge saturation correction algorithm}
 
@@ -58,3 +214,6 @@ MC vs Data in 240-250 ADC
 
 
 \subsection{Time evolution}
+
+Ih vs time
+
