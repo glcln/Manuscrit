@@ -45,6 +45,7 @@
 \RequirePackage{tikz-3dplot}
 \usetikzlibrary{arrows.meta} % for arrow size
 \usetikzlibrary{3d} % for canvas is
+\usetikzlibrary{patterns.meta}
 \RequirePackage[outline]{contour} % glow around text
 \contourlength{0.9pt}
 \usetikzlibrary{bending} % for arrow head angle
@@ -52,6 +53,8 @@
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 \RequirePackage[nameinlink,noabbrev,capitalise]{cleveref}
+\RequirePackage{relsize}
+\RequirePackage{multirow}
 
 
 
