@@ -431,6 +431,7 @@ $>4$ & $0.62\pm0.01$\,\% & $0.34\pm0.01$\,\% & $1.74\pm0.01$\,\% & $2.79\pm0.01$
 
 
 \subsection{Shape classification}
+\label{subsection:shapeclassification}
 
 This part relates to clusters with a single saturated strip. As it will be needed to have access to the original charge deposit without any saturation, this part is based on the bTbM sample.
 
@@ -491,25 +492,322 @@ This saturation correction method is implemented within the HSCP analysis framew
     \item The adjacent strip of the saturated maximum must be symmetrical ($|L_{\mathrm{max}}-R_{\mathrm{max}}|<40$ ADC count) and not too low ($L_{\mathrm{max}}$ and $R_{\mathrm{max}}>25$ ADC count). 
 \end{itemize}
 
-Considering this, the fraction of saturated clusters that is corrected is close to 66\%, with 85\% of \textit{Center}, 30\% of LR, and 15\% of FLFR clusters that are corrected with this method. Moreover, none of the two-consecutive saturated strip clusters are corrected.
+Considering this, the fraction of saturated clusters that is corrected is close to 66\%, with 85\% of \textit{Center}, 30\% of LR, and 15\% of FLFR clusters that are corrected with this method. However, none of the two-consecutive saturated strip clusters are corrected.
+
+\vspace{0.5 cm}
+
+One can assess the quality of reconstruction by looking after the $Q_{\mathrm{true}}/Q_{\mathrm{corr}}$ ratio and the $Q_{\mathrm{true}}-Q_{\mathrm{corr}}$ difference, with $Q_{\mathrm{true}}$ being the original charge of the cluster. Before applying the saturation correction procedure, the saturated strips are set to 254 or 255 ADC count, depending of the charge, thus simulating a saturated cluster. 
+
+Both results are depicted in \cref{fig:QcorrOldcorrection}. This method leads to a biased correction by having a ratio of less than one. Moreover, the accuracy is not good, with a large spread of corrected charge (the standard deviation is close to 20\%). This come from the fixed value of the cross-talk inversion coefficient at $1/0.1$, a different value depending on the shape and the tracker layer would be more suitable.
+
+On top of that, only two thirds of the saturated cluster population are corrected. This come from the restrictive selection on the saturated maximum neighbourhood ($|L_{\mathrm{max}}-R_{\mathrm{max}}|<40$ ADC count, $L_{\mathrm{max}}$ and $R_{\mathrm{max}}>25$ ADC count). I tried to change value of these two values but this lead to either a larger selection with poor correction (as more misshapen clusters are corrected), or the opposite.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Ratio between the actual charge of the cluster $Q_{\mathrm{true}}$ and the corrected charge $Q_{\mathrm{corr}}$ with the naive cross-talk inversion method on the bTbM sample (Left). Difference between $Q_{\mathrm{true}}$ and $Q_{\mathrm{corr}}$ under the same procedure (Right) \cite{CMStrackeff_BDT_DNN}.}
+    \label{fig:QcorrOldcorrection}
+\end{figure}
+
+This first approach needs to be upgraded on two main points: the selection criteria and the adaptative correction method depending on the shape and the tracker layer. A finalised version of this work is presented in the next section.
+
+
+\section{Saturation correction on strip clusters}
+
+This section will focus on clusters with one single saturated strip within it. Therefore, saturated clusters will design these clusters in the following.
+
+A discussion on clusters containing two consecutive saturated strips will then be dedicated.
+
+A presentation of three different methods is first detailled before showing the results.
+
+\subsection{Adaptative method as a function of the cluster shape}
+
+\subsubsection{\textit{Center} clusters}
+
+As shown in \cref{subsection:shapeclassification}, Clusters coming from incident normal muons are the most common ones, they are labelled as \textit{Center} clusters. To be included in this category, saturated clusters must meet the following criteria:
+
+\begin{itemize}
+    \item Cluster with at least three strips.
+    \item Saturated maximum not at the beginning, neither at the end of the cluster.
+    \item $0.9 \leq L_{\mathrm{max}}/R_{\mathrm{max}} \leq 1.1$ to select only pyramid-shaped clusters. With $L_{\mathrm{max}}$ and $R_{\mathrm{max}}$ being the name of the left and right adjacent strip of the maximum respectively. The choice of taking $L_{\mathrm{max}}$ as the numerator as the same consequences than taking $R_{\mathrm{max}}$.
+\end{itemize}
+
+The effect of cross-talk is most noticeable in these clusters, thus, considering a cross-talk inversion is a good solution to the saturation issue. The value of the saturated maximum $Q_\mathrm{max}$ is corrected using \eqref{eq:CenterCorr}.
+
+\begin{equation}
+    Q_\mathrm{max} = a_{\mathrm{center}} \cdot \frac{L_{\mathrm{max}} + R_{\mathrm{max}}}{2}
+    \label{eq:CenterCorr}
+\end{equation}
+
+with $a_{\mathrm{center}}$ taken to be the maximum of each histogram representing $Q_\mathrm{max}/[(L_{\mathrm{max}} + R_{\mathrm{max}})/2]$. Note that in the bTbM sample, the value of $Q_\mathrm{max}$ is known, even in the case of saturation. These histogram templates are done for each layer of the TIB and TOB and each rings (a wheel can have different sensor geometries, instead of rings) of the TID and TEC, example are shown in \cref{fig:centerhist}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[c]{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Example of three histogram templates showing the value of $a_{\mathrm{center}}$ retrieved by taking the maximum of the $Q_\mathrm{max}/[(L_{\mathrm{max}} + R_{\mathrm{max}})/2]$ histogram.}
+    \label{fig:centerhist}
+\end{figure}
+
+Note that in my case, there was not enough statistics to perform a Gaussian fit near the maximum, thus, the value of the maximum of those templates has been taken.
+
+The value of $a_{\mathrm{center}}$ in each layer is listed in \cref{tab:acenterValue}. One can remark that taking the average of each $1/a_{\mathrm{center}}$ value, leads to a mean value of $\overline{x_1} \approx 0.085$, the same order of magnitude as the one measured by CMS (see \cref{fig:Xtalk}). Remark also that the 320 $\mu$m thick sensors have a $a_{\mathrm{center}}$ parameter higher that the 500 $\mu$m ones, mostly because thinner sensors lead to less \dedx\, deposits and thus lower $x_1$ values.
+
+\begin{table}[h]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c||c|c|}
+    \hline
+    \makecell{Barrel \\ layer} & $a_{\mathrm{center}}$ & \makecell{End Cap \\ ring} & $a_{\mathrm{center}}$ \\
+    \hline
+    TIB L1 & 11.8405 & TID R1 & 14.0295 \\
+    TIB L2 & 11.8405 & TID R2 & 17.8105 \\
+    TIB L3 & 14.527  & TID R3 & 18.0095 \\
+    TIB L4 & 14.527  & TEC R1 & 17.0145 \\
+    TOB L1 & 9.552   & TEC R2 & 18.507  \\
+    TOB L2 & 9.4525  & TEC R3 & 15.0245 \\
+    TOB L3 & 9.552   & TEC R4 & 16.119  \\
+    TOB L4 & 9.552   & TEC R5 & 10.348  \\
+    TOB L5 & 7.4625  & TEC R6 & 10.547  \\
+    TOB L6 & 7.4625  & TEC R7 & 8.8555  \\
+    \hline
+    \end{tabular}
+    \caption{Value of the $a_{\mathrm{center}}$ parameter extracted for each layer of the TIB and TOB and each ring of the TID and TEC.}
+    \label{tab:acenterValue}
+\end{table}
+
+\vspace{0.5 cm}
+
+An intermediate validation consist of looking at the $Q_\mathrm{corr}/Q_\mathrm{true}$ ratio with $Q_\mathrm{corr}$ being the corrected charge $Q_\mathrm{max}$ added to the other unsaturated strip of the cluster and $Q_\mathrm{true}$ the actual charge of the cluster. Note that, as in the first naive cross-talk correction, the saturated maximum is either set at 254 or 255 ADC count before correction. Results are shown in \cref{fig:CenterIntermediateResults}. In this case, the saturation correction calibrated on bTbM sample is giving a very good reconstruction of the corrected charge. Further performance evaluation, including the other cluster shape will be included in the next section.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
+    \caption{Value of the corrected charge $Q_\mathrm{corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{Center} clusters.}
+    \label{fig:CenterIntermediateResults}
+\end{figure}
+
+
+\subsubsection{\textit{Left} and \textit{Right} clusters}
+
+Similarly to \textit{Center} clusters, \textit{Left} and \textit{Right} clusters must fulfilled the following criteria to be labelled as so:
+
+\begin{itemize}
+    \item Cluster with at least three strips.
+    \item Saturated maximum not at the beginning, neither at the end of the cluster.
+    \item $L_{\mathrm{max}} \geq 1.1\cdot R_{\mathrm{max}}$ or $R_{\mathrm{max}} \geq 1.1\cdot L_{\mathrm{max}}$.
+\end{itemize}
+
+Contrary to \textit{Center} clusters, the value of the adjacent strips to the maximum spread along a larger range. The value of the adjacent strip to the maximum with the highest value has been plotted in \cref{fig:adjacentStripsLR} for three different type of clusters, namely \textit{Center}, \textit{Left} and \textit{Right}. Therefore, considering a similar cross-talk inversion as in \cref{eq:CenterCorr} would be a bad correction, leading to over and under-corrected clusters.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
+    \caption{Distribution of the charge value of the adjacent strip of the saturated maximum with the highest charge for the \textit{Center}, \textit{Left} and \textit{Right} clusters.}
+    \label{fig:adjacentStripsLR}
+\end{figure}
+
+The idea is then to use the two different value of coefficient between the adjacent strip with the highest charge, labelled $N_\mathrm{max}$, and the other adjacent strip, labelled $N_\mathrm{min}$, to correct the saturated maximum $Q_\mathrm{max}$:
+
+\begin{align}
+    Q_\mathrm{max} &= a_\mathrm{LR} \cdot N_\mathrm{max} + b_\mathrm{LR} \cdot N_\mathrm{min} \\
+    \Longleftrightarrow \quad \frac{Q_\mathrm{max}}{N_\mathrm{max}} &= a_\mathrm{LR} + \frac{b_\mathrm{LR}}{\frac{N_\mathrm{max}}{N_\mathrm{min}}}
+    \label{eq:LRcorr}
+\end{align}
+
+The idea is to plot the $Q_\mathrm{max}/N_\mathrm{max}$ value as a function of $N_\mathrm{max}/N_\mathrm{min}$. Thus if \cref{eq:LRcorr} is valid, one could observe the tendency of the form $\displaystyle f_\mathrm{LR}(x)=a_\mathrm{LR}+\frac{b_\mathrm{LR}}{x}$.
+
+Templates are drawn for each barrel layer and endcap rings, to avoid any dependency with the sensor thickness, two examples are shown in \cref{fig:LRtemplates}. The 2--D histograms follow the attended behaviour with a decreasing line along the x--axis. However, there is a large region bellow that curve showing that not every \textit{Left} and \textit{Right} clusters sits on the $f_\mathrm{LR}(x)$ curve.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{$Q_\mathrm{max}/N_\mathrm{max}$ as a function of $N_\mathrm{max}/N_\mathrm{min}$ for the \textit{Left} and \textit{Right} clusters in a TIB layer (Left) and a TEC ring (Right).}
+    \label{fig:LRtemplates}
+\end{figure}
+
+To evaluate the population of clusters that are in this range, a preliminary fit is performed according to the $f_\mathrm{LR}(x)$ equation. The number of clusters siting bellow 90\% of the fit curve represents XXXX of the total number of \textit{Left} and \textit{Right} clusters.
+
+Considering this, \cref{eq:LRcorr} is well describing XXX \% of the population. Thus, after the preliminary fit, another one is performed on the 90 \% of data above. An example of the preliminary and the final fit on a layer of the tracker barrel is shown in \cref{fig:LRfitcorr}.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Preliminary fit applied to the histograms shown in \cref{fig:LRtemplates} (Left) and final fit on data above 90\% of the preliminary fit (Right).}
+    \label{fig:LRfitcorr}
+\end{figure}
+
+The value of $a_\mathrm{LR}$ and $b_\mathrm{LR}$ are extracted from the final fit performed with $f_\mathrm{LR}(x)$. Their value are listed in \cref{tab:LRvalues}.
+
+The $a_{\mathrm{LR}}$ value is ranging from $\sim-0.2$ to $-0.09$ with some being close to zero, while the $b_{\mathrm{LR}}$ are in the order of ten. In this case, the adjacent strip with less deposit, $N_\mathrm{min}$, compensate the higher deposit on the other adjacent strip $N_\mathrm{max}$ by an order of magnitude above. Thus, the cross-talk inversion is clearly asymmetric, the majority of the charge is reconstructed thanks to $N_\mathrm{min}$.
+
+Even if the method is adapted for asymmetric clusters, the results are not as efficient as the ones of \textit{Center} clusters. The ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ is shown in \cref{fig:LRIntermediateResults}. The ratio has a longer tail, due to over-corrected clusters that populate the region below the fit. A more detailed discussion of this population is provided in the section \cref{subsection:Improvements}.
+
+\begin{table}[h]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c|c||c|c|c|}
+    \hline
+    \makecell{Barrel \\ layer} & $a_{\mathrm{LR}}$ & $b_{\mathrm{LR}}$ & \makecell{End Cap \\ ring} & $a_{\mathrm{LR}}$ & $b_{\mathrm{LR}}$ \\
+    \hline
+    TIB L1 & $-0.0953$ & $11.981$  & TID R1 & $-0.1152$ & $14.1755$ \\
+    TIB L2 & $-0.0929$ & $11.9724$ & TID R2 & $-0.1348$ & $18.1905$ \\
+    TIB L3 & $-0.1456$ & $14.8566$ & TID R3 & $\phantom{-}0.0049$  & $18.1746$ \\
+    TIB L4 & $-0.1337$ & $14.7964$ & TEC R1 & $-0.0965$ & $17.116$  \\
+    TOB L1 & $-0.1649$ & $9.70362$ & TEC R2 & $-0.0637$ & $18.5574$ \\
+    TOB L2 & $-0.1644$ & $9.69565$ & TEC R3 & $-0.1511$ & $15.1655$ \\
+    TOB L3 & $-0.1571$ & $9.671$   & TEC R4 & $\phantom{-}0.0277$  & $16.2137$ \\
+    TOB L4 & $-0.1682$ & $9.70235$ & TEC R5 & $-0.2336$ & $10.6636$ \\
+    TOB L5 & $-0.1615$ & $7.67855$ & TEC R6 & $-0.1910$ & $10.7118$ \\
+    TOB L6 & $-0.1599$ & $7.6813$  & TEC R7 & $-0.0996$ & $9.0036$  \\
+    \hline
+    \end{tabular}
+    \caption{Values of the $a_{\mathrm{LR}}$ and $b_{\mathrm{LR}}$ parameters extracted for each layer of the TIB and TOB and each ring of the TID and TEC.}
+    \label{tab:LRvalues}
+\end{table}
+
+\vspace{0.5 cm}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
+    \caption{Value of the corrected charge $Q_\mathrm{corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{Left} and \textit{Right} clusters.}
+    \label{fig:LRIntermediateResults}
+\end{figure}
+
+
+\subsubsection{\textit{FullLeft} and \textit{FullRight} clusters}
+
+Finally, the last clusters are labelled as \textit{FullLeft} and \textit{FullRight} clusters if they satisfy the following criteria:
+
+\begin{itemize}
+    \item Cluster with at least two strips.
+    \item Saturated maximum at the beginning or at the end of the cluster.
+    \item Adjacent strip of the saturated maximum must fulfilled $N_\mathrm{max} \geq 16$ ADC count for 320 $\mu$m strip sensors and $N_\mathrm{max} \geq 25$ ADC count for the 500 $\mu$m ones.
+\end{itemize}
+
+Then, similarly to what has been done for the other categories, the charge of the maximum is corrected thanks to the adjacent strip $N_\mathrm{max}$:
+
+\begin{equation}
+    Q_\mathrm{max} = a_\mathrm{FL,FR} \cdot N_\mathrm{max}
+    \label{eq:FLFRcross}
+\end{equation}
+
+The value of $a_\mathrm{FL}$ and $a_\mathrm{FR}$ are extracted after taking the maximum of the $Q_\mathrm{max}/N_\mathrm{max}$. Examples of this histogram on \textit{FullLeft} and \textit{FullRight} clusters in one tracker layer are shown in \cref{fig:FLFRhists}. As such clusters represents very few of saturated clusters, the maximum of the histogram is chosen instead of performing a fit due to lack of statistics.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Value of $a_\mathrm{FL}$ (Left) and $a_\mathrm{FR}$ (Right) as a function of the $Q_\mathrm{max}/N_\mathrm{max}$ in a barrel layer.}
+    \label{fig:FLFRhists}
+\end{figure}
+
+Those values are grouped in \cref{tab:FLRValue}. 
+
+\begin{table}[h]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c|c||c|c|c|}
+    \hline
+    \makecell{Barrel \\ layer} & $a_\mathrm{FL}$ & $a_\mathrm{FR}$ & \makecell{End Cap \\ ring} & $a_\mathrm{FL}$ & $a_\mathrm{FR}$ \\
+    \hline
+    TIB L1 & $12.0395$ & $12.0395$ & TID R1 & $14.2285$ & $14.328$  \\
+    TIB L2 & $12.0395$ & $12.0395$ & TID R2 & $17.8105$ & $18.109$  \\
+    TIB L3 & $14.527$  & $14.6265$ & TID R3 & $18.2085$ & $18.0095$ \\
+    TIB L4 & $14.527$  & $14.6265$ & TEC R1 & $16.8155$ & $17.0145$ \\
+    TOB L1 & $9.552$   & $9.4525$  & TEC R2 & $18.109$  & $18.507$  \\
+    TOB L2 & $9.552$   & $9.4525$  & TEC R3 & $15.0245$ & $14.8255$ \\
+    TOB L3 & $9.4525$  & $9.4525$  & TEC R4 & $16.119$  & $16.119$  \\
+    TOB L4 & $9.552$   & $9.4525$  & TEC R5 & $10.348$  & $10.2485$ \\
+    TOB L5 & $7.562$   & $7.562$   & TEC R6 & $10.4475$ & $10.4475$ \\
+    TOB L6 & $7.4625$  & $7.562$   & TEC R7 & $8.8555$  & $8.8555$  \\
+    \hline
+    \end{tabular}
+    \caption{Values of the $F_{\mathrm{L}}$ and $F_{\mathrm{R}}$ parameters extracted for each layer of the TIB and TOB and each ring of the TID and TEC.}
+    \label{tab:FLRValue}
+\end{table}
+
+\vspace{0.5 cm}
+
+The threshold of $N_\mathrm{max}$ greater than 16 and 25 ADC count has been optimized to have a good selection of \textit{FullLeft} and \textit{FullRight} clusters while keeping a good correction. The ratio $Q_\mathrm{corr}/Q_\mathrm{true}$, similarly to the other type of clusters, are shown in \cref{fig:FLFRIntermediateResults}. This method provides similar good results to the \textit{Center} clusters, while having a wider error.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
+    \caption{Value of the corrected charge $Q_\mathrm{corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{FullLeft} and \textit{FullRight} clusters.}
+    \label{fig:FLFRIntermediateResults}
+\end{figure}
+
+\subsection{Two strip cases}
+
+\begin{equation}
+    Q_\mathrm{corr} = a_\mathrm{2\small S} \cdot \frac{L_\mathrm{max}+R_\mathrm{max}}{2}
+    \label{eq:twostripscorr}
+\end{equation}
+
+with $a_\mathrm{2\small S}$
+
+\subsection{Validation of the method}
 
 
 
-Thus, with a first order approach, one third of the saturated clusters are not corrected.
+
+\subsection{Improvements and criticism}
+\label{subsection:Improvements}
+
+\vspace{0.5 cm}
 
 
+The 10\% ratio difference in the last criteria has been chose to keep the same method for 
+
+\vspace{0.5 cm}
+
+Another option that I studied was to consider at some point the barycentre of charge of a cluster after the shape classification. The best option was to take the difference between the strip index of the maximum $i_\mathrm{max}$ and the barycentre such as $Q_\mathrm{max}=f(i_\mathrm{max}-\mathrm{bar.})$. This method should have been an alternative for the \textit{Left} and \textit{Right} clusters. 
+
+This method led to a poor selection on the saturated cluster population, leading to only 80\% of them being corrected. On top of not being accurate with 20\% of clusters with $Q_\mathrm{corr}/Q_\mathrm{true}>1.05$ and with negative corrected charge due to $i_\mathrm{max}-\mathrm{bar.}$ difference.
 
 
-
-\subsection{Charge saturation correction algorithm}
-
-Shape classification
-Method used
-2 strips case
-
-\subsection{Validation}
-
-MC vs Data in 240-250 ADC
 
 
 \subsection{Time evolution}
