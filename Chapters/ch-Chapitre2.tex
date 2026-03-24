@@ -598,6 +598,8 @@ The value of $a_{\mathrm{center}}$ in each layer is listed in \cref{tab:acenterV
 
 An intermediate validation consist of looking at the $Q_\mathrm{corr}/Q_\mathrm{true}$ ratio with $Q_\mathrm{corr}$ being the corrected charge $Q_\mathrm{max}$ added to the other unsaturated strip of the cluster and $Q_\mathrm{true}$ the actual charge of the cluster. Note that, as in the first naive cross-talk correction, the saturated maximum is either set at 254 or 255 ADC count before correction. Results are shown in \cref{fig:CenterIntermediateResults}. In this case, the saturation correction calibrated on bTbM sample is giving a very good reconstruction of the corrected charge. Further performance evaluation, including the other cluster shape will be included in the next section.
 
+Note that in the procedure, if the charge is corrected bellow the saturation level (254 or 255 ADC count), the cluster is then not corrected. This will also be the case for the other cluster shapes.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
@@ -781,14 +783,130 @@ The threshold of $N_\mathrm{max}$ greater than 16 and 25 ADC count has been opti
 
 \subsection{Two strip cases}
 
+Single saturated strip clusters represents $\sim$90\% of saturated clusters in muon datasets, while the clusters with two consecutive saturated strips stand for $\sim5-8$\%. Thus, a correction on those two types of clusters lead to a large coverage of saturated clusters.
+
+\vspace{0.5 cm}
+
+For such clusters, a shape classification is no longer possible due to the loss of information on the two saturated strips: it is no longer clear which was more saturated than the other.
+A first-order correction is therefore applied, selecting only those clusters that satisfy the following criteria:
+
+\begin{itemize}
+    \item Cluster with at least four strips.
+    \item Saturated maximum not at the beginning, neither at the end of the cluster.
+    \item The two saturated strips must be side by side.
+\end{itemize}
+
+Then a cross-talk inversion is done using the first adjacent strips next to the two saturated strips, namely $L_\mathrm{max}$ and $R_\mathrm{max}$. Similar to the \cref{fig:XtalkInversion} but with two saturated strips instead of one: 
+
 \begin{equation}
-    Q_\mathrm{corr} = a_\mathrm{2\small S} \cdot \frac{L_\mathrm{max}+R_\mathrm{max}}{2}
+    Q_\mathrm{corr} = a_\mathrm{2strips} \cdot \frac{L_\mathrm{max}+R_\mathrm{max}}{2}
     \label{eq:twostripscorr}
 \end{equation}
 
-with $a_\mathrm{2\small S}$
+with $a_\mathrm{2strips}$ being calibrated on the bTbM sample by looking after the average shape of such clusters and the proportion of charge being on each strip. The shape is shown in \cref{fig:2stripShape}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
+    \caption{Average shape of clusters with two consecutive saturated strips in the bTbM sample. The number represents the proportion of the charge hold by each strip in the cluster.}
+    \label{fig:2stripShape}
+\end{figure}
+
+With this method, 77\% of these clusters are corrected, the rest are clusters with a saturated strip at the beginning or at the end. Similarly the single saturated strip clusters, the $Q_\mathrm{corr}/Q_\mathrm{true}$ ratio shows an intermediate validation on the bTbM sample, as depicted in \cref{fig:2stripcorr}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Wolfgang.jpg}
+    \caption{Ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ of clusters with two consecutive saturated strips in the bTbM sample.}
+    \label{fig:2stripcorr}
+\end{figure}
+
+
 
 \subsection{Validation of the method}
+
+In the following, the correction based on the shape classification and then an adaptative correction depending on their shape will be labelled \textit{shape corr}. On the other hand, the basic approach using the a fix cross-talk inversion will be labelled \textit{basic corr}.
+
+\vspace{0.5 cm}
+
+A preliminary validation is to check the correction for all single and two consecutive saturated strip clusters. For that, I used the same bTbM sample with a selection on the muon candidates. The results is shown in \cref{fig:1strip2stripcorr_btbM} for both the \textit{shape} and the \textit{basic} correction.
+
+For the \textit{shape} correction, the ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ is in good agreement with the unity, while having a low percentage of under and over-corrected clusters: 92.7\% of corrected clusters are in the range $(1.01\pm0.05)\times Q_\mathrm{true}$ ($\mu\pm1\sigma$). While this result is expected because the correction has been fine tuned on the same bTbM sample, it is much better than the \textit{basic} correction already discussed in \cref{fig:QcorrOldcorrection}.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Preliminary validation of the saturation correction for the shape correction (Left) and the basic correction (Right). Done by looking after the ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$.}
+    \label{fig:1strip2stripcorr_btbM}
+\end{figure}
+
+I then considered the Monte-Carlo simulation of W bosons produced with jets and the 2018 era D muon dataset, both already presented in \cref{subsubsection:satstripclusters}. For both I used the following selections:
+
+\begin{itemize}
+    \item $|\eta_\mu|<2.4$.
+    \item Track coming from the PV ($|d_z|<0.1$ cm and $|d_{xy}|<0.02$ cm).
+    \item \textit{HighPurity} tracks with $\chi^2/\mathrm{NDOF}<5$ and 80\% of valid hits.
+    \item At least 10 \dedx\, measurements.
+\end{itemize}
+
+With so, only good muon tracks with enough \dedx\, deposits are retained. The W+jets process is not describing all the muons collected under the muon dataset, thus some key distributions are different such as the pseudo-rapidity of the muon $\eta_\mu$ or the transverse momentum $p_{T\,\mu}$. To match the MC to the data, the ratio between the 2--D plot of $p_{T\,\mu}$ as a function of $\eta_\mu$ of data is done with respect to MC. Then, the weight $w_i=\left(\eta_{\mu,i}\,,\,p_{T\mu,i}\right)_\mathrm{data/MC}$, which is the bin content of the ratio of the two 2--D histograms, is applied on the MC simulation.
+
+Finally, the performance of the correction is evaluated on clusters with a maximum between 240 and 250 ADC count are selected. Their maximum is artificially set to 240 ADC count and then the correction method is applied. With so, the actual charge of the cluster $Q_\mathrm{true}$ is known and the corrected charge $Q_\mathrm{corr}$ is compared to the former by calculating the ratio of the two.
+
+The correction developed above, labelled \textit{shape corr}, is compared to the basic approach using the cross-talk inversion, labelled \textit{basic corr}. Both are ploted in \cref{fig:1strip2stripcorr_dataWjets}. The first thing to notice is the discrepancy between the data and Monte-Carlo, even after the rescaling in order to match as close as possible the $p_{T\mu}$ and $\eta_\mu$ distributions. The main explanation is because of the W+jets sample does not describe all the standard muon processes, moreover for high $p_{T\mu}$ that may arise from Drell-Yan\footnote{The Drell-Yan process is a hard scattering mechanism in which a quark from one hadron and an antiquark from another annihilate to produce a virtual photon or Z boson, which then decays into a lepton-antilepton pair.} or $t\overline{t}$ processes. Another point worth noting is the width of the two ratios; as the correction was derived from a sample of muons for which the saturated charge was known, it is to be expected that the agreement is not as good as that shown in \cref{fig:1strip2stripcorr_btbM}. Beside this, as already discussed, the basic correction is biased with most of the clusters being under-corrected while the shape correction is in good agreement to the actual charge of the cluster.
+
+Details of each ratio are listed in \cref{tab:corrResults}
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ of data and MC clusters with a maximum between 240 and 250 ADC count artificially set to 240 ADC count to evaluate the saturation correction method.}
+    \label{fig:1strip2stripcorr_dataWjets}
+\end{figure}
+
+\begin{table}[h]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \label{tab:corrResults}
+    \begin{tabular}{|c|c|cc|}
+    \hline
+    \multicolumn{2}{|c|}{} & basic correction & shape correction \\
+    \hline
+    \multirow{4}{*}{$\dfrac{Q_\mathrm{corr}}{Q_\mathrm{true}}$} & Mean     & 0.9305    & 1.006  \\
+                                                   & Std Dev  & 0.2348    & 0.2309 \\
+                                                   & data Entries  & 3\,072\,116   & 3\,120\,266\\
+                                                   & Overflow & 3.7\%     & 1.8\%  \\
+    \hline
+    \multicolumn{2}{|c|}{\makecell{ Maximum corrected \\ bellow 240 ADC count}} & 24.6\% & 18.7\% \\
+    \hline
+    \end{tabular}
+\end{table}
+
+This final table show the improvement of the method compared to a basic cross-talk inversion with a fix factor. The proposed correction is not biased any more, correct a larger population of saturated clusters and the population of well-reconstructed saturated charge is higher.
+
+
+
+\subsection{Correction applied to data}
+
+Ih vs p (old + new corr): description des fits langaus, fit dedx, différence entre les deux corr.
+
+Ih vs time pour old + new corr en 2024.
+
 
 
 
@@ -796,21 +914,41 @@ with $a_\mathrm{2\small S}$
 \subsection{Improvements and criticism}
 \label{subsection:Improvements}
 
-\vspace{0.5 cm}
-
-
-The 10\% ratio difference in the last criteria has been chose to keep the same method for 
+The saturated cluster correction method developed here shows good results on the charge reconstruction of muon deposits in Monte-Carlo and data samples. A cross-talk inversion based algorithm has been adapted to fulfilled different cluster shapes and number of consecutive saturated strips. As the population of saturated clusters is mostly those with one single saturated strips and then two consecutive saturated strips, the other saturated clusters are not corrected under this approach. 
 
 \vspace{0.5 cm}
+
+The over-corrected clusters are mostly the \textit{Left} and \textit{Right} ones sitting under the $\displaystyle f_\mathrm{LR}(x)=a_\mathrm{LR}+\frac{b_\mathrm{LR}}{x}$ fit. Example of clusters sitting in this region are shown in \cref{fig:miscorrectedLR}. Such clusters have a high charge sharing between the maximum and the adjacent strips, leading to a bad correction later. Such clusters corresponds to $\sim32\%$ of the total \textit{Left} and \textit{Right} clusters, meaning 68\% of the latter fall within a 10\% range of the $f_\mathrm{LR}(x)$ fit.
+
+One could improve the correction by considering a lower threshold of the ratio between $N_\mathrm{max}$ and $N_\mathrm{min}$, that has been fixed to 10\%. I tried to adjust this value before performing a new fit and assess the correction: a lower one led to more over-corrected clusters and a higher one led to a worst \textit{Center} clusters correction (the $a_{\mathrm{center}}$ factor was not any more describing every \textit{Center} clusters). In other words: well-corrected saturated clusters are the one that have a small charge value compared to the saturated strips.
+
+An other method, that I didn't pushed, would be to consider the value of the second adjacent strips into the model to make the distinction between high charge sharing, leading to higher charge on the second adjacent strips, and the lower one.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[c]{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \begin{subfigure}[c]{.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Wolfgang.jpg}
+    \end{subfigure}
+    \caption{Example of three \textit{Left} and \textit{Right} clusters sitting in the region bellow the fit function used for the correction template. Such clusters have a high charge sharing.}
+    \label{fig:miscorrectedLR}
+\end{figure}
+
 
 Another option that I studied was to consider at some point the barycentre of charge of a cluster after the shape classification. The best option was to take the difference between the strip index of the maximum $i_\mathrm{max}$ and the barycentre such as $Q_\mathrm{max}=f(i_\mathrm{max}-\mathrm{bar.})$. This method should have been an alternative for the \textit{Left} and \textit{Right} clusters. 
 
 This method led to a poor selection on the saturated cluster population, leading to only 80\% of them being corrected. On top of not being accurate with 20\% of clusters with $Q_\mathrm{corr}/Q_\mathrm{true}>1.05$ and with negative corrected charge due to $i_\mathrm{max}-\mathrm{bar.}$ difference.
 
+\vspace{0.5 cm}
 
+Regarding the samples used for calibration, I was constrained by the statistical size of the bTbM sample (600,000 events), which affected the derivation of the layer-by-layer correction parameters.
 
-
-\subsection{Time evolution}
-
-Ih vs time
-
+A more in-depth study would benefit from using a W+jets sample, coupled with other processes with a wider $p_{T\mu}$ range such as $t\overline{t}$ or Drell-Yan, in order to also study saturated deposits outside the MIP point and thus propose parameters more in line with the data.
