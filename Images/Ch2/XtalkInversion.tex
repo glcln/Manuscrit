@@ -1,10 +1,7 @@
 \definecolor{dkgreen}{rgb}{0.0,0.5,0.0}
 \resizebox{0.8\textwidth}{!}{
-
-
-
 \scalebox{0.8}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-
+\useasboundingbox (10,-3.5) rectangle (27,5.5);
 % --- Premier dessin ---
 \draw (10.7,-2.3) node[below] {\large{4\%}};
 \draw (12.2,-2.3) node[below] {\large{10\%}};
@@ -24,7 +21,6 @@
 \draw (16,-0.9)-- (16,-2);
 \draw (17.5,-1.7)-- (16,-1.7);
 \draw (17.5,-1.7)-- (17.5,-2);
-
 % --- Second dessin décalé ---
 \begin{scope}[xshift=9cm]
 \draw [dkgreen] (13.1,-2.3) node[anchor=north west] {\large{100\%}};
@@ -51,6 +47,5 @@
 \draw [->,dkgreen] (d) edge [in=60, out=70] (cp);
 \draw [->,dkgreen] (e) edge [bend right=45] (d);
 \end{scope}
-
 \end{tikzpicture}
 }}
