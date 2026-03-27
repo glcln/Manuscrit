@@ -1,7 +1,11 @@
 \definecolor{dkgreen}{rgb}{0.0,0.5,0.0}
 \resizebox{0.8\textwidth}{!}{
-\resizebox{0.4\textwidth}{!}{
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+
+
+
+\scalebox{0.8}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+
+% --- Premier dessin ---
 \draw (10.7,-2.3) node[below] {\large{4\%}};
 \draw (12.2,-2.3) node[below] {\large{10\%}};
 \draw (12.2,-3) node[below] {\large{$L_{\mathrm{max}}$}};
@@ -20,9 +24,9 @@
 \draw (16,-0.9)-- (16,-2);
 \draw (17.5,-1.7)-- (16,-1.7);
 \draw (17.5,-1.7)-- (17.5,-2);
-\end{tikzpicture}} \qquad
-\resizebox{0.4\textwidth}{!}{
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+
+% --- Second dessin décalé ---
+\begin{scope}[xshift=9cm]
 \draw [dkgreen] (13.1,-2.3) node[anchor=north west] {\large{100\%}};
 \draw [thick,dash dot] (10,-2)-- (10,-1.7);
 \draw [thick,dash dot] (11.5,-1.7)-- (10,-1.7);
@@ -35,9 +39,7 @@
 \draw [thick,dash dot] (16,-0.9)-- (16,-2);
 \draw [thick,dash dot] (17.5,-1.7)-- (16,-1.7);
 \draw [thick,dash dot] (17.5,-1.7)-- (17.5,-2);
-
-\fill [ pattern={Lines[distance=2mm,angle=45,line width=0.7mm]},pattern color=dkgreen] (13,-2) rectangle (14.5,5);
-
+\fill [pattern={Lines[distance=2mm,angle=45,line width=0.7mm]},pattern color=dkgreen] (13,-2) rectangle (14.5,5);
 \node (a) at (10.5,-1.5) {};
 \node (b) at (12,-0.7) {};
 \node (c) at (13.5,5.2) {};
@@ -48,6 +50,7 @@
 \draw [->,dkgreen] (b) edge [out=110, in=120] (c);
 \draw [->,dkgreen] (d) edge [in=60, out=70] (cp);
 \draw [->,dkgreen] (e) edge [bend right=45] (d);
+\end{scope}
 
-\end{tikzpicture}}
-}
+\end{tikzpicture}
+}}
