@@ -25,7 +25,6 @@
     \delta(\beta\gamma) = \begin{cases} 2(\ln 10)x - \overline{C} & \text{if } x \geq x_1; \\ 2(\ln 10)x - \overline{C} + a(x_1 - x)^k & \text{if } x_0 \leq x < x_1; \\ 0 & \text{if } x < x_0 \textrm{ (non conductors)}; \\ \delta_0 10^{2(x - x_0)} & \text{if } x < x_0 \text{ (conductors)} \end{cases}
     \label{eq:deltabetagamma}
 \end{equation}
-
 where the term $\beta\gamma= p/Mc$ represents the kinematics of the particle with mass $M$ and momentum $p$. The term $\beta$ is equal to $v/c$ (where $v$ is the velocity of the particle), $A$ and $Z$ correspond respectively to the mass number and atomic number of the material traversed, $z$ is the algebraic charge of the particle and $K\simeq0.307075 \,\, \textrm{MeV.mol}^{-1}.\textrm{cm}^2$. $W_{\mathrm{max}}$ [MeV] is the maximum energy transferred in a single collision described in \cref{eq:Wmax}, $I$ [eV] is the average excitation energy of the material, and $\delta(\beta\gamma)$ is the density correction for the ultra-relativistic regime.
 
 As for the latter, \cref{eq:deltabetagamma} gives an empirical expression depending on the $\beta\gamma$ regime with $x=\log_{10}(\beta\gamma)$; $x_0$, $x_1$, $\overline{C}$, $a$, $k$ and $\delta_0$ are constants related to the material, one can find numerical values of them in \cite{DeltaBetaGamma}.
@@ -46,7 +45,7 @@ The average stopping power $\langle \dedx \rangle $ is usually depicted in MeV.$
 
 Most of the particles produced by proton-proton collisions at CMS are low-energy particles, which release some of their energy at the minimum of the curve. The silicon tracker has been optimised to detect such particles, labelled as \textit{Minimum Ionising Particles} (MIPs).
 
-Note that for high relativistic particles at $\beta\gamma\sim1000$, the average deposit is 2.5 times higher than the MIP. Thus, by measuring the \dedx\, information, one could identify the $\beta\gamma$ regime of the particle. This information will later be used to distinguish HSCP deposits from SM processes.
+Note that for high relativistic particles at $\beta\gamma\sim1000$, the average deposit is 2.5 times higher than the MIP. Thus, by measuring the \dedx\,information, one could identify the $\beta\gamma$ regime of the particle. This information will later be used to distinguish HSCP deposits from SM processes.
 
 
 \vspace{0.5 cm}
@@ -61,11 +60,9 @@ In 1944, Landau addressed this problem analytically. Starting from the different
 
 As the tail goes to infinity, the Landau distribution does not have a finite mean and standard deviation. Instead, it is commonly described by the \textit{Most Probable Value} (MPV), defined as the position of the maximum of the Landau distribution. The MPV depends on the thickness of the material crossed by the particle and increases approximately linearly with thickness, as a thicker layer results in more ionising collisions. 
 
-The Landau Probability Density Function (PDF) is a function of the particle mass and momentum, the crossed material and the thickness of the latter. An example is shown in \cref{fig:landau} for a pion with a 10 GeV/$c$ momentum passing through two silicon sensors of different thicknesses.
+The Landau Probability Density Function (PDF) is a function of the particle mass and momentum, the crossed material and the thickness of the latter. An example is shown in \cref{fig:landau} for a pion with a momentum of 10 GeV/$c$ passing through two silicon sensors of different thicknesses.
 
 Note that particles can't actually lose more energy than their total budget; thus, the infinite tail of the Landau distribution is purely conceptual.
-
-\newpage
 
 \begin{figure}[h]
     \centering
@@ -74,7 +71,7 @@ Note that particles can't actually lose more energy than their total budget; thu
     \label{fig:landau}
 \end{figure}
 
-Another important point is the dependence of the MPV on the relativistic regime $\beta\gamma$ and the material thickness. The slower the particle is, the higher the MPV is, and, in the relativistic regime, the MPV converges asymptotically to a value that depends solely on the thickness of the material. An example of the evolution of the MPV for two different silicon sensor thicknesses is shown in \cref{fig:MPV}.
+Another important point is the dependence of the MPV on the relativistic regime, $\beta\gamma$, and on the material thickness. The slower the particle is, the higher the MPV is, and, in the relativistic regime, the MPV converges asymptotically to a value that depends solely on the thickness of the material. An example of the evolution of the MPV for two different silicon sensor thicknesses is shown in \cref{fig:MPV}.
 
 \vspace{0.5 cm}
 
@@ -104,20 +101,19 @@ A typical semiconductor detector consists of a sensitive layer and readout elect
 
 \subsubsection{Basic concept of semiconductor physics}
 
-The Pauli exclusion principle states that two identical fermions can not occupy the same quantum state simultaneously. The distribution of energy levels in fermionic systems is therefore described by the Fermi-Dirac distribution, as expressed in \cref{eq:fermidirac}.
+The Pauli exclusion principle states that two identical fermions can not occupy the same quantum state simultaneously. The distribution of energy levels in fermionic systems is therefore described by the Fermi-Dirac distribution:
 
 \begin{equation}
     f(E)=\frac{1}{1+\exp\left( \displaystyle \frac{E-E_F}{k_BT} \right)}
     \label{eq:fermidirac}
 \end{equation}
-
 where $k_B$ denotes the Boltzmann constant, $T$ the temperature of the system, and $E_F$ the Fermi level.
 
 The distribution gives the probability density of finding a fermion at a given energy, while the Fermi level corresponds to the energy at which this probability equals 1/2. At $T$ = 0 K, all energy states up to $E_F$ are filled, and as the temperature rises, electrons begin to populate higher-energy excited states. 
 
 \vspace{0.5 cm}
 
-Unlike isolated atoms, where electrons occupy discrete orbitals with well-defined binding energies, electrons in crystalline solids arrange themselves into continuous energy bands. The band structure of various materials is illustrated schematically in \cref{fig:EnergyBand}. The valence band is the highest band fully occupied at $T$ = 0 K, while the partially filled band above it is known as the conduction band. Between these two bands lies a forbidden region with no allowed energy states, referred to as the band gap. Electrons residing in the conduction band are those that contribute to the electrical conductivity of the material. 
+Unlike isolated atoms, where electrons occupy discrete orbitals with well-defined binding energies, electrons in crystalline solids arrange themselves into continuous energy bands. The band structure of various materials is illustrated schematically in \cref{fig:EnergyBand}. The valence band is the highest band fully occupied at $T$~=~0~K, while the partially filled band above it is known as the conduction band. Between these two bands lies a forbidden region with no allowed energy states, referred to as the band gap. Electrons residing in the conduction band are those that contribute to the electrical conductivity of the material. 
 
 Based on this band picture, materials can be classified into three broad categories: conductors, semiconductors, and insulators. Conductors already possess electrons in the conduction band at $T=0$~K, whereas semiconductors and insulators do not, making them behave similarly at absolute zero. At elevated temperatures, however, thermally excited electrons in semiconductors can acquire enough energy to bridge the band gap, rendering the material conductive. These thermally generated carriers are known as intrinsic \textit{charge carriers}, and a semiconductor free of any impurities is accordingly called an intrinsic semiconductor.
 
@@ -149,7 +145,6 @@ To enhance electron conductivity, atoms carrying an extra valence electron are i
     \label{fig:DopedSemiConductor}
 \end{figure}
 
-\newpage
 
 \subsubsection{p--n junctions}
 
@@ -174,7 +169,9 @@ The CMS detector makes use of silicon p--n junctions of the tracker for particle
 
 A silicon strip sensor module comprises several distinct elements, each playing a specific role in the detection chain. \Cref{fig:SiliconStripSensor} provides a schematic overview of such a module, the key components of which are described in the following.
 
-\begin{figure}[h!]
+\newpage
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch2/SiliconStripSensorSketch.png}
     \caption{Sketch of a silicon strip module with its different subparts \cite{SiliconLayout}.}
@@ -260,7 +257,7 @@ In addition to signal digitisation, the Front-End Controllers (FEC) distribute g
 
 \vspace{0.5 cm}
 
-Finally, one can convert the charge collected in the ADC to MeV by knowing the electron-hole energy-pair creation and the effective gain of the read-out chain (APV25 + FED), the latter being determined experimentally during calibration runs. This conversion is shown in \cref{eq:ADCfactorToMeV}.
+Finally, one can convert the charge collected in the ADC to MeV by knowing the electron-hole energy-pair creation and the effective gain of the read-out chain (APV25 + FED), the latter being determined experimentally during calibration runs:
 
 \begin{equation}
     Q[\mathrm{ADC \, count}]= 3.62 \cdot10^{-6} \times 265 \times Q[\mathrm{MeV}]
@@ -291,7 +288,7 @@ These two phenomena combined together have a small effect compared to the pitch 
 
 To illustrate that, \cref{fig:clusterCenteredShifted} shows two clusters of charges collected in a silicon strip sensor. These clusters originate from a Monte-Carlo simulation of back-to-back muons generated with a $p_T$ ranging from 50 to 200 GeV/$c$ with a pseudo-rapidity range $|\eta|<2.1$ without any electronic saturation, noise or pile-up contamination.
 
-The charge collected on each strip is expressed in ADC counts, while the strip index identifies its position within the cluster. The left cluster comes from a muon crossing a TIB module at an angle of 0.16 rad ($\sim9$°) with respect to the module's normal. The effect of charge sharing is not very important, but the effect of cross-talk is clearly visible (developed below). On the other hand, the right cluster corresponds to a muon with an incident angle of 1.23 rad ($\sim71$°). This tilted approach leads to higher charge collection in strips 436 and 437 than in the adjacent strips.
+The charge collected on each strip is expressed in ADC counts, while the strip index identifies its position within the cluster. The left cluster originates from a muon that crosses a TIB module at an angle of 0.16 rad ($\sim9$°) to the module's normal. The effect of charge sharing is not very important, but the effect of cross-talk is clearly visible (developed below). On the other hand, the right cluster corresponds to a muon with an incident angle of 1.23 rad ($\sim71$°). This tilted approach leads to higher charge collection in strips 436 and 437 than in the adjacent strips.
 
 \begin{figure}[h]
     \centering
@@ -303,7 +300,7 @@ The charge collected on each strip is expressed in ADC counts, while the strip i
         \centering
         \includegraphics[width=1\linewidth]{Images/Ch2/Cluster_tilted.pdf}
     \end{subfigure}
-    \caption{Monte-Carlo cluster of charges collected in a silicon strip sensor. One originating from a normal approach of a muon compared to the surface module (Left), and one with a tilted angle (Right).}
+    \caption{Monte Carlo cluster of charges collected in a silicon strip sensor. One originating from a normal approach of a muon compared to the surface module (Left), and one with a tilted angle (Right).}
     \label{fig:clusterCenteredShifted}
 \end{figure}
 
@@ -365,7 +362,7 @@ $I_h$ is, by construction, very robust against upward fluctuations of the $c_j$,
 \subsection{Preliminary studies}
 \label{subsubsection:satstripclusters}
 
-A preliminary work on saturated strip clusters has been carried out in a 2018 Monte-Carlo simulation of two back-to-back muons generated with a $p_T$ range from 50 to 200 GeV/$c$ and a pseudo-rapidity range $|\eta|<3$. The original simulated charge deposit on silicon sensors is saved without saturation or zero suppression. This sample provides a good number of pure tracks, leaving charge deposits at the MIP level within the tracker, while also saving crucial simulated information for the rest. For the rest of the study, this muon simulation will be labelled as the \textit{bTbM sample}.
+A preliminary work on saturated strip clusters has been carried out in a 2018 Monte Carlo simulation of two back-to-back muons generated with a $p_T$ range from 50 to 200 GeV/$c$ and a pseudo-rapidity range $|\eta|<3$. The original simulated charge deposit on silicon sensors is saved without saturation or zero suppression. This sample provides a good number of pure tracks, leaving charge deposits at the MIP level within the tracker, while also saving crucial simulated information for the rest. For the rest of the study, this muon simulation will be labelled as the \textit{bTbM sample}.
 
 Considering this, saturated clusters are saved in addition to the reconstructed ones (with saturation filters and zero-suppression process applied), as shown in \cref{fig:ClusterExample}. 
 
@@ -382,13 +379,13 @@ In each case, the muon track must be a \textit{HighPurity} track, with at least 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{Images/Ch2/Cluster_saturation.pdf}
-    \caption{Example of a Monte-Carlo charge cluster in a strip module where the simulated charge deposit has been saved in addition to the reconstructed one (Left)}.
+    \caption{Example of a Monte Carlo charge cluster in a strip module where the simulated charge deposit has been saved in addition to the reconstructed one (Left)}.
     \label{fig:ClusterExample}
 \end{figure}
 
 As depicted in \cref{tab:WjetHSCPsat}, most of the saturated clusters are those with a single saturated strip. With, on top of that, more than 99\% of them being at the 254--saturation level (with a charge between 254 and 1023 ADC count).
 
-As expected, heavier particles, like gluinos, deposit more energy and thus lead to more saturation, with 44 \% of \dedx\, clusters being saturated. On the other hand, for standard model muons, the saturation affects 8.5 to 10\% of the total number of clusters of a track. Note that the spatial distribution of those clusters is not uniform within the tracker. Most of them are situated at the TOB--TEC junction ($|\eta|\sim 1.8-2.2$), where the strip sensors are oriented differently: horizontally on the TOB and vertically on the TEC. Thus, a MIP crossing a vertical sensor in the central region deposes a higher \dedx\, due to the higher pathlength\footnote{The pathlength $l$ is defined as the length of the particle trajectory within the silicon sensor, which depends on both the sensor thickness $d$ and the track incident angle $\theta$ with respect to the sensor normal: $l=d/\cos(\theta)$}.
+As expected, heavier particles, like gluinos, deposit more energy and thus lead to more saturation, with 44 \% of \dedx\,clusters being saturated. On the other hand, for standard model muons, the saturation affects 8.5 to 10\% of the total number of clusters of a track. Note that the spatial distribution of those clusters is not uniform within the tracker. Most of them are situated at the TOB--TEC junction ($|\eta|\sim 1.8-2.2$), where the strip sensors are oriented differently: horizontally on the TOB and vertically on the TEC. Thus, a MIP crossing a vertical sensor in the central region deposes a higher \dedx\,due to the higher pathlength\footnote{The pathlength $l$ is defined as the length of the particle trajectory within the silicon sensor, which depends on both the sensor thickness $d$ and the track incident angle $\theta$ with respect to the sensor normal: $l=d/\cos(\theta)$}.
 
 \vspace{0.5 cm}
 
@@ -413,7 +410,7 @@ $>4$ & $0.62\pm0.01$\,\% & $0.34\pm0.01$\,\% & $1.74\pm0.01$\,\% & $2.79\pm0.01$
 \hline \hline \makecell{Fraction of \\ saturated clusters \\ in the dataset} & \textbf{$44.39\pm0.05$\,\%} & \textbf{$8.76\pm0.01$\,\%} & \textbf{$10.15\pm0.00$\,\%} & \textbf{$8.90\pm0.02$\,\%} \\
 \hline
 \end{tabular}
-\caption{Number of consecutive saturated strips in \dedx\, clusters in various 2018 Monte-Carlo simulations, as well as in data.}
+\caption{Number of consecutive saturated strips in \dedx\,clusters in various 2018 Monte Carlo simulations, as well as in data.}
 \label{tab:WjetHSCPsat}
 \end{table}}
 
@@ -426,7 +423,7 @@ Saturated clusters are more numerous in the TOB layers, where the silicon sensor
     \label{fig:satClusterInLayer}
 \end{figure}
 
-These preliminary studies show that the fraction of saturated clusters is negligible in standard-model processes but significant in beyond-standard-model searches. For such hypothetical particles, the deposited charge often differs from the reconstructed charge, leading to a bias in the average \dedx\, measurement using the $I_h$ estimator.
+These preliminary studies show that the fraction of saturated clusters is negligible in standard-model processes but significant in beyond-standard-model searches. For such hypothetical particles, the deposited charge often differs from the reconstructed charge, leading to a bias in the average \dedx\,measurement using the $I_h$ estimator.
 
 Building on this, since this thesis focuses on the HSCP search using the \dedx\, approach, it is essential to address the observed bias. To do so, a saturation correction is required. The first step involves developing an algorithm for single-strip saturated clusters, as they are the most common, with a correction for two consecutive saturated strips to be considered later.
 
@@ -538,10 +535,9 @@ The effect of cross-talk is most noticeable in these clusters; thus, considering
     Q_\mathrm{max} = a_{\mathrm{center}} \cdot \frac{L_{\mathrm{max}} + R_{\mathrm{max}}}{2}
     \label{eq:CenterCorr}
 \end{equation}
+with $a_{\mathrm{center}}$ taken to be the maximum of $Q_\mathrm{max}/[(L_{\mathrm{max}} + R_{\mathrm{max}})/2]$ histograms. Note that in the bTbM sample, the actual value of the maximum is known, even in the case of saturation. These histogram templates are generated for each layer of the TIB and TOB, and for each ring (a wheel can have different sensor geometries instead of rings) of the TID and TEC; examples are shown in \cref{fig:centerhist}.
 
-with $a_{\mathrm{center}}$ taken to be the maximum of $Q_\mathrm{max}/[(L_{\mathrm{max}} + R_{\mathrm{max}})/2]$ histograms. Note that in the bTbM sample, the actual value of the maximum is known, even in the case of saturation. These histogram templates are generated for each layer of the TIB and TOB, and for each ring (a wheel can have different sensor geometries instead of rings) of the TID and TEC; examples are shown in \cref{fig:centerhist}. 
-
-Because the bTbM sample contains only 700k Events, there were not enough cluster statistics to perform a Gaussian fit near the maximum; thus, the maximum value of those templates was taken.
+Because the bTbM sample contains only 600,000 Events, there were insufficient cluster statistics to perform a Gaussian fit near the maximum; thus, the maximum values of those templates were taken.
 
 \begin{figure}[ht]
     \centering
@@ -557,15 +553,21 @@ Because the bTbM sample contains only 700k Events, there were not enough cluster
     \label{fig:centerhist}
 \end{figure}
 
-The value of $a_{\mathrm{center}}$ in each layer is listed in \cref{tab:acenterValue}. One can remark that taking the average of each $1/a_{\mathrm{center}}$ value leads to a mean value of $\overline{x_1} \approx 0.085$, the same order of magnitude as the one measured by CMS (see \cref{fig:Xtalk}). Remark also that the 320 $\mu$m thick sensors have a $a_{\mathrm{center}}$ parameter higher than 500 $\mu$m ones, mostly because thinner sensors lead to less \dedx\, deposits and thus lower $x_1$ values.
+The value of $a_{\mathrm{center}}$ in each layer is listed in \cref{tab:acenterValue}. One can remark that taking the average of each $1/a_{\mathrm{center}}$ value leads to a mean value of $\overline{x_1} \approx 0.085$, the same order of magnitude as the one measured by CMS (see \cref{fig:Xtalk}). Remark also that the 320 $\mu$m thick sensors have a $a_{\mathrm{center}}$ parameter higher than 500 $\mu$m ones, mostly because thinner sensors lead to less \dedx\,deposits and thus lower $x_1$ values.
 
-\begin{table}[h]
+\vspace{0.5 cm}
+
+An intermediate validation consists of examining the $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$ ratio. Here, $Q_\mathrm{true}$ is the actual charge of the cluster and $Q_\mathrm{shape\,corr}$ is the corrected charge, which is the sum of $Q_\mathrm{max}$ and the other unsaturated strip of the cluster. As in the first basic cross-talk correction, the maximum is set at 254 or 255 ADC counts before correction. \cref{fig:CenterIntermediateResults} shows the results. In the case of \textit{Center} clusters, the saturation correction calibrated on the bTbM sample yields a very good reconstruction of the corrected charge.
+
+Note that in the procedure, if the charge is corrected to a value below the saturation level (254 or 255 ADC counts), the cluster is not corrected. This will also be the case for the other cluster shapes.
+
+\begin{table}[h!]
     \centering
     \small
     \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{|c|c||c|c|}
     \hline
-    \makecell{Barrel \\ layer} & $a_{\mathrm{center}}$ & \makecell{End Cap \\ ring} & $a_{\mathrm{center}}$ \\
+    \makecell{Barrel \\ layer} & $a_\mathrm{center}$ & \makecell{Endcap \\ ring} & $a_\mathrm{center}$ \\
     \hline
     TIB L1 & 11.8405 & TID R1 & 14.0295 \\
     TIB L2 & 11.8405 & TID R2 & 17.8105 \\
@@ -579,20 +581,14 @@ The value of $a_{\mathrm{center}}$ in each layer is listed in \cref{tab:acenterV
     TOB L6 & 7.4625  & TEC R7 & 8.8555  \\
     \hline
     \end{tabular}
-    \caption{Value of the $a_{\mathrm{center}}$ parameter extracted for each layer of the TIB and TOB and each ring of the TID and TEC.}
+    \caption{Value of the $a_\mathrm{center}$ parameter extracted for each layer of the TIB and TOB and each ring of the TID and TEC.}
     \label{tab:acenterValue}
 \end{table}
 
-\vspace{0.5 cm}
-
-An intermediate validation consists of examining the $Q_\mathrm{corr}/Q_\mathrm{true}$ ratio. Here, $Q_\mathrm{corr}$ is the corrected charge: $Q_\mathrm{max}$ plus the other unsaturated strip of the cluster. $Q_\mathrm{true}$ is the actual charge of the cluster. As in the first basic cross-talk correction, note that the saturated maximum is set at 254 or 255 ADC counts before correction. \cref{fig:CenterIntermediateResults} shows the results. In this case, the saturation correction calibrated on the bTbM sample yields a very good reconstruction of the corrected charge. The next section will include further performance evaluation, including results for the other cluster shape.
-
-Note that in the procedure, if the charge is corrected to a value below the saturation level (254 or 255 ADC counts), the cluster is not corrected. This will also be the case for the other cluster shapes.
-
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_CENTER.pdf}
-    \caption{Value of the corrected charge $Q_\mathrm{corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{Center} clusters.}
+    \caption{Value of the corrected charge $Q_\mathrm{shape\,corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{Center} clusters.}
     \label{fig:CenterIntermediateResults}
 \end{figure}
 
@@ -601,24 +597,24 @@ Note that in the procedure, if the charge is corrected to a value below the satu
 
 \subsection{\textit{Left} and \textit{Right} clusters}
 
-Similarly to \textit{Center} clusters, \textit{Left} and \textit{Right} clusters must fulfilled the following criteria to be labelled as so:
+Similar to \textit{Center} clusters, \textit{Left} and \textit{Right} clusters must fulfil the following criteria to be labelled as such:
 
 \begin{itemize}
     \item Cluster with at least three strips.
-    \item Saturated maximum not at the beginning, neither at the end of the cluster.
+    \item Saturated maximum not at the beginning, nor at the end of the cluster.
     \item $L_{\mathrm{max}} \geq 1.1\cdot R_{\mathrm{max}}$ or $R_{\mathrm{max}} \geq 1.1\cdot L_{\mathrm{max}}$.
 \end{itemize}
 
-Contrary to \textit{Center} clusters, the value of the adjacent strips to the maximum spread along a larger range. The value of the adjacent strip to the maximum with the highest value has been plotted in \cref{fig:adjacentStripsLR} for three different type of clusters, namely \textit{Center}, \textit{Left} and \textit{Right}. Therefore, considering a similar cross-talk inversion as in \cref{eq:CenterCorr} would be a bad correction, leading to over and under-corrected clusters.
+Contrary to \textit{Center} clusters, the proportion of the charge carried by adjacent strips relative to the total charge is greater, as shown in \cref{fig:adjacentStripsLR}. Therefore, considering a similar cross-talk inversion as in \cref{eq:CenterCorr} would be a bad correction, leading to under- and over-corrected clusters.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch2/AdjacentStripCharge_CLR.pdf}
-    \caption{Fraction of the adjacent strip with the highest charge with respect to the actual charge of the cluster for the \textit{Center} (with $N_\mathrm{max}=(L_\mathrm{max}+R_\mathrm{max})/2$), \textit{Left} and \textit{Right} clusters.}
+    \caption{Fraction of the adjacent strip with the highest charge with respect to the total charge of the cluster for the \textit{Center} (by taking $N_\mathrm{max}=(L_\mathrm{max}+R_\mathrm{max})/2$), \textit{Left} and \textit{Right} clusters.}
     \label{fig:adjacentStripsLR}
 \end{figure}
 
-The idea is then to use the two different value of coefficient between the adjacent strip with the highest charge, labelled $N_\mathrm{max}$, and the other adjacent strip, labelled $N_\mathrm{min}$, to correct the saturated maximum $Q_\mathrm{max}$:
+Thus, a generalised cross-talk inversion is developed using the two different values of the coefficient between the adjacent strip with the highest charge, labelled $N_\mathrm{max}$, and the other adjacent strip, labelled $N_\mathrm{min}$, to correct the saturated maximum $Q_\mathrm{max}$:
 
 \begin{align}
     Q_\mathrm{max} &= a_\mathrm{LR} \cdot N_\mathrm{max} + b_\mathrm{LR} \cdot N_\mathrm{min} \\
@@ -626,9 +622,11 @@ The idea is then to use the two different value of coefficient between the adjac
     \label{eq:LRcorr}
 \end{align}
 
-The idea is to plot the $Q_\mathrm{max}/N_\mathrm{max}$ value as a function of $N_\mathrm{max}/N_\mathrm{min}$. Thus if \cref{eq:LRcorr} is valid, one could observe the tendency of the form $\displaystyle f_\mathrm{LR}(x)=a_\mathrm{LR}+\frac{b_\mathrm{LR}}{x}$.
+The idea is to plot the $Q_\mathrm{max}/N_\mathrm{max}$ value as a function of $N_\mathrm{max}/N_\mathrm{min}$. Thus, if \cref{eq:LRcorr} is valid, one could observe the tendency following $\displaystyle f_\mathrm{LR}(x)=a_\mathrm{LR}+\frac{b_\mathrm{LR}}{x}$.
 
-Templates are drawn for each barrel layer and endcap rings, to avoid any dependency with the sensor thickness, two examples are shown in \cref{fig:LRtemplates}. The 2--D histograms follow the attended behaviour with a decreasing line along the x--axis. However, there is a large region bellow that curve showing that not every \textit{Left} and \textit{Right} clusters sits on the $f_\mathrm{LR}(x)$ curve.
+Templates are generated for each barrel layer and endcap ring to avoid any dependence on the sensor thickness; two examples are shown in \cref{fig:LRtemplates}. The 2--D histograms match the attended behaviour with a decreasing line along the x--axis. However, there is a large region below that curve showing that not every \textit{Left} and \textit{Right} clusters sit on the $f_\mathrm{LR}(x)$ curve.
+
+To evaluate the population of clusters that are in this range, a preliminary fit is performed according to the $f_\mathrm{LR}(x)$ equation. The number of clusters siting bellow 85\% of the fit curve represents 14\% of the total number of \textit{Left} and \textit{Right} clusters, or in other words, \cref{eq:LRcorr} describes 86\% of the population well.
 
 \begin{figure}[h]
     \centering
@@ -644,11 +642,10 @@ Templates are drawn for each barrel layer and endcap rings, to avoid any depende
     \label{fig:LRtemplates}
 \end{figure}
 
-To evaluate the population of clusters that are in this range, a preliminary fit is performed according to the $f_\mathrm{LR}(x)$ equation. The number of clusters siting bellow 90\% of the fit curve represents XXXX of the total number of \textit{Left} and \textit{Right} clusters.
 
-Considering this, \cref{eq:LRcorr} is well describing XXX \% of the population. Thus, after the preliminary fit, another one is performed on the 90 \% of data above. An example of the preliminary and the final fit on a layer of the tracker barrel is shown in \cref{fig:LRfitcorr}.
+After the preliminary fit, another one is performed on 85\% of the data above. Examples of the preliminary and final fits on a layer of the tracker barrel are shown in \cref{fig:LRfitcorr}.
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
     \centering
     % Ligne 1
     \begin{subfigure}[b]{0.48\textwidth}
@@ -678,11 +675,7 @@ Considering this, \cref{eq:LRcorr} is well describing XXX \% of the population. 
     \label{fig:LRfitcorr}
 \end{figure}
 
-The value of $a_\mathrm{LR}$ and $b_\mathrm{LR}$ are extracted from the final fit performed with $f_\mathrm{LR}(x)$. Their value are listed in \cref{tab:LRvalues}.
-
-The $a_{\mathrm{LR}}$ value is ranging from $\sim-0.2$ to $-0.09$ with some being close to zero, while the $b_{\mathrm{LR}}$ are in the order of ten. In this case, the adjacent strip with less deposit, $N_\mathrm{min}$, compensate the higher deposit on the other adjacent strip $N_\mathrm{max}$ by an order of magnitude above. Thus, the cross-talk inversion is clearly asymmetric, the majority of the charge is reconstructed thanks to $N_\mathrm{min}$.
-
-Even if the method is adapted for asymmetric clusters, the results are not as efficient as the ones of \textit{Center} clusters. The ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ is shown in \cref{fig:LRIntermediateResults}. The ratio has a longer tail, due to over-corrected clusters that populate the region below the fit. A more detailed discussion of this population is provided in the section \cref{subsection:Improvements}.
+The value of $a_\mathrm{LR}$ and $b_\mathrm{LR}$ are extracted from the final fit performed with $f_\mathrm{LR}(x)$. Their values are listed in \cref{tab:LRvalues}. The $a_\mathrm{LR}$ value ranges from $-0.2$ to $-0.09$, with some being close to zero, while the $b_\mathrm{LR}$ values are in the order of ten. In this case, the adjacent strip with less deposit, $N_\mathrm{min}$, compensates the higher deposit on the other adjacent strip $N_\mathrm{max}$ by an order of magnitude above. Thus, the cross-talk inversion is clearly asymmetric; the majority of the charge is reconstructed thanks to $N_\mathrm{min}$.
 
 \begin{table}[h]
     \centering
@@ -690,7 +683,7 @@ Even if the method is adapted for asymmetric clusters, the results are not as ef
     \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{|c|c|c||c|c|c|}
     \hline
-    \makecell{Barrel \\ layer} & $a_{\mathrm{LR}}$ & $b_{\mathrm{LR}}$ & \makecell{End Cap \\ ring} & $a_{\mathrm{LR}}$ & $b_{\mathrm{LR}}$ \\
+    \makecell{Barrel \\ layer} & $a_{\mathrm{LR}}$ & $b_{\mathrm{LR}}$ & \makecell{Endcap} & $a_{\mathrm{LR}}$ & $b_{\mathrm{LR}}$ \\
     \hline
     TIB L1 & $-0.0953$ & $11.981$  & TID R1 & $-0.1152$ & $14.1755$ \\
     TIB L2 & $-0.0929$ & $11.9724$ & TID R2 & $-0.1348$ & $18.1905$ \\
@@ -708,12 +701,12 @@ Even if the method is adapted for asymmetric clusters, the results are not as ef
     \label{tab:LRvalues}
 \end{table}
 
-\vspace{0.5 cm}
+Even if the method is adapted for asymmetric clusters, the results are not as efficient as those of \textit{Center} clusters. The ratio between the corrected charge $Q_\mathrm{shape\,corr}$ and the actual charge $Q_\mathrm{true}$ is shown in \cref{fig:LRIntermediateResults}. The ratio has a longer tail, due to over-corrected clusters that populate the region below the fit. A more detailed discussion of this population is provided in \cref{subsection:Improvements}.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_LR.pdf}
-    \caption{Value of the corrected charge $Q_\mathrm{corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{Left} and \textit{Right} clusters.}
+    \caption{Value of the corrected charge $Q_\mathrm{shape\,corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{Left} and \textit{Right} clusters.}
     \label{fig:LRIntermediateResults}
 \end{figure}
 
@@ -725,7 +718,7 @@ Finally, the last clusters are labelled as \textit{FullLeft} and \textit{FullRig
 \begin{itemize}
     \item Cluster with at least two strips.
     \item Saturated maximum at the beginning or at the end of the cluster.
-    \item Adjacent strip of the saturated maximum must fulfilled $N_\mathrm{max} \geq 16$ ADC count for 320 $\mu$m strip sensors and $N_\mathrm{max} \geq 25$ ADC count for the 500 $\mu$m ones.
+    \item Adjacent strip of the saturated maximum must fulfilled $N_\mathrm{max} \geq 16$ ADC count for 320 $\mu$m strip sensors or $N_\mathrm{max} \geq 25$ ADC count for the 500 $\mu$m ones.
 \end{itemize}
 
 Then, similarly to what has been done for the other categories, the charge of the maximum is corrected thanks to the adjacent strip $N_\mathrm{max}$:
@@ -735,9 +728,9 @@ Then, similarly to what has been done for the other categories, the charge of th
     \label{eq:FLFRcross}
 \end{equation}
 
-The value of $a_\mathrm{FL}$ and $a_\mathrm{FR}$ are extracted after taking the maximum of the $Q_\mathrm{max}/N_\mathrm{max}$. Examples of this histogram on \textit{FullLeft} and \textit{FullRight} clusters in one tracker layer are shown in \cref{fig:FLFRhists}. As such clusters represents very few of saturated clusters, the maximum of the histogram is chosen instead of performing a fit due to lack of statistics.
+The value of $a_\mathrm{FL}$ and $a_\mathrm{FR}$ are extracted after taking the maximum of the $Q_\mathrm{max}/N_\mathrm{max}$. Two template histograms are shown in \cref{fig:FLFRhists}. As \textit{FullLeft} and \textit{FullRight} clusters represent only a very small fraction of the saturated clusters, the maximum of the histogram is chosen instead of performing a fit due to insufficient statistics. Values of $a_\mathrm{FL}$ and $a_\mathrm{FR}$ are grouped in \cref{tab:FLRValue}. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{subfigure}[c]{.48\textwidth}
         \centering
@@ -751,7 +744,11 @@ The value of $a_\mathrm{FL}$ and $a_\mathrm{FR}$ are extracted after taking the 
     \label{fig:FLFRhists}
 \end{figure}
 
-Those values are grouped in \cref{tab:FLRValue}. 
+The threshold of $N_\mathrm{max}$ greater than 16 and 25 ADC count has been optimised to have a good selection of \textit{FullLeft} and \textit{FullRight} clusters while keeping a good correction.
+
+The ratio $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$, similarly to the other type of clusters, is shown in \cref{fig:FLFRIntermediateResults}. This method provides similar good results to the \textit{Center} clusters, while having a wider error.
+
+\newpage
 
 \begin{table}[h]
     \centering
@@ -759,7 +756,7 @@ Those values are grouped in \cref{tab:FLRValue}.
     \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{|c|c|c||c|c|c|}
     \hline
-    \makecell{Barrel \\ layer} & $a_\mathrm{FL}$ & $a_\mathrm{FR}$ & \makecell{End Cap \\ ring} & $a_\mathrm{FL}$ & $a_\mathrm{FR}$ \\
+    \makecell{Barrel \\ layer} & $a_\mathrm{FL}$ & $a_\mathrm{FR}$ & \makecell{Endcap \\ ring} & $a_\mathrm{FL}$ & $a_\mathrm{FR}$ \\
     \hline
     TIB L1 & $12.0395$ & $12.0395$ & TID R1 & $14.2285$ & $14.328$  \\
     TIB L2 & $12.0395$ & $12.0395$ & TID R2 & $17.8105$ & $18.109$  \\
@@ -777,63 +774,59 @@ Those values are grouped in \cref{tab:FLRValue}.
     \label{tab:FLRValue}
 \end{table}
 
-\vspace{0.5 cm}
-
-The threshold of $N_\mathrm{max}$ greater than 16 and 25 ADC count has been optimized to have a good selection of \textit{FullLeft} and \textit{FullRight} clusters while keeping a good correction. The ratio $Q_\mathrm{corr}/Q_\mathrm{true}$, similarly to the other type of clusters, are shown in \cref{fig:FLFRIntermediateResults}. This method provides similar good results to the \textit{Center} clusters, while having a wider error.
-
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_FLFR.pdf}
-    \caption{Value of the corrected charge $Q_\mathrm{corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{FullLeft} and \textit{FullRight} clusters.}
+    \caption{Value of the corrected charge $Q_\mathrm{shape\,corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{FullLeft} and \textit{FullRight} clusters.}
     \label{fig:FLFRIntermediateResults}
 \end{figure}
 
 \subsection{Two strip cases}
+\label{subsection:twostrips}
 
-Single saturated strip clusters represents $\sim$90\% of saturated clusters in muon datasets, while the clusters with two consecutive saturated strips stand for $\sim5-8$\%. Thus, a correction on those two types of clusters lead to a large coverage of saturated clusters.
+Single saturated strip clusters represent about 90\% of saturated clusters in muon datasets, while the clusters with two consecutive saturated strips stand for 5 to 8\%. Thus, a correction on those two types of clusters leads to an extensive coverage of saturated clusters.
 
 \vspace{0.5 cm}
 
-For such clusters, a shape classification is no longer possible due to the loss of information on the two saturated strips: it is no longer clear which was more saturated than the other.
+For such clusters, shape classification is no longer possible. Due to the loss of information from the two saturated strips, it is no longer clear which strip was more saturated than the other.
 A first-order correction is therefore applied, selecting only those clusters that satisfy the following criteria:
 
 \begin{itemize}
     \item Cluster with at least four strips.
-    \item Saturated maximum not at the beginning, neither at the end of the cluster.
+    \item Saturated maximum not at the beginning, nor at the end of the cluster.
     \item The two saturated strips must be side by side.
 \end{itemize}
 
-Then a cross-talk inversion is done using the first adjacent strips next to the two saturated strips, namely $L_\mathrm{max}$ and $R_\mathrm{max}$. Similar to the \cref{fig:XtalkInversion} but with two saturated strips instead of one: 
+Then a crosstalk inversion is performed using the first adjacent strips adjacent to the two saturated strips, namely $L_\mathrm{max}$ and $R_\mathrm{max}$. Similar to the \cref{fig:XtalkInversion} but with two saturated strips instead of one: 
 
 \begin{equation}
     Q_\mathrm{corr} = a_\mathrm{2strips} \cdot \frac{L_\mathrm{max}+R_\mathrm{max}}{2}
     \label{eq:twostripscorr}
 \end{equation}
-
-with $a_\mathrm{2strips}=1/0.0613$ being calibrated on the bTbM sample by looking after the average shape of such clusters and the proportion of charge being on each strip. 
+with $a_\mathrm{2strips}=1/0.0613$ being calibrated on the bTbM sample by looking after the average shape of such clusters and the proportion of charge being on each strip.
 
 \vspace{0.5 cm}
 
-With this method, 77\% of these clusters are corrected, the rest are clusters with a saturated strip at the beginning or at the end. Similarly the single saturated strip clusters, the $Q_\mathrm{corr}/Q_\mathrm{true}$ ratio shows an intermediate validation on the bTbM sample, as depicted in \cref{fig:2stripcorr}.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/2stripsCorr_data.pdf}
-    \caption{Ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ of clusters with two consecutive saturated strips in the bTbM sample.}
-    \label{fig:2stripcorr}
-\end{figure}
+As the bTbM sample does not provide enough clusters with two consecutive saturated strips, the intermediate validation cannot be done. Thus, the performance of this method will be evaluated on data, as with the other single saturated strip clusters.
 
 
 
 \subsection{Validation of the method}
 
-In the following, the correction based on the shape classification and then an adaptative correction depending on their shape will be labelled \textit{shape corr}. On the other hand, the basic approach using the a fix cross-talk inversion will be labelled \textit{basic corr}.
+A preliminary validation involves checking the correction for all single and two-consecutive saturated strip clusters using the same bTbM sample. The results are shown in \cref{fig:1strip2stripcorr_btbM} for both the shape and the basic correction.
+
+For the shape correction, the ratio between the corrected charge $Q_\mathrm{shape\, corr}$ and the actual charge $Q_\mathrm{true}$ is in good agreement with unity, while having a low percentage of under- and over-corrected clusters: 92.7\% of corrected clusters are in the one $\sigma$ range. While this result is expected because the correction has been fine-tuned on the same bTbM sample, it is much better than the \textit{basic} correction already discussed in \cref{fig:QcorrOldcorrection}.
 
 \vspace{0.5 cm}
 
-A preliminary validation is to check the correction for all single and two consecutive saturated strip clusters. For that, I used the same bTbM sample with a selection on the muon candidates. The results is shown in \cref{fig:1strip2stripcorr_btbM} for both the \textit{shape} and the \textit{basic} correction.
+A final validation is done using the Monte Carlo simulation of W bosons produced with jets and the 2018-era D muon dataset, both of which were already presented in \cref{subsubsection:satstripclusters}. The following selections are considered to keep only the good tracks with enough \dedx\,deposits are retained.:
 
-For the \textit{shape} correction, the ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ is in good agreement with the unity, while having a low percentage of under and over-corrected clusters: 92.7\% of corrected clusters are in the range $(1.01\pm0.05)\times Q_\mathrm{true}$ ($\mu\pm1\sigma$). While this result is expected because the correction has been fine tuned on the same bTbM sample, it is much better than the \textit{basic} correction already discussed in \cref{fig:QcorrOldcorrection}.
+\begin{itemize}
+    \item $|\eta|<2.4$.
+    \item Track coming from the PV ($|d_z|<0.1$ cm and $|d_{xy}|<0.02$ cm).
+    \item \textit{HighPurity} tracks with $\chi^2/\mathrm{NDOF}<5$ and 80\% of valid hits.
+    \item At least 10 \dedx\,measurements.
+\end{itemize}
 
 \begin{figure}[h]
     \centering
@@ -845,26 +838,17 @@ For the \textit{shape} correction, the ratio between the corrected charge $Q_\ma
         \centering
         \includegraphics[width=1\linewidth]{Images/Ch2/QNewCorr_Minus_Qtrue.pdf}
     \end{subfigure}
-    \caption{Preliminary validation of the saturation correction for the shape correction (Left) and the basic correction (Right). Done by looking after the ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$.}
+    \caption{Preliminary validation of the saturation correction for the shape correction showing the ratio between the corrected charge $Q_\mathrm{shape\,corr}$ and the actual charge $Q_\mathrm{true}$ (Left) and the difference between the two (Right).}
     \label{fig:1strip2stripcorr_btbM}
 \end{figure}
 
-I then considered the Monte-Carlo simulation of W bosons produced with jets and the 2018 era D muon dataset, both already presented in \cref{subsubsection:satstripclusters}. For both I used the following selections:
+The W+jets process does not describe all the muons collected in the muon dataset; thus, some key distributions differ, such as the pseudo-rapidity $\eta$ and transverse momentum $p_T$. To match the MC to the data, the ratio between the 2--D plot of $p_T$ as a function of $\eta$ in data is done with respect to the same one for MC. Then, the weight $w_i=\left(\eta_i\,,\,p_{T,i}\right)_\mathrm{data/MC}$, which is the bin content of the ratio of the two 2--D histograms, is applied on the MC simulation.
 
-\begin{itemize}
-    \item $|\eta_\mu|<2.4$.
-    \item Track coming from the PV ($|d_z|<0.1$ cm and $|d_{xy}|<0.02$ cm).
-    \item \textit{HighPurity} tracks with $\chi^2/\mathrm{NDOF}<5$ and 80\% of valid hits.
-    \item At least 10 \dedx\, measurements.
-\end{itemize}
+Finally, the performance of the correction is evaluated on clusters with a maximum ADC count of 240-250. The maximum strip is artificially set to 240 ADC count and then the correction method is applied. With this, the actual charge of the cluster, $Q_\mathrm{true}$, is known, and the corrected charge, $Q_\mathrm{corr}$, is compared with it by taking their ratio. The results of both correction methods are plotted in \cref{fig:1strip2stripcorr_dataWjets}.
 
-With so, only good muon tracks with enough \dedx\, deposits are retained. The W+jets process is not describing all the muons collected under the muon dataset, thus some key distributions are different such as the pseudo-rapidity of the muon $\eta_\mu$ or the transverse momentum $p_{T\,\mu}$. To match the MC to the data, the ratio between the 2--D plot of $p_{T\,\mu}$ as a function of $\eta_\mu$ of data is done with respect to MC. Then, the weight $w_i=\left(\eta_{\mu,i}\,,\,p_{T\mu,i}\right)_\mathrm{data/MC}$, which is the bin content of the ratio of the two 2--D histograms, is applied on the MC simulation.
+Foremost, there is the discrepancy between the data and Monte Carlo, even after rescaling to match the $p_T$ and $\eta$ distributions as closely as possible. The main explanation is the W+jets sample that does not describe all the standard muon processes, moreover for high $p_T$ that may arise from Drell-Yan\footnote{The Drell-Yan process is a hard scattering mechanism in which a quark from one hadron and an antiquark from another annihilate to produce a virtual photon or Z boson, which then decays into a lepton-antilepton pair.} or $t\overline{t}$ processes. Another point worth noting is the width of the two ratios; as the correction was derived from a sample of muons for which the saturated charge was known, it is to be expected that the agreement is not as good as that shown in \cref{fig:1strip2stripcorr_btbM}. Besides this, as already discussed, the basic correction is biased, with most clusters under-corrected, while the shape correction is in good agreement with the cluster's actual charge. Further details of each ratio are listed in \cref{tab:corrResults}
 
-Finally, the performance of the correction is evaluated on clusters with a maximum between 240 and 250 ADC count are selected. Their maximum is artificially set to 240 ADC count and then the correction method is applied. With so, the actual charge of the cluster $Q_\mathrm{true}$ is known and the corrected charge $Q_\mathrm{corr}$ is compared to the former by calculating the ratio of the two.
-
-The correction developed above, labelled \textit{shape corr}, is compared to the basic approach using the cross-talk inversion, labelled \textit{basic corr}. Both are ploted in \cref{fig:1strip2stripcorr_dataWjets}. The first thing to notice is the discrepancy between the data and Monte-Carlo, even after the rescaling in order to match as close as possible the $p_{T\mu}$ and $\eta_\mu$ distributions. The main explanation is because of the W+jets sample does not describe all the standard muon processes, moreover for high $p_{T\mu}$ that may arise from Drell-Yan\footnote{The Drell-Yan process is a hard scattering mechanism in which a quark from one hadron and an antiquark from another annihilate to produce a virtual photon or Z boson, which then decays into a lepton-antilepton pair.} or $t\overline{t}$ processes. Another point worth noting is the width of the two ratios; as the correction was derived from a sample of muons for which the saturated charge was known, it is to be expected that the agreement is not as good as that shown in \cref{fig:1strip2stripcorr_btbM}. Beside this, as already discussed, the basic correction is biased with most of the clusters being under-corrected while the shape correction is in good agreement to the actual charge of the cluster.
-
-Details of each ratio are listed in \cref{tab:corrResults}
+This final table shows the improvement of the method over a basic cross-talk inversion with a fixed factor. The proposed correction is not further biased, corrects a larger population of saturated clusters, and yields a higher population of well-reconstructed saturated charge.
 
 \begin{figure}[h]
     \centering
@@ -891,7 +875,7 @@ Details of each ratio are listed in \cref{tab:corrResults}
     \hline
     \multirow{4}{*}{$\dfrac{Q_\mathrm{corr}}{Q_\mathrm{true}}$} & Mean     & 0.9305    & 1.006  \\
                                                    & Std Dev  & 0.2348    & 0.2309 \\
-                                                   & data Entries  & 3\,072\,116   & 3\,120\,266\\
+                                                   & Nb of Entries  & 3\,072\,116   & 3\,120\,266\\
                                                    & Overflow & 3.7\%     & 1.8\%  \\
     \hline
     \multicolumn{2}{|c|}{\makecell{ Maximum corrected \\ bellow 240 ADC count}} & 24.6\% & 18.7\% \\
@@ -899,27 +883,21 @@ Details of each ratio are listed in \cref{tab:corrResults}
     \end{tabular}
 \end{table}
 
-This final table show the improvement of the method compared to a basic cross-talk inversion with a fix factor. The proposed correction is not biased any more, correct a larger population of saturated clusters and the population of well-reconstructed saturated charge is higher.
-
-
-
 
 
 
 \subsection{Improvements and criticism}
 \label{subsection:Improvements}
 
-The saturated cluster correction method developed here shows good results on the charge reconstruction of muon deposits in Monte-Carlo and data samples. A cross-talk inversion based algorithm has been adapted to fulfilled different cluster shapes and number of consecutive saturated strips. As the population of saturated clusters is mostly those with one single saturated strips and then two consecutive saturated strips, the other saturated clusters are not corrected under this approach. 
+The saturated cluster correction method developed here shows good results on the charge reconstruction of muon deposits in Monte Carlo and data samples. A cross-talk inversion-based algorithm has been adapted to accommodate different cluster shapes and numbers of consecutive saturated strips. As the population of saturated clusters consists mostly of those with a single saturated strip followed by two consecutive saturated strips, the other saturated clusters are not corrected by this approach. 
 
 \vspace{0.5 cm}
 
-The over-corrected clusters are mostly the \textit{Left} and \textit{Right} ones sitting under the $\displaystyle f_\mathrm{LR}(x)=a_\mathrm{LR}+\frac{b_\mathrm{LR}}{x}$ fit. Example of clusters sitting in this region are shown in \cref{fig:miscorrectedLR}. Such clusters have a high charge sharing between the maximum and the adjacent strips, leading to a bad correction later. Such clusters corresponds to $\sim32\%$ of the total \textit{Left} and \textit{Right} clusters, meaning 68\% of the latter fall within a 10\% range of the $f_\mathrm{LR}(x)$ fit.
+The over-corrected clusters are mostly the \textit{Left} and \textit{Right} ones sitting under the $ f_\mathrm{LR}(x)=a_\mathrm{LR}+b_\mathrm{LR}/x$ fit. Such clusters have high charge sharing between the maximum and the adjacent strips, as shown in \cref{fig:miscorrectedLR}, leading to poor later correction.
 
-One could improve the correction by considering a lower threshold of the ratio between $N_\mathrm{max}$ and $N_\mathrm{min}$, that has been fixed to 10\%. I tried to adjust this value before performing a new fit and assess the correction: a lower one led to more over-corrected clusters and a higher one led to a worst \textit{Center} clusters correction (the $a_{\mathrm{center}}$ factor was not any more describing every \textit{Center} clusters). In other words: well-corrected saturated clusters are the one that have a small charge value compared to the saturated strips.
+One could improve the correction by using a lower threshold for the ratio of $N_\mathrm{max}$ to $N_\mathrm{min}$, which is currently fixed at 10\%. I tried to adjust this value before performing a new fit and assessing the correction: a lower one led to more over-corrected clusters and a higher one led to a worse \textit{Center} clusters correction (the $a_\mathrm{center}$ factor no longer described every \textit{Center} cluster). This is consistent with the observation that well-corrected clusters exhibit a small saturated-to-total charge ratio.
 
-An other method, that I didn't pushed, would be to consider the value of the second adjacent strips into the model to make the distinction between high charge sharing, leading to higher charge on the second adjacent strips, and the lower one.
-
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \begin{subfigure}[c]{.32\textwidth}
         \centering
@@ -933,38 +911,54 @@ An other method, that I didn't pushed, would be to consider the value of the sec
         \centering
         \includegraphics[width=\linewidth]{Images/Ch2/LR_overcorrected_3.pdf}
     \end{subfigure}
-    \caption{Example of three \textit{Left} and \textit{Right} clusters sitting in the region bellow the fit function used for the correction template. Such clusters have a high charge sharing.}
+    \caption{Example of three \textit{Left} and \textit{Right} clusters sitting in the region below the fit function used for the correction template. Such clusters have a high charge sharing.}
     \label{fig:miscorrectedLR}
 \end{figure}
 
-
-Another option that I studied was to consider at some point the barycentre of charge of a cluster after the shape classification. The best option was to take the difference between the strip index of the maximum $i_\mathrm{max}$ and the barycentre such as $Q_\mathrm{max}=f(i_\mathrm{max}-\mathrm{bar.})$. This method should have been an alternative for the \textit{Left} and \textit{Right} clusters. 
-
-This method led to a poor selection on the saturated cluster population, leading to only 80\% of them being corrected. On top of not being accurate with 20\% of clusters with $Q_\mathrm{corr}/Q_\mathrm{true}>1.05$ and with negative corrected charge due to $i_\mathrm{max}-\mathrm{bar.}$ difference.
+Another method, which I didn't push, would be to consider the values of the second adjacent strips in the model to distinguish between high charge sharing, leading to higher charge on the second adjacent strips, and the lower one. In the same vein, I also tried to consider the barycentre of charge of a cluster at some point after the shape classification. The least-bad approach was to reconstruct the saturated maximum using the difference between the strip index of the maximum, $i_\mathrm{max}$, and the barycentre. This method could have been an alternative for the \textit{Left} and \textit{Right} clusters, but it yielded poor selection within the saturated cluster population, with only 80\% of them corrected. On top of not being accurate with 20\% of clusters with $Q_\mathrm{bar.\,corr}/Q_\mathrm{true}>1.05$ and with negative corrected charge due to $i_\mathrm{max}-\mathrm{bar.}$ difference.
 
 \vspace{0.5 cm}
 
-Regarding the samples used for calibration, I was constrained by the statistical size of the bTbM sample (600,000 events), which affected the derivation of the layer-by-layer correction parameters.
+Concerning the correction of clusters with two consecutive saturated strips presented in \cref{subsection:twostrips}, the validation was only possible using the data due to the lack of statistics in the MC samples. The $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$ ratio is shown in \cref{fig:2stripcorr}. The cross-talk inversion corrects 77\% of these clusters, with the rest being clusters with a saturated strip at the beginning or the end. The ratio is not close to unity, with a large population of clusters being under- and over-corrected. While this provides a useful first estimate, a more robust method would be desirable.
 
-A more in-depth study would benefit from using a W+jets sample, coupled with other processes with a wider $p_{T\mu}$ range such as $t\overline{t}$ or Drell-Yan, in order to also study saturated deposits outside the MIP point and thus propose parameters more in line with the data.
+\vspace{0.5cm}
+
+Regarding the calibration samples, I was constrained by the limited size of the bTbM sample (600,000 events), which affected the derivation of the layer-by-layer correction parameters.
+
+A more in-depth study would benefit from using a W+jets sample, coupled with other processes with a wider muon $p_T$ range, such as Drell-Yan or $t\overline{t}$, in order to also study saturated deposits outside the MIP point and thus propose parameters more in line with the data.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/2stripsCorr_data.pdf}
+    \caption{Ratio between the corrected charge $Q_\mathrm{corr}$ and the actual charge $Q_\mathrm{true}$ of clusters with two consecutive saturated strips in the bTbM sample.}
+    \label{fig:2stripcorr}
+\end{figure}
 
 
 
-\section[d\textit{E}/d\textit{x} performance studies with 2024--2025 CMS Data]{d\textit{E}/d\textit{x} performance studies \\ with 2024--2025 CMS Data}
+\section[d\textit{E}/d\textit{x} performance studies with 2024--2025 CMS Data]{d\textit{E}/d\textit{x} performance studies with 2024--2025 \\ CMS Data}
 
-During my PhD. I had the opportunity to present my work to the CMS Tracker Physics Object Group who approved my contribution. This correction has been tested on large scale data for performance plots of the tracker done for 2024 and 2025 data, those plots shown below, were approved by the Tracker Performance Group. At the moment, only the early 2024 performance results are published \cite{DPnote2024dedx}.
+The CMS Tracker Physics Object Group approved the method of the shape correction. Thus, it has been tested on large-scale data for performance plots of the tracker for 2024 and 2025; those plots were approved by the CMS Tracker Performance Group. At the moment, only the early 2024 performance results are published \cite{DPnote2024dedx}.
 
 \vspace{0.5 cm}
 
-The procedure consists of selecting all \textit{HighPurity} tracks resulting from the PV, with at least 10 \dedx\, deposits and $p_T$ between 0.5 and 50 GeV/$c$. Then a 2--D histogram of the average ionisation using $I_h$ as a function of the track momentum $p$ is filled, with the implemented saturation correction.
+The procedure consists of selecting all \textit{HighPurity} tracks from the PV that have at least 10 \dedx\,deposits and $p_T$ between 0.5 and 50 GeV/$c$. Then a 2--D histogram of the average ionisation $I_h$ as a function of the track momentum $p$ is filled using the shape saturation correction.
 
-The maxima of the \dedx\, for each bin in $p$ are fitted using a Gaussian convoluted with a Landau function\footnote{The Gaussian part represents the thermal noises while the Landau function is to describe the \dedx\, deposits.}. Examples of the distributions are shown in \cref{fig:langausFit}. The different \dedx\, maxima come from the different charged particles produced and identified by the PF algorithm, for which their energy deposit, that is decreasing at higher $p$, is described by the Bethe-Bloch formula.
+The maxima of the \dedx\,for each bin in $p$ are fitted using a Landau convoluted with a Gaussian function\footnote{The Gaussian part represents the thermal noises while the Landau function is to describe the \dedx\,deposits.}. Examples of the distributions are shown in \cref{fig:langausFit}. The different \dedx\, maxima come from the different charged particles produced and identified by the PF algorithm, for which their energy deposit, that is decreasing at higher $p$, is described by the Bethe-Bloch formula.
 
-Then, by knowing the particle mass $M$ and its momentum $p$, one can derive an simpler description of the \dedx\, deposit as a function of $\beta\gamma=p/M$ using \cref{eq:fitAtlas}. This fit is performed at low $p$ on the proton line and at higher $p$ on the pion one. Finally, the fit is extrapolated on the rest of the particle.
+Then, by knowing the particle mass $M$ and its momentum $p$, one can derive a simpler description of the \dedx\,deposit as a function of $\beta\gamma=p/M$ using:
 
-Final results comparing the basic and the shape correction for 2024 data (L=109 $\mathrm{fb}^{-1}$) are depicted in \cref{fig:dedx_vs_p_2024}. The shape correction conducts to higher \dedx\, at low $p$, in this region the proportion of saturated clusters are important, thus, a better correction leads to a more representative \dedx\, value for which the fit is more appropriate.
+{\small
+\begin{equation}
+    \left\langle \frac{\mathrm{d}E}{\mathrm{d}x} \right\rangle = p_1 \left( \frac{\sqrt{(\beta\gamma)^4+4(\beta\gamma)^2}-(\beta\gamma)^2}{2} \right)^\frac{p_2}{2}\cdot \ln\left( 1 + [ p_3\cdot\beta\gamma ]^{p_4} \right) - p_5 = f(\beta\gamma)
+    \label{eq:fitAtlas}
+\end{equation}
+}
+with $p_{1,...,5}$ the five parameters extracted after the fit. This fit is performed at low $p$ on the proton line and at higher $p$ on the pion line on the \dedx\,maxima. Finally, the fit is extrapolated to the rest of the particle.
 
-\begin{figure}[ht]
+Final results comparing the basic and the shape correction for 2024 data are depicted in \cref{fig:dedx_vs_p_2024}. The shape correction leads to higher \dedx\,at low $ p$. In this region, the proportion of saturated clusters is important; thus, a better correction yields a more representative \dedx, making the fit more appropriate.
+
+\begin{figure}[h]
     \centering
     \begin{subfigure}[c]{.32\textwidth}
         \centering
@@ -978,16 +972,9 @@ Final results comparing the basic and the shape correction for 2024 data (L=109 
         \centering
         \includegraphics[width=\linewidth]{Images/Ch2/LangausFit_187.pdf}
     \end{subfigure}
-    \caption{Distribution of the \dedx\, in different $p$ bins: 0.56 GeV/$c \leq p \leq$ 0.58 GeV/$c$ (Left), 1.14 GeV/$c \leq p \leq$ 1.16 GeV/$c$ (Middle) and 3.24 GeV/$c \leq p \leq$ 3.26 GeV/$c$ (Right). The maxima are fitted using a Landau function convoluted with a Gaussian one.}
+    \caption{Distribution of the \dedx\,in different $p$ bins: 0.56 GeV/$c \leq p \leq$ 0.58 GeV/$c$ (Left), 1.14 GeV/$c \leq p \leq$ 1.16 GeV/$c$ (Middle) and 3.24 GeV/$c \leq p \leq$ 3.26 GeV/$c$ (Right). The maxima are fitted using a Landau function convoluted with a Gaussian one.}
     \label{fig:langausFit}
 \end{figure}
-
-\begin{equation}
-    \left\langle \frac{\mathrm{d}E}{\mathrm{d}x} \right\rangle = p_1 \left( \frac{\sqrt{(\beta\gamma)^4+4(\beta\gamma)^2}-(\beta\gamma)^2}{2} \right)^\frac{p_2}{2}\cdot \ln\left( 1 + [ p_3\cdot\beta\gamma ]^{p_4} \right) - p_5 = f(\beta\gamma=p/M)
-    \label{eq:fitAtlas}
-\end{equation}
-
-with $p_{1,...,5}$ the five parameters extracted after the fit.
 
 \begin{figure}[h]
     \centering
@@ -999,6 +986,6 @@ with $p_{1,...,5}$ the five parameters extracted after the fit.
         \centering
         \includegraphics[width=1\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A.pdf}
     \end{subfigure}
-    \caption{\dedx\, as a function of the track momentum for the basic correction (Left) and the shape correction (Right) for the 2024 data (L=109 $\mathrm{fb}^{-1}$). The black lines corresponds to the fit using using \cref{eq:fitAtlas}. The red lines are the fit extrapolations of the energy loss for four particle species ($\pi^\pm,\, \mathrm{K}^\pm, \, \mathrm{p}^\pm$ and $\mathrm{D}^\pm$), showing the characteristic drop at low momentum converging toward a common relativistic plateau around 3 MeV/cm.}
+    \caption{\dedx\,as a function of the track momentum for the basic correction (Left) and the shape correction (Right) for the 2024 data. The black lines correspond to the fit using \cref{eq:fitAtlas}. The red lines are the fit extrapolations of the energy loss for four particle species ($\pi^\pm,\, \mathrm{K}^\pm, \, \mathrm{p}^\pm$ and $\mathrm{D}^\pm$), showing the characteristic drop at low momentum converging toward a common relativistic plateau around 3 MeV/cm.}
     \label{fig:dedx_vs_p_2024}
 \end{figure}

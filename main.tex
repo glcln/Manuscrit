@@ -20,6 +20,30 @@
 
 \ifshowLineNumbers\linenumbers\fi % show line numbers if switched on
 
+
+%% ---- Configuration fancyhdr ici, avant tous les chapitres ----
+\pagestyle{fancy}
+\fancyhf{}
+% En-tête : titre du chapitre centré
+\fancyhead[C]{\small\textsc{\leftmark}}
+% Pied de page : numéro à l'extérieur (droite sur pages impaires, gauche sur pages paires)
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt}
+% Format du titre de chapitre
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\chaptername\ \thechapter.\ #1}{}%
+}
+% Pages de début de chapitre (style plain)
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyfoot[LE,RO]{\thepage}%
+    \renewcommand{\footrulewidth}{0.4pt}%
+    \renewcommand{\headrulewidth}{0pt}%
+}
+%% ---------------------------------------------------------------
+
+
 \include{Chapters/ch-Résumé}
 \include{Chapters/ch-Abstract}
 
@@ -30,11 +54,13 @@
 
 \adjustmtc  % to avoid minitoc position issue in the following chapters
 %\include{Chapters/ch-Chapitre1}
+\cleardoublepage
 \include{Chapters/ch-Chapitre2}
+\cleardoublepage
 %\include{Chapters/ch-Chapitre3}
+\cleardoublepage
 %\include{Chapters/ch-Chapitre4}
 
-\pagestyle{headings}
 \include{Chapters/ch-Conclusion}
 
 \begin{appendices}

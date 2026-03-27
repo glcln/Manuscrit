@@ -10,7 +10,7 @@
 
 
 %% Load the article class file
-\LoadClass[a4paper,12pt]{book}
+\LoadClass[a4paper,12pt,openright]{book}
 
 
 %% Templates for author's name and thesis title (for front and back covers)
@@ -139,11 +139,17 @@
 }{\end{list}}
 
 
-%% Save deault margin lengths
+%% Save default margin lengths
 \newlength{\defaultOddsidemargin}
 \setlength{\defaultOddsidemargin}{\oddsidemargin}
 \newlength{\defaultEvensidemargin}
 \setlength{\defaultEvensidemargin}{\evensidemargin}
+
+\geometry{
+    bottom=2.5cm,
+    headheight=14pt,        % fix fancyhdr warning
+    % topmargin=-1.6pt      % optionnel, pour compenser
+}
 
 
 %% Figure environment with "This Thesis" mention
