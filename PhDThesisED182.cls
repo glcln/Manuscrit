@@ -57,7 +57,6 @@
 \RequirePackage{multirow}
 
 
-
 %% Import packages and fefine commands for watermark
 \RequirePackage{silence} % Selective filtering of error messages and warnings
     \WarningsOff[everypage] % Suppress warnings related to package everypage
