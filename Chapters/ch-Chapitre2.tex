@@ -880,20 +880,6 @@ This final table shows the improvement of the method over a basic cross-talk inv
     \label{tab:corrResults}
 \end{table}
 
-Finally, one could evaluate the performance of each saturation correction meth\-od on the HSCP gluino sample, already presented in \cref{subsubsection:satstripclusters}, using the track-average ionisation $I_h$. To do so, the HSCP pre-selections, which are later listed and developed in Section XXXX, are applied. \cref{fig:Ih_HSCP} shows the $I_h$ distribution of tracks passing these pre-selections. Three scenarios are plotted: no saturation correction, the basic correction, and the shape correction. The lower panel displays the corresponding Cumulative Distribution Functions (CDFs).
-
-Building on this, the uncorrected distribution peaks around $I_h \approx 7$ MeV/cm and falls off steeply beyond $\sim$ 15 MeV/cm, reflecting a systematic underestimation of the deposited charge in the absence of any calibration. Both corrected scenarios exhibit a harder tail extending to larger values of $I_h$, with the shape correction yielding the broadest distribution. Once the clusters are corrected, larger ionisation values become accessible, shifting the median of the CDF from $\sim$ 7 MeV/cm (No corr.) to $\sim$ 10 MeV/cm (Basic corr.) and $\sim$ 11 MeV/cm (Shape corr.).
-
-In summary, for the HSCP search, accessing large $I_h$ values is key. A slowly-moving, massive particle such as a gluino with $\beta\gamma \ll 1$ is expected to deposit energy well above the minimum-ionising value. This follows the Bethe--Bloch prediction, which rises steeply at low $\beta\gamma$. The corrected distributions restore the high-$I_h$ tail, thereby extending the analysis's kinematic reach.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/Ih_HSCP.pdf}
-    \caption{Average ionisation for tracks passing the HSCP pre-selections, without any saturation correction (Black), using the basic one (Blue) and the shape one (Red). The Cumulative distribution of each is displayed on the lower panel.}
-    \label{fig:Ih_HSCP}
-\end{figure}
-
-
 
 \subsection{Improvements and criticism}
 \label{subsection:Improvements}
@@ -983,7 +969,7 @@ with $p_{1,...,5}$ the five parameters extracted after the fit. This fit is perf
         \centering
         \includegraphics[width=\linewidth]{Images/Ch2/LangausFit_187.pdf}
     \end{subfigure}
-    \caption{Distribution of the \dedx\,in different $p$ bins: 0.56 GeV/$c \leq p \leq$ 0.58 GeV/$c$ (Left), 1.14 GeV/$c \leq p \leq$ 1.16 GeV/$c$ (Middle) and 3.24 GeV/$c \leq p \leq$ 3.26 GeV/$c$ (Right). The maxima are fitted using a Landau function convoluted with a Gaussian one.}
+    \caption{Distribution of the \dedx\,in different $p$ bins: 0.56 GeV/$c \leq p \leq$ 0.58 GeV/$c$ (Top), 1.14 GeV/$c \leq p \leq$ 1.16 GeV/$c$ (Left) and 3.24 GeV/$c \leq p \leq$ 3.26 GeV/$c$ (Right). The maxima are fitted using a Landau function convoluted with a Gaussian one.}
     \label{fig:langausFit}
 \end{figure}
 
@@ -1002,6 +988,56 @@ Final results comparing the basic and the shape correction for 2024 data are dep
         \centering
         \includegraphics[width=0.8\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A.pdf}
     \end{subfigure}
-    \caption{\dedx\,as a function of the track momentum for the basic correction (Top) and the shape correction (Bottom) for the 2024 data. The black lines correspond to the fit using \cref{eq:fitAtlas}. The red lines are the fit extrapolations of the energy loss for four particle species ($\pi^\pm,\, \mathrm{K}^\pm, \, \mathrm{p}^\pm$ and $\mathrm{D}^\pm$), showing the characteristic drop at low momentum converging toward a common relativistic plateau around 3 MeV/cm.}
+    \caption{Average \dedx\,as a function of the track momentum for the basic correction (Top) and the shape correction (Bottom) for the 2024 data. The black lines correspond to the fit using \cref{eq:fitAtlas}. The red lines are the fit extrapolations of the energy loss for four particle species ($\pi^\pm,\, \mathrm{K}^\pm, \, \mathrm{p}^\pm$ and $\mathrm{D}^\pm$), showing the characteristic drop at low momentum converging toward a common relativistic plateau around 3 MeV/cm.}
     \label{fig:dedx_vs_p_2024}
 \end{figure}
+
+
+
+
+\section{Impact on the search for HSCP}
+
+A natural way to assess the impact of the shape correction beyond tracker performance plots is to look at the reconstructed mass of the 2018 HSCP signal sample. This variable is not the true physical mass. Instead, it is a mass derived from the ionisation curve, assuming the particles deposit energy according to the Bethe-Bloch formula. HSCPs are predicted to be slow and highly ionising. Therefore, any improvement in the saturation correction should translate into a better estimate of the reconstructed mass.
+
+\vspace{0.5 cm}
+
+The procedure mirrors that described in the 2024 data performance study. For each of the three correction scenarios from the 2018 HSCP sample presented in \cref{subsubsection:satstripclusters}, a 2D histogram is filled. This histogram shows the average ionisation $I_h$ as a function of track momentum $p$. Before filling these histograms, the Run--2 HSCP pre-selections detailed in Section XXXX are applied, except the HLT muon trigger. The results are shown in \cref{fig:Ih_vs_p_HSCP}. 
+
+The same behaviour observed in the data is also seen in the high-$p$ regime, due to the gluino's high mass (here $m_{\widetilde{g}}=2000$ GeV/$c^2$). As saturated clusters represent almost 45 \% of the total \dedx\, clusters in this sample (see \cref{tab:WjetHSCPsat}), without any saturation correction, the curve is capping to lower $I_h$ values compared to the one computed from the two correction methods. The vertical band at low $p$ corresponds to some tracks that don't pass the HLT muon trigger. 
+
+\begin{figure}[h]
+    \centering
+    % Ligne du haut : figure du milieu centrée
+    \begin{subfigure}[c]{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch2/Ih_VS_p_HSCP_NoCorr.pdf}
+    \end{subfigure}
+    \\[0.5em]
+    % Ligne du bas : deux figures
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch2/Ih_VS_p_HSCP_OldCorr.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch2/Ih_VS_p_HSCP_NewCorr.pdf}
+    \end{subfigure}
+    \caption{Average \dedx\, as a function of the track momentum from a 2018 HSCP gluino MC sample for tracks passing the Run--2 HSCP pre-selections (described in Section XXXX). In the case of no saturation correction applied (Top), with the basic correction (Left) and the shape correction (Right).}
+    \label{fig:Ih_vs_p_HSCP}
+\end{figure}
+
+To evaluate the difference between the two saturation correction methods, the particle's reconstructed mass is included. First, as in the 2024 and 2025 plots showing $I_h$ as a function of $p$, the same parametrisation using \cref{eq:fitAtlas} is applied to the 2018 MC W+jets sample at low $p$, under the same selections for the three scenarios: no correction, basic correction or shape correction. Then, using the extracted fit parameters, the Brent method \cite{brent2002} is applied to find the lowest zero $(\beta\gamma)_0$ of the $f(\beta\gamma) - I_h = 0$ equation, with $f(\beta\gamma)$ being the fit function of \cref{eq:fitAtlas}. Therefore, the reconstructed mass $M$ is equal to $p/(\beta\gamma)_0$.
+
+The mass reconstruction procedure described above is applied independently to each scenario: no correction, basic correction, and shape correction, with results shown in \cref{fig:Mass_HSCP}.
+
+The final plot illustrates why a saturation-correction method is important for the HSCP search. Without such a method, the reconstructed mass will be biased. The best agreement between the mass of the generated gluino ($m_{\widetilde{g}}=2000$ GeV/$c^2$) and the median reconstructed mass is observed for the distribution on which the shape correction is applied ($\overline{m}_{\widetilde{g}}^\mathrm{shape\,corr}\approx2069$ GeV/$c^2$).
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/Mass_HSCP.pdf}
+    \caption{Reconstructed mass distribution of tracks from a 2018 HSCP gluino MC sample for tracks passing the HSCP pre-selections (described in Section XXXX), for three saturation correction scenarios: no correction (Black), basic correction (Blue), and shape correction (Red). The lower panel shows the corresponding CDFs.}
+    \label{fig:Mass_HSCP}
+\end{figure}
+
