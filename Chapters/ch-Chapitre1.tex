@@ -3,13 +3,13 @@
 \label{ch:chapitre1}
 \minitoc
 
+This chapter is devoted to the experimental foundations of high-energy physics, covering the tools and methods that enable precise measurements at CERN-operated collider experiments.
 
-With the exception of measurements of neutrino properties, most recent advances in particle physics have come from experiments at high-energy accelerators. To study these collisions, large-scale detector systems employ a variety of technologies to identify and measure the properties of the particles produced, aiming to reconstruct the primary particles from the signals they leave behind. In essence, the challenge is to infer the underlying interaction, often represented by a Feynman diagram, from the detector responses.
+The vast majority of recent breakthroughs in particle physics --- neutrino physics aside --- have been achieved at high-energy accelerator facilities, and in particular at the Large Hadron Collider (LHC), whose accelerator complex is described in \cref{sec:LHC}. The LHC provides proton--proton collisions at unprecedented centre-of-mass energies, which are recorded by large, multi-purpose detectors such as the Compact Muon Solenoid (CMS). This detector, presented in \cref{sec:CMS}, combines a broad set of complementary technologies to identify and characterise the particles emerging from each collision, with the goal of reconstructing the underlying physics process from the signals left in the detector material. The reconstruction strategies employed to this end are discussed in \cref{sec:EventReconstruction}. In practice, this amounts to inferring the hard-scattering interaction --- conveniently represented by a Feynman diagram --- from a set of raw detector responses. The chapter closes with an overview of Monte Carlo simulation techniques (\cref{sec:MC}) and of the CMS Phase--2 upgrade in preparation for the High-Luminosity LHC programme, both covered in \cref{sec:HLLHC}.
 
-This chapter provides an overview of the Compact Muon Solenoid (CMS) experiment. We first introduce the coordinate system and present the detector layout, including the silicon tracker, calorimeters, solenoid magnet, and muon chambers. The subsequent sections describe the trigger system and the format of the recorded datasets. Finally, we discuss particle reconstruction and identification, covering track reconstruction, the Particle-Flow algorithm, and the reconstruction of muons, electrons, photons, hadrons, jets, tau leptons, and missing transverse energy. The chapter concludes with a brief description of Monte Carlo simulations and the CMS Phase-2 upgrade for HL-LHC campaigns.
 
 \section{Historical background of CERN}
-\label{sec:Section1}
+\label{sec:HistoricalCERN}
 
 After World War II, European physics had fallen behind. This was largely due to the wartime destruction of European infrastructure, the fragmentation of national research efforts, and the emigration of leading scientists to the United States. Visionary scientists, including Pierre Auger and Niels Bohr, among others, responded by proposing a pan-European laboratory to reunite researchers and share resources. In 1949, French physicist Louis de Broglie made the first formal proposal at the Lausanne Cultural Conference. This initiated a series of follow-up actions that culminated in discussions with UNESCO. By 1952, eleven countries had signed an agreement to form a provisional council, and the name CERN (French acronym for Conseil Européen pour la Recherche Nucléaire) was then adopted.
 
@@ -29,6 +29,7 @@ Building on this progress, CERN inaugurated the Large Electron–Positron collid
 
 
 \section{The Large Hadron Collider}
+\label{sec:LHC}
 
 The Large Hadron Collider (LHC) \cite{EvansBryant2008}, located at CERN on the Franco-Swiss border, is the world's largest and most powerful particle accelerator. It represents the culmination of decades of progressive increases in accelerator energy at CERN. Its primary objective was the discovery of the Higgs boson --- the last missing element of the Standard Model (see Chapter XXXX) --- a goal achieved in 2012 by the ATLAS \cite{ATLAS_Higgs} and CMS \cite{CMS_Higgs} collaborations. Beyond this milestone, the LHC was conceived as a versatile tool to probe particle interactions at the TeV scale, capable of delivering proton-proton collisions at a centre-of-mass energy\footnote{$\sqrt{s}$ denotes the centre-of-mass energy of the collision, defined as the square root of the Mandelstam variable $s=(p_1+p_2)^2$, corresponding to the total energy available in the centre-of-mass frame.} up to $\sqrt{s}=14$ TeV. Although this nominal value has not yet been reached, the machine currently operates at a maximum energy of 13.6 TeV. At such energies, the LHC provides a unique opportunity to test the limits of the Standard Model: both by conducting high-precision measurements that may reveal subtle deviations from theoretical predictions, and by carrying out direct searches for phenomena Beyond the Standard Model (BSM) (some of which are discussed in Chapter XXXX).
 
@@ -276,6 +277,7 @@ The time schedule of the LHC is presented in \cref{fig:LHCschedule}.
 
 
 \section{The Compact Muon Solenoid experiment}
+\label{sec:CMS}
 
 Despite having a less marketable name than its counterparts at the LHC, the Compact Muon Solenoid experiment \cite{CMS_detector} is remarkable for its design and programme, which aim to cover a wide range of physical phenomena. The CMS experiment is located in the 100-metre-deep underground cavern at IP5, north of the LHC ring. As the name suggests, every sub-part constituting this detector has been compacted into a cylinder 21 metres long and 15 metres in diameter, for a total weight of 14\,500 tons (with a volume six times smaller and twice as light as ATLAS). CMS has been specifically designed to detect high-momentum muons, with muon chambers occupying 80\% of the detector volume. Lastly, the solenoid magnet, which generates a magnetic field of 3.8 T, deflects the trajectories of charged particles, allowing accurate measurement of their momentum and electric charge. In the following, the CMS detector has been carefully dissected component by component, both from the perspective of its instrumentation and its software operation, with particular emphasis on the event reconstruction algorithms that map raw detector signals into meaningful physics observables.
 
@@ -542,7 +544,7 @@ The High-Level Trigger (HLT) is a software-based selection system using CPUs and
 Monitoring the output rates of the L1 trigger and HLT is essential for assessing the overall performance of the trigger system, as these rates directly determine the data recorded for physics analyses. During data-taking, a dedicated shift crew oversees the smooth operation of the experiment, with each member assigned specific responsibilities. The trigger shifter monitors trigger rates in real time and adjusts prescales accordingly to maintain a stable output rate and prevent the data acquisition system from being overloaded. Since the start of Run--3, I have personally contributed to this effort by completing 27 8-hour shifts dedicated to monitoring the trigger system.
 
 
-\subsubsection{Data storage}
+\subsection{Data storage}
 
 Once the trigger system has assessed events of interest, they are encoded in a raw data format locally on disk. The data recorded by CMS is then distributed, stored, and analysed across a hierarchical computing infrastructure known as the Worldwide LHC Computing Grid (WLCG) \cite{WLCG} among CERN institutes, which are split into different tiers. Together, it combines about 1.4 million computer cores and 1.5 Exabytes ($1 \, \textrm{EB} = 10^6 \,\, \textrm{TB}$) of storage.
 
@@ -578,6 +580,7 @@ In parallel, data-taking conditions define additional distinctions. Prompt (or P
 
 
 \section{Event reconstruction, identification and calibration}
+\label{sec:EventReconstruction}
 
 Among the various particles produced at each proton-proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $\textrm{e}^\pm$, the charged hadrons (proton p, pions $\pi^\pm$, kaons $\textrm{K}^\pm$), the neutral ones (neutron n, neutral pion $\pi^0$), and the photons $\gamma$. Given different physics interactions, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
 
@@ -677,7 +680,7 @@ This classification is useful for distinguishing between cosmic muons induced by
 
 \subsection{Particle-Flow algorithm}
 
-The Particle-Flow algorithm (PF) aims to reconstruct particles and objects from an event by combining information from the tracker, calorimeters, and muon chambers. The PF algorithm is applied to the raw data and uses all low-level reconstructed objects from the sub-detectors to correlate measurements and, therefore, label particles along with their kinematic properties. Once a PF candidate is fully reconstructed, it is removed from the chain to reconstruct other PF elements.
+The Particle-Flow algorithm (PF) aims to reconstruct particles and objects from an event by combining information from the tracker, calorimeters, and muon chambers. The PF algorithm is applied to the raw data and uses all low-level reconstructed objects from the sub-detectors to correlate measurements and thereby label particles and their kinematic properties \cite{PFalgo}. Once a PF candidate is fully reconstructed, it is removed from the chain to reconstruct other PF elements.
 
 \subsubsection{Muons}
 
@@ -814,7 +817,45 @@ Since the PFMET is built from the vectorial sum of all PF candidates, any miscal
 
 
 
+\subsubsection{Kinematic measurements using the Particle-Flow algorithm}
+\label{sec:PFvsTrack}
+
+A track candidate is the result of the pattern recognition and fitting procedure applied to the hits recorded in the inner tracker. It characterises the trajectory of a charged particle through the magnetic field, and provides a direct measurement of its kinematics: $p_T$, $\eta$ and $\phi$. A track candidate carries no hypothesis on the particle species: it is a purely geometric and kinematic object.
+
+A PF candidate, by contrast, is the outcome of the global event reconstruction algorithm described above. It results from the cross-linking of tracker, calorimeter, and muon system information and is assigned a definite particle type --- electron, muon, photon, charged hadron, or neutral hadron. As a consequence, the kinematics associated with a PF candidate depends on its assigned type \cite{PFalgo}: for charged hadrons, the tracker measurement is preferred at low $p_T$, where the calorimeter resolution is limited, while a combination of both is used at higher $p_T$. For electrons, the $p_T$ is derived from a combination of the track curvature and the energy deposited in the ECAL. Muons rely almost exclusively on tracker and muon-system measurements, as they are essentially non-interacting in the calorimeters.
+
+This distinction has direct implications for the quality of the kinematics measurement. A charged pion reconstructed only as a track candidate would carry no calorimetric information, leading to a degraded energy estimate. Within the PF framework, the same pion is identified as a charged hadron, and its momentum is measured with the full tracker resolution, yielding a significantly better $p_T$ determination, particularly in the range $p_T \lesssim \mathcal{O}(10$ GeV) \cite{PFalgo}.
+
+\vspace{0.5 cm}
+
+A comparison of the $p_T$, $\eta$ and $\phi$ computed from the PF algorithm and from the track reconstruction alone on the 2024 MET miniAOD dataset is shown in \cref{fig:PFcompTrack}. As expected, the angular variables $\eta$ and $\phi$ are in close agreement between the two approaches, since both rely on the same inner tracker geometry. The transverse momentum, however, can differ significantly: at low $p_T$, the PF algorithm combines tracker and calorimeter information to refine the momentum estimate, while at higher $p_T$, the calorimeter resolution becomes competitive and is given increasing weight in the combination. This results in a $p_T$ assignment that can deviate substantially from the track-based measurement alone, particularly for hadrons in the low-momentum regime.
+
+\begin{figure}[h]
+    \centering
+    % Ligne du haut : figure du milieu centrée
+    \begin{subfigure}[c]{.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch1/CompareKinematics_PT.pdf}
+    \end{subfigure}
+    \\[0.5em]
+    % Ligne du bas : deux figures
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch1/CompareKinematics_ETA.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch1/CompareKinematics_PHI.pdf}
+    \end{subfigure}
+    \caption{Comparison between the kinematics on the 2024 MET miniAOD dataset computed from the PF algorithm and those extracted from track information: $p_T$ (Top), $\eta$ (Left) and $\phi$ (Right).}
+    \label{fig:PFcompTrack}
+\end{figure}
+
+
+
 \section{Monte Carlo simulation}
+\label{sec:MC}
 
 Monte Carlo (MC) simulations are central to high-energy physics analyses. They model both the signal (events of interest) and the background (other processes that mimic the signal). MC simulations also evaluate detector acceptance (the fraction of events detected), reconstruction efficiencies, and estimate systematic uncertainties. The simulation chain reproduces the full evolution of a proton-proton collision, from the hard interaction to detector response.
 
@@ -828,6 +869,7 @@ After hadronisation, the interaction of the produced particles with the detector
 
 
 \section[CMS Phase--2 upgrade for HL--LHC campaigns]{CMS Phase--2 upgrade for HL--LHC \\ campaigns}
+\label{sec:HLLHC}
 
 In July 2026, the last collisions took place in the LHC before LS3. This will initiate the Phase--2 upgrade of the CMS detector to sustain the future high luminosity program of the LHC, namely the HL--LHC, expected to last until 2040. The instantaneous luminosity is predicted to be at $5-7.5 \times 10^{34} \, \textrm{cm}^2\,\textrm{s}^{-1}$, which, integrated over then ten year period of time, would give an integrated luminosity of 3\,000 $\textrm{fb}^{-1}$ \cite{HLLHCplans}. 
 

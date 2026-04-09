@@ -55,6 +55,7 @@
 \RequirePackage[nameinlink,noabbrev,capitalise]{cleveref}
 \RequirePackage{relsize}
 \RequirePackage{multirow}
+\RequirePackage{amssymb}
 
 
 %% Import packages and fefine commands for watermark
