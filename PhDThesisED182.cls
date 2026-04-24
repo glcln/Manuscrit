@@ -56,6 +56,9 @@
 \RequirePackage{relsize}
 \RequirePackage{multirow}
 \RequirePackage{amssymb}
+\RequirePackage{dsfont}
+\RequirePackage{bm}
+\RequirePackage{pgfplots}
 
 
 %% Import packages and fefine commands for watermark

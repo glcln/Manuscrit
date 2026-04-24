@@ -1,41 +1,421 @@
-\chapter{Theorical background}
-\chaptermark{Theorical background}
+\chapter{Theoretical background}
+\chaptermark{Theoretical background}
 \label{ch:chapitre3}
 
+
+%% ============================================================
 \section{The Standard Model of particle physics}
+%% ============================================================
 
-\subsection{Historical outlook}
+\subsection{Natural units and conventions}
 
-\subsection{Quantum field theory and gauge symmetries}
+The International System of Units (SI) is used in macroscopic sciences and groups the second (s, the unit of time), metre (m, length), kilogram (kg, mass), ampere (A, electric current), kelvin (K, thermodynamic temperature), mole (mol, amount of substance), and candela (cd, luminous intensity). Howether when it comes to small, fast and high energetic objects, manipulating those units might not be relevant (too small or too high values). Therefore, other another set of units is prefered for particle physics, to reflects the natural length and time scales encountered, namely the \textit{natural units}. Thus, [kg, m, s] is replaced by [$\hbar,\,c,$ GeV]. For instance, mass are now expressed in GeV/$c^2$ and time in $\mathrm{GeV}^{-1}\hbar^{-1}$. To simplify algebraic expressions, $\hbar$ and $c$ are set to unity. Taking the natural units, combined with the Heaviside-Lorentz ones to get the Maxwell's equations taking the same form as with SI units, we get $\hbar=c=\varepsilon_0=\mu_0=1$, leading to:
 
-Fields
-Lagrangian
-Dirac + KG equation
-QED 
+\begin{equation*}
+    \mathrm{[energy]=[mass]=[momentum]=[time]^{-1}=[length]^{-1}=eV}
+\end{equation*}
+where the electronvolt (eV) is the norm. As an example, a proton of mass $m_p=1.673\times10^{-27}\,\mathrm{kg}=938\,\mathrm{GeV}$. On the same aspect, the fine structure constant defining the strength of the QED interactions is defined as:
+
+\begin{equation}
+    \alpha = \frac{e^2}{4\pi\varepsilon_0\hbar c} = \frac{e^2}{4\pi}
+\end{equation}
+is not dimensionless any more, but it has the same numerical values: $\alpha \approx 1/137$.
+
+From now, the natural units will be used as default ones. 
+
+
+\subsection{Foundations: quantum field theory}
+
+Quantum mechanics, in its original formulation, is a non-relativistic theory. The Schrödinger equation,
+\begin{equation}
+    i\hbar\,\frac{\partial \psi(\mathbf{x},t)}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2\psi(\mathbf{x},t) + V(\mathbf{x})\psi(\mathbf{x},t),
+\end{equation}
+treats time and space asymmetrically, and assumes that the number of particles is fixed. This framework becomes inconsistent at high energies, where special relativity must be taken into account.
+
+Special relativity imposes that energy at rest and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. Particle number is therefore no longer conserved, and a single-particle wave-function $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
+
+The natural resolution is to abandon the wave-function as a fundamental object and instead promote the dynamical variable to a field $\phi(\mathbf{x},t)$, defined at every point in spacetime, so that particle creation and annihilation are naturally accommodated as excitations of the underlying field.
+
+In this framework, the dynamics are governed by a Lagrangian density~$\mathcal{L}(\phi_i, \partial_\mu \phi_i)$, and the central object is the action
+\begin{equation}
+    \mathcal{S} = \int \mathcal{L}\left( \phi_i, \partial_\mu \phi_i \right) \, \mathrm{d}^4x \,,
+\end{equation}
+where $\mathcal{L}$ must be a scalar for $\mathcal{S}$ to be invariant under Lorentz transformations. The principle of least action, $\delta \mathcal{S} = 0$, then yields the Euler-Lagrange (EL) equations of motion,
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \phi_i} = \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial \left(\partial_\mu \phi_i\right)} \right),
+\end{equation}
+which govern the classical evolution of each field $\phi_i$. Quantization is subsequently achieved by imposing canonical commutation relations on the fields and their conjugate momenta, promoting the classical field theory to a full quantum field theory.
+
+\vspace{0.5 cm}
+
+According to Emmy Noether's theorem, presented in 1915 \cite{Noether1918}, every continuous symmetry of the Lagrangian $\mathcal{L}$ leads to a conserved quantity. Canonical examples include time-translation invariance implying energy conservation, spatial-translation invariance implying momentum conservation, and rotational invariance implying conservation of angular momentum. This result is of particular importance in the context of gauge invariance, as it provides the fundamental link between local symmetries and the conservation laws that underpin modern quantum field theories.
+
+
+
+\subsection{Free fields and wave equations}
+
+The Schrödinger equation has an asymmetry between the first derivative in time and the second derivative in space, it is not Lorentz invariant. Therefore, this equation is irrelevant of describing relativistic particles.
+
+The foundation of relativistic quantum mechanics started with Oscar Klein and Walter Gordon who introduced in 1926 the Klein-Gordon equation that took the Einstein relation dispersion, $E^2 = \mathbf{p}^2+m^2$, and applied it on a field $\phi_i(\textbf{x},t)$ as an upgrade version of the Schrödinger equation taking the relativistic aspect. This led to the the Klein-Gordon (KG) equation that explains the behaviour of a scalar field (spin-0) particle with a non-zero mass. 
+
+\vspace{0.5 cm}
+
+Despite an apparent success of joining together quantum mechanics and special relativity, the KG equation lead to a density of probability $\rho=2|N|^2E$ that can be negative depending on the sign of $E$, with $N$ being the normalisation factor. As the dispersion relation $E^2 = \mathbf{p}^2+m^2$ allows for negative energy solutions, this as non-sense for physical objects with negative energies to have a negative probability of presence.
+
+This lead to the work of Paul Dirac in 1928 that manages to get rid of this issue by looking after a energy, mass and momentum equation inducing first order derivative. The new dispersion relation is $E\mathds{1}_{4\times4}=\mathbi{\alpha}_{4\times4}\cdot\textbf{p}+\beta_{4\times4}m$, where $\alpha_i=\alpha_{4\times4\,,\,i}$ and $\beta=\beta_{4\times4}$ are $4\times4$ matrices and $\mathds{1}$ the identity matrix. One can do the computation and show that these matrices acts on four wave-functions $\psi_i$ forming the Dirac spinor $\psi=(\psi_1 \, \psi_2 \, \psi_3 \, \psi_4)^\mathrm{T}$.
+
+\begin{equation}
+    \alpha_i = \left( \begin{array}{cc} 0 & \sigma_i \\ \sigma_i & 0 \end{array} \right) 
+    \quad \mathrm{and} \quad \beta= \left( \begin{array}{cc} \mathds{1}_2 & 0 \\ 0 & -\mathds{1} \end{array} \right)
+\end{equation}
+where $i=x,y,z$ and $\sigma_i$ the three Pauli matrices.
+
+Following that the Dirac equation is expressed as:
+\begin{equation}
+    i\gamma^\mu\partial_\mu\psi(\mathbf{x},t)-m\psi(\mathbf{x},t)=0
+\end{equation}
+arising from the Dirac Lagrangian:
+\begin{equation}
+    \mathcal{L}_\mathrm{D} = i \overline{\psi}\gamma^\mu \partial_\mu \psi - m \overline{\psi} \psi = 0
+\end{equation}
+with $\gamma^\mu$ the Dirac matrices such that $\gamma^0=\beta$ and $\gamma^i=\beta\alpha^i$ and $\overline{\psi}=\psi^\dagger\gamma^0$, the adjoint spinor.
+
+Those new degrees of freedom introduces by the gamma matrices describe naturally the spin of the fundamental fermions and anti-fermions introduced in 1927 by Wolfgang Pauli using the Pauli matrices. The negative energy solutions are interpreted as negative energy particle propagating backwards in time or equivalently the physical positive energy antiparticles propagating forwards in time. The prediction of anti-matter was successfully tested later, with the positron being discovered in 1932 by Carl David Anderson \cite{Anderson1932}.
+Thus, the solution of the Dirac equation provide the relativistic quantum mechanical description of spin-half particles and antiparticles.
+
+\vspace{0.5 cm}
+
+The same formalism can be developed for massive spin-1 particles, leading to the Proca equations.
+
+
+
+\subsection{Gauge symmetries and interactions}
+
+One missing point of the equations listed above is the absence of interactions between the fields. If one wants to include interactions between fields, the impact of local and global transformations of the field on the associated Lagrangian must be described. Notice that, the Dirac Lagrangian remains unchanged under a global transformation, $\psi \rightarrow e^{i\theta}\psi$, but it's not any more the case for a local transformation, $\psi \rightarrow e^{i\theta(x)}\psi$, where the phase $\theta$ depends on the space-time coordinates.
+
+Imposing this invariance leads to the introduction of a vectorial field $A_\mu$ which transforms as $A_\mu \rightarrow A_\mu + \frac{1}{q}\partial_\mu\theta$, such that the Dirac Lagrangian is added to an interaction term $\mathcal{L}_{\mathrm{int}}$ described as:
+
+\begin{equation}
+    \mathcal{L}_{\mathrm{int}} = - q \overline{\psi} \gamma^\mu A_\mu \psi
+\end{equation} \, ,
+where the variable $q$ corresponds to the electrical charge that is a conserved quantity thanks to Noether's theorem for the U(1) invariance of the Dirac Lagrangian. This interaction between a fermion and this vector field is symbolised by this equation. The vector field, $A_\mu$ or technically speaking, a spin-1 boson, has no mass term and can be interpreted as a massless gauge boson.
+
+To complete the Lagrangian, one can add a kinematic for the vector field. It comes, that the kinematic therm arise from the Maxwell Lagrangian $\mathcal{L}_{\mathrm{Maxwell}}$ defined as:
+
+\begin{equation}
+    \mathcal{L}_{\mathrm{Maxwell}} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} \quad \mathrm{with} \, F_{\mu\nu} = \partial_\mu A_\nu - \partial^\nu A^\mu
+\end{equation}
+
+One could mention that this vector field is in fact the massless photon, that finds to be the gauge boson of electromagnetism. All this works have carefully been done between 1946 and 1950 by Richard Feynman, Julian Schwinger and Shin'ichir\={o} Tomonaga, and is sumarised in the Quantum ElectroDynamics (QED) Lagrangian:
+
+\begin{align}
+    \mathcal{L}_{\mathrm{QED}} & = \mathcal{L}_{\mathrm{D}} + \mathcal{L}_{\mathrm{int}} + \mathcal{L}_{\mathrm{Maxwell}} \\
+    & = i \overline{\psi}\gamma^\mu \partial_\mu \psi - m \overline{\psi} \psi - q \overline{\psi} \gamma^\mu A_\mu \psi -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
+\end{align}
+
+This theory is refereed as the U(1)$_\mathrm{em}$ as the QED Lagrangian is invariant under any local U(1) transformation.
+QED formalism explains the fermion pair annihilation/creation and Drell-Yann processes, from which the cross-section can be computed.
+
+\vspace{0.5 cm}
+
+One thing that QED failed to describe is the change in flavour of the particles in a given process. First modeled by Enrico Fermi in 1933, he explained the neutron decay and later the muon decay introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ describing the interaction. As this vision breaks unitarity, as each new Fermi vertex add a square energy term in it, one could say that this theory was a first step to hidden interaction that could be probed at higher energies.
+
+To solve the unitarity issue and to follow QED examples, it was supposed that the interaction was mediated by a massive charged gauge boson, later discovered as the two $\mathrm{W}^\pm$ bosons in 1983. As this interaction occurs at low distance range, the term weak as been adopted to defined such processes.
+
+Despite QED, the weak interaction mediated by the $\mathrm{W}^\pm$ bosons is not symmetric under parity transformation\footnote{In particle physics, parity is a discrete symmetry corresponding to the spatial inversion $\mathbf{x} \to -\mathbf{x}$, under which a physical system is said to
+be parity-symmetric if its governing laws are invariant under this transformation.}. The Chien-Shiung Wu experiment \cite{Wu1957}, demonstrated in 1956, that the weak interaction violates parity symmetry and is therefore chiral. By studying the $\beta$-decay of polarised $^{60}$Co nuclei, Wu provided the first direct experimental evidence for parity violation in nature: certain physical processes occur at different rates than their mirror-image counterparts.
+
+Going from this point, one could not impose a pure vector current as it is the case in QED with $j^\mu=\overline{\psi}\gamma^\mu\psi$, otherwise the weak interaction would not violate parity. Thus, its fermionic coupling takes the form $V-A$, meaning that the interaction vertex involves the current $\bar{\psi}\gamma^\mu(1-\gamma^5)\psi$, with $\gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3$ being the representation of the chirality. The chirality is defined as the eigenvalue of the $\gamma^5$ matrix, with eigenstates projected by $P_{L,R} = (1 \mp \gamma^5)/2$; it is an intrinsic, Lorentz-invariant
+property that is a direct consequence of the Lorentz structure under which the field transforms. Under parity transformation, a pure vector current $\bar{\psi}\gamma^\mu\psi$ is even, while an axial-vector current $\bar{\psi}\gamma^\mu\gamma^5\psi$ is odd; consequently, any mixed $V \pm A$ coupling contains a cross term that is odd under parity, leading to maximal parity violation. The $V-A$ structure has been found to be the one that match the experiment observations, and can be rewritten using the left-handed chiral projector $P_L$, yielding $\bar{\psi}\gamma^\mu(1-\gamma^5)\psi = 2\bar{\psi}_L\gamma^\mu\psi_L$, which shows that the weak interaction couples exclusively to left-handed fermions and right-handed anti-fermions. As a direct consequence of the impact of this V-A structure, one could compute the matrix element of the charged pion decay and observe that it would preferably decays into a muon instead of an electron (suppressed by a factor $10^{-4}$).
+
+Last but not least, as the weak interaction is completed by a neutral current mediated by the gauge boson Z, as it a similar unitarity as in the muon decay arise for high energy diffusion processes like $\mathrm{e}^+\mathrm{e}^-\rightarrow\mathrm{W}^+\mathrm{W}^-$. This boson has been theorised in the early 1960s as part of the electroweak unification, developped in section XXXX. The first evidence of a neutral current has been found in the Gargamelle experiment in 1973, leading to the discovery of the $\mathrm{W^\pm}$ and Z boson in 1983.
+
+Weak interaction occurs to a large energy scale, starting at low energy processes such as the beta decay or the pion decay, to medium ones with the $\mathrm{K}^0$ oscillation, to higher level such as the direct production of $\mathrm{W}^\pm$ and Z bosons.
+
+
+\vspace{0.5 cm}
+
+One last piece that needs to be modelled is the strong interaction. It is responsible for binding quarks into hadrons and for the cohesion of atomic nuclei, and is described by Quantum Chromodynamics (QCD), a non-abelian gauge theory based on the colour symmetry group $\mathrm{SU}(3)_c$. Note that, a non-abelian structure is required because the gauge bosons themselves carry the charge of the interaction and must therefore self-interact. This is in contrast to $\mathrm{U}(1)_{\mathrm{em}}$ QED, where the photon is electrically neutral and carries no self-coupling.
+
+
+The first evidence for a strong nuclear force came from the simple observation that atomic nuclei are stable: the electromagnetic repulsion between protons must be overcome by a stronger, short-range interaction. In 1935, Hideki Yukawa proposed a first model where the force was mediated by the pion, later discovered in 1947, that could explained the confinement of the force to nuclear scales. With the proliferation of hadron discoveries in the 1950s and 1960s, Murray Gell-Mann and George Zweig proposed independently the quark model in 1964. In this structure, hadrons are composite objects built from a small number of fundamental constituents called quarks, organised according to the $SU(3)$ flavour symmetry group. Mesons are quark--antiquark pairs $q\bar{q}$, while baryons are three-quark bound states $qqq$. All observed hadrons are colour-neutral (colour singlets), a property known as colour confinement.
+
+The reality of quarks as physical constituents was established in the late 1960s, where the structure of the proton was probed by electrons and revealed scattering off point-like, essentially free constituents. Feynman's parton model identified these with quarks and gluons, each carrying a momentum fraction $x$ of the proton, distributed according to the parton distribution functions (PDFs) $f_i(x, Q^2)$.
+
+The formalism of QCD, developed in the early 1970s, introduced eight gauge bosons associated with the eight generators of $\mathrm{SU}(3)_c$. Since these bosons bind quarks together, analogous to a glue holding the nucleus cohesive, they are called gluons. Gluons carry colour charge and therefore couple only to other colour-charged particles as quarks and gluons themselves, the later being a direct consequence of the non-abelian structure of $\mathrm{SU}(3)_c$.
+
+The QCD Lagrangian density is
+\begin{equation}
+    \mathcal{L}_{\text{QCD}} = \sum_{f} \bar{\psi}^f \left( i\gamma^\mu D_\mu - m_f \right) \psi^f
+    - \frac{1}{4} G^{a}_{\mu\nu}G^{\mu\nu}_{a},
+\end{equation}
+where the sum runs explicitly over quark flavours $f$, each with mass $m_f$. The covariant
+derivative
+\begin{equation}
+    D_\mu = \partial_\mu - i g_s \frac{\lambda^a}{2} A^a_\mu
+\end{equation}
+%
+ensures local $\mathrm{SU}(3)_c$ gauge invariance, where $g_s$ is the strong coupling constant, $A^a_\mu$ are the eight gluon fields, and $\lambda^a/2$ the eight Gell-Mann matrices, generators of $\mathrm{SU}(3)_c$. The gluon field strength tensor is
+%
+\begin{equation}
+    G^a_{\mu\nu} = \partial_\mu A^a_\nu - \partial_\nu A^a_\mu
+    + g_s f^{abc} A^b_\mu A^c_\nu,
+\end{equation}
+%
+where $f^{abc}$ are the structure constants of $SU(3)_c$. The non-linear term generates three- and four-gluon vertices, a direct consequence of the non-Abelian nature of the group.
+
+
+\vspace{0.5 cm}
+
+So far, the QED and QCD Lagrangians contain only massless gauge bosons, thus, their Lagrangians can be constructed straightforwardly from gauge invariance alone, without any additional complication. The weak theory otherwise, while successfully describing charged-current weak processes via $W^\pm$ exchange, is not a complete theory on its own. Introduced without an underlying gauge principle, the boson masses must be inserted by hand, breaking gauge invariance and rendering the theory non-renormalisable. Furthermore, the requirement of a neutral current mediator Z and the restoration of unitarity in weak scattering amplitudes cannot be accommodated without extending the symmetry group. 
+
+These shortcomings motivated the description of the weak interaction in terms of an $\mathrm{SU}(2)_L$ gauge theory, which naturally accommodates its chiral structure and introduces three gauge boson W$^{(1)}$, W$^{(2)}$ and W$^{(3)}$, with linear combination of the first two leading to the two massive gauge bosons $W^\pm$. The subscript $L$ indicates that the SU(2) gauge symmetry acts exclusively on left-handed fermion doublets, reflecting the maximal parity violation of the weak interaction.
+
+However, $\mathrm{SU}(2)_L$ alone cannot reproduce the correct electric charges of the fermions, nor does it accommodate a massless neutral gauge boson to be identified with the photon. Thus, suggesting that electromagnetism and the weak interaction are not independent, but two manifestations of a single underlying symmetry. The introduction of an additional $\mathrm{U}(1)_Y$ gauge factor, associated with weak hypercharge $Y$, let the Z boson and the photon to emerge, as linear combination of W$^{(3)}$ and the $\mathrm{U}(1)_Y$ boson B. This unification of the weak and electromagnetic interactions into the gauge group $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$, within which boson masses arise dynamically and renormalisability is restored, was achieved independently by Sheldon Glashow, Steven Weinberg, and Abdus Salam in the 1960s.
+
+
+The electroweak theory assigns two quantum numbers to each fermion: the weak isospin $T$ and the weak hypercharge $Y$. Left-handed fermions are grouped into $SU(2)_L$ doublets of weak isospin $T = 1/2$,
+%
+\begin{equation}
+    L = \begin{pmatrix} \nu_\ell \\ \ell^- \end{pmatrix}_L, \qquad
+    Q = \begin{pmatrix} u \\ d' \end{pmatrix}_L,
+\end{equation}
+%
+while right-handed fermions $e_R$, $u_R$ and $d_R$ are $\mathrm{SU}(2)_L$ singlets with $T = 0$ and therefore do not couple to the $W^\pm$ bosons, consistently with the $V-A$ structure of the weak interaction discussed previously. The weak hypercharge $Y$ is linked through the electric charge $Q_{\mathrm{em}}$ and the third component of weak isospin $T_3$ with $Q_{\mathrm{em}} = T_3 + \frac{Y}{2}$.
+
+The $\mathrm{U}(1)_Y$ gauge boson $B_\mu$ couples to all fermions with a strength proportional to their hypercharge, while the three $\mathrm{SU}(2)_L$ gauge bosons $W^a_\mu$ couple only to left-handed doublets.
+
+
+The electroweak Lagrangian is invariant under local $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ transformations. The gauge-covariant takes different forms depending on the chirality of the fermions:
+
+\begin{align}
+    {D_\mu}_L &= \partial_\mu - i g T_a W^a_\mu - i g' \frac{Y}{2} B_\mu \,, \\
+    \label{eq:covariantDerivativeWeak}
+    {D_\mu}_R &= \partial_\mu - i g' \frac{Y}{2} B_\mu \,,
+\end{align}
+where $g$ and $g'$ are the $\mathrm{SU}(2)_L$ and $\mathrm{U}(1)_Y$ coupling constants respectively, and $T_a = \sigma_a/2$ the generators of $\mathrm{SU}(2)_L$ with $\sigma_a$ the Pauli matrices. $W^a_\mu$ and $B_\mu$ are respectively the three and one bosons to the associated $\mathrm{SU}(2)_L$ and $\mathrm{U}(1)_Y$ groups. The interaction between the fermions are described by the Lagrangian:
+
+\begin{equation}
+    \mathcal{L}_\mathrm{fermions} = 
+    \overline{Q}_j i \gamma^\mu {D_\mu}_L Q_j + 
+    \overline{u}_j i \gamma^\mu {D_\mu}_R u_j +
+    \overline{d}_j i \gamma^\mu {D_\mu}_R d_j +
+    \overline{L}_j i \gamma^\mu {D_\mu}_L L_j +
+    \overline{e}_j i \gamma^\mu {D_\mu}_R e_j
+\end{equation}
+where the subscript $j$ sums over the three generations of fermions; $Q$, $u$ and $d$ being the left-handed doublet, right-handed singlet up and down quark fields; $L$ and $e$ the left-handed doublet and right-handed singlet electron fields.
+
+The kinetic terms for the gauge fields are
+
+\begin{equation}
+    \mathcal{L}_{\text{gauge}} = -\frac{1}{4} W^a_{\mu\nu} W^{a\,\mu\nu}
+    - \frac{1}{4} B_{\mu\nu} B^{\mu\nu},
+\end{equation}
+where $W^a_{\mu\nu} = \partial_\mu W^a_\nu - \partial_\nu W^a_\mu + g\, \varepsilon^{a}{}_{bc} W^b_\mu W^c_\nu$ and $B_{\mu\nu} = \partial_\mu B_\nu - \partial_\nu B_\mu$ are the $\mathrm{SU}(2)_L$ and $\mathrm{U}(1)_Y$ field strength tensors respectively, with $\varepsilon$ the antisymmetric structure constant of the SU(2) group.
+
+The Lagrangian as written, however, contains no mass terms: an explicit Dirac mass $m\bar{\psi}\psi = m(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R)$ couples a left-handed doublet to a right-handed singlet and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$; similarly, an explicit mass term $m^2 W^\mu_a W_{a\mu}$ for the gauge bosons breaks gauge invariance. Since the weak bosons are observed to be massive, a dynamical mechanism is required to generate these masses without spoiling the gauge symmetry: this is achieved by introducing a scalar field that would break the electroweak symmetry.
+
+
+
+\vspace{0.5 cm}
+
+The problem of mass generation in gauge theories was resolved in the 1960s through a series of independent contributions. Yoichiro Nambu and Jeffrey Goldstone had shown in 1960--1961 that the spontaneous breaking of a continuous global symmetry leads to the appearance of massless scalar bosons (the Goldstone bosons). In the context of a local gauge symmetry, however, Robert Brout and François Englert, Peter Higgs, and Gerald Guralnik, Carl Hagen, and Tom Kibble independently demonstrated in 1964 that these would-be Goldstone bosons are absorbed by the gauge bosons, which acquire a longitudinal degree of freedom and thus a mass. This is the Brout--Englert--Higgs (BEH) mechanism\footnote{The mechanism is commonly referred to as the BEH mechanism, though Peter Higgs himself preferred the acronym ABEGHHK'tH, acknowledging the contributions of Anderson, Brout, Englert, Guralnik, Hagen, Higgs, Kibble, and 't~Hooft.}. The remaining physical degree of freedom manifests as a massive scalar particle, namely the Higgs boson, whose was later discovered at CERN in 2012 by the ATLAS and CMS experiments.
+
+
+The BEH mechanism is implemented by introducing a complex scalar $\mathrm{SU}(2)_L$ doublet with weak hypercharge $Y = 1$,
+
+\begin{equation}
+    \phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix},
+\end{equation}
+with the scalar potential
+
+\begin{equation}
+    V(\phi) = \mu^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2,
+\end{equation}
+where $\lambda > 0$ ensures non divergence of the minimal value of $V(\phi)$. For $\mu^2 < 0$, the potential develops a continuous family of degenerate minima at $|\phi|^2 = -\mu^2 / 2\lambda \equiv v^2/2$, forming a ''Mexican hat'' shape depicted in \cref{fig:higgsshape}. The vacuum is not unique, as it lays on a circle of radius $v$ referred as the vacuum expectation value, and the choice of a particular ground state spontaneously breaks the $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ symmetry. Selecting the unitary gauge, the field is expanded around the vacuum expectation value as
+
+\begin{equation}
+    \phi(x) = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + h(x) \end{pmatrix},
+\end{equation}
+where $h$ is the physical Higgs boson field. The three would-be Goldstone bosons associated with the broken generators are absorbed as longitudinal polarisations of the $W^\pm$ and $Z^0$ bosons, while the $\mathrm{U}(1)_{\mathrm{em}}$ symmetry generated by $Q = T_3 + Y/2$ remains unbroken, leaving the photon massless.
+
+\begin{figure}
+    \centering
+    \input{Images/Ch3/HiggsShape.tex}
+    \caption{}
+    \label{fig:higgsshape}
+\end{figure}
+
+
+
+The masses of the gauge bosons arise from the covariant kinetic term of the Higgs doublet,
+
+\begin{equation}
+    \mathcal{L}_{\mathrm{Higgs}} = (D^\mu \phi)^\dagger (D_\mu \phi) - V(\phi),
+\end{equation}
+
+where $D_\mu$ is the electroweak covariant derivative acting on a left-handed doublet. Substituting the vacuum expectation value into this term generates quadratic terms in the gauge fields:
+
+\begin{align}
+    \mathcal{L}_{\mathrm{Higgs}} =& \quad \, \frac{1}{2} (\partial_\mu h) (\partial^\mu h) \\
+    &+ \frac{1}{8} g_W^2 \left( W_\mu^{(1)}+iW_\mu^{(2)} \right) \left( W^{(1) \,\mu}-iW^{(2) \,\mu} \right) \left(v+h(x)\right)^2 \\
+    &+ \frac{1}{8} \left( g_W W_\mu^{(3)}-g'B_\mu \right) \left( g_W W^{(3) \,\mu}-g'B^\mu \right) \left(v+h(x)\right)^2 \\
+    &- \lambda v^2 h^2 - \lambda v h^3 -\frac{1}{4}\lambda h^4
+\end{align}
+The first therm express the kinematics of the higgs field itself. The second term is in fact the kinematics of the two W$^\pm$ bosons which can be expressed as a linear combination of $W^{(1)}$ and $W^{(2)}$:
+\begin{equation}
+    W^\pm_\mu = \frac{1}{\sqrt{2}}\left( W^{(1)}_\mu \mp i W^{(2)}_\mu \right),
+\end{equation}
+therefore, developing the second term of $\mathcal{L}_{\mathrm{Higgs}}$ brings to light the mass of the W$^\pm$ bosons with $m_W=\frac{1}{2}g_Wv$ and also an interaction between the higgs field and the weak gauge field.
+
+Finally the developing the last term involving the neutral $W_\mu^{(3)}$ and $B_\mu$ bosons yields a $2\times 2$ mass matrix in the $(W^{(3)}_\mu, B_\mu)$ basis:
+
+\begin{equation}
+    \frac{v^2}{8} \left( g_W W_\mu^{(3)}-g'B_\mu \right) \left( g_W W^{(3) \,\mu}-g'B^\mu \right) = \frac{v^2}{8}\left(W^{(3)}_\mu \,\,\, B_\mu\right) 
+    \begin{pmatrix} g_W^2 & -g_Wg' \\ -g_Wg' & g'^2 \end{pmatrix}
+    \left( \begin{array}{c} W^{(3) \,\mu} \\ B^\mu \end{array} \right)
+    \label{eq:massZandA}
+\end{equation}
+where this $2\times 2$ mass matrix is real and symmetric, and can therefore be diagonalised in an orthonormal eigenbasis. The physical boson masses are given by the eigenvalues, while the eigenvectors $Z_\mu$ and $A_\mu$, corresponding respectively to the Z boson and the photon, are, by linear algebra, combination of $W_\mu^{(3)}$ and $B_\mu$. In this mass eigenstate basis, \cref{eq:massZandA} becomes:
+
+\begin{equation}
+    \frac{v^2}{8}\left(Z_\mu \,\,\, A_\mu\right) 
+    \begin{pmatrix} g_W^2+g'^2 & 0 \\ 0 & 0 \end{pmatrix}
+    \left( \begin{array}{c} Z^\mu \\ A^\mu \end{array} \right) = \frac{1}{2}\left(Z_\mu \,\,\, A_\mu\right) 
+    \begin{pmatrix} m_Z^2 & 0 \\ 0 & m_A^2 \end{pmatrix}
+    \left( \begin{array}{c} Z^\mu \\ A^\mu \end{array} \right)
+\end{equation}
+
+and
+
+\begin{equation}
+    \left( \begin{array}{c} Z^\mu \\ A^\mu \end{array} \right) = 
+    \begin{pmatrix} \cos \theta_W & -\sin \theta_W \\ \sin \theta_W & \cos \theta_W \end{pmatrix}
+    \left( \begin{array}{c} W^{(3) \,\mu} \\ B^\mu \end{array} \right)
+\end{equation}
+introducing the Weinberg angle $\theta_W$ satisfying $\tan\theta_W=g'/g_W$. Finally, the photon remains massless as $m_A=0$ and the Z boson acquire a non-zero mass $m_Z=\frac{1}{2}v\sqrt{g_W^2+g'^2}=m_W/\cos\theta_W$.
+
+One could also remark that after this basis change, if $W_\mu^{(3)}$ and $B_\mu$ are substituted by their expression in term of $Z_\mu$ and $A_\mu$ in \cref{eq:covariantDerivativeWeak}, it imposes the electromagnetic coupling constant $Q_\mathrm{em}$ to be related to $g$ and $g'$ by
+
+\begin{equation}
+    Q_\mathrm{em} = g \sin\theta_W = g' \cos\theta_W,
+\end{equation}
+showing that electromagnetism is not an independent interaction but emerges after electroweak symmetry breaking.
+
+Finally, the last terms of $\mathcal{L}_{\mathrm{Higgs}}$ gives a mass for the Higgs boson, with $m_H=v\sqrt{2\lambda}$, and describes the Higgs self-interactions.
+
+\vspace{0.5 cm}
+
+So far, the BEH mechanism generates masses for the three weak bosons while leaving the photon massless. However, fermions remain massless after symmetry breaking, as an explicit Dirac mass term $-m\bar{\psi}\psi = -m\left(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R\right)$ couples left-handed doublets to right-handed singlets and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. The same Higgs doublet $\phi$, however, allows the construction of gauge-invariant Yukawa couplings between left-handed doublets, right-handed singlets, and the Higgs field, which generate fermion masses dynamically after symmetry breaking.
+
+The Yukawa Lagrangian takes the general form
+\begin{equation}
+    \mathcal{L}_{\mathrm{Yukawa}} = - y^f_{ij}\, \overline{\psi}_{L,i}\, \phi\, \psi_{R,j} + \mathrm{h.c.}
+\end{equation}
+where $y^f_{ij}$ are complex coupling constants and the indices $i,j$ run over the three fermion generations. After spontaneous symmetry breaking, the Yukawa couplings generate Dirac mass matrices $m^f_{ij} = y^f_{ij}\, v/\sqrt{2}$.:
+
+\begin{equation}
+    \mathcal{L}_{\mathrm{Yukawa}}^\mathrm{EWSB}=  -\frac{v}{\sqrt{2}} y^f_{ij}\,\overline{\psi}_i \psi_j - \frac{y^f_{ij}}{\sqrt{2}}\, \overline{\psi}_i \psi_j\, h + \mathrm{h.c.}
+\end{equation}
+
+The physical fermion masses are obtained by diagonalising these matrices via independent unitary rotations in the up- and down-type quark sectors; since these rotations do not generally coincide, the $W^\pm$ bosons can mediate transitions between quark generations, a misalignment parametrised by the Cabibbo--Kobayashi--Maskawa (CKM) matrix. In the lepton sector, neutrinos are massless in the Standard Model, so the single unitary rotation can always be absorbed into a field redefinition, leaving no physical mixing matrix. Note that the last term of $\mathcal{L}_{\mathrm{Yukawa}}$ describes the coupling between the Higgs boson and the fermions.
+
+
+\subsubsection{The Standard Model Lagrangian}
+
+The full Standard Model Lagrangian can now be written as the sum of four terms:
+%
+\begin{equation}
+    \mathcal{L}_{\mathrm{SM}} = 
+    \mathcal{L}_{\mathrm{gauge}}
+    + \mathcal{L}_{\mathrm{fermions}}
+    + \mathcal{L}_{\mathrm{Higgs}}
+    + \mathcal{L}_{\mathrm{Yukawa}},
+\end{equation}
+%
+where $\mathcal{L}_{\mathrm{gauge}}$ contains the kinetic and self-interaction terms of the gauge bosons of $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ when adding the last therm of $\mathcal{L}_\mathrm{QCD}$ to it. $\mathcal{L}_{\mathrm{fermions}}$ the gauge-covariant kinetic terms of the fermion fields, with consideration of the quark interactions of $\mathcal{L}_\mathrm{QCD}$ in addition. $\mathcal{L}_{\mathrm{Higgs}}$ the Higgs kinetic term and potential, and $\mathcal{L}_{\mathrm{Yukawa}}$ the Yukawa couplings responsible for fermion mass generation. This Lagrangian, invariant under $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ and spontaneously broken to $\mathrm{SU}(3)_c \otimes \mathrm{U}(1)_{\mathrm{em}}$ by the Higgs mechanism, constitutes the complete theoretical framework of the
+Standard Model.
+
+\vspace{0.5 cm}
+
+The Standard Model contains 19 free parameters that must be determined experimentally:
+\begin{itemize}
+    \item \textbf{Gauge couplings (3):} the strong coupling $g_s$, the $\mathrm{SU}(2)_L$     coupling $g$, and the $\mathrm{U}(1)_Y$ coupling $g'$;
+    \item \textbf{Higgs sector (2):} the mass parameter $\mu^2$ and the quartic coupling $\lambda$, or equivalently the vacuum expectation value $v$ and the Higgs boson mass $m_H$;
+    \item \textbf{Fermion masses (9):} the six quark masses $m_u,\, m_d,\, m_s,\, m_c,\, m_b,\, m_t$ and the three charged lepton masses $m_e,\, m_\mu,\, m_\tau$, all generated via Yukawa couplings;
+    \item \textbf{CKM matrix (4):} three mixing angles $\theta_{12},\, \theta_{13},\, \theta_{23}$ and one $CP$-violating phase $\delta$;
+    \item \textbf{Strong $CP$ parameter (1):} $\theta_{\mathrm{QCD}}$, the parameter     controlling $CP$ violation in the strong sector, arising from a topologically allowed gauge-invariant term in the QCD Lagrangian, experimentally consistent with zero.
+\end{itemize}
+
+The existence of these 19 free parameters, with no theoretical prediction for their values, is one of the primary motivations for searching for physics beyond the Standard Model.
+
+\vspace{0.5 cm}
+
+
+
 
 \subsection{The Standard Model Lagrangian}
-
-QCD
-Weak symmetry breaking
-Higgs mechanism
-Fundamental particles table
-
-\subsection{Limits of the model}
-
-
-\section{Beyond Standard Model long-lived particles}
-
-\subsection{Introduction of supersymmetry}
-
-basic description
-MSSM
-GMSB
-
-\subsection{Long-lived particles}
+- Fermion content: quarks and leptons, three generations, quantum numbers table
+- Gauge boson content: g, W±, Z, gamma
+- Summary table of fundamental particles (fermions + bosons + Higgs)
 
 
 
-Search within CMS
-Focus on HSCP
+\subsection{Limitations of the Standard Model}
+- Experimental observations unexplained:
+    · Neutrino masses and oscillations
+    · Matter-antimatter asymmetry (baryogenesis, CP violation)
+    · Dark matter: gravitational evidence (rotation curves, CMB, lensing), no SM candidate
+    · Dark energy (brief)
+- Theoretical issues:
+    · Hierarchy problem (quadratic divergences, fine-tuning of Higgs mass)
+    · Gravity not included (no quantum gravity)
+    · Strong CP problem
+    · Landau pole in U(1), unification of couplings
+- Conclusion: motivation for BSM theories
 
-\subsection{Current status of the searches}
+%% ============================================================
+\section{Beyond the Standard Model: supersymmetry and long-lived particles}
+%% ============================================================
+
+\subsection{Supersymmetry: principles and motivations}
+- Symmetry between fermions and bosons: superpartners
+- Resolving the hierarchy problem: quadratic divergence cancellations
+- Unification of gauge couplings at high scale
+- SUSY algebra: supercharges, supermultiplets (chiral, vector)
+- R-parity: definition, consequences (LSP stability → DM candidate)
+- Mass spectrum: sparticles naming conventions (squarks, sleptons, gauginos, higgsinos)
+
+\subsection{The Minimal Supersymmetric Standard Model (MSSM)}
+- Minimal field content: two Higgs doublets, superpartner table
+- MSSM Lagrangian: superpotential, soft SUSY-breaking terms
+- Soft breaking mechanisms: parameters, mass splitting
+- Lightest supersymmetric particle (LSP): neutralino as DM candidate
+- Simplified models used in CMS searches
+
+\subsection{Gauge-Mediated Supersymmetry Breaking (GMSB) and other scenarios}
+- GMSB mechanism: messenger sector, gravitino as LSP
+- Consequences: long decay chains, displaced vertices, slow particles
+- Other BSM scenarios producing long-lived particles:
+    · Split-SUSY: suppressed decay widths
+    · Universal Extra Dimensions (briefly)
+    · Stable massive particles in other contexts (magnetic monopoles, Q-balls)
+
+\subsection{Long-lived particles and exotic signatures}
+- Definition: c*tau from micrometre to cosmological scales
+- Why long lifetimes? Small couplings, mass degeneracy, conserved quantum number
+- Experimental signatures: displaced vertices, disappearing tracks,
+  delayed photons, heavy stable charged particles
+- Focus: Heavy Stable Charged Particles (HSCP)
+    · Definition and properties: high mass, charge ±1 or fractional, low beta
+    · Observable signatures: anomalous ionisation (dE/dx), time-of-flight (ToF)
+    · Representative BSM candidates: long-lived stau (GMSB), 
+      long-lived stop, chargino (Split-SUSY), R-hadrons
+
+\subsection{Current experimental status of HSCP searches}
+- Search strategy at CMS: dE/dx + ToF combination, tracker + muon system
+- Previous CMS results: Run 1, Run 2 — exclusion limits in (mass, cross-section) plane
+- ATLAS complementary results (brief comparison)
+- Benchmark signal models used: stau, gluino R-hadrons, stop R-hadrons
+- Interpretation: model-independent limits vs simplified models
+- Open questions and sensitivity prospects for Run 3 / HL-LHC
