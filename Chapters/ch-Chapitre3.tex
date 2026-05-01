@@ -5,7 +5,7 @@
 
 \section{Natural units and conventions}
 
-The International System of Units (SI) is used in macroscopic sciences and groups the second (s, the unit of time), metre (m, length), kilogram (kg, mass), ampere (A, electric current), kelvin (K, thermodynamic temperature), mole (mol, amount of substance), and candela (cd, luminous intensity). However, when it comes to small, fast and highly energetic objects, manipulating those units might not be relevant (too small or too high values). Therefore, another set of units is preferred for particle physics, to reflect the natural length and time scales encountered, namely the \textit{natural units}. Thus, [kg, m, s] is replaced by [$\hbar,\,c,$ GeV]. For instance, mass are now expressed in GeV/$c^2$ and time in $\mathrm{GeV}^{-1}\hbar^{-1}$. To simplify algebraic expressions, $\hbar$ and $c$ are set to unity. Taking the natural units, combined with the Heaviside-Lorentz ones to get Maxwell's equations taking the same form as with SI units, we get $\hbar=c=\varepsilon_0=\mu_0=1$, leading to:
+The International System of Units (SI) is used in macroscopic sciences and groups the second (s, the unit of time), metre (m, length), kilogram (kg, mass), ampere (A, electric current), kelvin (K, thermodynamic temperature), mole (mol, amount of substance), and candela (cd, luminous intensity). However, when it comes to small, fast and highly energetic objects, manipulating those units might not be relevant (too small or too high values). Therefore, another set of units is preferred in particle physics to reflect the natural length and time scales encountered: the \textit{natural units}. Thus, [kg, m, s] is replaced by [$\hbar,\,c,$ GeV]. For instance, mass are now expressed in GeV/$c^2$ and time in $\mathrm{GeV}^{-1}\hbar^{-1}$. To simplify algebraic expressions, $\hbar$ and $c$ are set to unity. Taking the natural units, combined with the Heaviside-Lorentz ones to get Maxwell's equations taking the same form as with SI units, we get $\hbar=c=\varepsilon_0=\mu_0=1$, leading to:
 
 \begin{equation*}
     \mathrm{[energy]=[mass]=[momentum]=[time]^{-1}=[length]^{-1}=eV}
@@ -14,7 +14,7 @@ where the electronvolt (eV) is the norm. As an example, a proton of mass $m_p=1.
 
 \vspace{0.5 cm}
 
-From now on, the natural units will be used as the default ones. 
+From now on, natural units will be the default. 
 
 
 \section{The Standard Model of particle physics}
@@ -46,11 +46,11 @@ Every fermion has an associated antiparticle of opposite charge and opposite spi
 
 \subsection{Foundations: quantum field theory}
 
-As the Standard Model describes elementary particles at a high energy scale, its formalism relies on both quantum mechanics, special relativity and field theory. 
+As the Standard Model describes elementary particles at a high-energy scale, its formalism relies on quantum mechanics, special relativity, and field theory. 
 
 Quantum mechanics, in its original formulation, is a non-relativistic theory. The Schrödinger equation treats time and space asymmetrically and assumes that the number of particles is fixed. This framework becomes inconsistent at high energies, where special relativity must be taken into account.
 
-One needs to consider special relativity to deal with those particles moving at speeds far beyond normal experience. This formalism imposes that the rest energy and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. Particle number is therefore no longer conserved, and a single-particle wave-function $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
+One needs to consider special relativity when dealing with particles moving at speeds far beyond those of everyday experience. This formalism imposes that the rest energy and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. Particle number is therefore no longer conserved, and a single-particle wave-function $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
 
 The natural resolution is to abandon the wave-function as a fundamental object and instead promote the dynamical variable to a field $\phi(\mathbf{x},t)$, defined at every point in spacetime, so that particle creation and annihilation are naturally accommodated as excitations of the underlying field.
 
@@ -82,11 +82,11 @@ Describing the behaviour of a field interacting with other fields in the space-t
 
 The foundation of relativistic quantum mechanics started with Oskar Klein and Walter Gordon, who introduced in 1926 the Klein-Gordon equation that took the Einstein relation dispersion, $E^2 = \mathbf{p}^2+m^2$, and applied it to a field $\phi_i(\textbf{x},t)$ as an upgraded version of the Schrödinger equation, taking the relativistic aspect. This led to the Klein-Gordon (KG) equation that explains the behaviour of a scalar field (spin-0) particle with a non-zero mass. 
 
-Despite an apparent success of joining together quantum mechanics and special relativity, the KG equation leads to a density of probability $\rho=2|N|^2E$ that can be negative depending on the sign of $E$, with $N$ being the normalisation factor. As the dispersion relation $E^2 = \mathbf{p}^2+m^2$ allows for negative energy solutions, this as non-sense for physical objects with negative energies to have a negative probability of presence.
+Despite an apparent success of joining together quantum mechanics and special relativity, the KG equation leads to a density of probability $\rho=2|N|^2E$ that can be negative depending on the sign of $E$, with $N$ being the normalisation factor. As the dispersion relation $E^2 = \mathbf{p}^2+m^2$ allows for negative energy solutions, it is nonsense for physical objects with negative energies to have a negative probability of presence.
 
 \vspace{0.5 cm}
 
-This led to the work of Paul Dirac in 1928, that manages to get rid of this issue by looking at an energy, mass and momentum equation, inducing a first-order derivative. The new dispersion relation becomes $E\mathds{1}_{4\times4}=\mathbi{\alpha}_{4\times4}\cdot\textbf{p}+\beta_{4\times4}m$, where $\alpha_i=\alpha_{4\times4\,,\,i}$ and $\beta=\beta_{4\times4}$ are $4\times4$ matrices and $\mathds{1}$ the identity matrix. After working out the details of the calculations, the matrices can be expressed as follows:
+This led to Paul Dirac's work in 1928, which resolved this issue by considering an energy-mass-momentum equation that introduced a first-order derivative. The new dispersion relation becomes $E\mathds{1}_{4\times4}=\mathbi{\alpha}_{4\times4}\cdot\textbf{p}+\beta_{4\times4}m$, where $\alpha_i=\alpha_{4\times4\,,\,i}$ and $\beta=\beta_{4\times4}$ are $4\times4$ matrices and $\mathds{1}$ the identity matrix. After working out the details of the calculations, the matrices can be expressed as follows:
 
 \begin{equation}
     \alpha_i = \left( \begin{array}{cc} 0 & \sigma_i \\ \sigma_i & 0 \end{array} \right) 
@@ -94,7 +94,7 @@ This led to the work of Paul Dirac in 1928, that manages to get rid of this issu
 \end{equation}
 where $i=x,y,z$ and $\sigma_i$ the three Pauli matrices. Those matrices acts on four wave-functions $\psi_i$ forming the Dirac spinor $\psi=(\psi_1 \, \psi_2 \, \psi_3 \, \psi_4)^\mathrm{T}$.
 
-Following that the Dirac equation is expressed as:
+Following that, the Dirac equation is expressed as:
 \begin{equation}
     i\gamma^\mu\partial_\mu\psi(\mathbf{x},t)-m\psi(\mathbf{x},t)=0
 \end{equation}
@@ -104,7 +104,7 @@ arising from the Dirac Lagrangian:
 \end{equation}
 with $\gamma^\mu$ the Dirac matrices such that $\gamma^0=\beta$ and $\gamma^i=\beta\alpha^i$, and $\overline{\psi}=\psi^\dagger\gamma^0$, the adjoint spinor.
 
-Those new degrees of freedom introduced by the gamma matrices naturally describe the spin of the fundamental fermions and anti-fermions introduced in 1925 by Wolfgang Pauli. The negative energy solutions are interpreted as negative energy particles propagating backwards in time or equivalently, the physical positive energy antiparticles propagating forwards in time. The prediction of antimatter was successfully tested later, with the positron being discovered in 1932 by Carl David Anderson \cite{Anderson1932}.
+Those new degrees of freedom introduced by the gamma matrices naturally describe the spin of the fundamental fermions and anti-fermions introduced in 1925 by Wolfgang Pauli. The negative-energy solutions are interpreted as negative-energy particles propagating backwards in time, or equivalently, as the physical positive-energy antiparticles propagating forwards in time. The prediction of antimatter was later confirmed with the discovery of the positron in 1932 by Carl David Anderson \cite{Anderson1932}.
 
 Consequently, the solution of the Dirac equation provides the relativistic quantum mechanical description of spin-half particles and antiparticles.
 
@@ -122,7 +122,7 @@ Imposing this invariance leads to the introduction of a vectorial field $A_\mu$ 
 \begin{equation}
     \mathcal{L}_{\mathrm{int}} = - Q_\mathrm{em} \overline{\psi} \gamma^\mu A_\mu \psi \, ,
 \end{equation}
-where the variable $Q_\mathrm{em}$ corresponds to the electrical charge that is a conserved quantity through Noether's theorem for the U(1) invariance of the Dirac Lagrangian. This additional $\mathcal{L}_{\mathrm{int}}$ term refers to the interaction between a fermion and this vector field. The vector field (spin-1 boson) $A_\mu$ has no mass term and can be interpreted as a massless gauge boson.
+where the variable $Q_\mathrm{em}$ corresponds to the electrical charge that is a conserved quantity through Noether's theorem for the U(1) invariance of the Dirac Lagrangian. This additional $\mathcal{L}_{\mathrm{int}}$ term denotes the interaction between a fermion and the vector field. The vector field (spin-1 boson) $A_\mu$ has no mass term and can be interpreted as a massless gauge boson.
 
 \vspace{0.5 cm}
 
@@ -143,18 +143,18 @@ The consistent quantum field theoretical description of the electromagnetic inte
     & = i \overline{\psi}\gamma^\mu \partial_\mu \psi - m \overline{\psi} \psi - Q_\mathrm{em} \overline{\psi} \gamma^\mu A_\mu \psi -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
 \end{align}
 
-This theory is referred to as the U(1)$_\mathrm{em}$ as the QED Lagrangian is invariant under any local U(1) transformation. This formalism explains the fermion pair annihilation/creation and Drell-Yan processes.
+This theory is referred to as the U(1)$_\mathrm{em}$ as the QED Lagrangian is invariant under any local U(1) transformation. This formalism explains fermion pair creation and annihilation, as well as the Drell-Yan process.
 
 
 \subsection{Weak interaction}
 
-One thing that QED failed to describe is the change in flavour of the particles in a given process. 
+One thing that QED failed to describe is the change in the particles' flavour in a given process. 
 
 \vspace{0.5 cm}
 
-First modelled by Enrico Fermi in 1933, he explained the neutron decay and later the muon decay, introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ describing the interaction. As this vision breaks unitarity, as each new Fermi vertex adds a square energy term to it, one could say that this theory was a first step to hidden interaction that could be probed at higher energies.
+First modelled by Enrico Fermi in 1933, he explained the neutron decay and later the muon decay, introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ describing the interaction. As this vision breaks unitarity, with each new Fermi vertex adding a square-energy term to it, one could say that this theory was a first step toward a hidden interaction that could be probed at higher energies.
 
-To address the unitarity issue and to follow QED examples, it was supposed that the interaction was mediated by a massive charged gauge boson, later discovered as the two $W^\pm$ bosons. As this interaction occurs at a low distance range, the term weak has been adopted to define such processes.
+To address the unitarity issue and follow QED examples, it was supposed that the interaction was mediated by a massive charged gauge boson, later identified as the $W^\pm$ bosons. As this interaction occurs at a short distance, the term "weak" has been adopted to describe such processes.
 
 \vspace{0.5 cm}
 
@@ -165,9 +165,9 @@ Based on this, a pure vector current is not allowed --- as is the case in QED wi
 
 \vspace{0.5 cm}
 
-Similarly, the weak interaction is completed by a neutral current mediated by the $Z^0$ boson, whose existence is required to preserve $W^\pm$ production divergences with energy, solving the unitarity. The first experimental evidence for neutral currents was found at the Gargamelle bubble chamber at CERN in 1973, leading to the direct discovery of the $W^\pm$ and $Z^0$ bosons in 1983 \cite{WandZ}.
+Similarly, the weak interaction is completed by a neutral current mediated by the $Z^0$ boson, whose existence is required to preserve $W^\pm$ production divergences at high energy, thereby preserving unitarity. The first experimental evidence for neutral currents was found at the Gargamelle bubble chamber at CERN in 1973, leading to the direct discovery of the $W^\pm$ and $Z^0$ bosons in 1983 \cite{WandZ}.
 
-Weak interaction manifests across a broad range of energy scales, from low-energy processes such as nuclear beta decay and pion decay, to intermediate scales with $\mathrm{K}^0$ oscillations, up to the direct production of $W^\pm$ and $Z^0$ bosons at colliders.
+Weak interactions manifest across a broad range of energy scales, from low-energy processes such as nuclear beta decay and pion decay to intermediate scales with $\mathrm{K}^0$ oscillations, and up to the direct production of $W^\pm$ and $Z^0$ bosons at colliders.
 
 
 \subsection{Quantum chromodynamics}
@@ -259,7 +259,7 @@ However, the total Lagrangian $\mathcal{L}_\mathrm{fermions}+\mathcal{L}_\mathrm
 \subsection{Electroweak symmetry breaking}
 \label{subsection:BEH}
 
-The problem of mass generation in gauge theories was resolved in the 1960s through a series of independent contributions. Yoichiro Nambu and Jeffrey Goldstone had shown in 1960--1961 that the spontaneous breaking of a continuous global symmetry leads to the appearance of massless scalar bosons (the Goldstone bosons). In the context of a local gauge symmetry, however, Robert Brout and François Englert, Peter Higgs, and Gerald Guralnik, Carl Hagen, and Tom Kibble independently demonstrated in 1964 that these would-be Goldstone bosons are absorbed by the gauge bosons, which acquire a longitudinal degree of freedom and thus a mass. This is the Brout--Englert--Higgs (BEH) mechanism\footnote{The mechanism is commonly referred to as the BEH mechanism, though Peter Higgs himself preferred the acronym ABEGHHK'tH, acknowledging the contributions of Anderson, Brout, Englert, Guralnik, Hagen, Higgs, Kibble, and 't~Hooft.}. The remaining physical degree of freedom manifests as a massive scalar particle, namely the Higgs boson $H$.
+The problem of mass generation in gauge theories was resolved in the 1960s through a series of independent contributions. Yoichiro Nambu and Jeffrey Goldstone had shown in 1960-1961 that the spontaneous breaking of a continuous global symmetry leads to the appearance of massless scalar bosons (the Goldstone bosons). In the context of a local gauge symmetry, however, Robert Brout and François Englert, Peter Higgs, and Gerald Guralnik, Carl Hagen, and Tom Kibble independently demonstrated in 1964 that these would-be Goldstone bosons are absorbed by the gauge bosons, which acquire a longitudinal degree of freedom and thus a mass. This is the Brout--Englert--Higgs (BEH) mechanism\footnote{The mechanism is commonly referred to as the BEH mechanism, though Peter Higgs himself preferred the acronym ABEGHHK'tH, acknowledging the contributions of Anderson, Brout, Englert, Guralnik, Hagen, Higgs, Kibble, and 't~Hooft.}. The remaining physical degree of freedom manifests as a massive scalar particle, namely the Higgs boson $H$. In the history of the universe, this symmetry breaking is believed to have occurred shortly after the Big Bang, when the temperature of the universe dropped below approximately $160$~GeV~\cite{ElectroWeak_Temperature}, triggering the electroweak phase transition and giving rise to the massive gauge bosons observed today.
 
 \vspace{0.5 cm}
 
@@ -381,8 +381,7 @@ The full Standard Model Lagrangian can now be written as the sum of four terms:
     + \mathcal{L}_{\mathrm{Higgs}}
     + \mathcal{L}_{\mathrm{Yukawa}},
 \end{equation}
-where $\mathcal{L}_{\mathrm{gauge}}$ contains the kinetic and self-interaction terms of the gauge bosons of $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ when adding the last term of $\mathcal{L}_\mathrm{QCD}$ to it. $\mathcal{L}_{\mathrm{fermions}}$ is the gauge-covariant kinetic terms of the fermion fields, with consideration of the quark interactions of $\mathcal{L}_\mathrm{QCD}$ in addition. $\mathcal{L}_{\mathrm{Higgs}}$ the Higgs kinetic term and potential, and $\mathcal{L}_{\mathrm{Yukawa}}$ the Yukawa couplings responsible for fermion mass generation. This Lagrangian, invariant under $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ and spontaneously broken to $\mathrm{SU}(3)_c \otimes \mathrm{U}(1)_{\mathrm{em}}$ by the Higgs mechanism, constitutes the complete theoretical framework of the
-Standard Model.
+where $\mathcal{L}_{\mathrm{gauge}}$ contains the kinetic and self-interaction terms of the gauge bosons of $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ when adding the last term of $\mathcal{L}_\mathrm{QCD}$ to it. $\mathcal{L}_{\mathrm{fermions}}$ is the gauge-covariant kinetic terms of the fermion fields, with consideration of the quark interactions of $\mathcal{L}_\mathrm{QCD}$ in addition. $\mathcal{L}_{\mathrm{Higgs}}$ the Higgs kinetic term and potential, and $\mathcal{L}_{\mathrm{Yukawa}}$ the Yukawa couplings responsible for fermion mass generation. This Lagrangian, invariant under $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ and spontaneously broken to $\mathrm{SU}(3)_c \otimes \mathrm{U}(1)_{\mathrm{em}}$ by the Higgs mechanism, constitutes the complete theoretical framework of the Standard Model.
 
 \vspace{0.5 cm}
 
@@ -433,13 +432,13 @@ The Standard Model contains 19 free parameters that must be determined experimen
     \label{tab:SM_quantum_numbers}
 \end{table}
 
-To illustrate the historical development of the Standard Model, \cref{fig:SM_discovery_table} summarises the timeline of particle discoveries, distinguishing between theoretical predictions and experimental observations, and illustrating the broad range of masses spanning over fifteen orders of magnitude.
+To illustrate the historical development of the Standard Model, \cref{fig:SM_discovery_table} summarises the timeline of particle discoveries, distinguishing between theoretical predictions and experimental observations, and illustrating the broad range of masses spanning more than 15 orders of magnitude.
 
 Finally, the predictive power of the Standard Model is strikingly illustrated in \cref{fig:CMS_xsec_summary}, where theory and experiment agree across more than fourteen orders of magnitude in production cross section, spanning a wide range of processes from inclusive QCD and electroweak production to rare and multi-boson final states. 
 
 \vspace{0.5 cm}
 
-Yet this remarkable concordance conceals the limitations of the theory: several observed phenomena remain unexplained, and the 19 free parameters of the Standard Model, whose values must be determined experimentally with no theoretical justification, point towards a more fundamental underlying theory.
+Yet this remarkable concordance conceals the theory's limitations: several observed phenomena remain unexplained, and the 19 free parameters of the Standard Model, whose values must be determined experimentally with no theoretical justification, point to a more fundamental underlying theory.
 
 \newpage
 
@@ -462,7 +461,7 @@ Yet this remarkable concordance conceals the limitations of the theory: several 
 
 \subsection{Limitations of the Standard Model}
 
-Despite its remarkable predictive success, the Standard Model leaves a number of experimental observations unexplained and suffers from several theoretical shortcomings, providing strong motivation for physics beyond the Standard Model (BSM).
+Despite its remarkable predictive success, the Standard Model leaves several experimental observations unexplained and suffers from several theoretical shortcomings, providing strong motivation for physics beyond the Standard Model (BSM).
 
 \vspace{0.5 cm}
 \textbf{Neutrino masses and oscillations}
@@ -482,13 +481,13 @@ The Standard Model predicts that matter and antimatter should have been produced
 
 Multiple independent cosmological observations indicate the existence of a non-luminous, non-baryonic form of matter that accounts for approximately 27\% of the energy content of the universe. None of the Standard Model particles possesses the required properties: stability on cosmological timescales, negligible electromagnetic and strong interactions, and the correct density, making dark matter one of the most compelling arguments for BSM physics.
 
-Observations of Type Ia supernovae in 1998 revealed that the expansion of the universe is accelerating \cite{Riess1998, Perlmutter1999}, attributed to a form of energy of unknown origin, namely the dark energy, constituting approximately 68\% of the total energy budget. Similarly, no Standard Model particle can account for dark energy, and the vacuum energy estimated from quantum field theory exceeds the observed value by some 120 orders of magnitude.
+Observations of Type Ia supernovae in 1998 revealed that the expansion of the universe is accelerating \cite{Riess1998, Perlmutter1999}, attributed to a form of energy of unknown origin, namely dark energy, which constitutes approximately 68\% of the total energy budget. Similarly, no Standard Model particle can account for dark energy, and the vacuum energy estimated from quantum field theory exceeds the observed value by some 120 orders of magnitude.
 
 \vspace{0.5 cm}
 \textbf{The hierarchy problem}
 \vspace{0.5 cm}
 
-The measured Higgs boson mass $m_H \approx 125$~GeV is some seventeen orders of magnitude below the Planck scale $\Lambda \sim 10^{19}$~GeV. In quantum field theory, the Higgs mass receives loop corrections proportional to the square of the highest energy scale in the theory; if that scale is $\Lambda$, these corrections are of order $10^{38}$~GeV$^2$, vastly exceeding $m_H^2 \sim 10^4$~GeV$^2$. Obtaining the correct physical mass, therefore, requires the bare mass parameter and the radiative corrections to cancel to one part in $10^{34}$, with no theoretical justification for such a precise cancellation. This unnatural fine-tuning is the hierarchy problem, and its resolution is one of the central motivations for BSM theories such as supersymmetry, which introduces a symmetry that cancels the quadratic divergences exactly.
+The measured Higgs boson mass $m_H \approx 125$~GeV is some seventeen orders of magnitude below the Planck scale $\Lambda \sim 10^{19}$~GeV. In quantum field theory, the Higgs mass receives loop corrections proportional to the square of the highest energy scale in the theory; if that scale is $\Lambda$, these corrections are of order $10^{38}$~GeV$^2$, vastly exceeding $m_H^2 \sim 10^4$~GeV$^2$. Obtaining the correct physical mass, therefore, requires the bare mass parameter and the radiative corrections to cancel to one part in $10^{34}$, with no theoretical justification for such a precise cancellation. This unnatural fine-tuning is the hierarchy problem, and its resolution is one of the central motivations for BSM theories such as supersymmetry, which introduces a symmetry that exactly cancels the quadratic divergences.
 
 \vspace{0.5 cm}
 \textbf{Absence of quantum gravity}
@@ -499,27 +498,88 @@ The Standard Model does not describe gravitational interactions at the quantum l
 
 \vspace{0.5 cm}
 
-On top of those main problems, the strong $CP$ problem persists, as does the question of gauge coupling unification: the three constants $g_s$, $g_W$, and $g'$ run with energy but do not converge to a single value within the Standard Model, hinting at a deeper unified structure. This non-exhaustive list of issues highlights even more the incompleteness of the theory.
+On top of those main problems, the strong $CP$ problem persists, as does the question of gauge coupling unification: the three constants $g_s$, $g_W$, and $g'$ run with energy but do not converge to a single value within the Standard Model, hinting at a deeper unified structure. This non-exhaustive list of issues further highlights the theory's incompleteness.
 
 
 \section{Beyond the Standard Model: supersymmetry and long-lived particles}
 
 The convergence of these experimental and theoretical arguments strongly suggests that the Standard Model is an effective theory, valid at the energy scales currently accessible, but incomplete. The search for BSM physics is therefore one of the central goals of modern high-energy physics. One of the most theoretically motivated BSM frameworks is supersymmetry (SUSY), which addresses several of the shortcomings discussed above simultaneously and constitutes the theoretical foundation of the HSCP analysis presented in this thesis.
 
-\subsection{Supersymmetry: principles and motivations}
-- Symmetry between fermions and bosons: superpartners
-- Resolving the hierarchy problem: quadratic divergence cancellations
-- Unification of gauge couplings at high scale
-- SUSY algebra: supercharges, supermultiplets (chiral, vector)
-- R-parity: definition, consequences (LSP stability → DM candidate)
-- Mass spectrum: sparticles naming conventions (squarks, sleptons, gauginos, higgsinos)
+\vspace{0.5 cm}
 
-\subsection{The Minimal Supersymmetric Standard Model}
-- Minimal field content: two Higgs doublets, superpartner table
-- MSSM Lagrangian: superpotential, soft SUSY-breaking terms
-- Soft breaking mechanisms: parameters, mass splitting
-- Lightest supersymmetric particle (LSP): neutralino as DM candidate
-- Simplified models used in CMS searches
+SUSY postulates a symmetry relating bosons and fermions: to every bosonic degree of freedom corresponds a fermionic one with identical gauge quantum numbers and couplings. A first question is whether the known particles of the Standard Model  (SM) could already be paired into supermultiplets. The answer is negative: none of the known fermions can be paired with any of the known bosons, because their internal quantum numbers do not match~\cite{proceedings}.
+
+The minimal solution is therefore to double the spectrum: each SM particle is associated with a new superpartner (or \textit{spartner}) differing by half a unit of spin. Quarks are paired with scalar \textit{squarks}, leptons with \textit{sleptons}, gauge bosons with spin-$\frac{1}{2}$ \textit{gauginos} (photino, zino, wino, gluino), and the Higgs sector with \textit{higgsinos}. The full content of the minimal supersymmetric extension of the Standard Model (MSSM) is summarised in \cref{tab:susy_particles}.
+
+\begin{table}[h]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{lcc |c@{\hskip 2pt}c@{\hskip 2pt}c lcc}
+\hline
+\textbf{Particle} & & Spin & & & & \textbf{Super-particle} & & Spin \\
+\hline
+Quark    & $q$        & $\tfrac{1}{2}$ & & & & Squark    & $\tilde{q}_L,\ \tilde{q}_R$ & $0$ \\
+Lepton   & $\ell^\pm$ & $\tfrac{1}{2}$ & & & & Slepton   & $\tilde{\ell}_L^\pm,\ \tilde{\ell}_R^\pm$ & $0$ \\
+Neutrino & $\nu$      & $\tfrac{1}{2}$ & & & & Sneutrino & $\tilde{\nu}_L,\ \tilde{\nu}_R(?)$ & $0$ \\
+Gluon    & $g$        & $1$            & & & & Gluino    & $\tilde{g}$ & $\tfrac{1}{2}$ \\
+Photon   & $\gamma$   & $1$            & & $\tilde{\gamma}$ & \multirow{3}{*}{\scalebox{1}[4.5]{$\}$}} & \multirow{3}{*}{Neutralino} & \multirow{3}{*}{$\tilde{\chi}_1^0,\ \tilde{\chi}_2^0,\ \tilde{\chi}_3^0,\ \tilde{\chi}_4^0$} & \multirow{3}{*}{$\tfrac{1}{2}$} \\
+Z boson  & $Z^0$        & $1$            & & $\tilde{Z}$ & & & & \\
+\multirow{2}{*}{Higgs} & \multirow{2}{*}{$H$} & \multirow{2}{*}{$0$} 
+                                       & \multirow{2}{*}{\scalebox{1}[2.5]{$\{$}} & $\tilde{H}_1^0,\ \tilde{H}_2^0$ & & & & \\
+                                       & & & & $\tilde{H}^\pm$ & \multirow{2}{*}{\scalebox{1}[2.5]{$\}$}} & \multirow{2}{*}{Chargino} & \multirow{2}{*}{$\tilde{\chi}_1^\pm,\ \tilde{\chi}_2^\pm$} & \multirow{2}{*}{$\tfrac{1}{2}$} \\
+W boson  & $W^\pm$    & $1$            & & $\tilde{W}^\pm$ & & & & \\
+\hline
+\end{tabular}
+\caption{Standard Model particle and their associated super-partner in the MSSM model, adapted from \cite{Thomson_2013}.}
+\label{tab:susy_particles}
+\end{table}
+
+\vspace{0.5 cm}
+
+Such a symmetry is particularly attractive because it provides a natural mechanism to stabilise the Higgs mass against quadratic divergences, as explained above. Since bosonic and fermionic loops contribute with opposite signs, the residual one-loop correction to the Higgs mass takes the form:
+\begin{equation}
+    \delta m_H^2 \simeq \mathcal{O}\!\left( m_B^2 - m_F^2 \right) 
+    \lesssim m_H^2 
+    \;\Longleftrightarrow\; 
+    \left| m_B^2 - m_F^2 \right| \lesssim 1 \, \mathrm{TeV}^2 ,
+\end{equation}
+where $m_B$ and $m_F$ denote, respectively, the masses of supersymmetric partner bosons and fermions. This relation makes it natural to expect the masses of the superpartners to lie around the TeV scale, within reach of present and future colliders.
+
+\vspace{0.5 cm}
+
+Beyond the hierarchy problem, several independent indications suggest that supersymmetry could indeed appear near the TeV scale.
+
+The strengths of the three SM gauge interactions can be evolved towards high energies via the renormalization-group equations, in order to test whether they unify into a single coupling as predicted by Grand Unified Theories (GUTs). Without supersymmetry, this unification fails: GUTs would then require $\sin^2\theta_W \approx 0.214$, in clear tension with the experimental value of the effective neutral weak mixing parameter measured at the $Z^0$ peak, $\sin^2\theta_W \approx 0.23149 \pm 0.00017$. Once the MSSM spectrum is included in the running, minimal supersymmetric GUTs predict $\sin^2\theta_W \approx 0.232$, where the residual error depends on the assumed sparticle masses, with a preferred scale around $1\,\mathrm{TeV}$~\cite{KELLEY1991423}.
+
+Precision electroweak measurements favour a relatively light Higgs boson, with mass below about $200\,\mathrm{GeV}$. This is in excellent agreement with the MSSM, which predicts that the lightest CP-even Higgs boson must weigh less than about $130\,\mathrm{GeV}$~\cite{BRIGNOLE1991123}.
+
+Astrophysical and cosmological observations require the existence of cold dark matter, which could naturally be provided by a neutral, weakly-interacting massive particle of mass below about $1\,\mathrm{TeV}$. In the MSSM, the lightest supersymmetric particle (LSP), generically denoted $\chi$, is a prototypical candidate~\cite{ELLIS1984453}.
+
+\vspace{0.5 cm}
+
+Any supersymmetric model is built from a Lagrangian containing a manifestly supersymmetric part and a soft supersymmetry-breaking part:
+\begin{equation}
+    \mathcal{L} = \mathcal{L}_\mathrm{SUSY} 
+                + \mathcal{L}_{\mathrm{SUSY}\, \times} .
+\end{equation}
+
+The supersymmetric piece $\mathcal{L}_\mathrm{SUSY}$ of the MSSM shares the same gauge structure as the Standard Model, while its Yukawa interactions are derived from a \textit{superpotential} $W$, a cubic holomorphic function of the chiral superfields containing the left-handed fermions. This superpotential generates the masses of the charged fermions and accounts for the structure of the CKM matrix. A key feature of the MSSM is that holomorphy of $W$ and anomaly cancellation require the introduction of \textit{two} Higgs doublets $H_{1,2}$, instead of the single doublet of the SM.
+
+After electroweak symmetry breaking, the superpartners of the electroweak gauge and Higgs bosons mix among themselves. The supersymmetric partners of the $W^\pm$ and of the charged Higgs bosons $H^\pm$ combine into two charged mass eigenstates, the \textit{charginos} $\chi_{1,2}^\pm$. Similarly, the partners of the $\gamma$, $Z^0$ and of the neutral Higgs bosons $H_{1,2}^0$ mix into four neutral mass eigenstates, the \textit{neutralinos} $\chi_{1,2,3,4}^0$. The lightest neutralino $\chi \equiv \chi_1^0$ is, in $R$-parity conserving scenarios, the natural LSP and a prime candidate for astrophysical cold dark matter~\cite{ELLIS1984453}.
+
+The supersymmetry-breaking piece $\mathcal{L}_{\mathrm{SUSY}\, \times}$ must be carefully chosen so as not to spoil the cancellation of quadratic divergences described above. The breaking is therefore required to be \textit{soft}, meaning that it does not reintroduce any quadratic (nor unwanted logarithmic) divergence in scalar masses. The allowed soft terms include gaugino masses, scalar mass terms, and trilinear scalar couplings.
+
+\vspace{0.5 cm}
+
+A particularly predictive realization of the MSSM is the \textit{constrained MSSM} (CMSSM), in which the soft supersymmetry-breaking parameters are assumed to take universal values at some high scale (typically the GUT scale). Their values at observable energies, of order $1\,\mathrm{TeV}$, are then obtained from calculable 
+renormalization-group factors~\cite{1982PThPh..68..927I}, in close analogy with the running of the gauge couplings and fermion masses.
+
+
+
+
+
 
 \subsection{Gauge-Mediated Supersymmetry Breaking (GMSB) and other scenarios}
 - GMSB mechanism: messenger sector, gravitino as LSP
