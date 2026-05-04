@@ -60,6 +60,8 @@
 \RequirePackage{bm}
 \RequirePackage{pgfplots}
 
+\pgfplotsset{compat=1.18}
+
 
 %% Import packages and fefine commands for watermark
 \RequirePackage{silence} % Selective filtering of error messages and warnings
