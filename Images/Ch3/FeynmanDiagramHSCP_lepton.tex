@@ -1,0 +1,71 @@
+\definecolor{myred}{RGB}{200, 30, 30}
+
+\begin{figure}[h!]
+\centering
+
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 0.5);
+  \coordinate (gISR) at (-0.4, 1.6);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (-0.5, 0);
+  \coordinate (V2)   at (1.5, 0);
+  \coordinate (k2)   at (2.5, 1);
+  \coordinate (sq)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (sqb)  at (3, -1.4);
+
+  \draw[fermion]      (qIn)  -- (V1);
+  \draw[fermion]      (V1)   -- (qbIn);
+  \draw[gluon]        (k1)   -- (gISR);
+  \draw[gluon]        (V1)   -- (V2);
+  \draw[scalararrow, myred]  (V2)   -- (sq);
+  \draw[scalararrow, myred]  (sqb)  -- (V2);
+  \draw[gluon]        (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(q\)};
+  \node[left]       at (qbIn) {\(\bar{q}\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[above, myred]      at (sq)   {\(\tilde{\tau}\)};
+  \node[right]      at (gFSR) {\(g\)};
+  \node[below, myred]      at (sqb)  {\(\tilde{\bar{\tau}}\)};
+  \node[above]      at ( 0.5, 0.0) {\(g\)};
+\end{tikzpicture}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.48\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 0.5);
+  \coordinate (gISR) at (-0.4, 1.6);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (-0.5, 0);
+  \coordinate (V2)   at (1.5, 0);
+  \coordinate (k2)   at (2.5, 1);
+  \coordinate (lp)   at (3, 1.4);
+  \coordinate (ph) at (3, 0.5);
+  \coordinate (lpb)  at (3, -1.4);
+
+  \draw[fermion]     (qIn)  -- (V1);
+  \draw[fermion]     (V1)   -- (qbIn);
+  \draw[gluon]       (k1)   -- (gISR);
+  \draw[photon]      (V1)   -- (V2);
+  \draw[scalararrow, myred] (V2)   -- (lp);
+  \draw[scalararrow, myred] (lpb)  -- (V2);
+  \draw[photon]      (k2)   -- (ph);
+
+  \node[left]       at (qIn)  {\(q\)};
+  \node[left]       at (qbIn) {\(\bar{q}\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[above, myred]      at (lp)   {\(\tau'\)};
+  \node[right]      at (ph)   {\(\gamma\)};
+  \node[below, myred]      at (lpb)  {\(\bar{\tau}'\)};
+  \node[above]      at ( 0.5, 0.0) {\(Z,\gamma\)};
+\end{tikzpicture}
+\end{subfigure}
+\caption{Representative leading-order diagrams for the production of stau pairs via $s$-channel gluon (Left) and Drell-Yan-like production of a long-lived charged tau prime pair via $s$-channel $Z/\gamma^{*}$ exchange(Right); both with their associated ISR and FSR. Adapted from~\cite{Fiaschi_2023}.}
+\label{fig:hscp_prod_lepton}
+\end{figure}

@@ -501,11 +501,12 @@ The Standard Model does not describe gravitational interactions at the quantum l
 On top of those main problems, the strong $CP$ problem persists, as does the question of gauge coupling unification: the three constants $g_s$, $g_W$, and $g'$ run with energy but do not converge to a single value within the Standard Model, hinting at a deeper unified structure. This non-exhaustive list of issues further highlights the theory's incompleteness.
 
 
+
 \section{Beyond the Standard Model: supersymmetry and long-lived particles}
 
 The convergence of these experimental and theoretical arguments strongly suggests that the Standard Model is an effective theory, valid at the energy scales currently accessible, but incomplete. The search for BSM physics is therefore one of the central goals of modern high-energy physics. One of the most theoretically motivated BSM frameworks is supersymmetry (SUSY), which addresses several of the shortcomings discussed above simultaneously and constitutes the theoretical foundation of the HSCP analysis presented in this thesis.
 
-\vspace{0.5 cm}
+\subsection{Particle content of the minimal supersymmetric extension of the Standard Model}
 
 SUSY postulates a symmetry relating bosons and fermions: to every bosonic degree of freedom corresponds a fermionic one with identical gauge quantum numbers and couplings. A first question is whether the known particles of the Standard Model  (SM) could already be paired into supermultiplets. The answer is negative: none of the known fermions can be paired with any of the known bosons, because their internal quantum numbers do not match.
 
@@ -536,7 +537,7 @@ W boson  & $W^\pm$    & $1$            & & $\tilde{W}^\pm$ & & & & \\
 \label{tab:susy_particles}
 \end{table}
 
-\vspace{0.5 cm}
+\subsection{Hints for TeV-scale SUSY}
 
 Such a symmetry is particularly attractive because it provides a natural mechanism to stabilise the Higgs mass against quadratic divergences. Since bosonic and fermionic loops contribute with opposite signs, the residual one-loop correction to the Higgs mass takes the form:
 \begin{equation}
@@ -557,7 +558,7 @@ Moreover, the MSSM predicts the existence of two charged higgs bosons $H^\pm$, o
 
 Finally, astrophysical and cosmological observations require the existence of cold dark matter, which could naturally be provided by a neutral, weakly-interacting massive particle of mass below about $1\,\mathrm{TeV}$. In the MSSM, the lightest supersymmetric particle (LSP), generically denoted $\chi$, is a typical candidate~\cite{ELLIS1984453}.
 
-\vspace{0.5 cm}
+\subsection{Structure of the MSSM}
 
 The formalism of any supersymmetric model is built from a Lagrangian containing a manifestly supersymmetric part and a soft supersymmetry-breaking part:
 \begin{equation}
@@ -569,23 +570,243 @@ The supersymmetric piece $\mathcal{L}_\mathrm{SUSY}$ of the MSSM shares the same
 
 After electroweak symmetry breaking, the superpartners of the electroweak gauge and Higgs bosons mix among themselves. The supersymmetric partners of the $W^\pm$ and of the charged Higgs bosons $H^\pm$ combine into two charged mass eigenstates, the \textit{charginos} $\chi_{1,2}^\pm$. Similarly, the partners of the $\gamma$, $Z^0$ and of the neutral Higgs bosons $H_{1,2}^0$ mix into four neutral mass eigenstates, the \textit{neutralinos} $\chi_{1,2,3,4}^0$. The lightest neutralino $\chi \equiv \chi_1^0$ is, in $R$-parity conserving scenarios\footnote{$R$-parity is a quantum number defined as $R=(-1)^{3(B-L)+2s}$, where $B$ is the baryon number, $L$ the lepton number and $s$ the spin, equal to $+1$ for SM particles and $-1$ for their superpartners; its conservation forbids proton decay and stabilises the lightest supersymmetric particle.}, the natural LSP and a prime candidate for astrophysical cold dark matter~\cite{ELLIS1984453}.
 
-The supersymmetry-breaking piece $\mathcal{L}_{\mathrm{SUSY}\, \times}$ must be carefully chosen so as not to spoil the cancellation of quadratic divergences described above. The breaking is therefore required to be ''soft'', meaning that it does not reintroduce any quadratic (nor unwanted logarithmic) divergence in scalar masses. The allowed soft terms include gaugino masses, scalar mass terms, and trilinear scalar couplings.
+The supersymmetry-breaking piece $\mathcal{L}_{\mathrm{SUSY}\, \times}$ must be carefully chosen so as not to spoil the cancellation of quadratic divergences described above. The breaking is therefore required to be ''soft'', meaning that it does not reintroduce any quadratic (nor unwanted logarithmic) divergence in scalar masses. The allowed soft terms include gaugino masses, scalar mass factors, and trilinear scalar couplings.
 
 \vspace{0.5 cm}
 
-In summary, the MSSM extends the SM by introducing 105 free parameters, the vast majority of which arise from the ''soft'' supersymmetry-breaking sector. Measuring such a large parameter space at colliders is daunting, and no single analysis can hope to constrain it entirely. For this reason, the experimental search strategy relies on simplified models that isolate specific subsets of parameters, often organised around the conservation or violation of $R$-parity.
+In brief, the MSSM extends the SM by introducing 105 free parameters, the vast majority of which arise from the ''soft'' supersymmetry-breaking sector. Measuring such a large parameter space using colliders is daunting, and no single analysis can hope to constrain it entirely. For this reason, the experimental search strategy relies on simplified models that isolate specific subsets of parameters, often organised around the conservation or violation of $R$-parity.
 
 
-\subsection{Long-lived particles and exotic signatures}
-- Definition: c*tau from micrometre to cosmological scales
-- Why long lifetimes? Small couplings, mass degeneracy, conserved quantum number
-- Experimental signatures: displaced vertices, disappearing tracks,
-  delayed photons, heavy stable charged particles
-- Focus: Heavy Stable Charged Particles (HSCP)
-    · Definition and properties: high mass, charge ±1 or fractional, low beta
-    · Observable signatures: anomalous ionisation (dE/dx), time-of-flight (ToF)
-    · Representative BSM candidates: long-lived stau (GMSB), 
-      long-lived stop, chargino (Split-SUSY), R-hadrons
+
+
+
+
+
+\section{Long-lived particles and exotic signatures}
+
+In the MSSM, as in other various extensions of the SM, new states are predicted with a proper decay length that is large enough to leave a distinct experimental imprint compared to the prompt particles of the SM. These long-lived particles (LLPs) span an enormous range of lifetimes, from the picosecond to cosmological scales, and require dedicated reconstruction strategies that go well beyond those used in standard prompt searches. This section motivates the existence of LLPs at colliders, surveys the experimental signatures they leave in a general-purpose detector such as CMS, and ultimately focuses on the class of long-lived states relevant to this thesis: heavy stable charged particles.
+
+
+\subsection{Lifetime regimes}
+
+The lifetimes of Standard Model particles span more than fifty orders of magnitude, from $\sim 10^{-25}\,$s for the top quark to a lower bound of $\geq 10^{34}\,$years on the proton~\cite{ParticleDataGroup:2024cfk}. Translated into proper decay lengths $c\tau$, this range covers everything from a few attometres to cosmological scales. 
+
+From the perspective of a collider experiment, what really matters is how this proper decay length compares to the detector geometry. A particle is referred to as \textit{detector-prompt} when $c\tau$ lies well below the spatial resolution of the inner tracker, so that its decay vertex is indistinguishable from the primary interaction point; conversely, particles with $c\tau$ much larger than the outer radius of the muon system ($\sim 10\,$m) are \textit{detector-stable}, traversing the apparatus before they have a chance to decay. Between these two extremes lies a broad intermediate window, populated by long-lived particles whose decay vertex is displaced by hundreds of micrometres to several metres from the primary vertex.
+
+Within the SM, this intermediate regime is sparsely populated, essentially restricted to weakly-decaying mesons or baryons. \cref{fig:llp_lifetimes_sm} illustrates the typical lifetime and decay lengths of SM particles as a function of their mass.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch3/SM_particles_masses-1.pdf}
+    \caption{Standard Model particles' proper lifetime and decay length for \cite{tikz}. Particles highlighted in green (red) are the SM fermions (bosons). The top quark (light blue) is the only quark that decays before hadronisation. Dark-blue (purple) particles are bound states made of 2 (3) quarks referred to as mesons (baryons).}
+    \label{fig:llp_lifetimes_sm}
+\end{figure}
+
+
+
+\subsection{Mechanisms producing long lifetimes}
+
+The decay width $\Gamma = 1/\tau$ of a particle is set by the strength of the coupling driving its decay and by the available phase space. Three generic mechanisms can therefore conspire to push the lifetime of a BSM particle into the macroscopic regime, each illustrated below by a representative supersymmetric example.
+
+\vspace{0.5 cm}
+\noindent \textbf{Small cooupling}
+\vspace{0.5 cm}
+
+If the only allowed decay channel proceeds through a strongly suppressed interaction, the resulting width can be small enough to yield a measurable displacement. The canonical example is provided by the minimal Gauge Mediated Supersymmetry Breaking (mGMSB) scenario~\cite{Giudice:1998bp}, in which the stau is the next-to-lightest superpartner (NLSP). For such particle with mass $m_{\tilde{\tau}}$ produced with energy $E$, the average distance traversed before decay is expressed as:
+\begin{equation}
+    L \,[\mathrm{cm}]\;=\; \frac{10^{-2}}{\kappa_{\gamma}}
+    \left(\frac{100\,\mathrm{GeV}}{m_{\tilde{\tau}}}\right)^{5}
+    \left(\frac{\sqrt{F/k}}{100\,\mathrm{TeV}}\right)^{4}
+    \sqrt{\frac{E^{2}}{m_{\tilde{\tau}}^{2}} - 1}\;\,,
+    \label{eq:stau_lifetime}
+\end{equation}
+where $F$ is the SUSY-breaking scale, $k$ a model-dependent coefficient and $\kappa_{\gamma}$ the coupling strength to the photon. For $\sqrt{F/k} \,\gtrsim \,10^{6}\,\mathrm{GeV}$, the resulting decay length exceeds the size of the CMS detector, and the $\tilde{\tau}$ behaves as a stable particle from an experimental standpoint.
+
+\vspace{0.5 cm}
+
+The lifetime of an unstable particle is governed by two factors: the coupling strength of the interaction mediating the decay and the available phase space, which is controlled by the mass splitting between the parent and its decay products. In BSM scenarios, those two factors can take very different values, leading to particles sitting in the displaced and stable regime.
+
+\vspace{0.5 cm}
+\noindent \textbf{Heavy mediators}
+\vspace{0.5 cm}
+
+When a decay proceeds through an off-shell heavy state, its width carries an additional suppression $\propto 1/M_{\mathrm{med}}^{4}$. The Split-SUSY scenario provides a textbook example~\cite{ArkaniHamed:2004fb, Giudice:2004tc}: all sfermion masses are pushed to a high scale $m_{S} \gg \,\mathrm{TeV}$, so that the only available gluino decay channel, $\tilde{g} \to q\bar{q}\,\tilde{\chi}_{i}^{0}$, is mediated by very heavy virtual squarks. The resulting gluino lifetime,
+\begin{equation}
+    \tau_{\tilde{g}} \;\simeq\; 8\;
+    \left(\frac{m_{S}}{10^{9}\,\mathrm{GeV}}\right)^{4}
+    \left(\frac{1\,\mathrm{TeV}}{m_{\tilde{g}}}\right)^{5}\,\mathrm{s},
+    \label{eq:gluino_lifetime}
+\end{equation}
+varies between a nanosecond and $10^{25}\,$s as $m_{S}$ ranges from $10^{7}\,\mathrm{GeV}$ up to the GUT scale ($\sim10^{16} \, \mathrm{GeV}$), leaving the gluino effectively stable across most of the parameter space.
+
+\vspace{0.5 cm}
+\noindent \textbf{Compressed spectra}
+\vspace{0.5 cm}
+
+If the decaying particle and the heaviest of its decay products are nearly degenerate in mass, the available phase space shrinks rapidly, and the lifetime grows steeply with the mass splitting. In the MSSM with a stop NLSP nearly degenerate with the lightest neutralino, the stop lifetime can stretch from $10^{-26}\,$s up to several seconds as $|m_{\tilde{t}} - m_{\tilde{\chi}_{1}^{0}}|$ approaches zero~\cite{Aebischer:2014mma}. A closely related mechanism is at play in anomaly-mediated SUSY breaking (AMSB), where the small radiative chargino-neutralino mass splitting 
+$|m_{\tilde{\chi}_{1,2}^{\pm}} - m_{\tilde{\chi}_{1}^{0}}|\sim 160\,\mathrm{MeV}$ leads to charginos with proper decay lengths in the centimetre range, thus, long enough to be reconstructed as short tracks before disappearing in the inner tracker.
+
+
+
+\subsection{Long-lived particles searches at the CMS detector}
+
+LLP searches within the CMS detector are, by construction, signature-driven: the diversity of theoretical scenarios is too large for any single analysis to cover them all, and the lifetimes of interest span many orders of magnitude. A generic strategy based solely on experimental signatures is therefore the natural way to probe a broad range of BSM models simultaneously, with each lifetime regime giving rise to a distinct search topology. Those main classes, summarised schematically in \cref{fig:llp_signatures}, are:
+\begin{itemize}
+    \item \textbf{Displaced vertices.} A neutral LLP decaying inside the tracker volume into charged SM particles produces a vertex displaced by hundreds of micrometres to several metres from the PV. Dedicated algorithms identify clusters of high-impact-parameter tracks that converge on a common secondary vertex; variants targeting specific final states include displaced dijets \cite{PhysRevD.109.112005, Collaboration_2025}, displaced leptons \cite{CMS:2019qjk, 2024baababazed} or displaced photons.
+    \item \textbf{Disappearing tracks.} In compressed scenarios such as AMSB-like charginos, a charged particle decays into a nearly invisible neutral state plus a very soft pion of negligible $p_{T}$. The result is a high-quality track in the innermost pixel layers that abruptly stops in the strip tracker, with no associated calorimeter or muon-system activity \cite{2020135502}, and/or in addition to MET~\cite{PhysRevD.109.112005}.
+    \item \textbf{Delayed signals.} Heavy LLPs are typically produced with $\beta\gamma\lesssim 1$, leading to measurable delays in the calorimeter timing or in dedicated muon-system measurements. Such searches could be done using the scooting dataset, without being constrained by the trigger \cite{cmscollaboration2026searchheavylonglivedcharged}.
+    \item \textbf{Long isolated tracks.} Charged LLPs whose decay length exceeds the detector size traverse the entire apparatus and leave a single, continuous, high-momentum track from the pixel layers to the muon chambers. This is the topology relevant for HSCP searches, discussed in detail below.
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{Images/Ch3/BSM_longlived-1.pdf}
+    \caption{Schematic overview of the main long-lived particle signatures at the CMS detector. Adapted from \cite{tikz}.}
+    \label{fig:llp_signatures}
+\end{figure}
+
+The CMS collaboration has developed dedicated analyses targeting each of these signatures. The experimental challenges differ markedly across the decay length range, but the underlying logic is the same: identify a kinematic or topological feature that has no counterpart in the prompt SM background.
+
+
+
+
+\subsection{Heavy stable charged particles}
+\label{sec:hscp_intro}
+
+The signature on which this thesis is based is the conceptually simplest of the list above: a single, isolated, charged track that traverses the entire CMS detector. The particles producing it are referred to as \textit{heavy stable charged particles} (HSCPs), where ''stable'' should be understood at the experimental scale: the proper decay length is large enough for the particle to leave the detector before decaying; and ''heavy'' refers to masses well above the electroweak scale, typically several hundreds of GeV to a few TeV. HSCPs are produced at the LHC either through direct pair production or as the end of a longer cascade~\cite{Fairbairn:2006gg}, and they can carry an electric charge of $\pm 1\,e$ or fractional/multiple values, depending on the underlying model.
+
+This thesis doesn't focus on fractional- or multiply-charged HSCPs, for which the latest CMS results can be found, respectively, in \cite{PhysRevLett.134.131802} and \cite{MCP_status}.
+
+
+
+\subsubsection{Hadron-like and lepton-like HSCPs}
+
+HSCPs are conventionally split into two broad categories~\cite{Fairbairn:2006gg}.
+
+\vspace{0.5 cm}
+\noindent \textbf{Hadron-like HSCPs}
+\vspace{0.5 cm}
+
+This thesis focuses on the MSSM long-lived stop $\tilde{t}$ and the Split-SUSY gluino $\tilde{g}$, which are the canonical hadron-like HSCP candidates. The leading-order diagrams contributing to the dominant pair-production modes of these two hadron-like HSCPs are shown in \cref{fig:hscp_prod_gluino} and \cref{fig:hscp_prod_stop}. Both proceed through quark-antiquark annihilation into an $s$-channel gluon, which subsequently splits either into a pair of stops or a pair of gluinos. Note that two additional gluons appear in each diagram. The one attached to one incoming quark line is an example of an \textit{initial-state radiation} (ISR): a coloured parton emitted by one of the incoming partons before the hard scattering occurs. The one attached to one outgoing stop is a \textit{final-state radiation} (FSR), emitted by a coloured particle in the final state. Such emissions are not accidental: they are generic consequences of QCD, in which any coloured leg of a hard process radiates additional gluons with high probability. ISR and FSR jets play an essential role in HSCP searches, as they often allow events to meet trigger requirements (typically MET-based).
+
+\input{Images/Ch3/FeynmanDiagramHSCP_gluino.tex}
+
+\input{Images/Ch3/FeynmanDiagramHSCP_squarks.tex}
+
+Such HSCPs carry colour charges and therefore hadronise upon production into bound states with SM partons, generically called \textit{R-hadrons}~\cite{Fairbairn:2006gg}. R-mesons (one heavy parton and a quark or antiquark), R-baryons (one heavy parton and a diquark) and gluino-glueball states $\tilde{g}g$ are all predicted. The composite structure of these R-hadrons for one mass point example is summarised in \cref{tab:Rhadron_composite}.
+
+\begin{table}[h]
+    \centering
+    \caption{R-hadron states populated in the simulated samples, grouped into R-mesons and R-baryons. Left: gluino R-hadrons for $m_{\tilde{g}} = 1400$~GeV. Right: stop R-hadrons for $m_{\tilde{t}} = 300$~GeV. Each entry is shown with its PDG code and mass as set in the input. The corresponding antiparticles are produced with identical masses and are not listed separately.}
+    \label{tab:Rhadron_composite}
+    
+    \begin{subtable}[t]{0.48\textwidth}
+        \centering
+        \caption{Gluino R-hadrons}
+        \label{tab:rhadrons_gluino}
+        \renewcommand{\arraystretch}{1.15}
+        \begin{tabular}{lcc}
+        \toprule
+        R-hadron & PDG code & Mass [GeV] \\
+        \midrule
+        \multicolumn{3}{l}{\textit{R-mesons}} \\[0.15em]
+        $R^0_{\tilde{g}g}$        & 1\,000\,993 & 1400.700 \\
+        $R^0_{\tilde{g}d\bar{d}}$ & 1\,009\,113 & 1400.650 \\
+        $R^+_{\tilde{g}u\bar{d}}$ & 1\,009\,213 & 1400.650 \\
+        $R^0_{\tilde{g}u\bar{u}}$ & 1\,009\,223 & 1400.650 \\
+        $R^0_{\tilde{g}d\bar{s}}$ & 1\,009\,313 & 1400.825 \\
+        $R^+_{\tilde{g}u\bar{s}}$ & 1\,009\,323 & 1400.825 \\
+        $R^0_{\tilde{g}s\bar{s}}$ & 1\,009\,333 & 1401.800 \\
+        \midrule
+        \multicolumn{3}{l}{\textit{R-baryons}} \\[0.15em]
+        $R^-_{\tilde{g}ddd}$    & 1\,091\,114 & 1400.975 \\
+        $R^0_{\tilde{g}udd}$    & 1\,092\,114 & 1400.975 \\
+        $R^+_{\tilde{g}uud}$    & 1\,092\,214 & 1400.975 \\
+        $R^{++}_{\tilde{g}uuu}$ & 1\,092\,224 & 1400.975 \\
+        $R^-_{\tilde{g}sdd}$    & 1\,093\,114 & 1401.150 \\
+        $R^0_{\tilde{g}sud}$    & 1\,093\,214 & 1401.150 \\
+        $R^+_{\tilde{g}suu}$    & 1\,093\,224 & 1401.150 \\
+        $R^-_{\tilde{g}ssd}$    & 1\,093\,314 & 1401.300 \\
+        $R^0_{\tilde{g}ssu}$    & 1\,093\,324 & 1401.300 \\
+        $R^-_{\tilde{g}sss}$    & 1\,093\,334 & 1401.600 \\
+        \bottomrule
+        \end{tabular}
+        \end{subtable}
+        \hfill
+        \begin{subtable}[t]{0.48\textwidth}
+        \centering
+        \caption{Stop R-hadrons}
+        \label{tab:rhadrons_stop}
+        \renewcommand{\arraystretch}{1.15}
+        \begin{tabular}{lcc}
+        \toprule
+        R-hadron & PDG code & Mass [GeV] \\
+        \midrule
+        \multicolumn{3}{l}{\textit{R-mesons}} \\[0.15em]
+        $R^+_{\tilde{t} \bar{d}}$ & 1\,000\,612 & 300.325 \\
+        $R^0_{\tilde{t} \bar{u}}$ & 1\,000\,622 & 300.325 \\
+        $R^+_{\tilde{t} \bar{s}}$ & 1\,000\,632 & 300.500 \\
+        $R^0_{\tilde{t} \bar{c}}$ & 1\,000\,642 & 301.500 \\
+        $R^+_{\tilde{t} \bar{b}}$ & 1\,000\,652 & 304.800 \\
+        \midrule
+        \multicolumn{3}{l}{\textit{R-baryons}} \\[0.15em]
+        $R^0_{\tilde{t} dd_1}$    & 1\,006\,113 & 300.650 \\
+        $R^+_{\tilde{t} ud_0}$    & 1\,006\,211 & 300.650 \\
+        $R^+_{\tilde{t} ud_1}$    & 1\,006\,213 & 300.650 \\
+        $R^{++}_{\tilde{t} uu_1}$ & 1\,006\,223 & 300.650 \\
+        $R^0_{\tilde{t} sd_0}$    & 1\,006\,311 & 300.825 \\
+        $R^0_{\tilde{t} sd_1}$    & 1\,006\,313 & 300.825 \\
+        $R^+_{\tilde{t} su_0}$    & 1\,006\,321 & 300.825 \\
+        $R^+_{\tilde{t} su_1}$    & 1\,006\,323 & 300.825 \\
+        $R^0_{\tilde{t} ss_1}$    & 1\,006\,333 & 301.000 \\
+        \bottomrule
+        \end{tabular}
+    \end{subtable}
+\end{table}
+
+As an R-hadron propagates through the detector, hadronic interactions with detector nuclei can change its valence parton content and, in particular, modify its electric charge: this \textit{charge flipping} phenomenon may turn a charged R-hadron into a neutral one between subdetectors, or vice versa~\cite{Mackeprang:2009ad}. An example of this phenomenon is illustrated in \cref{fig:rhadron_charge_flip}, where the Feynman diagram of an R-hadron interacting with the material is drawn, causing the latter to flip charge.
+
+\input{Images/Ch3/RhadronFlipExample.tex}
+
+
+\vspace{0.5 cm}
+\noindent \textbf{Lepton-like HSCPs}
+\vspace{0.5 cm}
+
+HSCPs can also interact only via the electroweak force and propagate through the detector much like heavy muons, with no hadronic interactions perturbing their trajectories. The most studied example is the long-lived stau $\tilde{\tau}$ predicted in GMSB scenarios, considered both as a directly pair-produced state and as the end product of all sparticle cascade decays. Long-lived fourth-generation leptons $\tau'$, predicted by extensions of the SM with additional $U(1)'$ gauge symmetries~\cite{Hewett:2009bw}, fall into the same category and can carry single ($|Q|=1\,e$) or even double ($|Q|=2\,e$) electric charge, the latter being produced either via a modified Drell-Yan process or through the resonant decay of a heavy $Z'$ boson as shown in \cref{fig:hscp_prod_lepton}.
+
+\input{Images/Ch3/FeynmanDiagramHSCP_lepton.tex}
+
+\vspace{0.5 cm}
+
+The theoretical cross-section for HSCP production spans more than ten orders of magnitude at $\sqrt{s} = 13.6\,\mathrm{TeV}$, depending on the particle types and their masses; \cref{fig:xsec_theory} shows these results. 
+The contrasts arise from strong versus electroweak production. At this energy, quark-antiquark fusion with gluon emission is favoured over Drell-Yan processes, producing more hadron-like HSCPs. On top of that, the gluino-gluon interaction, due to its colour-octet structure, boosts gluino production cross sections to about ten times those of squarks at equal mass, leading these hypothetical particles to be the favoured HSCPs at the LHC. On the other hand, tau-prime couplings increase with electric charge, while stau couplings are lower than both tau-prime couplings.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch3/xsec_theory.pdf}
+    \caption{Theoretical NNLO\textsubscript{approx}+NNLL pair-production cross sections at $\sqrt{s} = 13.6~\mathrm{TeV}$ for gluinos, stops, staus and single- or double-charged tau-prime as a function of the particle mass. Shaded bands indicate the total theoretical uncertainty from the quadrature combination of scale and PDF variations. Theoretical cross-sections can be found in \cite{10.21468/SciPostPhysCore.7.4.072, Fiaschi_2023}.}
+    \label{fig:xsec_theory}
+\end{figure}
+
+
+\subsubsection{Observable signatures.}
+
+Because of their large mass, HSCPs produced at the LHC are typically non-relativistic, with $0.1 \lesssim \beta\gamma \lesssim 1$. Two physical consequences follow directly from this fact and constitute the experimental handles used to identify them:
+
+\begin{itemize}
+    \item \textbf{Anomalously high ionisation (d$E/$d$x$).} The Bethe-Bloch description of energy loss by ionisation in matter predicts a steep rise of d$E/$d$x$ for $\beta\gamma\lesssim 1$, before reaching the broad minimum characteristic of MIPs around $\beta\gamma\approx 3$--$4$. A heavy, slow particle traversing the silicon tracker, therefore, deposits substantially more charge per unit length than any prompt SM track of comparable momentum, providing a powerful discriminating variable across nearly the full HSCP mass range. This is the primary handle exploited in the analysis presented in this thesis.
+
+    \item \textbf{Extended time-of-flight (ToF).} For the same kinematic reason, the time taken by an HSCP to traverse the muon system is significantly longer than for a relativistic muon. This delay can be measured using drift-tube and CSC timing information and complements the d$E/$d$x$ signature, particularly for lepton-like HSCPs, which leave clean, isolated tracks of high momentum. The same late arrival also motivates dedicated muon-scouting streams with relaxed timing requirements, which preserve sensitivity to slow candidates that would otherwise fail the standard prompt-muon trigger logic \cite{cmscollaboration2026searchheavylonglivedcharged}.
+
+    \item \textbf{Missing transverse energy ($E_{\mathrm{T}}^{\mathrm{miss}}$).} A third, complementary handle is essential for hadron-like HSCPs, which hadronise into R-hadrons and may flip their electric charge through successive nuclear interactions in the calorimeter. A state produced as charged can, in particular, exit the calorimeter as neutral, leaving no hit in the muon system and thus escaping muon-based reconstruction, thus making the muon triggers less efficient. These corresponding events could be triggered and selected through a MET-based path. This topology plays an exciting role for gluino and squark R-hadrons when hadronisation favours the neutral state. As a result, it serves as a key pillar of the analysis presented in this thesis.
+\end{itemize}
+
+Together, these three handles define the experimental signatures on which the LHC HSCP programme rests. The next section reviews the current state of the art in HSCP searches in the ATLAS and CMS collaborations, outlines the complementary roles of their respective analysis channels, and situates the work presented in this thesis within that broader landscape.
+
+
+
+
 
 \subsection{Current experimental status of HSCP searches}
 - Search strategy at CMS: dE/dx + ToF combination, tracker + muon system
@@ -593,4 +814,23 @@ In summary, the MSSM extends the SM by introducing 105 free parameters, the vast
 - ATLAS complementary results (brief comparison)
 - Benchmark signal models used: stau, gluino R-hadrons, stop R-hadrons
 - Interpretation: model-independent limits vs simplified models
-- Open questions and sensitivity prospects for Run 3 / HL-LHC
+
+
+
+
+ME Generator → LHE → Hadronization → SIM → DIGI → L1 → DIGI2RAW → HLT → RAW2DIGI →
+L1Reco → RECO → FullAOD → MiniAOD→ NanoAOD 
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Ch3/cmsrhadron.png}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Ch3/atlasrhadron.png}
+    \end{subfigure}
+    \caption{ \cite{sonneveld2025susyhighlightscurrentresults}.}
+    \label{fig:CMSATLAS_gluinoCL}
+\end{figure}

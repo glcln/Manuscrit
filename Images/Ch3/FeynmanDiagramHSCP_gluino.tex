@@ -1,0 +1,219 @@
+\definecolor{myred}{RGB}{200, 30, 30}
+
+\begin{figure}[h!]
+\centering
+
+
+% ABOVE
+\begin{subfigure}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 0.5);
+  \coordinate (gISR) at (-0.4, 1.6);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (-0.5, 0);
+  \coordinate (V2)   at (1.5, 0);
+  \coordinate (k2)   at (2.5, 1);
+  \coordinate (gln2)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (gln1)  at (3, -1.4);
+
+  \draw[fermion] (qIn)  -- (V1);
+  \draw[fermion] (V1)   -- (qbIn);
+  \draw[gluon]   (k1)   -- (gISR);
+  \draw[gluon]   (V1)   -- (V2);
+  \draw[gluon, myred]   (V2)   -- (gln1);
+  \draw[myline, myred]    (V2)   -- (gln1);
+  \draw[gluon, myred]   (V2)   -- (gln2);
+  \draw[myline, myred]    (V2)   -- (gln2);
+  \draw[gluon]   (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(q\)};
+  \node[left]       at (qbIn) {\(\bar{q}\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[right, myred]      at (gln1) {\(\tilde{g}\)};
+  \node[below]      at (gFSR) {\(g\)};
+  \node[right, myred]      at (gln2) {\(\tilde{g}\)};
+  \node[above]      at ( 0.5, 0.0) {\(g\)};
+\end{tikzpicture}
+\end{subfigure}
+\hfill
+\begin{subfigure}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 1.4);
+  \coordinate (gISR) at (-0.4, 2);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (+0.5, 1.4);
+  \coordinate (V2)   at (+0.5, -1.4);
+  \coordinate (k2)   at (2.1, 1.4);
+  \coordinate (gln1)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (gln2)  at (3, -1.4);
+
+  \draw[fermion] (qIn)  -- (V1);
+  \draw[fermion] (V2)  -- (qbIn);
+  \draw[scalararrow] (V1)   -- (V2);
+  \draw[gluon]   (k1)   -- (gISR);
+  \draw[gluon, myred]   (V1)   -- (gln1);
+  \draw[myline, myred]    (V1)   -- (gln1);
+  \draw[gluon, myred]   (V2)   -- (gln2);
+  \draw[myline, myred]    (V2)   -- (gln2);
+  \draw[gluon]   (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(q\)};
+  \node[left]       at (qbIn) {\(\bar{q}\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[right, myred]      at (gln1) {\(\tilde{g}\)};
+  \node[below]      at (gFSR) {\(g\)};
+  \node[right, myred]      at (gln2) {\(\tilde{g}\)};
+  \node[right]      at (-0.2, 0.0) {\(\tilde{q}\)};
+\end{tikzpicture}
+\end{subfigure}
+\hfill
+\begin{subfigure}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 1.4);
+  \coordinate (gISR) at (-0.4, 2);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (+0.5, 1.4);
+  \coordinate (V2)   at (+0.5, -1.4);
+  \coordinate (k2)   at (2.5, 0.9);
+  \coordinate (gln2)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (gln1)  at (3, -1.4);
+
+  \draw[fermion] (qIn)  -- (V1);
+  \draw[fermion] (V2)  -- (qbIn);
+  \draw[scalararrow] (V1)   -- (V2);
+  \draw[gluon]   (k1)   -- (gISR);
+  \draw[gluon, myred]   (V1)   -- (gln1);
+  \draw[myline, myred]    (V1)   -- (gln1);
+  \draw[gluon, myred]   (V2)   -- (gln2);
+  \draw[myline, myred]    (V2)   -- (gln2);
+  \draw[gluon]   (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(q\)};
+  \node[left]       at (qbIn) {\(\bar{q}\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[right, myred]      at (gln1) {\(\tilde{g}\)};
+  \node[below]      at (gFSR) {\(g\)};
+  \node[right, myred]      at (gln2) {\(\tilde{g}\)};
+  \node[right]      at (-0.2, 0.0) {\(\tilde{q}\)};
+\end{tikzpicture}
+\end{subfigure}
+
+\par\medskip
+%DOWN
+\begin{subfigure}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 0.5);
+  \coordinate (gISR) at (-0.4, 1.6);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (-0.5, 0);
+  \coordinate (V2)   at (1.5, 0);
+  \coordinate (k2)   at (2.5, 1);
+  \coordinate (gln2)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (gln1)  at (3, -1.4);
+
+  \draw[gluon] (qIn)  -- (V1);
+  \draw[gluon] (V1)   -- (qbIn);
+  \draw[gluon]   (k1)   -- (gISR);
+  \draw[gluon]   (V1)   -- (V2);
+  \draw[gluon, myred]   (V2)   -- (gln1);
+  \draw[myline, myred]    (V2)   -- (gln1);
+  \draw[gluon, myred]   (V2)   -- (gln2);
+  \draw[myline, myred]    (V2)   -- (gln2);
+  \draw[gluon]   (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(g\)};
+  \node[left]       at (qbIn) {\(g\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[right, myred]      at (gln1) {\(\tilde{g}\)};
+  \node[below]      at (gFSR) {\(g\)};
+  \node[right, myred]      at (gln2) {\(\tilde{g}\)};
+  \node[above]      at ( 0.5, 0.0) {\(g\)};
+\end{tikzpicture}
+\end{subfigure}
+\hfill
+\begin{subfigure}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 1.4);
+  \coordinate (gISR) at (-0.4, 2);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (+0.5, 1.4);
+  \coordinate (V2)   at (+0.5, -1.4);
+  \coordinate (k2)   at (2.1, 1.4);
+  \coordinate (gln1)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (gln2)  at (3, -1.4);
+
+  \draw[gluon] (qIn)  -- (V1);
+  \draw[gluon] (V2)  -- (qbIn);
+  \draw[gluon, myred] (V1)   -- (V2);
+  \draw[myline, myred] (V1)   -- (V2);
+  \draw[gluon]   (k1)   -- (gISR);
+  \draw[gluon, myred]   (V1)   -- (gln1);
+  \draw[myline, myred]    (V1)   -- (gln1);
+  \draw[gluon, myred]   (V2)   -- (gln2);
+  \draw[myline, myred]    (V2)   -- (gln2);
+  \draw[gluon]   (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(g\)};
+  \node[left]       at (qbIn) {\(g\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[right, myred]      at (gln1) {\(\tilde{g}\)};
+  \node[below]      at (gFSR) {\(g\)};
+  \node[right, myred]      at (gln2) {\(\tilde{g}\)};
+  \node[right, myred]      at (-0.2, 0.0) {\(\tilde{g}\)};
+\end{tikzpicture}
+\end{subfigure}
+\hfill
+\begin{subfigure}[c]{0.32\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \coordinate (qIn)  at (-2.0, 1.4);
+  \coordinate (k1)   at (-1.1, 1.4);
+  \coordinate (gISR) at (-0.4, 2);
+  \coordinate (qbIn) at (-2.0, -1.4);
+  \coordinate (V1)   at (+0.5, 1.4);
+  \coordinate (V2)   at (+0.5, -1.4);
+  \coordinate (k2)   at (2.5, 0.9);
+  \coordinate (gln2)   at (3, 1.4);
+  \coordinate (gFSR) at (3, 0.5);
+  \coordinate (gln1)  at (3, -1.4);
+
+  \draw[gluon] (qIn)  -- (V1);
+  \draw[gluon] (V2)  -- (qbIn);
+  \draw[gluon, myred] (V1)   -- (V2);
+  \draw[myline, myred] (V1)   -- (V2);
+  \draw[gluon]   (k1)   -- (gISR);
+  \draw[gluon, myred]   (V1)   -- (gln1);
+  \draw[myline, myred]    (V1)   -- (gln1);
+  \draw[gluon, myred]   (V2)   -- (gln2);
+  \draw[myline, myred]    (V2)   -- (gln2);
+  \draw[gluon]   (k2)   -- (gFSR);
+
+  \node[left]       at (qIn)  {\(g\)};
+  \node[left]       at (qbIn) {\(g\)};
+  \node[above left] at (gISR) {\(g\)};
+  \node[right, myred]      at (gln1) {\(\tilde{g}\)};
+  \node[below]      at (gFSR) {\(g\)};
+  \node[right, myred]      at (gln2) {\(\tilde{g}\)};
+  \node[right, myred]      at (-0.2, 0.0) {\(\tilde{g}\)};
+\end{tikzpicture}
+\end{subfigure}
+
+
+\caption{Representative leading-order diagrams for the production of gluino pairs; each one shown with ISR and FSR. Adapted from~\cite{10.21468/SciPostPhysCore.7.4.072}.}
+\label{fig:hscp_prod_gluino}
+\end{figure}

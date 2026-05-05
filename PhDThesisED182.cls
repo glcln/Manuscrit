@@ -46,6 +46,7 @@
 \usetikzlibrary{arrows.meta} % for arrow size
 \usetikzlibrary{3d} % for canvas is
 \usetikzlibrary{patterns.meta}
+\usetikzlibrary{decorations.markings, decorations.pathmorphing}
 \RequirePackage[outline]{contour} % glow around text
 \contourlength{0.9pt}
 \usetikzlibrary{bending} % for arrow head angle
@@ -59,8 +60,37 @@
 \RequirePackage{dsfont}
 \RequirePackage{bm}
 \RequirePackage{pgfplots}
+\RequirePackage{booktabs}
 
 \pgfplotsset{compat=1.18}
+
+\tikzset{
+  % Fermion: solid with forward arrow
+  fermion/.style={
+    thick, draw,
+    decoration={markings, mark=at position 0.55 with {\arrow{Latex}}},
+    postaction={decorate}
+  },
+  myline/.style={
+    thick, draw
+  },
+  % Gluon: curly spring
+  gluon/.style={
+    thick, draw,
+    decorate, decoration={coil, aspect=0.8, segment length=4pt, amplitude=2.5pt}
+  },
+  % Photon / Z: wavy line
+  photon/.style={
+    thick, draw,
+    decorate, decoration={snake, amplitude=1.3pt, segment length=5pt}
+  },
+  % Scalar (squark, slepton) with arrow
+  scalararrow/.style={
+    thick, draw, dashed,
+    decoration={markings, mark=at position 0.55 with {\arrow{Latex}}},
+    postaction={decorate}
+  }
+}
 
 
 %% Import packages and fefine commands for watermark
