@@ -41,6 +41,7 @@
 \RequirePackage{mathrsfs}
 
 \RequirePackage{physics}
+\RequirePackage{afterpage}
 \RequirePackage{tikz}
 \RequirePackage{tikz-3dplot}
 \usetikzlibrary{arrows.meta} % for arrow size
