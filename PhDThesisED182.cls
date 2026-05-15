@@ -35,7 +35,7 @@
 \PassOptionsToPackage{most}{tcolorbox}\RequirePackage{tcolorbox} % Coloured boxes
 \PassOptionsToPackage{nottoc}{tocbibind}\RequirePackage{tocbibind}  % Add bibliography/index/contents to Table of Contents
 \RequirePackage{minitoc} % Produce a table of contents for each chapter, part or section
-\PassOptionsToPackage{title}{appendix}\RequirePackage{appendix} % Extra control of appendices
+\PassOptionsToPackage{title}{appendix}\RequirePackage[toc,page]{appendix} % Extra control of appendices
 \RequirePackage{geometry} % Flexible and complete interface to document dimensions
 \RequirePackage{lineno} % Line numbers on paragraphs
 \RequirePackage{mathrsfs}
@@ -62,6 +62,7 @@
 \RequirePackage{bm}
 \RequirePackage{pgfplots}
 \RequirePackage{booktabs}
+\RequirePackage{xpatch}
 
 \pgfplotsset{compat=1.18}
 
@@ -232,3 +233,4 @@
 \DeclareOption{showLineNumbers}{\showLineNumberstrue}
 \DeclareOption{showWatermark}{\showWatermarktrue}
 \ProcessOptions\relax % to process options
+

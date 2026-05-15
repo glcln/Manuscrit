@@ -6,39 +6,35 @@
 \section{Interaction of charged particles with matter}
 \label{sec:interactionWithMatter}
 
-\indent A charged particle traversing a material loses energy via ionisation or Coulomb scattering. The Bethe-Bloch formula describes the energy loss due to ionisation in a material by a particle with a mass $M$ much greater than that of an electron $m_e$ \cite{PDG}:
+\indent A charged particle traversing a material loses energy via ionisation or Coulomb scattering. The Bethe-Bloch formula describes the energy loss due to ionisation in a material by a particle with a mass $M$ much greater than an electron of mass $m_e$ \cite{PDG}:
 
 \begin{equation} 
-    \left\langle - \frac{\mathrm{d}E}{\mathrm{d}x} \right\rangle = Kz^2 \frac{Z}{A} \frac{1}{\beta^2} \left[ \frac{1}{2} \ln \left( \frac{2m_ec^2\beta^2\gamma^2W_{\mathrm{max}}}{I^2} \right) - \beta^2 - \frac{\delta(\beta\gamma)}{2} \right]
+    \left\langle - \frac{\mathrm{d}E}{\mathrm{d}x} \right\rangle = Kz^2 \frac{Z}{A} \frac{1}{\beta^2} \left[ \frac{1}{2} \ln \left( \frac{2m_ec^2\beta^2\gamma^2W_{\mathrm{max}}}{I^2} \right) - \beta^2 - \frac{\delta(\beta\gamma)}{2} \right] \, ,
     \label{eq:BetheBloch_formula}
 \end{equation}
-
-\noindent with
+where the term $\beta\gamma= p/(Mc)$ represents the kinematics of the particle of momentum $p$. The term $\beta$ is equal to $v/c$ (where $v$ is the velocity of the particle), $A$ and $Z$ correspond to the mass number and atomic number of the material traversed respectively, $z$ is the algebraic charge of the particle and $K \approx 0.307075 \,\, \textrm{MeV\,mol}^{-1}\,\textrm{cm}^2$. $I$ is the average excitation energy of the material and $W_{\mathrm{max}}$, the maximum energy transferred in a single collision, such that:
 
 \begin{equation}
-    W_{\max} = \frac{2m_e c^2 \beta^2 \gamma^2}{1 + 2\gamma m_e/M + (m_e/M)^2}
+    W_{\max} = \frac{2m_e c^2 \beta^2 \gamma^2}{1 + 2\gamma m_e/M + (m_e/M)^2} \, ,
     \label{eq:Wmax}
 \end{equation}
-
-\noindent and
+and $\delta(\beta\gamma)$ is the density correction for the ultra-relativistic regime:
 
 \begin{equation}
-    \delta(\beta\gamma) = \begin{cases} 2(\ln 10)x - \overline{C} & \text{if } x \geq x_1; \\ 2(\ln 10)x - \overline{C} + a(x_1 - x)^k & \text{if } x_0 \leq x < x_1; \\ 0 & \text{if } x < x_0 \textrm{ (non conductors)}; \\ \delta_0 10^{2(x - x_0)} & \text{if } x < x_0 \text{ (conductors)} \end{cases}
+    \delta(\beta\gamma) = \begin{cases} 2\ln 10\cdot x - \overline{C} & \text{if } x \geq x_1; \\ 2\ln 10\cdot x - \overline{C} + a(x_1 - x)^k & \text{if } x_0 \leq x < x_1; \\ 0 & \text{if } x < x_0 \textrm{ (non conductors)}; \\ \delta_0 10^{2(x - x_0)} & \text{if } x < x_0 \text{ (conductors),} \end{cases}
     \label{eq:deltabetagamma}
 \end{equation}
-where the term $\beta\gamma= p/(Mc)$ represents the kinematics of the particle with mass $M$ and momentum $p$. The term $\beta$ is equal to $v/c$ (where $v$ is the velocity of the particle), $A$ and $Z$ correspond respectively to the mass number and atomic number of the material traversed, $z$ is the algebraic charge of the particle and $K\simeq0.307075 \,\, \textrm{MeV.mol}^{-1}.\textrm{cm}^2$. $W_{\mathrm{max}}$ [MeV] is the maximum energy transferred in a single collision described in \cref{eq:Wmax}, $I$ [eV] is the average excitation energy of the material, and $\delta(\beta\gamma)$ is the density correction for the ultra-relativistic regime.
-
-As for the latter, \cref{eq:deltabetagamma} gives an empirical expression depending on the $\beta\gamma$ regime with $x=\log_{10}(\beta\gamma)$; $x_0$, $x_1$, $\overline{C}$, $a$, $k$ and $\delta_0$ are constants related to the material, one can find numerical values of them in \cite{DeltaBetaGamma}.
+which is an empirical expression depending on the $\beta\gamma$ regime with $x=\log_{10}(\beta\gamma)$; $x_0$, $x_1$, $\overline{C}$, $a$, $k$, and $\delta_0$ are constants related to the material, one can find numerical values of them in Ref. \cite{DeltaBetaGamma}.
 
 \vspace{0.5 cm}
 
-The average stopping power $\langle \dedx \rangle $ is usually depicted in MeV.$\mathrm{g}^{-1}.\mathrm{cm}^2$. By multiplying this value by the material density, the average ionisation loss is therefore expressed in [MeV/cm]. The mean energy deposit per unit of length value depends on $p/M$, so that for slow moving particle and/or heavy ones, \dedx\, decreases as $-\ln(p/M)$ before reaching a minimum at around $3-4$ MeV/cm for $\beta\gamma\sim3-4$, before gradually increasing due to the relativistic-regime term induced by $\delta(\beta\gamma)$. \cref{fig:BetheBloch} shows the energy deposition per unit distance travelled for different particles passing through silicon according to \cref{eq:BetheBloch_formula}.
+The average stopping power $\langle \dedx \rangle $ is usually depicted in MeV $\mathrm{g}^{-1}\,\mathrm{cm}^2$. By multiplying this value by the material density, the average ionisation loss is therefore expressed in [MeV/cm]. The mean energy deposit per unit of length value depends on $p/M$, so that for slow moving particle and/or heavy ones, \dedx\, decreases as $-\ln(p/M)$ before reaching a minimum at around $1-5$ MeV/cm for $\beta\gamma\sim3-4$, and gradually increases at large $p/M$ due to the relativistic-regime term induced by $\delta(\beta\gamma)$. \cref{fig:BetheBloch} shows the energy deposition per unit distance travelled for different particles passing through silicon according to \cref{eq:BetheBloch_formula}.
 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch2/bethebloch_multiparticle_Si.pdf}
-    \caption{Average ionisation loss of muons, pions, kaons and protons in the silicon derived from \cref{eq:BetheBloch_formula}. Numerical values of the parameters were taken in \cite{DeltaBetaGamma}.}
+    \caption{Average ionisation loss of muons, pions and protons in the silicon derived from \cref{eq:BetheBloch_formula}. Numerical values of the parameters were taken from \cite{DeltaBetaGamma}.}
     \label{fig:BetheBloch}
 \end{figure}
 
@@ -46,7 +42,7 @@ The average stopping power $\langle \dedx \rangle $ is usually depicted in MeV.$
 
 Most of the particles produced by proton-proton collisions at the CMS detector are low-energy particles, which release some of their energy at the minimum of the curve. The silicon tracker has been optimised to detect such particles, labelled as \textit{Minimum Ionising Particles} (MIPs).
 
-Note that for high relativistic particles at $\beta\gamma\sim1000$, the average deposit is 2.5 times higher than the MIP. Thus, by measuring the \dedx\,information, one could identify the $\beta\gamma$ regime of the particle. This information will later be used to distinguish HSCP deposits from those produced by SM processes.
+Note that for high relativistic particles at $\beta\gamma\sim1000$, the average deposit is 2.5 times higher than the MIP. Thus, by measuring the \dedx\,information and the track momentum, one could identify the $\beta\gamma$ regime of the particle. This information will later be used to distinguish HSCP energy deposits from those produced by SM processes.
 
 \vspace{0.5 cm}
 
@@ -61,7 +57,7 @@ As a result, muons produced in particle accelerators are highly penetrating and 
 
 While the Bethe–Bloch formula provides an accurate description of the average energy loss over a given path length, it becomes inadequate when considering thin absorbers such as the strip or pixel silicon sensors of the CMS tracker, where the energy deposit is measured locally, layer by layer.
 
-In this regime, the number of collisions experienced by the particle is relatively small, and the deposited energy is no longer a well-defined quantity. Still, it must instead be described by a probability distribution. Rare but large energy transfers dominate this distribution to $\delta$-rays\footnote{Secondary electrons with enough energy to escape a significant distance away from the primary radiation beam and produce further ionisation.}, which distort it away from a symmetric Gaussian shape and produce a characteristic asymmetric tail toward large energy losses.
+In this regime, the particle experiences relatively few collisions, so the deposited energy cannot be precisely defined. It is better described by a probability distribution. Rare but large energy transfers dominate this distribution, mainly due to $\delta$-rays\footnote{A $\delta$-ray is a secondary electron ejected from an atom by an ionising particle with sufficient kinetic energy to produce further ionisation along its own track, distinct from that of the primary particle.}, which create an asymmetric tail toward large energy losses.
 
 In 1944, Lev Landau addressed this problem analytically. Starting from the differential cross section for individual collisions, he showed that in the limit of a sufficiently thin absorber the energy-loss fluctuations follow a universal functional form, now known as the \textit{Landau distribution} \cite{Landau}.
 
@@ -69,30 +65,30 @@ In 1944, Lev Landau addressed this problem analytically. Starting from the diffe
 
 As the tail goes to infinity, the Landau distribution does not have a finite mean and standard deviation. Instead, it is commonly described by the \textit{Most Probable Value} (MPV), defined as the position of the maximum of the Landau distribution. The MPV depends on the thickness of the material crossed by the particle and increases approximately linearly with thickness, as a thicker layer results in more ionising collisions. 
 
-The Landau Probability Density Function (PDF) is a function of the particle mass and momentum, the crossed material and the thickness of the latter. \cref{fig:landau} shows this PDF for a pion with a momentum of 10 GeV/$c$ passing through two silicon sensors of different thicknesses.
+The Landau \textit{Probability Density Function} (PDF) is a function of the particle mass and momentum, the crossed material and the thickness of the latter. \cref{fig:landau} shows this PDF for a pion with a momentum of 10 GeV/$c$ passing through two silicon sensors of different thicknesses.
 
-Note that particles can't actually lose more energy than their total budget; thus, the infinite tail of the Landau distribution is purely conceptual.
+Note that particles cannot actually lose more energy than their total budget; thus, the infinite tail of the Landau distribution is purely conceptual.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/landau_total_keV.pdf}
-    \caption{Landau PDF for a 10 GeV pion passing through a 320~$\mu$m and 500~$\mu$m silicon sensor.}
-    \label{fig:landau}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Images/Ch2/landau_total_keV.pdf}
+        \label{fig:landau}
+    \end{subfigure}
+    \begin{subfigure}[c]{.48\textwidth}
+        \centering
+        \includegraphics[width=1.05\linewidth]{Images/Ch2/MPV.pdf}
+        \label{fig:MPV}
+    \end{subfigure}
+    \caption{Landau PDF for a 10 GeV pion passing through a 320~$\mu$m and 500~$\mu$m silicon sensor (Left). Most Probable Value of the Landau PDF as a function of the relativistic regime $\beta\gamma$ for two silicon sensors of different thickness (Right).}
 \end{figure}
 
-Another important point is the dependence of the MPV on the relativistic regime, $\beta\gamma$, and on the material thickness. The slower the particle is, the higher the MPV is, and, in the relativistic regime, the MPV converges asymptotically to a value that depends solely on the thickness of the material. An example of the evolution of the MPV for two different silicon sensor thicknesses is shown in \cref{fig:MPV}.
+Another important point is the dependence of the MPV on $\beta\gamma$ and the material thickness. The slower the particle, the higher the MPV. At large $\beta\gamma$, however, the MPV converges asymptotically to a value that depends solely on the thickness of the material in the relativistic regime. An example of the evolution of the MPV for two different silicon sensor thicknesses is shown in \cref{fig:MPV}.
 
 \vspace{0.5 cm}
 
 The Landau distribution provides information on the total energy deposited in a finite silicon layer (here for 320 and 500 $\mu\mathrm{m}$). At the same time, the MPV curve gives the energy loss per unit length (MeV/cm). Multiplying the MPV at the MIP value ($\sim$2.6-2.7 MeV/cm on silicon) by the layer thickness naturally yields a deposit in the keV range, consistent with the MPV observed in the Landau PDF of \cref{fig:landau}.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/MPV.pdf}
-    \caption{Most Probable Value of the Landau PDF as a function of the relativistic regime $\beta\gamma$ for two silicon sensors of different thickness.}
-    \label{fig:MPV}
-\end{figure}
-
 
 \vspace{0.5 cm}
 
@@ -122,14 +118,14 @@ The distribution gives the probability density of finding a fermion at a given e
 
 \vspace{0.5 cm}
 
-Unlike isolated atoms, where electrons occupy discrete orbitals with well-defined binding energies, electrons in crystalline solids arrange themselves into continuous energy bands. The band structure of various materials is illustrated schematically in \cref{fig:EnergyBand}. The valence band is the highest band fully occupied at $T$~=~0~K, while the partially filled band above it is known as the conduction band. Between these two bands lies a forbidden region with no allowed energy states, referred to as the band gap. Electrons residing in the conduction band are those that contribute to the electrical conductivity of the material. 
+Unlike isolated atoms, where electrons occupy discrete orbitals with well-defined binding energies, electrons in crystalline solids arrange themselves into continuous energy bands. The band structure of various materials is illustrated schematically in \cref{fig:EnergyBand}. The valence band is the highest band fully occupied at $T$~=~0~K, while the partially filled band above it is known as the conduction band. Between these two bands lies a forbidden region with no allowed energy states, referred to as the band gap. Electrons in the conduction band are those that contribute to the electrical conductivity of the material. 
 
 Based on this band picture, materials can be classified into three broad categories: conductors, semiconductors, and insulators. Conductors already possess electrons in the conduction band at $T=0$~K, whereas semiconductors and insulators do not, making them behave similarly at absolute zero. At elevated temperatures, however, thermally excited electrons in semiconductors can acquire enough energy to bridge the band gap, rendering the material conductive. These thermally generated carriers are known as intrinsic \textit{charge carriers}, and a semiconductor free of any impurities is accordingly called an intrinsic semiconductor.
 
 \begin{figure}[h]
     \centering
     \input{Images/Ch2/EnergyBand.tex}
-    \caption{Sketch of the energy band structure for three different materials at $T=0$ K: insulators, semiconductors and conductors. The orange (blue) regions represent the states that contain (no) electrons.}
+    \caption{Sketch of the energy band structure for three different materials: insulators, semiconductors and conductors. The orange (blue) regions represent the states that contain (no) electrons at $T=0$ K.}
     \label{fig:EnergyBand}
 \end{figure}
 
@@ -174,7 +170,7 @@ This zone can be extended by attaching electrodes to both sides of the junction 
 
 \subsection{Silicon strip sensors}
 
-The CMS detector uses the tracker's silicon p--n junctions for particle detection. Among the various natural semiconductors, the collaboration opted for silicon-based sensors for various reasons. It is the most common semiconductor (thus cheaper), with natural radiation tolerance and an efficient band gap, and a low electron-hole pair creation energy threshold.
+The CMS detector uses the tracker's silicon p--n junctions for particle detection. Among the various natural semiconductors, the collaboration opted for silicon-based sensors for various reasons. It is the most common semiconductor (thus cheaper), with natural radiation tolerance, an efficient band gap, and a low electron-hole pair creation energy threshold.
 
 A silicon strip sensor module comprises several distinct elements, each playing a specific role in the detection chain. \Cref{fig:SiliconStripSensor} provides a schematic overview of such a module, the key components of which are described in the following.
 
@@ -207,7 +203,7 @@ Under the applied electric field, holes drift toward the $\mathrm{p^+}$ strips w
 
 \vspace{0.5 cm}
 
-Each strip is read out via an AC-coupled pad, which blocks the DC leakage current while transmitting the signal to the read-out chip through a bond wire. A polyresistor connects the DC pad to the bias ring, allowing strip biasing while preserving AC isolation.
+Each strip is read out via an alternating-current (AC)-coupled pad, which blocks the DC leakage current while transmitting the signal to the read-out chip through a bond wire. A polyresistor connects the direct-current (DC) pad to the bias ring, enabling strip biasing while preserving AC isolation.
 
 \vspace{0.5 cm}
 
@@ -223,7 +219,7 @@ Two surrounding $\mathrm{p^+}$ rings protect the active volume. The bias ring is
 
 \vspace{0.5 cm}
 
-A heavily doped $\mathrm{n^+}$ implant on the rear face ensures an ohmic contact with the aluminium backplane electrode, through which the positive high voltage is applied to deplete the sensor bulk fully.
+A heavily doped $\mathrm{n^+}$ implant on the rear face ensures an ohmic contact with the aluminium backplane electrode, through which the positive high voltage is applied to fully deplete the sensor bulk.
 
 \vspace{0.5 cm}
 
@@ -231,17 +227,19 @@ A heavily doped $\mathrm{n^+}$ implant on the rear face ensures an ohmic contact
 
 \vspace{0.5 cm}
 
-The centre-to-centre distance between adjacent strips defines the strip pitch $P$, while their implant width is denoted $W$; these are the key geometric parameters of the sensor summarised in \cref{tab:tracker_modules}. Since the silicon strip tracker spans a large tracking volume, both parameters vary with the module's position within the tracker to keep the $W/P$ ratio close to 0.25. This value has been chosen to minimise the total strip capacitance while maintaining a sufficiently large electric field peak at the $\mathrm{p^+}$ strip edges.
+The centre-to-centre distance between adjacent strips defines the strip pitch $P$, while their implant width is denoted $W$; these are the key geometric parameters of the sensor summarised in \cref{appendix:annexeA}. Since the silicon strip tracker spans a large tracking volume, both parameters vary with the module's position within the tracker to keep the $W/P$ ratio close to 0.25. This value has been chosen to minimise the total strip capacitance while maintaining a sufficiently large electric field peak at the $\mathrm{p^+}$ strip edges.
 
 
 
 \subsection{Read-out pipeline}
 
-Once a charged particle has generated electron-hole pairs in the bulk material, the drift of these electrons induces a current that is then read out. The resulting current is transmitted via a pitch adapter\footnote{The pitch adapter bridges the geometrical mismatch between the strip pitch and the read-out electronics}, to the Front-End Hybrid (FEH), where the APV25 (a 25 $\mu$m thick CMOS Analogue Pipeline Voltage) front-end chips are located \cite{ReadoutStrip}.
+Once a charged particle has generated electron-hole pairs in the bulk material, the drift of these electrons induces a current that is then read out. The resulting current is transmitted via a pitch adapter\footnote{The pitch adapter bridges the geometrical mismatch between the strip pitch and the read-out electronics.}, to the Front-End Hybrid (FEH), where the APV25 (a 25 $\mu$m thick CMOS Analogue Pipeline Voltage) front-end chips are located \cite{ReadoutStrip}.
 
 \vspace{0.5 cm}
 
-Each APV25 chip reads out 128 strips. Given that strip modules comprise either 512 or 768 strips, between four and six APV25 chips are required per sensor. Within each chip, the charge signal first passes through a preamplifier, which converts it into a voltage step. A unity-gain inverter is then applied to normalise the signal polarity, ensuring a positive voltage step regardless of whether the signal originates from electrons or holes. The signal subsequently enters a CR-RC shaper\footnote{A CR-RC shaper is an analogue filtering stage that differentiates the input signal to remove the DC baseline (CR high-pass filter) and then integrates it to limit the bandwidth and optimise the signal-to-noise ratio (RC low-pass filter).}, which produces a 40\,MHz voltage pulse. Two operating modes are available: the \textit{peak mode}, which samples the pulse at its maximum, and the \textit{deconvolution mode}, which computes a weighted sum over three consecutive samples separated by 25\,ns each. Whilst peak mode suffers from a pulse length of approximately 200\,ns (longer than the 25\,ns LHC bunch-crossing interval), deconvolution mode effectively confines the signal to a single bunch crossing and is therefore the standard mode during physics data-taking.
+Each APV25 chip reads out 128 strips. Given that strip modules comprise either 512 or 768 strips, between four and six APV25 chips are required per sensor. Within each chip, the charge signal first passes through a preamplifier, which converts it into a voltage step. A unity-gain inverter is then applied to normalise the signal polarity, ensuring a positive voltage step regardless of whether the signal originates from electrons or holes. The signal subsequently enters a CR-RC shaper\footnote{A CR-RC shaper is an analogue filtering stage that differentiates the input signal to remove the DC baseline (CR high-pass filter) and then integrates it to limit the bandwidth and optimise the signal-to-noise ratio (RC low-pass filter).}, which produces a 40~MHz voltage pulse. 
+
+The APV25 operates in two modes, each delivering distinct advantages. In \textit{peak mode}, the analogue signal is sampled once per bunch crossing at the peak of the CR–RC-shaped pulse, maximising the signal-to-noise ratio. However, the pulse spans about 200~ns --- roughly eight LHC bunch crossings --- so a single hit affects multiple crossings, complicating event assignment at high luminosity. \textit{Deconvolution mode} handles this by combining three samples spaced by 25~ns using a weighted sum that inverts the CR–RC response, confining the pulse to a single 25~ns interval and enabling each hit to be assigned to a single bunch crossing. Thus, the deconvolution mode is favoured during physics data-taking for its precise hit association.
 
 \vspace{0.5 cm}
 
@@ -253,17 +251,17 @@ Following these subtractions, strips that return negative ADC values are set to 
 \begin{itemize}
     \item Strips with a digitised signal below 254 ADC counts are left unchanged;
     \item Those with a digitised signal between 254 and 1023 ADC counts are set to 254;
-    \item Strips at 1024 ADC counts are assigned a value of 255.
+    \item Strips above 1024 ADC counts are assigned a value of 255.
 \end{itemize}
-Strips with zero ADC counts are suppressed entirely, thereby reducing the overall data rate.
+Strips with zero ADC counts or low $S/N$ value are suppressed entirely, thereby reducing the overall data rate.
 
 \vspace{0.5 cm}
 
-In addition to signal digitisation, the Front-End Controllers (FEC) distribute global timing, trigger, and command information from the Timing, Trigger and Control (TTC) system to the front-end electronics via the Communication and Control Unit (CCU). The FEC also handles the configuration of the front-end electronics and monitors key operational parameters, including sensor temperature, leakage current, and bias voltage, through the Detector Control Unit (DCU).
+In addition to signal digitisation, the Front-End Controllers (FEC) distribute global timing, trigger, and command information from the Timing, Trigger and Control (TTC) system to the front-end electronics via the Communication and Control Unit (CCU). The FEC also handles the configuration of the front-end electronics and monitors key operational parameters, including sensor temperature, leakage current, and bias voltage, through the Detector Control Unit (DCU). The complete pipeline is depicted in \cref{fig:APV25_scheme}.
 
 \vspace{0.5 cm}
 
-Finally, one can convert the charge collected in the ADC to MeV by knowing the electron-hole energy-pair creation and the effective gain of the read-out chain (APV25 + FED), the latter being determined experimentally during calibration runs:
+Finally, one can convert the charge collected in the ADC to MeV by knowing the electron-hole energy-pair creation of the semiconductor and the effective gain of the read-out chain (APV25 + FED), the latter being determined experimentally during calibration runs:
 
 \begin{equation}
     Q[\mathrm{ADC \, count}]= 3.62 \cdot10^{-6} \times 265 \times Q[\mathrm{MeV}]
@@ -274,7 +272,7 @@ Finally, one can convert the charge collected in the ADC to MeV by knowing the e
     \centering
     \includegraphics[width=0.5\linewidth]{Images/Ch2/ReadoutStripSketch.png}
     \caption{Silicon modules read-out pipeline. The APV25 chips read the charge collected by the strips, and the analogue output is then transmitted by optical fibre to the Front-End Drivers for processing. Data are then transmitted to the HLT farm for further reconstructions \cite{ReadoutStrip}.}
-    \label{fig:placeholder}
+    \label{fig:APV25_scheme}
 \end{figure}
 
 
@@ -284,7 +282,7 @@ As described in \cref{subsubsection:Hitreconstruction}, collected charges in adj
 
 \subsubsection{Charge sharing}
 
-As depicted in \cref{fig:SiliconStripSensor}, a MIP crossing the n-bulk creates electron-hole pairs that can be captured by several strips depending on the incident angle of the particle. According to the Lorentz force, the movement of the charge carriers is also affected by the internal electric field between the electrodes and the external magnetic field. The latter causes a drift of about 5° in the barrel sensors, resulting in a position shift of the order of 10 to 20 $\mu$m \cite{ChargeCharingDrift}.
+As depicted in \cref{fig:SiliconStripSensor}, a MIP crossing the n-bulk creates electron-hole pairs that can be captured by several strips depending on the incident angle of the particle. According to the Lorentz force, the movement of the charge carriers is also affected by the internal electric field between the electrodes and the external magnetic field. The latter causes a drift of about $5^\text{o}$ in the barrel sensors, resulting in a position shift of the order of 10 to 20 $\mu$m \cite{ChargeCharingDrift}.
 
 One could also mention charge diffusion induced by collisions between charge carriers, thereby causing a small drift along the path.
 
@@ -292,9 +290,9 @@ These two phenomena, combined, have a small effect relative to the pitch size (t
 
 \vspace{0.5 cm}
 
-To illustrate that, \cref{fig:clusterCenteredShifted} shows two \textit{raw-digit} clusters of charges collected in a silicon strip sensor. These clusters originate from a Monte-Carlo simulation of back-to-back muons generated with a $p_T$ ranging from 50 to 200 GeV/$c$ with a pseudorapidity range $|\eta|<2.1$ without any electronic saturation, noise or pile-up contamination.
+To illustrate that, \cref{fig:clusterCenteredShifted} shows two \textit{raw-digit} clusters of charges collected in a silicon strip sensor. These clusters originate from a Monte-Carlo simulation of back-to-back muons generated with a $p_T$ ranging from 50 to 200 GeV/$c$ with a pseudorapidity range $|\eta|<2.1$ without any electronic saturation or pile-up contamination.
 
-The charge collected on each strip is expressed in ADC counts, while the strip index identifies its position within the cluster. The left cluster originates from a muon that crosses a TIB module at an angle of 0.16 rad ($\sim9$°) to the module's normal. The effect of charge sharing is not very important, but the effect of cross-talk is clearly visible (developed below). On the other hand, the right cluster corresponds to a muon with an incident angle of 1.23 rad ($\sim 71$°). This tilted approach leads to higher charge collection in strips 436 and 437 than in the adjacent strips.
+The charge collected on each strip is expressed in ADC counts, while the strip index identifies its position within the cluster. The left cluster originates from a muon that crosses a TIB module at an angle of 0.16 rad ($\sim9^\text{o}$) to the module's normal. The effect of charge sharing is not very important, but the effect of cross-talk is clearly visible (developed below). On the other hand, the right cluster corresponds to a muon with an incident angle of 1.23 rad ($\sim 71^\text{o}$). This tilted approach leads to higher charge collection in strips 436 and 437.
 
 \begin{figure}[h]
     \centering
@@ -306,7 +304,7 @@ The charge collected on each strip is expressed in ADC counts, while the strip i
         \centering
         \includegraphics[width=1\linewidth]{Images/Ch2/Cluster_tilted.pdf}
     \end{subfigure}
-    \caption{Monte Carlo cluster of charges collected in a silicon strip sensor. One originating from a normal approach of a muon compared to the surface module (Left), and one with a tilted angle (Right).}
+    \caption{Simulated clusters of charges collected in a silicon strip sensor, one originating from a muon entering the sensor perpendicular to the surface module (Left), and one with a tilted angle (Right).}
     \label{fig:clusterCenteredShifted}
 \end{figure}
 
@@ -315,17 +313,24 @@ The charge collected on each strip is expressed in ADC counts, while the strip i
 
 In the CMS silicon strip sensor, each strip is capacitively coupled to both the backplane and its immediate neighbours via inter-strip capacitance \cite{CapacitiveCoupling}. It is inherent to the sensor geometry itself: the inter-strip capacitance arises from the proximity of adjacent $\mathrm{p^+}$ implants, while the backplane capacitance couples each strip to the aluminium backplane through the bulk, as illustrated in \cref{fig:SiliconStripSensor}.
 
-This capacitive network has a direct consequence on the charge measurement: when a particle deposits charge on a given strip, a fraction of that charge is redistributed to the adjacent strips through capacitive coupling. This effect is referred to as \textit{cross-talk}, and must be carefully accounted for in the cluster charge reconstruction.
+This capacitive network has a direct consequence on the charge measurement: when a particle deposits charge on a given strip, a fraction of that charge is redistributed to the adjacent strips through capacitive coupling. This effect is referred to as \textit{cross-talk}.
 
 \vspace{0.5 cm}
 
-The magnitude of the charge sharing is parametrised as follows. For a cluster of total charge $Q$, the strip with the largest charge fraction receives $x_0 \times Q$, its two immediate neighbours each receive $x_1 \times Q$, and the next-to-nearest neighbours receive $x_2 \times Q$. For a common 5-strip width cluster, this leads to the following equation: $\displaystyle x_0 + 2\cdot x_1 + 2 \cdot x_2 = 1$. If a MIP particle crosses the sensor with an incident angle close to zero with respect to the normal, this leads to pyramid-shaped clusters, as the left cluster of \cref{fig:clusterCenteredShifted}.
+The cross-talk is parametrised as follows. For a cluster of total charge $Q$, the strip with the largest charge fraction receives $x_0 \times Q$, its two immediate neighbours each receive $x_1 \times Q$, and the next-to-nearest neighbours receive $x_2 \times Q$. For a common 5-strip width cluster, this leads to the following equation: $\displaystyle x_0 + 2\cdot x_1 + 2 \cdot x_2 = 1$. If a MIP particle crosses the sensor with an incident angle close to zero with respect to the normal, this leads to pyramid-shaped clusters, as the left cluster of \cref{fig:clusterCenteredShifted}.
 
 One should note that these parameters are not fixed; they depend on the APV25 chip's read-out mode, as the degree of charge sharing is sensitive to the signal sampling time. The values of $x_0$, $x_1$ and $x_2$ have been extracted from data in deconvolution mode, using muon tracks traversing the full tracker with trajectories close to normal incidence to the sensor plane, and were evaluated both in 2010 and 2018 to monitor potential variations over time \cite{Xtalk2018CMS}. Values of those three parameters measured in the tracker barrel for different years are presented in \cref{fig:Xtalk}. Due to ageing, $x_1$ and $x_2$ are smaller than at the beginning of the last decade; thus, clusters tend to shrink.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{Images/Ch2/Xtalk2018.pdf}
+    \begin{tikzpicture}
+        \node[anchor=south west, inner sep=0] (img) at (0,0)
+            {\includegraphics[width=0.6\linewidth,trim={0 1.5cm 0 0},clip]{Images/Ch2/Xtalk2018.pdf}};
+        \begin{scope}[x={(img.south east)}, y={(img.north west)}]
+            % Rectangle blanc : (x1,y1) coin bas-gauche, (x2,y2) coin haut-droit, en fraction de l'image
+            \fill[white] (0.15,0.82) rectangle (0.3,0.88);
+        \end{scope}
+    \end{tikzpicture}
     \caption{Value of the three cross-talk parameters as a function of the barrel layer for 2010 and 2018 data \cite{Xtalk2018CMS}.}
     \label{fig:Xtalk}
 \end{figure}
@@ -344,13 +349,13 @@ Beyond permanent damage, ionising particles can also flip the state of memory ce
 
 \vspace{0.5 cm}
 
-To cope with the cumulative effects of permanent radiation damage, detectors can be recalibrated and operated at higher bias voltages and lower temperatures. However, once the signal-to-noise ratio becomes too degraded, front-end modules must be replaced. A typical operational lifetime for the inner layers of a silicon tracker at the LHC is of the order of 5 to 10 years.
+To cope with the cumulative effects of permanent radiation damage, detectors can be recalibrated and operated at higher bias voltages and lower temperatures. However, once the signal-to-noise ratio becomes too degraded, front-end modules must be replaced. In CMS, for instance, the innermost layer of the barrel pixel detector (BPIX layer~1), placed at a radius of only 29~mm from the beam, is exposed to a hadron fluence of up to ${\sim}3.6\times10^{15}~\mathrm{n}_{\mathrm{eq}}/\mathrm{cm^{2}}$ for an integrated luminosity of 500~fb$^{-1}$, leading to a progressive decrease of the charge-collection efficiency and a corresponding rise of the pixel threshold over the course of operation~\cite{CMSPhase1Pixel2021}. A typical operational lifetime for the inner layers of a silicon tracker at the LHC is of the order of 5 to 10 years.
 
 
 
 \section{Study of saturated strip clusters}
 
-In the next, the energy deposit per unit of length of a charged particle crossing a material will be denoted as \dedx.
+% In the following, the energy deposit per unit of length of a charged particle crossing a material will be denoted as \dedx.
 
 \subsection{The harmonic ionisation mean \texorpdfstring{$I_h$}{Ih}}
 
@@ -363,27 +368,39 @@ One way to assess the average ionisation of a track along several silicon strip 
 
 \vspace{0.5 cm}
 
-$I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are distributed on a Landau with a long tail). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
+$I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
 
-\subsection{Preliminary studies}
+\subsection{Preliminary studies -- TITRE A REVOIR}
 \label{subsubsection:satstripclusters}
 
-A preliminary work on saturated strip clusters has been carried out in a 2018 Monte Carlo simulation of two back-to-back muons generated with a $p_T$ range from 50 to 200 GeV/$c$ and a pseudorapidity range $|\eta|<3$. The original simulated charge deposit on silicon sensors is saved without saturation or zero suppression (raw-digit format). This sample provides a good number of pure tracks, leaving charge deposits at the MIP level within the tracker, while also saving crucial simulated information for the rest. For the rest of the study, this muon simulation will be labelled as the \textit{bTbM sample}.
-
-Considering this, saturated clusters are saved in addition to the reconstructed ones (with saturation filters and zero-suppression process applied), as shown in \cref{fig:ClusterExample}. 
+Preliminary work on saturated strip clusters has been carried out using a Monte Carlo simulation with the 2018 detector configuration.  Events containing two back-to-back muons have been generated with a $p_T^\mu$ range exponentially decreasing from 50 to 200 GeV/$c$ and a pseudorapidity range $|\eta^\mu|<3$. The original simulated charge deposit on silicon sensors is saved without saturation or zero suppression (raw-digit format). Therefore, one could access the original simulated charge deposit and compare it with the reconstructed one, as shown in \cref{fig:ClusterExample}. This sample provides a good number of pure tracks, leaving charge deposits at the MIP level within the tracker. For the rest of the study, this muon simulation will be labelled as the \textit{MC--muon} sample.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{Images/Ch2/Cluster_saturation.pdf}
-    \caption{Example of a cluster of the bTbM sample in a strip module where the simulated charge deposit (in blue) has been saved in addition to the reconstructed one (in green)}.
+    \caption{Example of a cluster in the MC--muon sample in a strip module for which the simulated charge deposit (in blue) has been saved in addition to the reconstructed one (in green).}
     \label{fig:ClusterExample}
 \end{figure}
 
-Continuing on this line, a first step was to determine the proportion of saturated clusters across different Monte Carlo samples relative to a dataset. Because muons are of interest in the search for HSCPs, a comparison of various muon-related processes was conducted to reduce bias in subsequent analysis.
+In addition to the MC--muon sample, three distinct samples are also considered, for which their characteristics are summarised in \cref{tab:samples}.
 
-\vspace{0.5 cm}
-
-In addition to the bTbM sample, three distinct 2018 samples are considered. The first is a Monte Carlo simulation of W bosons produced in association with jets, modelling standard-model muons that deposit energy at the MIP level. This contrasts with a high-energy deposit scenario studied in a 2018 HSCP simulation of gluinos with $m_{\widetilde{g}}=2000$~GeV/$c^2$, in which the HSCP is matched to a muon. The third sample is an Ultra-Legacy\footnote{The Ultra-Legacy (UL) dataset is the full reprocessing of the CMS Run 2 data with improved calibrations, alignment corrections, and reprocessed MC simulations, providing the final and definitive version of the Run 2 dataset for physics analyses.} 2018 Era D dataset of muon data, providing a reference from actual detector data.
+\begin{table}[h]
+    \centering
+    \footnotesize
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{lcp{4.5cm}p{4.5cm}}
+    \toprule
+    \textbf{Sample} & \textbf{Type} & \textbf{Process / Source} & \textbf{Purpose} \\
+    \midrule
+    MC--muon       & MC   & Single muons (reference)                                              & Baseline reference \\
+    W+jets    & MC   & $W(\to\ell\nu)+\mathrm{jets}$, Ultra-Legacy reprocessing\footnote{The Ultra-Legacy (UL) campaign is the full reprocessing of the CMS Run 2 data with improved calibrations, alignment corrections, and reprocessed MC simulations, providing an advanced version of the Run 2 dataset for physics analyses.} & SM muons at MIP energy deposit \\
+    HSCP      & MC   & Gluino, $m_{\widetilde{g}}=2000~\mathrm{GeV}/c^{2}$, muon-matched      & High-energy-deposit scenario \\
+    Data--muon  & Data & 2018, Era D, Muon dataset, Ultra-Legacy reprocessing & Real detector reference \\
+    \bottomrule
+    \end{tabular}
+    \caption{Summary of the simulated and recorded samples used in the analysis.}
+    \label{tab:samples}
+\end{table}
 
 In each case, the muon track must be a \textit{HighPurity} track, with at least eight \dedx\ deposits, to ensure good reconstruction.
 
@@ -416,7 +433,7 @@ $>4$ & $0.62\pm0.01$\,\% & $0.34\pm0.01$\,\% & $1.74\pm0.01$\,\% & $2.79\pm0.01$
 \label{tab:WjetHSCPsat}
 \end{table}}
 
-A secondary step consists of examining the number of saturated clusters in each layer of the tracker barrel and in each ring and disk of the tracker endcap. These fractions are depicted in \cref{fig:satClusterInLayer} for clusters of the bTbM sample.
+A secondary step consists of examining the number of saturated clusters in each layer of the tracker barrel and in each ring and disk of the tracker endcap. These fractions are depicted in \cref{fig:satClusterInLayer} for clusters of the MC--muon sample.
 
 Saturated clusters are more numerous in the TOB layers, where the silicon sensors are 500 $\mu$m thick, leading to greater energy deposition. Otherwise, the rest of the layers have between 5 to 10 \% of saturated clusters within the number of clusters of the layer.
 
@@ -439,12 +456,12 @@ Building on this, since this thesis focuses on the HSCP search using the \dedx\,
 \subsection{Shape classification}
 \label{subsection:shapeclassification}
 
-This part relates to clusters with a single saturated strip. As access to the original charge deposit will be needed without any saturation, this part is based on the bTbM sample.
+This part relates to clusters with a single saturated strip. As access to the original charge deposit will be needed without any saturation, this part is based on the MC--muon sample.
 
 Single saturated strip clusters are grouped into five different labels depending on their shape, as shown in \cref{fig:clustershape}:
 
 \begin{itemize}
-    \item \textit{Center} clusters: Originating from particles with a near-normal approach to the sensor, they are the ones where the effect of the cross-talk is the most noticeable. In the bTbM sample, they represent 69\% of the saturated cluster fraction.
+    \item \textit{Center} clusters: Originating from particles with a near-normal approach to the sensor, they are the ones where the effect of the cross-talk is the most noticeable. In the MC--muon sample, they represent 69\% of the saturated cluster fraction.
     \item \textit{Left} and \textit{Right} clusters (L and R): Coming from incident inclined particles with respect to the normal of the sensors, their barycentre is shifted toward the strips with more deposit. Each accounts for 14\% of the total population.
     \item \textit{FullLeft} and \textit{FullRight} clusters (FL and FR): These are the abnormal clusters; their shape runs counter to what the charge sharing should provide at the charge collection step. FL and FR clusters are not common; they account for 1.5\% each of the total fraction. Most of them ($\sim$80\%) result from a dead strip adjacent to the maximum, and about 20\% of them because their maximum is located at the beginning or the end of the APV25 read-out.
 \end{itemize}
@@ -509,7 +526,7 @@ On top of that, only two-thirds of the saturated cluster population are correcte
         \centering
         \includegraphics[width=1\linewidth]{Images/Ch2/QcorrOld_Minus_Qtrue.pdf}
     \end{subfigure}
-    \caption{Ratio between the actual charge of the cluster $Q_{\mathrm{true}}$ and the corrected charge $Q_\mathrm{basic\,corr}$ with the basic cross-talk inversion method on the bTbM sample (Left). Difference between $Q_{\mathrm{true}}$ and $Q_{basic\,\mathrm{corr}}$ under the same procedure (Right).}
+    \caption{Ratio between the actual charge of the cluster $Q_{\mathrm{true}}$ and the corrected charge $Q_\mathrm{basic\,corr}$ with the basic cross-talk inversion method on the MC--muon sample (Left). Difference between $Q_{\mathrm{true}}$ and $Q_{basic\,\mathrm{corr}}$ under the same procedure (Right).}
     \label{fig:QcorrOldcorrection}
 \end{figure}
 
@@ -537,9 +554,9 @@ The effect of cross-talk is most noticeable in these clusters; thus, considering
     Q_\mathrm{max} = a_{\mathrm{center}} \cdot \frac{L_{\mathrm{max}} + R_{\mathrm{max}}}{2}
     \label{eq:CenterCorr}
 \end{equation}
-with $a_{\mathrm{center}}$ taken to be the maximum of $Q_\mathrm{max}/[(L_{\mathrm{max}} + R_{\mathrm{max}})/2]$ histogram templates. These templates are derived from the bTbM sample, since the actual maximum value is known. They are generated for each layer of the TIB and TOB, and for each ring (a wheel can have different sensor geometries instead of rings) of the TID and TEC; examples are shown in \cref{fig:centerhist}.
+with $a_{\mathrm{center}}$ taken to be the maximum of $Q_\mathrm{max}/[(L_{\mathrm{max}} + R_{\mathrm{max}})/2]$ histogram templates. These templates are derived from the MC--muon sample, since the actual maximum value is known. They are generated for each layer of the TIB and TOB, and for each ring (a wheel can have different sensor geometries instead of rings) of the TID and TEC; examples are shown in \cref{fig:centerhist}.
 
-Because the bTbM sample contains only 600,000 Events, there were insufficient cluster statistics to perform a Gaussian fit near the maximum; thus, the maximum values of those templates were taken.
+Because the MC--muon sample contains only 600,000 Events, there were insufficient cluster statistics to perform a Gaussian fit near the maximum; thus, the maximum values of those templates were taken.
 
 \begin{figure}[ht]
     \centering
@@ -581,7 +598,7 @@ The value of $a_{\mathrm{center}}$ in each layer is listed in \cref{tab:acenterV
     \label{tab:acenterValue}
 \end{table}
 
-An intermediate validation consists of examining the $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$ ratio. Here, $Q_\mathrm{true}$ is the actual charge of the cluster and $Q_\mathrm{shape\,corr}$ is the corrected charge, which is the sum of $Q_\mathrm{max}$ and the other unsaturated strip of the cluster. As in the first basic cross-talk correction, the maximum is set at 254 or 255 ADC counts before correction. \cref{fig:CenterIntermediateResults} shows the results. In the case of \textit{Center} clusters, the saturation correction calibrated on the bTbM sample yields a very good reconstruction of the corrected charge.
+An intermediate validation consists of examining the $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$ ratio. Here, $Q_\mathrm{true}$ is the actual charge of the cluster and $Q_\mathrm{shape\,corr}$ is the corrected charge, which is the sum of $Q_\mathrm{max}$ and the other unsaturated strip of the cluster. As in the first basic cross-talk correction, the maximum is set at 254 or 255 ADC counts before correction. \cref{fig:CenterIntermediateResults} shows the results. In the case of \textit{Center} clusters, the saturation correction calibrated on the MC--muon sample yields a very good reconstruction of the corrected charge.
 
 Note that in the procedure, if the charge is corrected to a value below the saturation level (254 or 255 ADC counts), the cluster is not corrected. This will also be the case for the other cluster shapes.
 
@@ -800,17 +817,17 @@ Then a cross-talk inversion is performed using the first adjacent strips adjacen
     Q_\mathrm{corr} = a_\mathrm{2strips} \cdot \frac{L_\mathrm{max}+R_\mathrm{max}}{2}
     \label{eq:twostripscorr}
 \end{equation}
-with $a_\mathrm{2strips}=1/0.0613$ being calibrated on the bTbM sample by looking after the average shape of such clusters and the proportion of charge being on each strip.
+with $a_\mathrm{2strips}=1/0.0613$ being calibrated on the MC--muon sample by looking after the average shape of such clusters and the proportion of charge being on each strip.
 
 \vspace{0.5 cm}
 
-As the bTbM sample does not provide enough clusters with two consecutive saturated strips, the intermediate validation cannot be done. Thus, the performance of this method will be evaluated on data, as with the other single saturated strip clusters.
+As the MC--muon sample does not provide enough clusters with two consecutive saturated strips, the intermediate validation cannot be done. Thus, the performance of this method will be evaluated on data, as with the other single saturated strip clusters.
 
 
 
 \subsection{Validation of the method}
 
-A preliminary validation involves checking the correction for all single and two-consecutive saturated strip clusters using the same bTbM sample. The results are shown in \cref{fig:1strip2stripcorr_btbM} for both the shape and the basic correction.
+A preliminary validation involves checking the correction for all single and two-consecutive saturated strip clusters using the same MC--muon sample. The results are shown in \cref{fig:1strip2stripcorr_MC--muon} for both the shape and the basic correction.
 
 \begin{figure}[h]
     \centering
@@ -823,10 +840,10 @@ A preliminary validation involves checking the correction for all single and two
         \includegraphics[width=1\linewidth]{Images/Ch2/QNewCorr_Minus_Qtrue.pdf}
     \end{subfigure}
     \caption{Preliminary validation of the saturation correction for the shape correction showing the ratio between the corrected charge $Q_\mathrm{shape\,corr}$ and the actual charge $Q_\mathrm{true}$ (Left) and the difference between the two (Right).}
-    \label{fig:1strip2stripcorr_btbM}
+    \label{fig:1strip2stripcorr_MC--muon}
 \end{figure}
 
-For the shape correction, the ratio between the corrected charge $Q_\mathrm{shape\, corr}$ and the actual charge $Q_\mathrm{true}$ is in good agreement with unity, while having a low percentage of under- and over-corrected clusters: 92.7\% of corrected clusters are in the one $\sigma$ range. While this result is expected because the correction has been fine-tuned on the same bTbM sample, it is much better than the \textit{basic} correction already discussed in \cref{fig:QcorrOldcorrection}.
+For the shape correction, the ratio between the corrected charge $Q_\mathrm{shape\, corr}$ and the actual charge $Q_\mathrm{true}$ is in good agreement with unity, while having a low percentage of under- and over-corrected clusters: 92.7\% of corrected clusters are in the one $\sigma$ range. While this result is expected because the correction has been fine-tuned on the same MC--muon sample, it is much better than the \textit{basic} correction already discussed in \cref{fig:QcorrOldcorrection}.
 
 \vspace{0.5 cm}
 
@@ -843,7 +860,7 @@ The W+jets process does not describe all the muons collected in the muon dataset
 
 Finally, the performance of the correction is evaluated on clusters with a maximum ADC count of 240-250. The maximum strip is artificially set to 240 ADC counts, and then the correction method is applied. With this, the actual charge of the cluster, $Q_\mathrm{true}$, is known, and the corrected charge, $Q_\mathrm{corr}$, is compared with it by taking their ratio. The results of both correction methods are plotted in \cref{fig:1strip2stripcorr_dataWjets}.
 
-Foremost, there is the discrepancy between the data and Monte Carlo, even after rescaling to match the $p_T$ and $\eta$ distributions as closely as possible. The main explanation is the W+jets sample that does not describe all the standard muon processes, moreover for high $p_T$ that may arise from Drell-Yan\footnote{The Drell-Yan process is a hard scattering mechanism in which a quark from one hadron and an antiquark from another annihilate to produce a virtual photon or Z boson, which then decays into a lepton-antilepton pair.} or $t\overline{t}$ processes. Another point worth noting is the width of the two ratios; as the correction was derived from a sample of muons for which the saturated charge was known, it is to be expected that the agreement is not as good as that shown in \cref{fig:1strip2stripcorr_btbM}. Besides this, as already discussed, the basic correction is biased, with most clusters under-corrected, while the shape correction is in better agreement with the cluster's actual charge. Further details of each ratio are listed in \cref{tab:corrResults}
+Foremost, there is the discrepancy between the data and Monte Carlo, even after rescaling to match the $p_T$ and $\eta$ distributions as closely as possible. The main explanation is the W+jets sample that does not describe all the standard muon processes, moreover for high $p_T$ that may arise from Drell-Yan\footnote{The Drell-Yan process is a hard scattering mechanism in which a quark from one hadron and an antiquark from another annihilate to produce a virtual photon or Z boson, which then decays into a lepton-antilepton pair.} or $t\overline{t}$ processes. Another point worth noting is the width of the two ratios; as the correction was derived from a sample of muons for which the saturated charge was known, it is to be expected that the agreement is not as good as that shown in \cref{fig:1strip2stripcorr_MC--muon}. Besides this, as already discussed, the basic correction is biased, with most clusters under-corrected, while the shape correction is in better agreement with the cluster's actual charge. Further details of each ratio are listed in \cref{tab:corrResults}
 
 This final table shows the improvement of the method over a basic cross-talk inversion with a fixed factor. The proposed correction is not further biased, corrects a larger population of saturated clusters, and yields a higher population of well-reconstructed saturated charge.
 
@@ -928,7 +945,7 @@ Concerning the correction of clusters with two consecutive saturated strips pres
     \label{fig:2stripcorr}
 \end{figure}
 
-Regarding the calibration samples, the derivation of the layer-by-layer correction parameters was constrained by the limited size of the bTbM sample (600,000 events). A more in-depth study would benefit from using a W+jets sample, coupled with other processes with a wider muon $p_T$ range, such as Drell-Yan or $t\overline{t}$, to also study saturated deposits outside the MIP point and thus propose parameters more in line with the data.
+Regarding the calibration samples, the derivation of the layer-by-layer correction parameters was constrained by the limited size of the MC--muon sample (600,000 events). A more in-depth study would benefit from using a W+jets sample, coupled with other processes with a wider muon $p_T$ range, such as Drell-Yan or $t\overline{t}$, to also study saturated deposits outside the MIP point and thus propose parameters more in line with the data.
 
 
 
