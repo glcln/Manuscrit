@@ -832,22 +832,10 @@ A comparison of the $p_T$, $\eta$ and $\phi$ computed from the PF algorithm and 
 
 \begin{figure}[h]
     \centering
-    % Ligne du haut : figure du milieu centrée
-    \begin{subfigure}[c]{.5\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{Images/Ch1/CompareKinematics_PT.pdf}
-    \end{subfigure}
+    \includegraphics[width=0.5\linewidth]{Images/Ch1/CompareKinematics_PT.pdf}
     \\[0.5em]
-    % Ligne du bas : deux figures
-    \begin{subfigure}[c]{.48\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{Images/Ch1/CompareKinematics_ETA.pdf}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[c]{.48\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{Images/Ch1/CompareKinematics_PHI.pdf}
-    \end{subfigure}
+    \includegraphics[width=0.49\linewidth]{Images/Ch1/CompareKinematics_ETA.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch1/CompareKinematics_PHI.pdf}
     \caption{Comparison between the kinematics on the 2024 MET \textsc{MiniAOD} dataset computed from the PF algorithm and those extracted from track information: $p_T$ (Top), $\eta$ (Left) and $\phi$ (Right).}
     \label{fig:PFcompTrack}
 \end{figure}
@@ -885,7 +873,7 @@ An all-silicon detector will fully replace the inner tracker, offering increased
 
 \vspace{0.5 cm}
 
-The Phase--2 tracker will continue to provide energy-loss-per-unit-length $\mathrm{d}E/\mathrm{d}x$ measurements based on charge-deposition read-out. In contrast, the outer tracker will switch to a binary read-out, losing the analogue pulse-height information. To compensate for this loss and maintain sensitivity to highly ionising particles such as HSCPs, a dedicated high-ionisation pixel (HIP) flag will be implemented in the outer tracker. A hit is flagged as HIP when its deposited charge exceeds a programmable threshold, initially set at 1.4 times the minimum ionising particle (MIP), as this value was found to enhance sensitivity \cite{Phase2Tracker}. Tracks accumulating a significant number of HIP-flagged clusters can then be discriminated from standard minimum-ionising background particles, providing an effective $\mathrm{d}E/\mathrm{d}x$-like discriminator for HSCP searches even in the absence of full analogue read-out.
+The Phase--2 tracker will continue to provide energy-loss-per-unit-length $\mathrm{d}E/\mathrm{d}x$ measurements based on charge-deposition read-out. In contrast, the outer tracker will switch to a binary read-out, losing the analogue pulse-height information. To compensate for this loss and maintain sensitivity to highly ionising particles such as HSCPs, a dedicated high-ionisation pixel (HIP) flag will be implemented in the outer tracker. A hit is flagged as HIP when its deposited charge exceeds a programmable threshold, initially set at 1.4 times the minimum ionising particle (MIP), as this value was found to enhance sensitivity~\cite{Phase2Tracker}. Tracks accumulating a significant number of HIP-flagged clusters can then be discriminated from standard minimum-ionising background particles, providing an effective $\mathrm{d}E/\mathrm{d}x$-like discriminator for HSCP searches even in the absence of full analogue read-out.
 
 \vspace{0.5 cm}
 
