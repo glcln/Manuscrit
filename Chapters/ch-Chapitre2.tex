@@ -3,6 +3,8 @@
 \label{ch:chapitre2}
 \minitoc
 
+The reconstruction of charge deposited by ionising particles in the CMS silicon tracker is central to the d\textit{E}/d\textit{x}-based search for Heavy Stable Charged Particles (HSCPs), which motivates this thesis. \cref{sec:interactionWithMatter} first reviews the mechanisms ruling the energy loss of charged particles in matter. Then, \cref{sec:Physics_silicon_tracker} describes silicon strip sensors, from semiconductor physics and strip-sensor layout to charge sharing, crosstalk, and radiation effects that shape the measured clusters. Then, \cref{sec:Study_saturated_strip_clusters} addresses the saturation of strip clusters, which introduces bias in the d\textit{E}/d\textit{x} measurement and becomes critical for the highly ionising deposits expected from HSCPs. The limitations of the existing first-order correction are examined, followed by the development and validation of a new saturation correction based on cluster shape using both simulation and 2018 data in \cref{sec:Saturation_correction_cluster_shape}. The impact of this correction is assessed through the d\textit{E}/d\textit{x} performance on 2024--2025 CMS data in \cref{sec:dedxperf} and the reconstructed mass of simulated gluinos in \cref{sec:impactdedxHSCP}.
+
 \section{Interaction of charged particles with matter}
 \label{sec:interactionWithMatter}
 
@@ -92,6 +94,7 @@ This function is used, for instance, to simulate charge deposits in pixel sensor
 
 
 \section{Physics of the silicon tracker modules}
+\label{sec:Physics_silicon_tracker}
 
 A typical semiconductor detector consists of a sensitive layer and read-out electronics that process the analogue signals. The following section will cover the underlying physics governing semiconductor sensors and will present the typical read-out electronics chain used for data acquisition of silicon strip sensors.
 
@@ -340,8 +343,7 @@ To cope with the cumulative effects of permanent radiation damage, detectors can
 
 
 \section{Study of saturated strip clusters}
-
-% In the following, the energy deposit per unit of length of a charged particle crossing a material will be denoted as \dedx.
+\label{sec:Study_saturated_strip_clusters}
 
 \subsection{The harmonic ionisation mean \texorpdfstring{$I_h$}{Ih}}
 
@@ -356,7 +358,7 @@ One way to assess the average ionisation of a track along several silicon strip 
 
 $I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
 
-\subsection{Preliminary studies -- TITRE A REVOIR}
+\subsection{Necessity for a saturation correction}
 \label{subsubsection:satstripclusters}
 
 Preliminary work on saturated strip clusters has been carried out using a MC simulation with the 2018 detector configuration.  Events containing two back-to-back muons with the same properties have been generated with a $p_{T,\,\mu}$ range exponentially decreasing from 50 to 200 GeV/$c$ and a pseudorapidity range $|\eta_\mu|<3$. The original simulated charge deposit on silicon sensors is saved without saturation or zero suppression (raw-digit format). Therefore, one could access the original simulated charge deposit and compare it with the reconstructed one, as shown in \cref{fig:ClusterExample}. This sample provides a good number of pure tracks, leaving charge deposits at the MIP level within the tracker. For the rest of the study, this muon simulation will be labelled as the \textit{MC--muon} sample.
@@ -517,7 +519,7 @@ This first approach needs to be upgraded in two main areas: the selection criter
 
 
 \section{Saturation correction based on cluster shape}
-
+\label{sec:Saturation_correction_cluster_shape}
 This section will focus on clusters that contain a single saturated strip, for which an adaptive correction is proposed. A discussion on clusters containing two consecutive saturated strips will then be dedicated.
 
 \subsection{Correction of the \textit{Center} clusters}
@@ -883,6 +885,7 @@ Another approach, which I didn't try, would be to consider the values of the sec
 Regarding the calibration samples, the derivation of layer-by-layer correction parameters was constrained by the limited size of the MC--muon sample (600,000 events). In addition, since muons from W+jets alone do not fully reflect the variety of energy depositions present in the data, where several processes contribute muons over a broad $p_T$ range, a more in-depth study would benefit from including complementary samples such as Drell-Yan\footnote{The Drell-Yan process is a hard scattering mechanism in which a quark from one hadron and an antiquark from another annihilate to produce a virtual photon or Z boson, which then decays into a lepton-antilepton pair.} or $t\overline{t}$. This would allow probing of saturated deposits beyond the MIP regime and yield parameters that are more representative of the data.
 
 \section[d\textit{E}/d\textit{x} performance studies with 2024--2025 CMS Data]{d\textit{E}/d\textit{x} performance studies with 2024--2025 \\ CMS Data}
+\label{sec:dedxperf}
 
 The shape saturation-correction method has been approved by the CMS Tracking Physics Object Group. To show the improvement of the method on saturated clusters, the performance plot of the average ionisation $\langle$d$E/$d$x\rangle$ as a function of the track momentum $p$ has been performed for the early 2024 data~\cite{CMS-DP-2024-101}, and the full 2024~\cite{CMS-DP-2025-020} and 2025 data.
 
@@ -926,6 +929,7 @@ Then, by knowing the particle mass $M$ and its momentum $p$, one can derive a si
 
 
 \section{Impact on the search for HSCP}
+\label{sec:impactdedxHSCP}
 
 A natural way to assess the impact of the shape correction beyond tracker performance is to look at the reconstructed mass of HSCP particles. Indeed, this mass is derived from the ionisation curve, assuming that particle energy is deposited according to the Bethe-Bloch formula. HSCPs are predicted to be slow and highly ionising. Therefore, any improvement in the saturation correction should translate into a better estimate of the reconstructed mass.
 
