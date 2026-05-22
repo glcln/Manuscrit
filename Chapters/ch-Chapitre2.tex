@@ -291,8 +291,8 @@ The charge collected on each strip is expressed in ADC counts, while the strip i
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/Cluster_centered.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/Cluster_tilted.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/Cluster_centered_bis.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/Cluster_tilted_bis.pdf}
     \caption{Simulated clusters of charges collected in a silicon strip sensor, one originating from a muon entering the sensor perpendicular to the surface module (Left), and one with a tilted angle (Right).}
     \label{fig:clusterCenteredShifted}
 \end{figure}
@@ -365,7 +365,7 @@ Preliminary work on saturated strip clusters has been carried out using a MC sim
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{Images/Ch2/Cluster_saturation.pdf}
+    \includegraphics[width=0.6\linewidth]{Images/Ch2/Cluster_saturation_bis.pdf}
     \caption{Example of a cluster in the MC--muon sample in a strip module for which the simulated charge deposit (in blue) has been saved in addition to the reconstructed one (in green).}
     \label{fig:ClusterExample}
 \end{figure}
@@ -420,7 +420,7 @@ The spatial distribution of saturated clusters is not uniform within the tracker
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/FractionOfSaturatedClustersInEachLayer.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/FractionOfSaturatedClustersInEachLayer_bis.pdf}
     \caption{Fraction of saturated clusters with respect to the number of clusters in each tracker layer.}
     \label{fig:satClusterInLayer}
 \end{figure}
@@ -434,8 +434,8 @@ Since this thesis focuses on the HSCP search using the \dedx\, approach, it is e
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Wolfgang.jpg}
-    \includegraphics[width=0.49\linewidth]{Images/Wolfgang.jpg}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.2cm 0},clip]{Images/Ch2/Qsat_VS_Qtrue_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.2cm 0},clip]{Images/Ch2/Qsat_Minus_Qtrue_bis.pdf}
     \caption{Ratio of $Q_\mathrm{sat}$ to $Q_{\mathrm{true}}$ (Left) and difference between $Q_{\mathrm{true}}$ and $Q_\mathrm{sat}$ (Right), where $Q_{\mathrm{true}}$ is the true charge of the cluster and $Q_\mathrm{sat}$ the saturated reconstructed cluster. The clusters are taken from the MC--muon sample.}
     \label{fig:Qsat_vs_Qtrue}
 \end{figure}
@@ -465,7 +465,7 @@ The dependency of cluster shape as a function of the tracker layer is depicted i
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/FractionOfShapeInEachLayer.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/FractionOfShapeInEachLayer_bis.pdf}
     \caption{Fraction of \textit{Center} (Red), \textit{Left} and \textit{Right} (Blue); and \textit{FullLeft} and \textit{FullRight} clusters (Green) with respect to the number of saturated clusters in each tracker layer.}
     \label{fig:shapeFraction}
 \end{figure}
@@ -508,8 +508,8 @@ On top of that, only two-thirds of the saturated cluster population are correcte
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/QcorrOld_VS_Qtrue.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/QcorrOld_Minus_Qtrue.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1cm 0},clip]{Images/Ch2/QcorrOld_VS_Qtrue_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1cm 0},clip]{Images/Ch2/QcorrOld_Minus_Qtrue_bis.pdf}
     \caption{Ratio of $Q_\mathrm{basic\,corr}$ to $Q_{\mathrm{true}}$ (Left) and difference between $Q_{\mathrm{true}}$ and $Q_{basic\,\mathrm{corr}}$ (Right), where $Q_{\mathrm{true}}$ is the true charge of the cluster and $Q_\mathrm{basic\,corr}$ the corrected charge from the basic correction. The clusters are taken from the MC--muon sample.}
     \label{fig:QcorrOldcorrection}
 \end{figure}
@@ -536,8 +536,8 @@ with $a_{\mathrm{center}}$ taken to be the mean of the Gaussian fit performed on
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/Center_TIBL3.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/Center_TECR5.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/Center_TIBL3_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/Center_TECR5_bis.pdf}
     \caption{Example of two histogram templates from which the value of $a_{\mathrm{center}}$ is retrieved by taking the mean of the Gaussian fit performed.}
     \label{fig:centerhist}
 \end{figure}
@@ -576,7 +576,7 @@ Note that in the procedure, if the charge is corrected to a value below the satu
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_CENTER.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_CENTER_bis.pdf}
     \caption{Value of the corrected charge $Q_\mathrm{shape\,corr}$ divided by the true charge of the cluster $Q_\mathrm{true}$ for \textit{Center} clusters of the MC--muon sample.}
     \label{fig:CenterIntermediateResults}
 \end{figure}
@@ -592,7 +592,7 @@ Unlike \textit{Center} clusters, one could not take the average of side-strip ch
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/AdjacentStripCharge_CLR.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/AdjacentStripCharge_CLR_bis.pdf}
     \caption{Ratio of the charge collected by the highest-charge neighbouring strip to the charge of the maximum (Max), for the \textit{Center} (with $N_\mathrm{max}=(L_\mathrm{max}+R_\mathrm{max})/2$), \textit{Left} and \textit{Right} clusters.}
     \label{fig:adjacentStripsLR}
 \end{figure}
@@ -620,21 +620,19 @@ from which the parameters $a_\mathrm{LR}$ and $b_\mathrm{LR}$ are extracted.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/LR_preliminary_TIBL3.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/LR_preliminary_TECR5.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.7cm 0 0 0},clip]{Images/Ch2/LR_preliminary_TIBL3_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.7cm 0 0 0},clip]{Images/Ch2/LR_preliminary_TECR5_bis.pdf}
     \caption{$S_\mathrm{max}/N_\mathrm{max}$ as a function of $N_\mathrm{max}/N_\mathrm{min}$ for the \textit{Left} and \textit{Right} clusters in a TIB layer (Left) and a TEC ring (Right).}
     \label{fig:LRtemplates}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.49\textwidth]{Images/Ch2/LR_preliminary_fit_TIBL3.pdf}
-    \includegraphics[width=0.49\textwidth]{Images/Ch2/LR_TIBL3.pdf}
+    \includegraphics[width=0.49\textwidth,trim={0.7cm 0 0 0},clip]{Images/Ch2/LR_preliminary_fit_TIBL3_bis.pdf}
+    \includegraphics[width=0.49\textwidth,trim={0.7cm 0 0 0},clip]{Images/Ch2/LR_preliminary_TIBL3_bis.pdf}
 
-    \vspace{0.5em} % espace vertical entre les lignes (optionnel)
-
-    \includegraphics[width=0.49\textwidth]{Images/Ch2/LR_preliminary_fit_TECR5.pdf}
-    \includegraphics[width=0.49\textwidth]{Images/Ch2/LR_TECR5.pdf}
+    \includegraphics[width=0.49\textwidth,trim={0.7cm 0 0 0},clip]{Images/Ch2/LR_preliminary_fit_TECR5_bis.pdf}
+    \includegraphics[width=0.49\textwidth,trim={0.7cm 0 0 0},clip]{Images/Ch2/LR_TECR5_bis.pdf}
 
     \caption{Preliminary fit applied to the two template histograms shown in \cref{fig:LRtemplates} (Left) and final fit (Right).}
     \label{fig:LRfitcorr}
@@ -672,7 +670,7 @@ Even if the method is adapted for asymmetric clusters, the results are not as ef
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_LR.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_LR_bis.pdf}
     \caption{Ratio of the corrected charge $Q_\mathrm{shape\,corr}$ to the true charge of the cluster $Q_\mathrm{true}$ for \textit{Left} and \textit{Right} clusters.}
     \label{fig:LRIntermediateResults}
 \end{figure}
@@ -692,8 +690,8 @@ where $a_\mathrm{FL}$ and $a_\mathrm{FR}$ are extracted after taking the maximum
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/FL_TOBL1.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/FR_TOBL1.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/FL_TOBL1_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/FR_TOBL1_bis.pdf}
     \caption{Value of $a_\mathrm{FL}$ (Left) and $a_\mathrm{FR}$ (Right) as a function of the $S_\mathrm{max}/N_\mathrm{max}$ in the TOB Layer 1.}
     \label{fig:FLFRhists}
 \end{figure}
@@ -728,7 +726,7 @@ The ratio $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$, similarly to the other type 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_FLFR.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_FLFR_bis.pdf}
     \caption{Value of the corrected charge $Q_\mathrm{shape\,corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{FullLeft} and \textit{FullRight} clusters.}
     \label{fig:FLFRIntermediateResults}
 \end{figure}
@@ -760,8 +758,8 @@ For the shape correction, the ratio of the corrected charge $Q_\mathrm{shape\, c
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/QNewCorr_Minus_Qtrue.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_bis.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/QNewCorr_Minus_Qtrue_bis.pdf}
     \caption{Validation of the saturation correction using the MC--muon sample for the shape correction showing the ratio of the corrected charge $Q_\mathrm{shape\,corr}$ to the true charge $Q_\mathrm{true}$ (Left) and the difference between the two (Right).}
     \label{fig:1strip2stripcorr_MC--muon}
 \end{figure}
@@ -855,7 +853,7 @@ Concerning the correction of clusters with two consecutive saturated strips pres
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/2stripsCorr_data.pdf}
+    \includegraphics[width=0.8\linewidth]{Images/Ch2/2stripsCorr_data_bis.pdf}
     \caption{Ratio of the corrected charge $Q_\mathrm{shape\,corr}$ and the true charge $Q_\mathrm{true}$ for clusters with two consecutive saturated strips using the Data--muon sample.}
     \label{fig:2stripcorr}
 \end{figure}
@@ -867,10 +865,10 @@ First, the over-corrected clusters are mostly the \textit{Left} and \textit{Righ
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/Ch2/LR_overcorrected_2.pdf}
-    \\[0.5em]
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/LR_overcorrected_1.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/LR_overcorrected_3.pdf}
+    \includegraphics[width=0.5\linewidth]{Images/Ch2/LR_overcorrected_2_bis.pdf}
+    \\ \vspace{-0.2 cm}
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/LR_overcorrected_1_bis.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/LR_overcorrected_3_bis.pdf}
     \caption{Example of three \textit{Left} and \textit{Right} clusters sitting in the region below the fit function used for the correction template. Such clusters have a high charge sharing.}
     \label{fig:miscorrectedLR}
 \end{figure}
@@ -897,10 +895,10 @@ The $I_h$ distribution for each $p$ slice (of 0.02~GeV/$c$ width) is fitted usin
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/Ch2/LangausFit_41.pdf}
-    \\[0.5em]
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/LangausFit_30.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/LangausFit_187.pdf}
+    \includegraphics[width=0.5\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/LangausFit_41_bis.pdf}
+    \\
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/LangausFit_30_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch2/LangausFit_187_bis.pdf}
     \caption{Distribution of the average ionisation $I_h$ in different $p$ bins: 0.56 GeV/$c \leq p \leq$ 0.58 GeV/$c$ (Top), 1.14 GeV/$c \leq p \leq$ 1.16 GeV/$c$ (Bottom left) and 3.24 GeV/$c \leq p \leq$ 3.26 GeV/$c$ (Bottom right). The maxima are fitted using a Landau function convoluted with a Gaussian one.}
     \label{fig:langausFit}
 \end{figure}
