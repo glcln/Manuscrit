@@ -358,14 +358,14 @@ One way to assess the average ionisation of a track along several silicon strip 
 
 $I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
 
-\subsection{Necessity for a saturation correction}
+\subsection{The necessity for a saturation correction}
 \label{subsubsection:satstripclusters}
 
 Preliminary work on saturated strip clusters has been carried out using a MC simulation with the 2018 detector configuration.  Events containing two back-to-back muons with the same properties have been generated with a $p_{T,\,\mu}$ range exponentially decreasing from 50 to 200 GeV/$c$ and a pseudorapidity range $|\eta_\mu|<3$. The original simulated charge deposit on silicon sensors is saved without saturation or zero suppression (raw-digit format). Therefore, one could access the original simulated charge deposit and compare it with the reconstructed one, as shown in \cref{fig:ClusterExample}. This sample provides a good number of pure tracks, leaving charge deposits at the MIP level within the tracker. For the rest of the study, this muon simulation will be labelled as the \textit{MC--muon} sample.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{Images/Ch2/Cluster_saturation_bis.pdf}
+    \includegraphics[width=0.6\linewidth,trim={0 1cm 0 0},clip]{Images/Ch2/Cluster_saturation_bis.pdf}
     \caption{Example of a cluster in the MC--muon sample in a strip module for which the simulated charge deposit (in blue) has been saved in addition to the reconstructed one (in green).}
     \label{fig:ClusterExample}
 \end{figure}
@@ -420,14 +420,14 @@ The spatial distribution of saturated clusters is not uniform within the tracker
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/FractionOfSaturatedClustersInEachLayer_bis.pdf}
+    \includegraphics[width=0.8\linewidth,trim={0 0.7cm 0 0},clip]{Images/Ch2/FractionOfSaturatedClustersInEachLayer_bis.pdf}
     \caption{Fraction of saturated clusters with respect to the number of clusters in each tracker layer.}
     \label{fig:satClusterInLayer}
 \end{figure}
 
 These preliminary studies show that the fraction of saturated clusters is negligible in SM processes (excluding low-$p$ particles) but significant in BSM searches. For such hypothetical particles, the deposited charge often differs from the reconstructed charge, leading to a bias in the average \dedx\,measurement using the $I_h$ estimator. 
 
-Indeed, the ratio $Q_{\mathrm{sat}}/Q_{\mathrm{true}}$ and the difference $Q_{\mathrm{true}} - Q_{\mathrm{sat}}$ --- $Q_\mathrm{true}$ is the true charge of the cluster which would have been collected in case of no electronics saturation and $Q_{\mathrm{sat}}$ its saturated reconstructed counterpart --- exhibit a clear bias (\cref{fig:Qsat_vs_Qtrue}), which directly propagates into the $I_h$ estimator and motivates the development of a dedicated saturation correction.
+Indeed, the ratio $Q_{\mathrm{sat}}/Q_{\mathrm{true}}$ and the difference $Q_{\mathrm{true}} - Q_{\mathrm{sat}}$ --- where $Q_\mathrm{true}$ is the true charge of the cluster which would have been collected in case of no electronics saturation and $Q_{\mathrm{sat}}$ the reconstructed charge with saturation --- exhibit a clear bias (\cref{fig:Qsat_vs_Qtrue}), which directly propagates into the $I_h$ estimator and motivates the development of a dedicated saturation correction.
 
 Since this thesis focuses on the HSCP search using the \dedx\, approach, it is essential to address the observed bias. To do so, a saturation correction is required.
 
@@ -436,7 +436,7 @@ Since this thesis focuses on the HSCP search using the \dedx\, approach, it is e
     \centering
     \includegraphics[width=0.49\linewidth,trim={0 0 1.2cm 0},clip]{Images/Ch2/Qsat_VS_Qtrue_bis.pdf}
     \includegraphics[width=0.49\linewidth,trim={0 0 1.2cm 0},clip]{Images/Ch2/Qsat_Minus_Qtrue_bis.pdf}
-    \caption{Ratio of $Q_\mathrm{sat}$ to $Q_{\mathrm{true}}$ (Left) and difference between $Q_{\mathrm{true}}$ and $Q_\mathrm{sat}$ (Right), where $Q_{\mathrm{true}}$ is the true charge of the cluster and $Q_\mathrm{sat}$ the saturated reconstructed cluster. The clusters are taken from the MC--muon sample.}
+    \caption{Ratio of $Q_\mathrm{sat}$ to $Q_{\mathrm{true}}$ (Left) and difference between $Q_{\mathrm{true}}$ and $Q_\mathrm{sat}$ (Right), where $Q_{\mathrm{true}}$ is the true charge of the cluster and $Q_\mathrm{sat}$ the reconstructed charge with saturation. The clusters are taken from the MC--muon sample.}
     \label{fig:Qsat_vs_Qtrue}
 \end{figure}
 
@@ -465,7 +465,7 @@ The dependency of cluster shape as a function of the tracker layer is depicted i
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/FractionOfShapeInEachLayer_bis.pdf}
+    \includegraphics[width=0.8\linewidth,trim={0 0.7cm 0 0},clip]{Images/Ch2/FractionOfShapeInEachLayer_bis.pdf}
     \caption{Fraction of \textit{Center} (Red), \textit{Left} and \textit{Right} (Blue); and \textit{FullLeft} and \textit{FullRight} clusters (Green) with respect to the number of saturated clusters in each tracker layer.}
     \label{fig:shapeFraction}
 \end{figure}
@@ -592,7 +592,7 @@ Unlike \textit{Center} clusters, one could not take the average of side-strip ch
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/AdjacentStripCharge_CLR_bis.pdf}
+    \includegraphics[width=0.8\linewidth,trim={0 0.5cm 0 0},clip]{Images/Ch2/AdjacentStripCharge_CLR_bis.pdf}
     \caption{Ratio of the charge collected by the highest-charge neighbouring strip to the charge of the maximum (Max), for the \textit{Center} (with $N_\mathrm{max}=(L_\mathrm{max}+R_\mathrm{max})/2$), \textit{Left} and \textit{Right} clusters.}
     \label{fig:adjacentStripsLR}
 \end{figure}
@@ -726,7 +726,7 @@ The ratio $Q_\mathrm{shape\,corr}/Q_\mathrm{true}$, similarly to the other type 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/QNewCorr_VS_Qtrue_FLFR_bis.pdf}
+    \includegraphics[width=0.8\linewidth,trim={0 0.5cm 0 0},clip]{Images/Ch2/QNewCorr_VS_Qtrue_FLFR_bis.pdf}
     \caption{Value of the corrected charge $Q_\mathrm{shape\,corr}$ divided by the actual charge of the cluster $Q_\mathrm{true}$ for \textit{FullLeft} and \textit{FullRight} clusters.}
     \label{fig:FLFRIntermediateResults}
 \end{figure}
@@ -787,8 +787,8 @@ First and foremost, a discrepancy between the data and MC is observed despite th
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/OldCorr_dataVSmc_Wjets_weighted.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/NewCorr_dataVSmc_Wjets_weighted.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.5cm 0 1.5cm 0},clip]{Images/Ch2/OldCorr_dataVSmc_Wjets_weighted_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.5cm 0 1.5cm 0},clip]{Images/Ch2/NewCorr_dataVSmc_Wjets_weighted_bis.pdf}
     \caption{Ratio between the corrected charge $Q_\mathrm{corr}$ and the true charge $Q_\mathrm{true}$ for data and MC clusters with a true maximum between 240 and 250~ADC counts, an artificial saturation is applied at 240~ADC counts to evaluate the two saturation correction methods: the basic correction (Left) and the shape correction (Right); the bottom pannels show the data/MC ratio.}
     \label{fig:1strip2stripcorr_dataWjets}
 \end{figure}
@@ -853,7 +853,7 @@ Concerning the correction of clusters with two consecutive saturated strips pres
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/2stripsCorr_data_bis.pdf}
+    \includegraphics[width=0.8\linewidth,trim={0 0.5cm 0 0},clip]{Images/Ch2/2stripsCorr_data_bis.pdf}
     \caption{Ratio of the corrected charge $Q_\mathrm{shape\,corr}$ and the true charge $Q_\mathrm{true}$ for clusters with two consecutive saturated strips using the Data--muon sample.}
     \label{fig:2stripcorr}
 \end{figure}
@@ -914,13 +914,11 @@ Then, by knowing the particle mass $M$ and its momentum $p$, one can derive a si
 
 \cref{fig:dedx_vs_p_2024} shows the average ionisation as a function of $p$ for the basic (Top) and the shape (Bottom) saturation correction on the full 2024 data. The shape correction better describes the data in the low-$p$ region, where the proportion of saturated clusters is important.
 
-\newpage
-
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A_oldcorr.pdf}
-    \vspace{0.5em}
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A.pdf}
+    \includegraphics[width=0.7\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A_oldcorr.pdf}
+    \\
+    \includegraphics[width=0.7\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A.pdf}
     \caption{Average \dedx\,as a function of the track momentum for the basic correction (Top) and the shape correction (Bottom) for the 2024 data~\cite{CMS-DP-2025-020}. The black lines correspond to the fit using \cref{eq:fitAtlas}. The red lines are the extrapolated fits to the energy loss for four particle species ($\pi^\pm,\, K^\pm, \, p^\pm$ and $D^\pm$), showing the characteristic drop at low momentum converging toward a common relativistic plateau around 3 MeV/cm.}
     \label{fig:dedx_vs_p_2024}
 \end{figure}
@@ -941,10 +939,10 @@ As saturated clusters represent $\sim45~\%$ of the clusters for HSCPs (see \cref
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{Images/Ch2/Ih_VS_p_HSCP_NoCorr.pdf}
-    \\[0.5em]
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/Ih_VS_p_HSCP_OldCorr.pdf}
-    \includegraphics[width=0.49\linewidth]{Images/Ch2/Ih_VS_p_HSCP_NewCorr.pdf}
+    \includegraphics[width=0.5\linewidth,trim={0 0 1cm 0},clip]{Images/Ch2/Ih_VS_p_HSCP_NoCorr_bis.pdf}
+    \\
+    \includegraphics[width=0.49\linewidth,trim={0 0 1cm 0},clip]{Images/Ch2/Ih_VS_p_HSCP_OldCorr_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1cm 0},clip]{Images/Ch2/Ih_VS_p_HSCP_NewCorr_bis.pdf}
     \caption{Average \dedx\, of HSCPs in the MC--Gluino sample as a function of the track momentum. In the case of no saturation correction applied (Top), with the basic correction (Left) and the shape correction (Right).}
     \label{fig:Ih_vs_p_HSCP}
 \end{figure}
@@ -955,7 +953,7 @@ The results are presented in \cref{fig:Mass_HSCP}, demonstrating the necessity o
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{Images/Ch2/Mass_HSCP.pdf}
+    \includegraphics[width=0.7\linewidth]{Images/Ch2/Mass_HSCP_bis.pdf}
     \caption{Reconstructed mass distribution of tracks from the MC--Gluino sample, for which the gluino generated mass is $m_{\widetilde{g}}=2000$ GeV/$c^2$, performed under three saturation correction scenarios: no correction (Black), basic correction (Blue), and shape correction (Red). The lower panel shows the corresponding cumulative distributions (CDFs).}
     \label{fig:Mass_HSCP}
 \end{figure}
