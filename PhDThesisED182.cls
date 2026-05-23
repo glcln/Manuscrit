@@ -63,6 +63,7 @@
 \RequirePackage{pgfplots}
 \RequirePackage{booktabs}
 \RequirePackage{xpatch}
+\RequirePackage{placeins}
 
 \pgfplotsset{compat=1.18}
 
