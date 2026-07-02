@@ -142,7 +142,7 @@
   \renewcommand{\contentsname}%
     {Table des matières}%
 }
-\setcounter{minitocdepth}{3} 
+\setcounter{minitocdepth}{2} 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \setlength{\mtcindent}{24pt} 

@@ -44,70 +44,178 @@ On à alors construit un discriminateur sur la compatibilité d'une particule fo
 
 
 
+\subsubsection{d\textit{E}/d\textit{x} discriminator $F_{\text{pixel}}$}
 
+In this analysis, the pixel information is exploited via $F_{\text{pixel}}$ which gives the compatibility of a track related to a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
+These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function $V(Q)$ templates to model the charge distribution of MIPs.
 
+\vspace{0.5 cm}
 
-
-\subsubsection{Fpixel}
-
-Simu pixelAV qui reproduit les dépôts de charge et la manière dont sont collectés les paires électrons-trous.
-
-On donne un cluster pixel de charge $Q_{cluster}$, on sait que normalement ça suit une loi de Vavilov.
-
-On définit $p_Q= \int_{Q_{cluster}}^{+\infty} V(Q)\textrm{d}Q$, en gros ça quantifie la proba que tu déposes une charge supérieure à $Q_{cluster}$ quand tu regardes une particule au MIP.
-
-$p_Q \sim U(0,1)$ si $Q_{cluster}\sim V(Q)$: si la particule est au MIP et si le modèle $V(Q)$ est correct alors $p_Q$ est uniforme par construction (Probability Integral Transform).
-
-Comme on a 4 couches de pixels on définit des coeff. $\alpha_n$ tel que $\alpha_n = \prod_{i=1}^4 p_i$ où $p_i$ sont les dépôts $Q_{cluster}$ de chaque couche de pixel.: $\alpha_n$ est la probabilité jointe d’observer simultanément des charges au moins aussi grandes dans toutes les couches (si une seule couche est très ionisante, $\alpha_n$ chute, si toutes le sont alors $\alpha_n$ devient minuscule).
-
-Problème : $\alpha_n$ n’est pas uniforme, même pour un MIP. Sa distribution dépend fortement de $n$, et donc impossible de comparer proprement $n=3$ avec $n=4$ par exemple. Il faut construire une autre variable pour trouver un comportement/coupure intéressant.
-
-
-La variable $-\ln(\alpha_n)$ suit une loi Gamma de paramètres $(n,1)$.
-
-En effet si on a $p_n$ suit une loi uniforme sur [0,1] alors $-\sum_n ln(p_n)$ suit une loie gamma de paramètres (n,1) ($\Gamma\left(n,1\right)$). source: $https://en.wikipedia.org/wiki/Gamma_distribution$
-
-En sachant que $\Gamma\left(n,1\right) = \frac{x^{n-1}e^{-x}}{n!}$ avec $x=-\ln(\alpha_n)$
-
-La fonction de répartition associée est donnée analytiquement par :
+For a given pixel cluster carrying a charge $Q_{\text{cluster}}$, we define the tail probability 
 \begin{equation}
-\beta_n
-= \alpha_n \sum_{m=0}^{n-1}
-\frac{\left[-\ln(\alpha_n)\right]^m}{m!}.
+p_Q = \int_{Q_{\text{cluster}}}^{+\infty} V(Q)\,\mathrm{d}Q,
+\end{equation}
+which quantifies the probability of depositing a charge greater than $Q_{\text{cluster}}$ for a MIP (see~\cref{fig:clustQ}). By virtue of the Probability Integral Transform, if $Q_{\text{cluster}} \sim V(Q)$ then $p_Q \sim \mathcal{U}(0,1)$. In other words, provided that the particle is a MIP and that the model $V(Q)$ is accurate, $p_Q$ is uniformly distributed by construction.
+
+To complete the description of the four layers of the pixel subdetector, a joint coefficient is built using the different tail probabilities $p_{Q_i}$ associated with the charge deposits $Q_{\text{cluster}_i}$ in each pixel layer:
+\begin{equation}
+\alpha_n = \prod_{i=1}^{n} p_{Q_i},
 \end{equation}
 
-La variable $\beta_n$ correspond ainsi à la probabilité cumulée (CDF) associée à $\alpha_n$ sous l’hypothèse que la particule est un MIP.
+The quantity $\alpha_n$ represents the joint probability of simultaneously observing charges at least as large in all layers: if a single layer is strongly ionising, $\alpha_n$ decreases, and if all layers are, $\alpha_n$ becomes significantly small.
 
+\vspace{0.5 cm}
 
-Afin de construire une variable discriminante universelle, indépendante du nombre
-de couches de pixels considérées, on définit :
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.8\textwidth]{Images/Ch4/vavilov_charge.pdf}
+    \caption{Example of charge deposits in pixel sensors at $\eta=2.40$ where the distribution is fitted using a Vavilov function. The tail distribution $p_Q$ is shown in filled gray.}
+    \label{fig:clustQ}
+\end{figure}
+
+A difficulty arises because $\alpha_n$ is not uniformly distributed, even for a MIP. Its distribution depends strongly on $n$, which prevents a meaningful comparison between, for instance, the $n=3$ and $n=4$ cases. A different variable must therefore be constructed in order to obtain a behaviour that is subject to a universal selection.
+
+To do so, the variable $-\ln(\alpha_n)$ is taken as it follows a Gamma distribution with parameters $(n,1)$, if and only if each $p_i$ is uniformly distributed on $[0,1]$. The corresponding probability density function is then
 \begin{equation}
-F_{\text{pixel}} = 1 - \beta_n.
+\Gamma(n,1) = \frac{x^{\,n-1} e^{-x}}{(n-1)!}, \qquad x = -\ln(\alpha_n).
 \end{equation}
 
-Par construction, la variable $F_{\text{pixel}}$ est distribuée uniformément
-sur l’intervalle $[0,1]$ pour des particules de type MIP. En revanche, pour des
-particules fortement ionisantes, telles que des particules BSM, les dépôts de charge
-dans chaque couche sont plus élevés que ceux attendus pour un MIP, conduisant
-à des valeurs de $p_i$ petites et donc à $F_{\text{pixel}}$ proche de l’unité.
+The associated cumulative distribution function can be expressed analytically as
+\begin{equation}
+\beta_n = \alpha_n \sum_{m=0}^{n-1} \frac{\left[-\ln(\alpha_n)\right]^m}{m!}.
+\end{equation}
+The variable $\beta_n$ thus corresponds to the cumulative probability (CDF) associated with $\alpha_n$ under the hypothesis that the particle is a MIP.
 
-La variable $F_{\text{pixel}}$ constitue ainsi un discriminateur efficace entre
-les processus du BSM.
+\vspace{0.5 cm}
+
+Since $\beta_n$ is the exact cumulative distribution function of $\alpha_n$ under the MIP hypothesis, the Probability Integral Transform guarantees that $\beta_n \sim \mathcal{U}(0,1)$ for MIPs, and the $n$-dependence that affected the raw coefficient $\alpha_n$ is fully absorbed into its CDF. This restores the uniformity required for a universal selection. We therefore define
+\begin{equation}
+    F_{\text{pixel}} = 1 - \beta_n.
+\end{equation}
+
+By construction, $F_{\text{pixel}}$ is also uniformly distributed on the interval $[0,1]$ for MIPs, independently of the number of pixel layers considered. For strongly ionising particles, however, such as gluinos, the charge deposits in each layer exceed those expected for a MIP. This leads to small $p_i$ values, hence to a small $\alpha_n$ and a $\beta_n$ close to zero, so that $F_{\text{pixel}}$ approaches unity. The variable $F_{\text{pixel}}$ therefore constitutes an effective discriminator between Standard Model and BSM processes.
+
+\vspace{0.5 cm}
+
+In this analysis, hits from the first layer of the pixel detector were excluded from the computation of $F_{\text{pixel}}$ due to the premature ageing of this layer as a result of high levels of radiation in this layer of the Phase-1 detector. The left panel of~\cref{fig:FpixelInSignalData} shows the $F_{\text{pixel}}$ distribution for data collected in 2024 within a control region where all analysis preselection criteria are applied, but with $p_T < 55$ GeV to avoid signal contamination. The right panel displays the distribution for a simulated HSCP gluino at $m=2000$~GeV after the analysis preselection criteria. The distribution derived from the data is relatively flat, while most of the signal is concentrated around unity.
+
+Assuming the data distribution is perfectly flat when it is not introduces systematic uncertainties. These uncertainties were estimated by varying the forenamed probability models and will be discussed in~\cref{sec:fi_syst}.
+
+\begin{figure}[ht!]
+   \centering
+	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInData_bis.pdf}
+	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInSignal_bis.pdf}
+	\caption{$F_{\text{pixel}}$ distributions for 2024 data in the control region at low $p_T$ after the analysis preselection criteria (Left) and for a HSCP gluino after the analysis preselection (Right).}
+   \label{fig:FpixelInSignalData}
+\end{figure}
 
 
+
+
+\subsubsection{Stability of d\textit{E}/d\textit{x} variables over the year}
+
+Ih vs runnumber
+Fpix vs runnumber
 
 
 \subsection{Signal considered}
 
 \section{HSCP candidates selection}
+\label{sec:selection}
 
 \subsection{Trigger event selection}
 
-HLT muon
-MET
+The Run~3 HSCP analysis targets primarily hadron-like candidates, for which the $dE/dx$-based single-muon trigger strategy adopted in Run~2 is not optimal. R-hadrons are pair-produced with a charged and a neutral component in roughly half of the events, and the resulting momentum imbalance, together with initial-state radiations (ISRs), gives rise to missing transverse energy. A dedicated MET trigger strategy was therefore developed, combining four HLT paths:
+
+\begin{itemize}
+    \item \texttt{HLT\_PFMET120\_PFMHT120\_IDTight},
+    \item \texttt{HLT\_PFMETNoMu120\_PFMHTNoMu120\_IDTight\_PFHT60},
+    \item \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight},
+    \item \texttt{HLT\_MET105\_IsoTrk50}.
+\end{itemize}
+The naming convention of each HLT path directly encodes the offline-like cuts applied at that stage: the algorithm prefix (\texttt{PFMET}, \texttt{PFMHT}, \texttt{PFHT}, \texttt{CaloMET}, \texttt{IsoTrk}) identifies the reconstructed quantity being thresholded, while the number gives the corresponding $p_T$ (or $H_T$) cut in GeV. \texttt{IDTight} signifies that tight jet identification is applied to the jets entering the MHT sum, \texttt{NoMu} indicates that muon contributions are subtracted from the MET/MHT computation, and \texttt{IsoTrk50} requires an isolated track with $p_T>50$~GeV. 
+
+At the L1 trigger level, the seed lists are a logical OR of several \texttt{L1\_ETMHF} thresholds (MET computing using the central and forward calorimeters). Since \texttt{ETMHF} is a calorimeter-based quantity, the initial L1 decision is essentially always driven by the Calo MET, with the PF MET/MHT only becoming the discriminating variable at the HLT stage.
+
+\vspace{0.5 cm}
+
+Particle-flow (PF) MET is only produced when the R-hadron pair consists of one charged and one neutral state, since a charged-charged or neutral-neutral pair leaves no net PF imbalance. On the other hand, calorimetric MET (Calo MET) still arise from an ISR jet or photon recoiling against the pair. Five kinematic topologies, depending on the nature of the pair-produced HSCP, were identified on this basis and are illustrated in \cref{fig:METtopology}, ranging from configurations with negligible MET to those dominated by either PF or Calo MET, thereby motivating the use of several complementary MET observables rather than a single variable.
+
+\begin{figure}[h!]
+    \centering
+    \input{Images/Ch4/METtopology.tex}
+    \caption{The five kinematic topologies considered for the MET trigger strategy, defined by the relative directions of the two HSCP candidates and the possible presence of ISRs. The off-white circle represents the transverse cut of the detector.}
+    \label{fig:METtopology}
+\end{figure}
+
+\vspace{0.5 cm}
+
+Beyond the pair-type composition itself, the way each HSCP track is reconstructed by the PF algorithm also matters for the trigger strategy. \cref{fig:pftypeprop} (Left) shows, for each gluino mass point, the fraction of PF candidates matched to a generated charged HSCP track that are identified either as a PF muon or as PF charged pions (these are the only two PF candidates observed), before and after the OR of the four MET triggers. Because the highly-ionising, slow-moving HSCP track can mimic a minimum-ionising muon signature going through the whole calorimeters, a large fraction of true charged HSCPs are reconstructed as PF muons rather than as charged pions. 
+
+Rather than being primarily driven by this muon mis-identification, the modest efficiency of the individual MET triggers (\cref{fig:pftypeprop} Right, all below $\sim$30\%) should instead be read in light of the pair-type composition itself: since PF MET is only produced for charged--neutral pairs and Calo MET only for configurations with significant ISR (\cref{fig:METtopology}), a significant fraction of signal events carries little to no MET regardless of trigger thresholds. This connection between pair-type composition and trigger efficiency is examined quantitatively in~\cref{fig:pairtypestages}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.48\textwidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/c_PFTypeProp__PFTypeProp_bis.pdf}
+    \includegraphics[width=0.48\textwidth,trim={0.8cm 0 1.9cm 0},clip]{Images/Ch4/c_TriggerEfficiency__TriggerEff_bis.pdf}
+    \caption{Fraction of PF candidates matched to a generated charged HSCP track identified as a PF muon or as a PF charged pion, before and after the OR of the four MET triggers, for gluino mass points between 1100 and 2600~GeV (Left). Efficiency of the four individual MET HLT paths and of their logical OR, for gluino mass points between 1100 and 2600~GeV (Right).}
+    \label{fig:pftypeprop}
+\end{figure}
+
+\cref{fig:pairtypestages} follows the HSCP pair-type distribution through the analysis chain for a representative signal point ($m_{\tilde{g}}=2000$~GeV), comparing the generated composition to that obtained after the OR of the four MET triggers.
+
+The reduction from the generated composition (black dots, summing to unity) to the post-trigger composition (red squares) is essentially uniform across the three pair-type categories, and simply reflects the overall OR-trigger efficiency already measured in \cref{fig:pftypeprop} (Right plot, bin~5): summing the red squares over the three categories recovers the same $\sim$30\% efficiency obtained for the $m_{\tilde{g}}=2000$~GeV point, confirming that the OR trigger is not preferentially selecting a given pair type at this stage, but rather applies an approximately flat acceptance across all three configurations.
+
+Among triggered events, the fractions instead change significantly depending on the number of HSCP candidates matched with a track: neutral--neutral events populate almost exclusively the 0-matched category, since the neutral R-hadron leaves no track, while charged--charged events dominate the 2-matched category and charged--neutral events mainly populate the 1-matched category.
+
+This correspondence can be quantified further. At generator level, essentially all signal events contain two generated HSCPs, distributed among the charged--charged, charged--neutral, and neutral--neutral pair types with respective fractions of about 20\%, 50\%, and 30\% (black dots in~\cref{fig:pairtypestages}). After requiring a track match between the generated HSCPs and the reconstructed tracks, the observed 0-, 1-, and 2-matched-track fractions are instead 41\%, 46\%, and 14\%, respectively. While the 1-matched-track fraction closely follows the generated charged--neutral fraction, the 2-matched-track fraction falls below the generated charged--charged fraction (14\% vs 20\%), and the 0-matched-track fraction correspondingly exceeds the generated neutral--neutral fraction (41\% vs 30\%). This systematic shift towards lower matched-track multiplicities indicates that HSCPs are predominantly lost through charge flipping of a charged R-hadron to a neutral state.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/Ch4/c_PairTypeStages_m2000__PairTypeStages_bis.pdf}
+    \caption{Evolution of the HSCP pair-type composition across the analysis chain, for a gluino signal with $m_{\tilde{g}}=2000$~GeV: before any trigger requirement (Black dots), after the OR of the four MET triggers (Red squares), and further split by the number of matched HSCP candidates (0 in Blue up-triangles, 1 in Green down-triangles, or 2 in Pink stars).}
+    \label{fig:pairtypestages}
+\end{figure}
+
+
+
+
+
+\vspace{0.5 cm}
+
+The migration of the analysis from an \textsc{AOD} to a \textsc{MiniAOD} framework removed the muon-corrected calorimeter MET collection used in Run~2 (\texttt{RecoCaloMET}), replaced by \texttt{PatCaloMET}, which is not equivalent since it includes a muon correction. To recover a trigger-plateau observable consistent with the Run~2 definition, a pseudo-MET variable was reconstructed offline from the calorimeter jet (CaloJets) collection as the magnitude of the vectorial transverse-momentum sum of all calorimeter jets in the event,
+\begin{equation}
+    E_{T}^{\text{pseudo}} = \sqrt{\left\|\sum_{\text{CaloJets}} \overrightarrow{p_{x_j}}\right\|^2 + \left\|\sum_{\text{CaloJets}} \overrightarrow{p_{y_j}} \right\|^2 } .
+\end{equation}
+This Pseudo MET was validated on Run~2 AOD samples against \texttt{RecoCaloMET}, showing an identical trigger turn-on curve and a data/simulation-consistent ratio close to unity across the full MET range, confirming its rightness as a substitute observable in \textsc{MiniAOD}.
+
+\cref{fig:TriggEff_AOD_vs_MiniAOD}
+
+\begin{figure}[ht!]
+   \centering
+	\includegraphics[width=0.8\linewidth]{Images/Wolfgang.jpg}
+	\caption{Trigger efficiency AOD vs miniAOD.}
+   \label{fig:TriggEff_AOD_vs_MiniAOD}
+\end{figure}
+
+
+
+
+
+The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of three observables: the Pseudo MET, the PUPPI MET, and the muon-subtracted PUPPI MET (PUPPI MET NoMu), each optionally combined with an offline requirement on $H_{T}$, $\text{MHT}$, or $\text{MHT}^{\text{NoMu}}$ when required by the corresponding trigger leg (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the NoMu path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Efficiencies were computed as the ratio of events passing the HSCP pre-selection and the OR of the MET triggers to events passing the pre-selection alone. The signal efficiency was derived on simulated long-lived gluino samples ($m_{\tilde{g}}=2000$~GeV), while data/simulation scale factors were extracted on an orthogonal single-muon dataset (2024 collision data and the corresponding $W\to\mu\nu$ simulation), selected with exactly one tight, isolated muon ($p_{T}>30$~GeV, $I_{\text{PF}}^{\text{rel}}<0.15$) firing \texttt{HLT\_IsoMu27}, and otherwise subject to the same jet-veto map, MET filters, and HSCP pre-selection criteria, with the pixel-based ionization fraction requirement relaxed ($F_{i}^{\text{Pixels}}<0.9$) to preserve a Standard Model-like sample of comparable kinematics.
+
+
+Comparison of the three candidate observables showed that PUPPI MET NoMu performs poorly in data/simulation agreement and was discarded. After a lower threshold on each observable (Pseudo MET~$>250$~GeV, PUPPI MET~$>150$~GeV, PUPPI MET NoMu~$>150$~GeV), the OR trigger efficiency reaches $99.5\%$ on signal for Pseudo MET but only $87$--$95\%$ on data and simulation respectively, with a correspondingly large associated scale factor uncertainty at low MET. Conversely, PUPPI MET yields lower signal efficiency ($\sim37\%$) but substantially better data/simulation closure ($76$--$82\%$), and the impact on signal acceptance across the probed mass range ($m_{\tilde{g}}=1000$--$2600$~GeV) was found to be essentially unaffected by the choice between a Pseudo MET, a PUPPI MET, or a combined (OR) requirement, since a stringent cut on Pseudo MET was found to disproportionately suppress the signal yield without a compensating gain in purity.
+
+
+Both one-dimensional and two-dimensional (Pseudo MET vs. PUPPI MET) data/simulation scale factors were derived, with the two-dimensional map excluding the low-MET corner outside the trigger-efficient region. Given the comparable acceptance and superior data/simulation agreement, the adopted strategy retains a single requirement on PUPPI MET together with its associated one-dimensional scale factor. Two categories of systematic uncertainty are propagated to the signal: (i) the statistical uncertainty on the scale factors, propagated as correlated up/down variations, and (ii) an uncertainty on the jet energy scale entering the computation of $H_{T}$, $\text{MHT}$, $\text{MHT}^{\text{NoMu}}$, and PUPPI MET, propagated by recomputing these quantities with the nominal jet four-momenta shifted up and down by their respective uncertainties.
+
+
+
+
 
 \subsection{Pre-selection criteria}
-
+\label{sec:systematics}
 
 
 \section{Mass reconstruction strategy}
@@ -134,3 +242,28 @@ Mass parametrization
 
 
 Ajouter listes du travail personnel
+
+
+
+
+
+
+\section{Systematic Uncertainties}\label{sec:systematics}
+
+\subsection{$F_\text{pixel}$ systematic uncertainty}
+\label{sec:fi_syst}
+
+The value of $F_\text{pixel}$ is sensitive to the pixel hit reconstruction, in particular to the Lorentz angle corrections and the pixel charge templates used during reconstruction. To evaluate the systematic uncertainty associated with the pixel calibration, a dedicated simulation sample is produced with the same generator-level signal (gluino, $m=1800$~GeV, $\sqrt{s}=13.6$ TeV) but simulated with an updated Global Tag\footnote{A Global Tag is a versioned label that identifies a coherent set of conditions and calibration data, including alignment constants, electric-field maps, and detector-response parameters, which are applied consistently during the reconstruction and simulation of a specific data-taking period.}. The updated tag contains new conditions describing the detector at the end of 2024 (i.e., after significant irradiation): one- and two-dimensional pixel charge templates (for the charge-reweighting irradiation model), Lorentz-angle corrections for data and simulation, and generic pixel-error parameters. The full simulation chain with 100k events is rerun with the new tag, and the results are processed using the standard analysis code.
+
+\cref{fig:fi_syst} shows the $F_\text{pixel}$ distributions for the nominal and systematic samples, normalised to unity, both without any selection and after the standard track preselection described in Section~\cref{sec:selection}. The ratio of the number of tracks satisfying $F_\text{pixel}>0.9$ in the systematic variation to the nominal is $1.037$ before any selection and $1.016$ after preselection.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{Images/Ch4/FiPixel_noSelection.pdf}
+  \hfill
+  \includegraphics[width=0.49\textwidth]{Images/Ch4/FiPixel_afterSelection.pdf}
+  \caption{Distribution of $F_\text{pixel}$ for a 2024 gluino signal sample with $m=1800$~GeV, comparing the nominal reconstruction (Blue solid) and the systematic variation using updated pixel calibration conditions (Red dashed). Left: all reconstructed tracks, no selection applied. Right: tracks passing the analysis preselection criteria. Both distributions are normalised to unity. The annotation gives the ratio of yields in the signal region $F_\text{pixel}>0.9$ between the systematic variation and nominal.}
+  \label{fig:fi_syst}
+\end{figure}
+
+The difference observed in the signal region after preselection, $1.6\%$, is taken as a one-sided systematic uncertainty on the signal efficiency and is symmetrised to $\pm 1.6\%$. This uncertainty is applied to all signal mass points and is treated as correlated across signal categories. The pre-selection ratio of $3.7\%$ is larger because the preselection requirements on track quality and isolation preferentially retain tracks with well-measured pixel hits; the tighter sample is therefore less sensitive to the template calibration. The $1.6\%$ post-preselection value is therefore the conservative and appropriate estimate for the analysis.

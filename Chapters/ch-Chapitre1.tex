@@ -31,7 +31,7 @@ Building on this progress, CERN inaugurated the Large Electron–Positron collid
 \section{The Large Hadron Collider}
 \label{sec:LHC}
 
-The Large Hadron Collider (LHC) \cite{EvansBryant2008}, located at CERN on the Franco-Swiss border, is the world's largest and most powerful particle accelerator. It represents the culmination of decades of progressive increases in accelerator energy at CERN. Its primary objective was the discovery of the Higgs boson --- the last missing element of the Standard Model (see Chapter XXXX) --- a goal achieved in 2012 by the ATLAS \cite{ATLAS_Higgs} and CMS \cite{CMS_Higgs} collaborations. Beyond this milestone, the LHC was conceived as a versatile tool to probe particle interactions at the TeV scale, capable of delivering proton-proton collisions at a centre-of-mass energy\footnote{$\sqrt{s}$ denotes the centre-of-mass energy of the collision, defined as the square root of the Mandelstam variable $s=(p_1+p_2)^2$, corresponding to the total energy available in the centre-of-mass frame.} up to $\sqrt{s}=14$ TeV. Although this nominal value has not yet been reached, the machine currently operates at a maximum energy of 13.6 TeV. At such energies, the LHC provides a unique opportunity to test the limits of the Standard Model: both by conducting high-precision measurements that may reveal subtle deviations from theoretical predictions, and by carrying out direct searches for phenomena Beyond the Standard Model (BSM) (some of which are discussed in Chapter XXXX).
+The Large Hadron Collider (LHC) \cite{EvansBryant2008}, located at CERN on the Franco-Swiss border, is the world's largest and most powerful particle accelerator. It represents the culmination of decades of progressive increases in accelerator energy at CERN. Its primary objective was the discovery of the Higgs boson --- the last missing element of the Standard Model (see \cref{ch:chapitre3}) --- a goal achieved in 2012 by the ATLAS \cite{ATLAS_Higgs} and CMS \cite{CMS_Higgs} collaborations. Beyond this milestone, the LHC was conceived as a versatile tool to probe particle interactions at the TeV scale, capable of delivering proton-proton collisions at a centre-of-mass energy\footnote{$\sqrt{s}$ denotes the centre-of-mass energy of the collision, defined as the square root of the Mandelstam variable $s=(p_1+p_2)^2$, corresponding to the total energy available in the centre-of-mass frame.} up to $\sqrt{s}=14$ TeV. Although this nominal value has not yet been reached, the machine currently operates at a maximum energy of 13.6 TeV. At such energies, the LHC provides a unique opportunity to test the limits of the Standard Model: both by conducting high-precision measurements that may reveal subtle deviations from theoretical predictions, and by carrying out direct searches for phenomena Beyond the Standard Model (BSM) (some of which are discussed in \cref{ch:chapitre3}).
 
 The scale of this endeavour is reflected in the machine's technical superlatives: compared to its direct predecessor, the Tevatron --- in operation at Fermilab since 1983 --- the LHC achieved a centre-of-mass energy seven times higher, an instantaneous luminosity a factor of ten larger, and a bunch spacing sixteen times narrower, all within a ring four times greater in circumference. The detectors built around it match this ambition, designed and optimised from scratch using detailed simulations and incorporating all knowledge accumulated from previous experiments; their physics performance has so far exceeded design expectations.
 
@@ -163,7 +163,7 @@ where $\sigma_z$ is the RMS bunch length along the proton beam and $\sigma_{\tex
     \begin{tabular}{|c|c|c|c|c|}
         \hline
         \makecell{Data-taking \\ period} & \makecell{Design \\ (nominal) \cite{EvansBryant2008}} & \makecell{Run--1 \\ 2010--2012 \cite{LHCinfoRun1} }& \makecell{Run--2 \\ 2015--2018\cite{LHCinfoRun2}} & \makecell{Run--3 \\ 2022--2026 \cite{LHCinfoRun3}} \\ \hline \hline
-        $\sqrt{s}$\footnote{Energy in the centre-of-mass} [TeV] & 14 & 7--8 & 13 & 13.6 \\ \hline
+        $\sqrt{s}$ [TeV] & 14 & 7--8 & 13 & 13.6 \\ \hline
         \makecell{Bunch \\ spacing [ns]} & 25 & 150--50 & \multicolumn{2}{c|}{25} \\ \hline
         \makecell{$N_p$ \\ $[\times 10^{11}\ \textrm{p/bunch}]$} & 1.15 & 1.2--1.7 & 1.1--1.25 & 1.4--2.3 \\ \hline
         $n_b$ & 2808 & 368--1380 & 2220--2556 & 2250--2736 \\ \hline
@@ -181,7 +181,7 @@ As discussed in \cref{subsec:SubacceleratorComplex}, since collisions occur at a
 
 \vspace{0.5 cm}
 
-CMS measures instantaneous luminosity in real time using dedicated subdetectors, called luminometers: the pixel tracking detector, the Forward Hadron calorimeter (HF), the Pixel Luminosity Telescope (PLT), and the fast Beam Conditions Monitor (BCM1F). Each luminosity estimate is based on the average number of interactions per bunch crossing.
+CMS measures instantaneous luminosity in real time using dedicated sub-detectors, called luminometers: the pixel tracking detector, the Forward Hadron calorimeter (HF), the Pixel Luminosity Telescope (PLT), and the fast Beam Conditions Monitor (BCM1F). Each luminosity estimate is based on the average number of interactions per bunch crossing.
 
 Two complementary methods are used, depending on the detector. In the pixel detector, where signal overlaps are negligible, the rate-scaling method is applied: it relates the average number of reconstructed primary vertices directly to luminosity through a visible cross section. Conversely, for HF, PLT, and BCM1F --- where overlapping interactions prevent distinct signal separation --- the zero-counting method is preferred. This approach estimates luminosity by evaluating the fraction of empty bunch crossings, assuming Poisson statistics.
 
@@ -770,7 +770,7 @@ where $k=-1$ controls the clustering behaviour in the anti--$k_T$ method, $\Delt
 
 \vspace{0.5 cm}
 
-Pile-up contributions degrade jet resolution, especially for low-$p_T$ jets, reducing the jet energy resolution. This effect is even more pronounced for Run--3 data, as the average pile-up tends to increase with year, reaching $\langle \textrm{PU} \rangle=60$ for 2025. To make this work, CMS has developed the Pile-Up Per Particle Identification (PUPPI) \cite{PUPPI_cms}, which is more stable and efficient than CHS in high-pile-up scenarios. PF candidates are weighted by their probability of arising from pile-up before applying the anti--$k_t$ method. Note that, at this point, two classes of jets are created: AK4PF jets (resulting from the CHS process) and AK4 PUPPI jets, the latter being the one recommended by CMS for Run--3 physics analysis.
+Pile-up contributions degrade jet resolution, especially for low-$p_T$ jets, reducing the jet energy resolution. This effect is even more pronounced for Run--3 data, as the average pile-up tends to increase with year, reaching $\langle \textrm{PU} \rangle=60$ for 2025. To make this work, CMS has developed the Pile-Up Per Particle Identification (PUppi) \cite{PUPPI_cms}, which is more stable and efficient than CHS in high-pile-up scenarios. PF candidates are weighted by their probability of arising from pile-up before applying the anti--$k_t$ method. Note that, at this point, two classes of jets are created: AK4PF jets (resulting from the CHS process) and AK4 PUppi jets, the latter being the one recommended by CMS for Run--3 physics analysis.
 
 Jet energies are then corrected through a series of jet energy corrections (JEC) applied sequentially. Relative and absolute corrections account for non-uniformities in the detector response as functions of $\eta$ and $p_T$, thereby bringing the jet energy scale to a uniform, well-calibrated reference. Finally, residual corrections are implemented to the data to account for remaining discrepancies between the data and the simulation, derived from dedicated in situ measurements such as the $p_T$ balance in $\gamma$+jet, $Z$+jet, and dijet events. After the full JEC chain, the jet energy resolution (JER) is also smeared in simulation to match the resolution observed in data \cite{CMS_JEC_JER}.
 
@@ -813,7 +813,21 @@ The MET definition introduced previously refers to PF-based missing transverse e
 
 \vspace{0.5 cm}
 
-Since the PFMET is built from the vectorial sum of all PF candidates, any miscalibration of the jet energy scale propagates directly into it. The standard correction procedure, referred to as \textit{Type-1}, propagates the full JEC chain to the PFMET by replacing the raw jet momenta with their corrected counterparts in the sum~\cite{METcalib}. An additional \textit{XY-shift} correction is then applied to remove a spurious sinusoidal modulation of the MET azimuthal angle $\phi$, arising from anisotropic detector response, inactive calorimeter cells, detector misalignment, and beam-spot displacement~\cite{METcalib}. The recommended PFMET estimator for Run--3 physics analyses is the PUPPI-based MET (PUPPIMET), which benefits from the pile-up weighting applied at the particle level before jet clustering, resulting in improved resolution and reduced sensitivity to pile-up fluctuations compared to the CHS-based PFMET.
+Closely related to the missing transverse energy are several scalar quantities derived from the event's hadronic activity. The scalar sum of the transverse momenta of all selected jets $H_T$ quantifies the total hadronic energy in the event:
+\begin{equation}
+    H_T = \sum_{\mathrm{jets}} \left\|\overrightarrow{p_{T_j}}\right\| \, .
+    \label{eq:ht}
+\end{equation}
+By analogy with the MET, the missing $H_T$ (MHT) is defined as the magnitude of the negative vectorial sum of the transverse momenta of the selected jets:
+\begin{equation}
+    \mathrm{MHT} = H_T^\mathrm{miss} = \left| -\sum_{\mathrm{jets}} \overrightarrow{p_{T_j}} \right| \, .
+    \label{eq:mht}
+\end{equation}
+Unlike MET, which is built from all PF candidates, MHT relies exclusively on reconstructed jets and is therefore more sensitive to jet selection and thresholds. A variant, MHTNoMu, is computed by excluding muons from the vectorial sum, so that real muon activity does not contribute to the MHT.
+
+\vspace{0.5 cm}
+
+Since the PFMET is built from the vectorial sum of all PF candidates, any miscalibration of the jet energy scale propagates directly into it. The standard correction procedure, referred to as \textit{Type-1}, propagates the full JEC chain to the PFMET by replacing the raw jet momenta with their corrected counterparts in the sum~\cite{METcalib}. An additional \textit{XY-shift} correction is then applied to remove a spurious sinusoidal modulation of the MET azimuthal angle $\phi$, arising from anisotropic detector response, inactive calorimeter cells, detector misalignment, and beam-spot displacement~\cite{METcalib}. The recommended PFMET estimator for Run--3 physics analyses is the PUppi-based MET (PUppiMET), which benefits from the pile-up weighting applied at the particle level before jet clustering, resulting in improved resolution and reduced sensitivity to pile-up fluctuations compared to the CHS-based PFMET.
 
 
 
@@ -917,4 +931,4 @@ The Level--1 trigger will be deeply redesigned to incorporate tracking informati
 
 \vspace{0.5 cm}
 
-The inclusion of tracking information at the L1 stage will enable the PF algorithm to be extended to the hardware-trigger level. A dedicated \textit{Correlator Trigger} will combine the output of the Global Track Trigger with calorimeter and muon primitives to perform a PF~+~PUPPI reconstruction online, significantly lowering the trigger thresholds for jets and MET at fixed output rate compared to calorimeter-only or track-only approaches~\cite{Phase2L1trigger}.
+The inclusion of tracking information at the L1 stage will enable the PF algorithm to be extended to the hardware-trigger level. A dedicated \textit{Correlator Trigger} will combine the output of the Global Track Trigger with calorimeter and muon primitives to perform a PF~+~PUppi reconstruction online, significantly lowering the trigger thresholds for jets and MET at fixed output rate compared to calorimeter-only or track-only approaches~\cite{Phase2L1trigger}.

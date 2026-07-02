@@ -79,15 +79,15 @@ Note that particles cannot actually lose more energy than their total budget; th
     \label{fig:MPV_Landau}
 \end{figure}
 
-Another important point is the dependence of the MPV on $\beta\gamma$ and the material thickness. The slower the particle, the higher the MPV. At large $\beta\gamma$, however, the MPV converges asymptotically to a value that depends solely on the thickness of the material in the relativistic regime. An example of the evolution of the MPV for two different silicon sensor thicknesses is shown in \cref{fig:MPV_Landau}.
+Another important point is the dependence of the MPV on $\beta\gamma$ and the material thickness. The slower the particle, the higher the MPV. At large $\beta\gamma$, however, the MPV converges asymptotically to a value that depends solely on the thickness of the material in the relativistic regime. An example of the evolution of the MPV for two different silicon sensor thicknesses is shown in~\cref{fig:MPV_Landau}.
 
 \vspace{0.5 cm}
 
-The Landau distribution provides information on the total energy deposited in a finite silicon layer (here for 320 and 500 $\mu\mathrm{m}$). At the same time, the MPV curve gives the energy loss per unit length (MeV/cm). Multiplying the MPV at the MIP value ($\sim$2.6-2.7 MeV/cm on silicon) by the layer thickness naturally yields a deposit in the keV range, consistent with the MPV observed in the Landau PDF of \cref{fig:MPV_Landau}.
+The Landau distribution provides information on the total energy deposited in a finite silicon layer (here for 320 and 500 $\mu\mathrm{m}$). At the same time, the MPV curve gives the energy loss per unit length (MeV/cm). Multiplying the MPV at the MIP value ($\sim$2.6-2.7 MeV/cm on silicon) by the layer thickness naturally yields a deposit in the keV range, consistent with the MPV observed in the Landau PDF of~\cref{fig:MPV_Landau}.
 
 \vspace{0.5 cm}
 
-Finally, one could also present a more general description of energy-loss fluctuations, provided by the \textit{Vavilov distribution}, which extends the Landau model to absorbers of finite thickness. In the limit of very thin materials, it reduces to the Landau distribution, while for thicker absorbers it gradually approaches a Gaussian shape. This behaviour reflects the Central Limit Theorem: as the number of independent collisions increases, the sum of many small energy transfers tends toward a normal distribution \cite{VavilovFunctionPixels}.
+Finally, one could also present a more general description of energy-loss fluctuations, provided by the \textit{Vavilov distribution}, which extends the Landau model to absorbers of finite thickness. In the limit of very thin materials, it reduces to the Landau distribution, while for thicker absorbers it gradually approaches a Gaussian shape. This behaviour reflects the Central Limit Theorem: as the number of independent collisions increases, the sum of many small energy transfers tends toward a normal distribution~\cite{VavilovFunctionPixels}.
 
 This function is used, for instance, to simulate charge deposits in pixel sensors. Particles at high pseudorapidity traverse a larger amount of material than those produced in the central region; thus, the Landau distribution is no longer representative of their energy distribution. Incorporating this effect into the simulation enables a more accurate tuning of the detector response, bringing it into closer agreement with the behaviour observed in data.
 
