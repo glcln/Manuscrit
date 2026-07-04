@@ -140,7 +140,7 @@
 %% Table of contents configuration
 \addto\captionsenglish{% Replace "french" with the language you use
   \renewcommand{\contentsname}%
-    {Table des matières}%
+    {Table of content}%
 }
 \setcounter{minitocdepth}{2} 
 \setcounter{secnumdepth}{3}
@@ -148,7 +148,7 @@
 \setlength{\mtcindent}{24pt} 
 \renewcommand{\mtcfont}{\small\rm} 
 \renewcommand{\mtcSfont}{\small\bf} 
-\renewcommand{\mtctitle}{Contenu}
+\renewcommand{\mtctitle}{Content}
 
 
 %% Section configuration | Change the numerotations of sections
