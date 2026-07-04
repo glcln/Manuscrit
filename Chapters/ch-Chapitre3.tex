@@ -58,9 +58,9 @@ As the SM describes elementary particles at high energy scales, its formalism re
 
 Quantum mechanics, in its original formulation, is a non-relativistic theory. The Schrödinger equation treats time and space asymmetrically and assumes that the number of particles is fixed. This framework becomes inconsistent at high energies, where special relativity must be taken into account.
 
-One needs to consider special relativity when dealing with particles moving at speeds far beyond those encountered in everyday life. This formalism imposes that the rest energy and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. Particle number is therefore no longer conserved, and a single-particle wave-function $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
-
-The natural resolution is to get rid of the wave-function as a fundamental object and instead use the dynamical variable to a field $\phi(\mathbf{x},t)$, defined at every point in spacetime, so that particle creation and annihilation are naturally accommodated as excitations of the underlying field.
+One needs to consider special relativity when dealing with particles moving at speeds far beyond those encountered in everyday life. This formalism imposes that the rest energy and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. The particle number is therefore no longer conserved, and a single-particle wavefunction $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
+as
+The natural resolution is to get rid of the wave-function as a fundamental object and instead use the dynamical variable as a field $\phi(\mathbf{x},t)$, defined at every point in spacetime, so that particle creation and annihilation are naturally accommodated as excitations of the underlying field.
 
 \vspace{0.5 cm}
 
@@ -78,18 +78,18 @@ Quantisation is subsequently achieved by imposing canonical commutation relation
 
 \vspace{0.5 cm}
 
-From the Euler-Lagrange equations, one could extract continuous quantities. This is achieved using Emmy Noether's theorem, presented in 1915 \cite{Noether1918}, for which every continuous symmetry of the Lagrangian $\mathcal{L}$ leads to a conserved quantity. Canonical examples include time-translation invariance, which implies energy conservation; spatial-translation invariance, which implies momentum conservation; and rotational invariance, which implies conservation of angular momentum. This result is particularly important in the context of gauge invariance, as it provides the fundamental link between local symmetries and the conservation laws that support modern quantum field theories.
+From the Euler-Lagrange equations, one could extract continuous quantities. This is achieved using Emmy Noether's theorem, presented in 1915 \cite{Noether1918}, which states that every continuous symmetry of the Lagrangian $\mathcal{L}$ leads to a conserved quantity. Canonical examples include time-translation invariance, which implies energy conservation; spatial-translation invariance, which implies momentum conservation; and rotational invariance, which implies conservation of angular momentum. This result is particularly important in the context of gauge invariance, as it provides the fundamental link between local symmetries and the conservation laws that support modern quantum field theories.
 
 
 \subsection{Free fields and wave equations}
 
-Describing the behaviour of a field interacting with other fields in space-time could not be handled using the Schrödinger equation, as an asymmetry between the first derivative in time and the second derivative in space makes it non-Lorentz invariant. Therefore, this equation is irrelevant for describing relativistic particles.
+Describing the behaviour of a field interacting with other fields in space-time cannot be handled using the Schrödinger equation, because the asymmetry between the first derivative in time and the second derivative in space makes it non-Lorentz-invariant. Therefore, this equation is irrelevant for describing relativistic particles.
 
 \vspace{0.5 cm}
 
 The foundation of relativistic quantum mechanics started with Oskar Klein and Walter Gordon, who introduced in 1926 the Klein-Gordon equation that took the Einstein relation dispersion, $E^2 = \mathbf{p}^2+m^2$, and applied it to a field $\phi_i(\textbf{x},t)$ as an upgraded version of the Schrödinger equation, taking the relativistic aspect. This led to the Klein-Gordon (KG) equation, which describes the behaviour of a scalar (spin-0) particle with a non-zero mass. 
 
-Despite an apparent success of joining together quantum mechanics and special relativity, the KG equation leads to a density of probability $\rho=2|N|^2E$ that can be negative depending on the sign of $E$, with $N$ being the normalisation factor. As the dispersion relation $E^2 = \mathbf{p}^2+m^2$ allows for negative energy solutions, it is nonsense for physical objects with negative energies to have a negative probability of presence.
+Despite the apparent success of combining quantum mechanics and special relativity, the KG equation yields a probability density $\rho=2|N|^2E$ that can be negative depending on the sign of $E$, with $N$ the normalisation factor. As the dispersion relation $E^2 = \mathbf{p}^2+m^2$ allows negative-energy solutions, it is nonsense for physical objects with negative energy to have a negative probability of being present.
 
 \vspace{0.5 cm}
 
@@ -111,7 +111,7 @@ arising from the Dirac Lagrangian:
 \end{equation}
 with $\gamma^\mu$ the Dirac matrices such that $\gamma^0=\beta$ and $\gamma^i=\beta\alpha^i$, and $\overline{\psi}=\psi^\dagger\gamma^0$, the adjoint spinor.
 
-Those new degrees of freedom introduced by the gamma matrices naturally describe the spin of the fundamental fermions and anti-fermions introduced in 1925 by Wolfgang Pauli. The negative-energy solutions are interpreted as negative-energy particles propagating backwards in time, or equivalently, as the physical positive-energy antiparticles propagating forwards in time. The prediction of antimatter was later confirmed with the discovery of the positron in 1932 by Carl David Anderson \cite{Anderson1932}.
+Those new degrees of freedom, introduced by the gamma matrices, naturally describe the spin of the fundamental fermions and antifermions introduced in 1925 by Wolfgang Pauli. The negative-energy solutions are interpreted as negative-energy particles propagating backwards in time, or equivalently, as the physical positive-energy antiparticles propagating forwards in time. The prediction of antimatter was later confirmed with the discovery of the positron in 1932 by Carl David Anderson \cite{Anderson1932}.
 
 Therefore, solving the Dirac equation yields a relativistic quantum-mechanical framework for describing spin-half particles and their corresponding antiparticles.
 
@@ -129,21 +129,21 @@ Imposing this invariance leads to the introduction of a vectorial field $A_\mu$ 
 \begin{equation}
     \mathcal{L}_{\mathrm{int}} = - Q_\mathrm{em} \overline{\psi} \gamma^\mu A_\mu \psi \, ,
 \end{equation}
-where the variable $Q_\mathrm{em}$ corresponds to the electrical charge that is a conserved quantity through Noether's theorem for the U(1) invariance of the Dirac Lagrangian. This additional $\mathcal{L}_{\mathrm{int}}$ term denotes the interaction between a fermion and the vector field. The vector field (spin-1 boson) $A_\mu$ has no mass term and can be interpreted as a massless gauge boson.
+where the variable $Q_\mathrm{em}$ denotes the electric charge, a conserved quantity under Noether's theorem for the U(1) invariance of the Dirac Lagrangian. This additional $\mathcal{L}_{\mathrm{int}}$ term denotes the interaction between a fermion and the vector field. The vector field (spin-1 boson) $A_\mu$ has no mass term and can be interpreted as a massless gauge boson.
 
 \vspace{0.5 cm}
 
-The dynamics of this gauge boson are captured by a kinematic term in the Lagrangian. It comes that this kinematic term arises from the Maxwell Lagrangian $\mathcal{L}_{\mathrm{Maxwell}}$ defined as:
+The dynamics of this gauge boson are captured by a kinematic term in the Lagrangian. It follows that this kinematic term arises from the Maxwell Lagrangian $\mathcal{L}_{\mathrm{Maxwell}}$ defined as:
 
 \begin{equation}
     \mathcal{L}_{\mathrm{Maxwell}} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} \quad \mathrm{with} \, F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
 \end{equation}
 
-One could mention that this vector field is, in fact, the massless photon, which is found to be the gauge boson of electromagnetism. 
+One could note that this vector field is, in fact, the massless photon, the gauge boson of electromagnetism. 
 
 \vspace{0.5 cm}
 
-The consistent QFT description of the electromagnetic interaction was developed independently by Richard Feynman, Julian Schwinger and Shin'ichir\={o} Tomonaga between 1946 and 1950, a work collectively known as the quantum electrodynamics (QED) and summarised by the Lagrangian:
+The consistent QFT description of the electromagnetic interaction was developed independently by Richard Feynman, Julian Schwinger and Shin'ichir\={o} Tomonaga between 1946 and 1950, a work collectively known as quantum electrodynamics (QED) and summarised by the Lagrangian:
 
 \begin{equation}
 \begin{split}
@@ -172,7 +172,7 @@ To address the unitarity issue and follow QED examples, it was supposed that the
 Despite QED, the weak interaction mediated by the $W^\pm$ bosons is not symmetric under parity transformation\footnote{In particle physics, parity is a discrete symmetry corresponding to the spatial inversion $\mathbf{x} \to -\mathbf{x}$, under which a physical system is said to
 be parity-symmetric if its governing laws are invariant under this transformation.}. The Chien-Shiung Wu experiment \cite{Wu1957} demonstrated in 1956 that the weak interaction violates parity symmetry and is therefore chiral. By studying the $\beta$-decay of polarised $^{60}$Co nuclei, Wu provided the first direct experimental evidence for parity violation in nature: certain physical processes occur at different rates than their mirror-image counterparts.
 
-Based on this, a pure vector current is not allowed --- as is the case in QED with $j^\mu=\overline{\psi}\gamma^\mu\psi$ --- otherwise the weak interaction would not violate parity. Under parity transformation, a pure vector current $\bar{\psi}\gamma^\mu\psi$ is even, while an axial-vector current $\bar{\psi}\gamma^\mu\gamma^5\psi$, with  $\gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3$, is odd; consequently, any mixed $V \pm A$ coupling contains a cross term that is odd under parity, leading to maximal parity violation. The $V-A$ structure is the one that matches the experiment observations, and can be rewritten using the left-handed chiral\footnote{The chirality is defined as the eigenvalue of the $\gamma^5$ matrix, with eigenstates projected by $P_{L,R} = (1 \mp \gamma^5)/2$; it is an intrinsic property that is a direct consequence of the Lorentz structure under which the field transforms.} projector $P_L = (1 - \gamma^5)/2$, yielding $\bar{\psi}\gamma^\mu(1-\gamma^5)\psi = 2\bar{\psi}_L\gamma^\mu\psi_L$, which shows that the weak interaction couples exclusively to left-handed fermions and right-handed anti-fermions.
+Based on this, a pure vector current is not allowed --- as in QED, where $j^\mu=\overline{\psi}\gamma^\mu\psi$ --- otherwise the weak interaction would not violate parity. Under parity transformation, a pure vector current $\bar{\psi}\gamma^\mu\psi$ is even, while an axial-vector current $\bar{\psi}\gamma^\mu\gamma^5\psi$, with  $\gamma^5=i\gamma^0\gamma^1\gamma^2\gamma^3$, is odd; consequently, any mixed $V \pm A$ coupling contains a cross term that is odd under parity, leading to maximal parity violation. The $V-A$ structure is the one that matches the experiment observations, and can be rewritten using the left-handed chiral\footnote{The chirality is defined as the eigenvalue of the $\gamma^5$ matrix, with eigenstates projected by $P_{L,R} = (1 \mp \gamma^5)/2$; it is an intrinsic property that is a direct consequence of the Lorentz structure under which the field transforms.} projector $P_L = (1 - \gamma^5)/2$, yielding $\bar{\psi}\gamma^\mu(1-\gamma^5)\psi = 2\bar{\psi}_L\gamma^\mu\psi_L$, which shows that the weak interaction couples exclusively to left-handed fermions and right-handed anti-fermions.
 
 \vspace{0.5 cm}
 
@@ -185,13 +185,13 @@ Weak interactions manifest across a broad range of energy scales, from low-energ
 
 \subsection{Quantum chromodynamics}
 
-One last piece that needs to be modelled is the strong interaction. It is responsible for binding quarks into hadrons and for the cohesion of atomic nuclei, and is described by the quantum chromodynamics (QCD), a non-abelian gauge theory based on the colour symmetry group $\mathrm{SU}(3)_c$. This non-abelian structure is required because the gauge bosons themselves carry the charge of the interaction and must therefore self-interact. This is in contrast to $\mathrm{U}(1)_{\mathrm{em}}$ QED, where the photon is electrically neutral and carries no self-coupling.
+One last piece that needs to be modelled is the strong interaction. It is responsible for binding quarks into hadrons and for the cohesion of atomic nuclei, and is described by quantum chromodynamics (QCD), a non-abelian gauge theory based on the colour symmetry group $\mathrm{SU}(3)_c$. This non-abelian structure is required because the gauge bosons themselves carry the charge of the interaction and must therefore interact with themselves. This is in contrast to $\mathrm{U}(1)_{\mathrm{em}}$ QED, where the photon is electrically neutral and carries no self-coupling.
 
 \vspace{0.5 cm}
 
 The first evidence for a strong nuclear force came from the simple observation that atomic nuclei are stable: the electromagnetic repulsion between protons must be overcome by a stronger, short-range interaction. In 1935, Hideki Yukawa proposed the first model in which the force was mediated by the pion, later discovered in 1947, explaining the force's confinement to nuclear scales. With the proliferation of hadron discoveries in the 1950s and 1960s, Murray Gell-Mann and George Zweig proposed the quark model independently in 1964. In this structure, hadrons are composite objects composed of a small number of fundamental constituents, called quarks, organised according to the SU(3) flavour symmetry group. Mesons are quark--antiquark pairs $q\bar{q}$, while baryons are three-quark bound states $qqq$. All observed hadrons are colour-neutral (colour singlets), a property known as colour confinement.
 
-The reality of quarks as physical constituents was established in the late 1960s, when the structure of the proton was probed with electrons and revealed that the electrons scattered off point-like, essentially free constituents. Feynman's parton model identified these with quarks and gluons, each carrying a momentum fraction $x$ of the proton, distributed according to the parton distribution functions (PDFs) $f_i(x, Q^2)$.
+The reality of quarks as physical constituents was established in the late 1960s, when the structure of the proton was probed with electrons and revealed that the electrons scattered off point-like, essentially free constituents. Feynman's parton model identified these as quarks and gluons, each carrying a momentum fraction $x$ of the proton, with the distribution governed by the parton distribution functions (PDFs) $f_i(x, Q^2)$.
 
 \vspace{0.5 cm}
 
@@ -316,7 +316,7 @@ where ${D_\mu}_L$ is the electroweak covariant derivative acting on a left-hande
     \end{split}
 \end{equation}
 
-The first term expresses the kinematics of the Higgs field itself. The second term is in fact the kinematics of the two W$^\pm$ bosons, which can be expressed as a linear combination of $W^{(1)}$ and $W^{(2)}$:
+The first term expresses the kinematics of the Higgs field itself. The second term is in fact the kinematics of the two $W^\pm$ bosons, which can be expressed as a linear combination of $W^{(1)}$ and $W^{(2)}$:
 \begin{equation}
     W^\pm_\mu = \frac{1}{\sqrt{2}}\left( W^{(1)}_\mu \mp i W^{(2)}_\mu \right),
 \end{equation}
@@ -358,17 +358,17 @@ One could also remark that, after performing this basis change, substituting $W_
 \end{equation}
 showing that electromagnetism is not an independent interaction but emerges after electroweak symmetry breaking.
 
-Finally, the last terms of $\mathcal{L}_{\mathrm{Higgs}}$ describe the Higgs self-interactions and give a mass for the Higgs boson, with $m_H~=~v\sqrt{2\lambda}$.
+Finally, the last terms of $\mathcal{L}_{\mathrm{Higgs}}$ describe the Higgs self-interactions and give the Higgs boson a mass, with $m_H~=~v\sqrt{2\lambda}$.
 
 \vspace{0.5 cm}
 
-So far, the BEH mechanism generates masses for the three weak bosons while leaving the photon massless. However, fermions remain massless after symmetry breaking, as an explicit Dirac mass term $-m\bar{\psi}\psi = -m\left(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R\right)$ couples left-handed doublets to right-handed singlets and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. The same Higgs doublet $\phi$, however, allows the construction of gauge-invariant Yukawa couplings between left-handed doublets, right-handed singlets, and the Higgs field, which generate fermion masses dynamically after symmetry breaking.
+So far, the BEH mechanism generates masses for the three weak bosons while leaving the photon massless. However, fermions remain massless after symmetry breaking, as an explicit Dirac mass term $-m\bar{\psi}\psi = -m\left(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R\right)$ couples left-handed doublets to right-handed singlets and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. The same Higgs doublet $\phi$, however, allows the construction of gauge-invariant Yukawa couplings among left-handed doublets, right-handed singlets, and the Higgs field, which dynamically generate fermion masses after symmetry breaking.
 
 The Yukawa Lagrangian takes the general form:
 \begin{equation}
     \mathcal{L}_{\mathrm{Yukawa}} = - y^f_{ij}\, \overline{\psi}_{L,i}\, \phi\, \psi_{R,j} + \mathrm{h.c.} \, ,
 \end{equation}
-where $y^f_{ij}$ are complex coupling constants, the indices $i,j$ run over the three fermion generations, and h.c refers to the hermitian conjugate, added to make the Lagrangian real. After spontaneous symmetry breaking, the Yukawa couplings generate Dirac mass matrices $m^f_{ij} = y^f_{ij}\, v/\sqrt{2}$ and describe the coupling between the Higgs boson and the fermions.:
+where $y^f_{ij}$ are complex coupling constants, the indices $i,j$ run over the three fermion generations, and h.c refers to the Hermitian conjugate, added to make the Lagrangian real. After spontaneous symmetry breaking, the Yukawa couplings generate Dirac mass matrices $m^f_{ij} = y^f_{ij}\, v/\sqrt{2}$ and describe the coupling between the Higgs boson and the fermions.:
 
 \begin{equation}
     \mathcal{L}_{\mathrm{Yukawa}}^\mathrm{EWSB}=  -\frac{v}{\sqrt{2}} y^f_{ij}\,\overline{\psi}_i \psi_j - \frac{y^f_{ij}}{\sqrt{2}}\, \overline{\psi}_i \psi_j\, h + \mathrm{h.c.}
@@ -530,11 +530,11 @@ Lepton   & $\ell^\pm$ & $\tfrac{1}{2}$ & & & & Slepton   & $\tilde{\ell}_L^\pm,\
 Neutrino & $\nu$      & $\tfrac{1}{2}$ & & & & Sneutrino & $\tilde{\nu}_L,\ \tilde{\nu}_R(?)$ & $0$ \\
 Gluon    & $g$        & $1$            & & & & Gluino    & $\tilde{g}$ & $\tfrac{1}{2}$ \\
 Photon   & $\gamma$   & $1$            & & $\tilde{\gamma}$ & \multirow{3}{*}{\scalebox{1}[4.5]{$\}$}} & \multirow{3}{*}{Neutralino} & \multirow{3}{*}{$\tilde{\chi}_1^0,\ \tilde{\chi}_2^0,\ \tilde{\chi}_3^0,\ \tilde{\chi}_4^0$} & \multirow{3}{*}{$\tfrac{1}{2}$} \\
-Z boson  & $Z^0$        & $1$            & & $\tilde{Z}$ & & & & \\
+$Z^0$ boson  & $Z^0$        & $1$            & & $\tilde{Z}$ & & & & \\
 \multirow{2}{*}{Higgs} & \multirow{2}{*}{$H$} & \multirow{2}{*}{$0$} 
                                        & \multirow{2}{*}{\scalebox{1}[2.5]{$\{$}} & $\tilde{H}_1^0,\ \tilde{H}_2^0$ & & & & \\
                                        & & & & $\tilde{H}^\pm$ & \multirow{2}{*}{\scalebox{1}[2.5]{$\}$}} & \multirow{2}{*}{Chargino} & \multirow{2}{*}{$\tilde{\chi}_1^\pm,\ \tilde{\chi}_2^\pm$} & \multirow{2}{*}{$\tfrac{1}{2}$} \\
-W boson  & $W^\pm$    & $1$            & & $\tilde{W}^\pm$ & & & & \\
+$W$ boson  & $W^\pm$    & $1$            & & $\tilde{W}^\pm$ & & & & \\
 \hline
 \end{tabular}
 \caption{SM particle and their associated super-partner in the MSSM model, adapted from \cite{Thomson_2013}.}
@@ -846,7 +846,7 @@ Searches for HSCPs at colliders date back to the LEP era, but the most stringent
 
 The early Run--2 CMS HSCP analysis~\cite{HSCP_Run2_early} was performed on $2.5~\text{fb}^{-1}$ of data recorded in 2015 at $\sqrt{s} = 13~\text{TeV}$, combining the high ionisation search within the silicon tracker with one that adds the muon TOF under muon and MET triggers. No significant excess was observed, and the resulting lower mass exclusion limits at 95\% CL reached $1610~\text{GeV}$ for stable gluinos hadronising into R-hadrons (with a $10\%$ $\tilde{g}\tilde{g}$ bound-state fraction), $1040~\text{GeV}$ for stable top squarks, $490~\text{GeV}$ for GMSB tau sleptons, and $510~\text{GeV}$ ($680~\text{GeV}$) for Drell-Yan fourth-generation leptons of charge $|Q| = 1e$ ($|Q| = 2e$).
 
-The full Run--2 results~\cite{HSCP_Run2} extends the search to the 2017--2018 dataset, corresponding to $101~\text{fb}^{-1}$ of $\sqrt{s} =13~\text{TeV}$ collisions collected after the Phase-1 pixel upgrade. Two independent methods are deployed in parallel: a mass-reconstruction strategy that combines strip ionisation with measured momentum, and a strictly ionisation-based approach that exploits the independence of the strip and pixel measurements via a newly developed pixel discriminator. Both methods benefit from the larger event sample, the additional pixel layer and from data-driven background estimation techniques. HSCPs are selected through muon triggers, making the selection more sensitive to lepton-like particles. No significant excess over the SM expectation is observed, and the upper cross-section limits, so the corresponding mass exclusions, are improved with respect to the early Run--2 results~\cite{HSCP_Run2_early} for all signal hypotheses considered. The mass exclusion limits for each signal benchmark are obtained at the crossing between theory and observation as illustrated in \cref{fig:massexclu_hscp_run2}, and are listed in \cref{tab:MassLimits_Run2}. The mass method provides slightly stronger expected limits for signal hypotheses with large mass because it benefits from a very low background in this regime. However, the background in the mass spectrum is not negligible below 600~GeV, leading to better limits from the ionisation method.
+The full Run--2 results~\cite{HSCP_Run2} extends the search to the 2017--2018 dataset, corresponding to $101~\text{fb}^{-1}$ of $\sqrt{s} =13~\text{TeV}$ collisions collected after the Phase-1 pixel upgrade. Two independent methods are deployed in parallel: a mass-reconstruction strategy that combines strip ionisation with measured momentum, and a strictly ionisation-based approach that exploits the independence of the strip and pixel measurements via a newly developed pixel discriminator. Both methods benefit from the larger event sample, the additional pixel layer and data-driven background estimation techniques. HSCPs are selected through muon triggers, making the selection more sensitive to lepton-like particles. No significant excess over the SM expectation is observed, and the upper cross-section limits, so the corresponding mass exclusions, are improved with respect to the early Run--2 results~\cite{HSCP_Run2_early} for all signal hypotheses considered. The mass exclusion limits for each signal benchmark are obtained at the intersection of theory and observation, as illustrated in \cref{fig:massexclu_hscp_run2}, and are listed in \cref{tab:MassLimits_Run2}. The mass method provides slightly stronger expected limits for signal hypotheses with large mass because it benefits from a very low background in this regime. However, the background in the mass spectrum is not negligible below 600~GeV, leading to better limits from the ionisation method.
 
 This analysis also includes a dedicated interpretation in which a heavy $Z'$ boson decays into a pair of doubly charged $\tau'$ leptons. This signal hypothesis is specifically introduced to provide sensitivity to the excess later reported by ATLAS (see below), whose kinematics ($\beta\gamma \approx 1$) disfavour conventional slow-moving HSCP interpretations but are consistent with boosted $\tau'$ produced from the decay of a much heavier $Z'$. The configuration that would best account for the excess ($m_{Z'} \approx 5~\text{TeV}$ and $m_{\tau'} = 600~\text{GeV}$) is directly probed: for $m_{\tau'} = 600~\text{GeV}$, CMS sets a 95\% CL upper limit on the signal cross section of $0.047~\text{fb}$, which lies below the production rate required to reproduce the ATLAS observation. The $Z' \to \tau'\tau'$ interpretation of the ATLAS excess is therefore not confirmed by CMS.
 
@@ -877,14 +877,14 @@ This analysis also includes a dedicated interpretation in which a heavy $Z'$ bos
     $Z'_\Psi \to \tau'\tau'$ & 3.99 $\pm$ 0.21 & 3.95  & 4.03 $\pm$ 0.01 & 4.03  \\
     $Z'_{\mathrm{SSM}} \to \tau'\tau'$ & 4.53 $\pm$ 0.23 & 4.38  & 4.56 $\pm$ 0.01 & 4.57  \\ 
   \end{tabular}
-  \caption{Expected and observed mass limits obtained for various HSCP candidate models using the full Run--2 dataset, for the two background estimate methods~\cite{HSCP_Run2}.}
+  \caption{Expected and observed mass limits obtained for various HSCP candidate models using the full Run--2 dataset, for the two background-estimation methods~\cite{HSCP_Run2}.}
   \label{tab:MassLimits_Run2} 
 \end{table}
 
 
 \subsubsection{Complementary ATLAS searches}
 
-The ATLAS strategy combines the pixel $\mathrm{d}E/\mathrm{d}x$ with the TOF to the hadronic calorimeter, providing sensitivity not only to stable HSCPs but also to decaying ones. The full Run--2 analysis based on $139~\text{fb}^{-1}$~\cite{HSCP_ATLAS_2022} reported seven events in the inclusive signal region, inside the mass window $[1.1, 2.8]~\text{TeV}$, against an expectation of $0.7 \pm 0.4$, corresponding to a local significance of $3.6\,\sigma$. The shape of the excess is compatible with a $2.2~\text{TeV}$ gluino of $10~\text{ns}$ lifetime, but the measured $\beta\gamma \approx 1$ of the candidate events disfavours a slow-moving R-hadron interpretation. Four of the seven candidates are nonetheless found to be muon-like, and would therefore yield a similar experimental signature in CMS. The associated mass limits on stable gluino R-hadrons reach $\sim 2.05~\text{TeV}$ and extend up to $2.27~\text{TeV}$ for a gluino lifetime of $20~\text{ns}$ in the scenario $m(\tilde{\chi}^0_1) = 100~\text{GeV}$.
+The ATLAS strategy combines the pixel $\mathrm{d}E/\mathrm{d}x$ with the TOF to the hadronic calorimeter, providing sensitivity not only to stable HSCPs but also to decaying ones. The full Run--2 analysis based on $139~\text{fb}^{-1}$~\cite{HSCP_ATLAS_2022} reported seven events in the inclusive signal region, inside the mass window $[1.1, 2.8]~\text{TeV}$, against an expectation of $0.7 \pm 0.4$, corresponding to a local significance of $3.6\,\sigma$. The shape of the excess is consistent with a $2.2~\text{TeV}$ gluino with a $10~\text{ns}$ lifetime, but the measured $\beta\gamma \approx 1$ for the candidate events disfavours a slow-moving R-hadron interpretation. Four of the seven candidates are nonetheless found to be muon-like, and would therefore yield a similar experimental signature in CMS. The associated mass limits on stable gluino R-hadrons reach $\sim 2.05~\text{TeV}$ and extend up to $2.27~\text{TeV}$ for a gluino lifetime of $20~\text{ns}$ in the scenario $m(\tilde{\chi}^0_1) = 100~\text{GeV}$.
 
 A more recent ATLAS analysis~\cite{HSCP_ATLAS_2025} reprocesses the same $140~\text{fb}^{-1}$ Run--2 dataset with an updated selection that combines the pixel ionisation and the calorimeter TOF in two distinct signal regions: a $\beta$-search targeting single high-$p_T$ tracks with anomalous $\mathrm{d}E/\mathrm{d}x$ and delayed TOF, and a di-track search selecting opposite-sign track pairs with large ionisation. The analysis is sensitive to lifetimes greater than 3 ns and to masses between $200~\text{GeV}$ and $3~\text{TeV}$, providing updated constraints on long-lived R-hadrons, charginos and tau sleptons that extend beyond the previous limits over a broad lifetime range.
 

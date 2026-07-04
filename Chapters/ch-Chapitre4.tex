@@ -46,7 +46,7 @@ On à alors construit un discriminateur sur la compatibilité d'une particule fo
 
 \subsubsection{d\textit{E}/d\textit{x} discriminator $F_{\text{pixel}}$}
 
-In this analysis, the pixel information is exploited via $F_{\text{pixel}}$ which gives the compatibility of a track related to a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
+In this analysis, the pixel information is exploited via $F_{\text{pixel}}$, which quantifies the compatibility of a track with a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
 These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function $V(Q)$ templates to model the charge distribution of MIPs.
 
 \vspace{0.5 cm}
@@ -62,18 +62,18 @@ To complete the description of the four layers of the pixel subdetector, a joint
 \alpha_n = \prod_{i=1}^{n} p_{Q_i},
 \end{equation}
 
-The quantity $\alpha_n$ represents the joint probability of simultaneously observing charges at least as large in all layers: if a single layer is strongly ionising, $\alpha_n$ decreases, and if all layers are, $\alpha_n$ becomes significantly small.
+The quantity $\alpha_n$ represents the joint probability of simultaneously observing charges at least as large in all layers: if a single layer is strongly ionising, $\alpha_n$ decreases; if all layers are, $\alpha_n$ becomes significantly smaller.
 
 \vspace{0.5 cm}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.8\textwidth]{Images/Ch4/vavilov_charge.pdf}
-    \caption{Example of charge deposits in pixel sensors at $\eta=2.40$ where the distribution is fitted using a Vavilov function. The tail distribution $p_Q$ is shown in filled gray.}
+    \caption{Example of charge deposits in pixel sensors at $\eta=2.40$, with the distribution fitted using a Vavilov function. The tail distribution $p_Q$ is shown in filled grey.}
     \label{fig:clustQ}
 \end{figure}
 
-A difficulty arises because $\alpha_n$ is not uniformly distributed, even for a MIP. Its distribution depends strongly on $n$, which prevents a meaningful comparison between, for instance, the $n=3$ and $n=4$ cases. A different variable must therefore be constructed in order to obtain a behaviour that is subject to a universal selection.
+A difficulty arises because $\alpha_n$ is not uniformly distributed, even for a MIP. Its distribution depends strongly on $n$, which prevents a meaningful comparison between, for instance, the $n=3$ and $n=4$ cases. A different variable must therefore be constructed to obtain a behaviour subject to universal selection.
 
 To do so, the variable $-\ln(\alpha_n)$ is taken as it follows a Gamma distribution with parameters $(n,1)$, if and only if each $p_i$ is uniformly distributed on $[0,1]$. The corresponding probability density function is then
 \begin{equation}
@@ -93,11 +93,11 @@ Since $\beta_n$ is the exact cumulative distribution function of $\alpha_n$ unde
     F_{\text{pixel}} = 1 - \beta_n.
 \end{equation}
 
-By construction, $F_{\text{pixel}}$ is also uniformly distributed on the interval $[0,1]$ for MIPs, independently of the number of pixel layers considered. For strongly ionising particles, however, such as gluinos, the charge deposits in each layer exceed those expected for a MIP. This leads to small $p_i$ values, hence to a small $\alpha_n$ and a $\beta_n$ close to zero, so that $F_{\text{pixel}}$ approaches unity. The variable $F_{\text{pixel}}$ therefore constitutes an effective discriminator between Standard Model and BSM processes.
+By construction, $F_{\text{pixel}}$ is uniformly distributed on $[0,1]$ for MIPs, regardless of the number of pixel layers considered. For strongly ionising particles, however, such as gluinos, the charge deposited in each layer exceeds that expected for a MIP. This leads to small $p_i$ values, hence to a small $\alpha_n$ and a $\beta_n$ close to zero, so that $F_{\text{pixel}}$ approaches unity. The variable $F_{\text{pixel}}$ therefore constitutes an effective discriminator between Standard Model and BSM processes.
 
 \vspace{0.5 cm}
 
-In this analysis, hits from the first layer of the pixel detector were excluded from the computation of $F_{\text{pixel}}$ due to the premature ageing of this layer as a result of high levels of radiation in this layer of the Phase-1 detector. The left panel of~\cref{fig:FpixelInSignalData} shows the $F_{\text{pixel}}$ distribution for data collected in 2024 within a control region where all analysis preselection criteria are applied, but with $p_T < 55$ GeV to avoid signal contamination. The right panel displays the distribution for a simulated HSCP gluino at $m=2000$~GeV after the analysis preselection criteria. The distribution derived from the data is relatively flat, while most of the signal is concentrated around unity.
+In this analysis, hits from the first layer of the pixel detector were excluded from the computation of $F_{\text{pixel}}$ due to premature ageing caused by high radiation levels in this layer of the Phase-1 detector. The left panel of~\cref{fig:FpixelInSignalData} shows the $F_{\text{pixel}}$ distribution for data collected in 2024 within a control region where all analysis preselection criteria are applied, but with $p_T < 55$ GeV to avoid signal contamination. The right panel displays the distribution for a simulated HSCP gluino at $m=2000$~GeV after the analysis preselection criteria. The distribution derived from the data is relatively flat, while most of the signal is concentrated around unity.
 
 Assuming the data distribution is perfectly flat when it is not introduces systematic uncertainties. These uncertainties were estimated by varying the forenamed probability models and will be discussed in~\cref{sec:fi_syst}.
 
@@ -110,8 +110,6 @@ Assuming the data distribution is perfectly flat when it is not introduces syste
 \end{figure}
 
 
-
-
 \subsubsection{Stability of d\textit{E}/d\textit{x} variables over the year}
 
 Ih vs runnumber
@@ -122,6 +120,16 @@ Fpix vs runnumber
 
 \section{HSCP candidates selection}
 \label{sec:selection}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_2000_bis.pdf}
+    \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_1400_bis.pdf}
+    \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_2600_bis.pdf}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
 
 \subsection{Trigger event selection}
 
@@ -202,7 +210,7 @@ This Pseudo MET was validated on Run~2 AOD samples against \texttt{RecoCaloMET},
 
 
 
-The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of three observables: the Pseudo MET, the PUPPI MET, and the muon-subtracted PUPPI MET (PUPPI MET NoMu), each optionally combined with an offline requirement on $H_{T}$, $\text{MHT}$, or $\text{MHT}^{\text{NoMu}}$ when required by the corresponding trigger leg (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the NoMu path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Efficiencies were computed as the ratio of events passing the HSCP pre-selection and the OR of the MET triggers to events passing the pre-selection alone. The signal efficiency was derived on simulated long-lived gluino samples ($m_{\tilde{g}}=2000$~GeV), while data/simulation scale factors were extracted on an orthogonal single-muon dataset (2024 collision data and the corresponding $W\to\mu\nu$ simulation), selected with exactly one tight, isolated muon ($p_{T}>30$~GeV, $I_{\text{PF}}^{\text{rel}}<0.15$) firing \texttt{HLT\_IsoMu27}, and otherwise subject to the same jet-veto map, MET filters, and HSCP pre-selection criteria, with the pixel-based ionization fraction requirement relaxed ($F_{i}^{\text{Pixels}}<0.9$) to preserve a Standard Model-like sample of comparable kinematics.
+The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of three observables: the Pseudo MET, the PUPPI MET, and the muon-subtracted PUPPI MET (PUPPI MET NoMu), each optionally combined with an offline requirement on $H_{T}$, $\text{MHT}$, or $\text{MHT}^{\text{NoMu}}$ when required by the corresponding trigger leg (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the NoMu path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Efficiencies were computed as the ratio of events passing the HSCP pre-selection and the OR of the MET triggers to events passing the pre-selection alone. The signal efficiency was derived on simulated long-lived gluino samples ($m_{\tilde{g}}=2000$~GeV), while data/simulation scale factors were extracted on an orthogonal single-muon dataset (2024 collision data and the corresponding $W\to\mu\nu$ simulation), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, and otherwise subject to the same jet-veto map, MET filters, and HSCP pre-selection criteria, with the pixel-based ionization fraction requirement relaxed ($F_{\text{pixel}}<0.9$) to preserve a Standard Model-like sample of comparable kinematics.
 
 
 Comparison of the three candidate observables showed that PUPPI MET NoMu performs poorly in data/simulation agreement and was discarded. After a lower threshold on each observable (Pseudo MET~$>250$~GeV, PUPPI MET~$>150$~GeV, PUPPI MET NoMu~$>150$~GeV), the OR trigger efficiency reaches $99.5\%$ on signal for Pseudo MET but only $87$--$95\%$ on data and simulation respectively, with a correspondingly large associated scale factor uncertainty at low MET. Conversely, PUPPI MET yields lower signal efficiency ($\sim37\%$) but substantially better data/simulation closure ($76$--$82\%$), and the impact on signal acceptance across the probed mass range ($m_{\tilde{g}}=1000$--$2600$~GeV) was found to be essentially unaffected by the choice between a Pseudo MET, a PUPPI MET, or a combined (OR) requirement, since a stringent cut on Pseudo MET was found to disproportionately suppress the signal yield without a compensating gain in purity.
