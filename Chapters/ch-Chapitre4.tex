@@ -110,6 +110,31 @@ Assuming the data distribution is perfectly flat when it is not introduces syste
 \end{figure}
 
 
+\subsubsection{The \texorpdfstring{$I_h$}{Ih} estimator}
+One way to assess the average ionisation of a track along several silicon strip modules is to use a harmonic mean function. Therefore, $I_h$ is defined to be the harmonic mean of the ionisation of a charged particle track that has deposited $N$ charge clusters $c_j = (\dedx)_j$ along several silicon strip layers:
+\begin{equation}
+    I_h = \left( \frac{1}{N} \sum_{j=1}^N c_j^{-2} \right)^{-\frac{1}{2}} \, .
+    \label{eq:ih}
+\end{equation}
+\vspace{0.5 cm}
+% $I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
+
+\vspace{0.5 cm}
+
+The discriminating power of $I_h$ follows directly from the Bethe--Bloch behaviour of the energy loss. A MIP deposits a nearly constant ionisation, placing standard model tracks at low $I_h$ values, whereas a slow, heavy particle deposits substantially more charge per unit length and populates the high-$I_h$ region. The variable therefore provides a natural separation between Standard Model and BSM processes, complementary to the pixel-based estimator $F_{\text{pixel}}$: while $F_{\text{pixel}}$ exploits the shape of the charge distribution in the innermost layers, $I_h$ aggregates the ionisation measured across the strip tracker.
+
+\vspace{0.5 cm}
+
+\Cref{fig:IhSignalData} illustrates this separation. The upper panel shows the normalised $I_h$ distribution for 2024 data and for a simulated HSCP gluino at $m=2000$~GeV, both after the analysis preselection criteria. The data distribution is sharply peaked at low ionisation, around $3$~MeV/cm, consistent with the MIP expectation, and falls steeply towards higher values. The gluino distribution is instead shifted towards markedly larger $I_h$ values, reflecting its higher ionisation per unit path length. The lower panel displays the corresponding cumulative distribution functions: the data CDF rises to unity almost immediately, whereas the gluino CDF increases only gradually, quantifying the strong separation between the two populations across the bulk of the $I_h$ range.
+
+\begin{figure}[ht!]
+   \centering
+	\includegraphics[width=.7\linewidth]{Images/Ch4/CompareIh_CDF_bis.pdf}
+	\caption{Normalised $I_h$ distributions (top) and their cumulative distribution functions (bottom) for 2024 data and for a simulated HSCP gluino at $m=2000$~GeV, after the analysis preselection criteria.}
+   \label{fig:IhSignalData}
+\end{figure}
+
+
 \subsubsection{Stability of d\textit{E}/d\textit{x} variables over the year}
 
 Ih vs runnumber
@@ -160,7 +185,7 @@ Particle-flow (PF) MET is only produced when the R-hadron pair consists of one c
 
 Beyond the pair-type composition itself, the way each HSCP track is reconstructed by the PF algorithm also matters for the trigger strategy. \cref{fig:pftypeprop} (Left) shows, for each gluino mass point, the fraction of PF candidates matched to a generated charged HSCP track that are identified either as a PF muon or as PF charged pions (these are the only two PF candidates observed), before and after the OR of the four MET triggers. Because the highly-ionising, slow-moving HSCP track can mimic a minimum-ionising muon signature going through the whole calorimeters, a large fraction of true charged HSCPs are reconstructed as PF muons rather than as charged pions. 
 
-Rather than being primarily driven by this muon mis-identification, the modest efficiency of the individual MET triggers (\cref{fig:pftypeprop} Right, all below $\sim$30\%) should instead be read in light of the pair-type composition itself: since PF MET is only produced for charged--neutral pairs and Calo MET only for configurations with significant ISR (\cref{fig:METtopology}), a significant fraction of signal events carries little to no MET regardless of trigger thresholds. This connection between pair-type composition and trigger efficiency is examined quantitatively in~\cref{fig:pairtypestages}.
+Rather than being primarily driven by this muon mis-identification, the efficiency of the individual MET triggers (\cref{fig:pftypeprop} Right, all below $\sim$30\%) should instead be read in light of the pair-type composition itself: since PF MET is only produced for charged--neutral pairs and Calo MET only for configurations with significant ISR (\cref{fig:METtopology}), a significant fraction of signal events carries little to no MET regardless of trigger thresholds. This connection between pair-type composition and trigger efficiency is examined quantitatively in~\cref{fig:pairtypestages}.
 
 \begin{figure}[h!]
     \centering
@@ -176,7 +201,7 @@ The reduction from the generated composition (black dots, summing to unity) to t
 
 Among triggered events, the fractions instead change significantly depending on the number of HSCP candidates matched with a track: neutral--neutral events populate almost exclusively the 0-matched category, since the neutral R-hadron leaves no track, while charged--charged events dominate the 2-matched category and charged--neutral events mainly populate the 1-matched category.
 
-This correspondence can be quantified further. At generator level, essentially all signal events contain two generated HSCPs, distributed among the charged--charged, charged--neutral, and neutral--neutral pair types with respective fractions of about 20\%, 50\%, and 30\% (black dots in~\cref{fig:pairtypestages}). After requiring a track match between the generated HSCPs and the reconstructed tracks, the observed 0-, 1-, and 2-matched-track fractions are instead 41\%, 46\%, and 14\%, respectively. While the 1-matched-track fraction closely follows the generated charged--neutral fraction, the 2-matched-track fraction falls below the generated charged--charged fraction (14\% vs 20\%), and the 0-matched-track fraction correspondingly exceeds the generated neutral--neutral fraction (41\% vs 30\%). This systematic shift towards lower matched-track multiplicities indicates that HSCPs are predominantly lost through charge flipping of a charged R-hadron to a neutral state.
+This correspondence can be quantified further. At generator level, essentially all signal events contain two generated HSCPs, distributed among the charged--charged, charged--neutral, and neutral--neutral pair types with respective fractions of about 20\%, 50\%, and 30\% (black dots in~\cref{fig:pairtypestages}). After requiring a track match between the generated HSCPs and the reconstructed tracks, the observed 0-, 1-, and 2-matched-track fractions are instead 41\%, 46\%, and 14\%, respectively. While the 1-matched-track fraction closely follows the generated charged--neutral fraction, the 2-matched-track fraction falls below the generated charged--charged fraction (14\% vs 20\%), and the 0-matched-track fraction correspondingly exceeds the generated neutral--neutral fraction (41\% vs 30\%). This shift towards lower matched-track multiplicities indicates that HSCPs are predominantly lost through charge flipping of a charged R-hadron to a neutral state.
 
 \begin{figure}[h!]
     \centering
@@ -185,32 +210,31 @@ This correspondence can be quantified further. At generator level, essentially a
     \label{fig:pairtypestages}
 \end{figure}
 
+\vspace{0.5 cm}
 
+The selected MET triggers are determined by the Calo MET and PF MET at the L1 level, and the efficiency of selecting offline events using these triggers can be assessed as a function of these two variables. This trigger-efficiency procedure must be carefully performed on both simulation and data. Near the turn-on region, the efficiency depends on the thresholded observable, and this dependence is governed by the MET resolution, which is not perfectly modelled in simulation. As a result, data and simulation diverge in this region, and the signal efficiency cannot be considered reliable across the whole Calo MET or PF MET range. Beyond the turn-on, in the \textit{trigger plateau}, the efficiency reaches 100\% and becomes flat. In this regime, the ratio of the trigger efficiency in data to that in simulation, expressed as a function of one of the MET variables and known as the \textit{scale factor}, is close to unity. The trigger response should therefore be studied on the plateau rather than integrated over the full turn-on, since the signal acceptance used in the final result is taken from simulation and its trigger contribution is reliable only if the simulated trigger accurately reproduces the one observed in data.
 
+This requirement is especially critical for the HSCP analysis, where, if no excess is observed, limits on the theoretical model are computed using a shape analysis. A flat plateau efficiency multiplies the mass spectrum by a constant, affecting only its overall normalisation and leaving both the signal shape and the data-driven background prediction unchanged. However, without scale-factor corrections and a selection placed to be on the plateau, the signal's accuracy near the turn-on point is vague, leading to uncertainty in counting signal events and, consequently, unreliable exclusion limits. 
 
+The adopted strategy follows directly from these considerations. The turn-on curves are first measured in parallel on data and simulation as functions of the offline PF MET and Calo MET, and the corresponding data-to-simulation scale factors are extracted. The offline thresholds are then set sufficiently high to place the analysis on the plateau, where these scale factors are flat and well controlled.
 
 \vspace{0.5 cm}
 
-The migration of the analysis from an \textsc{AOD} to a \textsc{MiniAOD} framework removed the muon-corrected calorimeter MET collection used in Run~2 (\texttt{RecoCaloMET}), replaced by \texttt{PatCaloMET}, which is not equivalent since it includes a muon correction. To recover a trigger-plateau observable consistent with the Run~2 definition, a pseudo-MET variable was reconstructed offline from the calorimeter jet (CaloJets) collection as the magnitude of the vectorial transverse-momentum sum of all calorimeter jets in the event,
+As the HSCP analysis moved from an \textsc{AOD} to a \textsc{MiniAOD} framework for analysing Run--3 data, some variables have changed. This is the case for the Calo MET, where muon energy deposits within the calorimeters are not excluded from the computation of the Calo MET, thereby biasing its value. Since trigger efficiency is driven by Calo MET at the L1 level, to recover the MET deposits within the calo towers, one could build a proxy observable that mimics the Run--2 Calo MET. Therefore, a pseudo-MET variable is reconstructed offline from the calorimeter jet (CaloJets) collection as the magnitude of the vectorial transverse-momentum sum of all calorimeter jets in the event,
 \begin{equation}
     E_{T}^{\text{pseudo}} = \sqrt{\left\|\sum_{\text{CaloJets}} \overrightarrow{p_{x_j}}\right\|^2 + \left\|\sum_{\text{CaloJets}} \overrightarrow{p_{y_j}} \right\|^2 } .
 \end{equation}
-This Pseudo MET was validated on Run~2 AOD samples against \texttt{RecoCaloMET}, showing an identical trigger turn-on curve and a data/simulation-consistent ratio close to unity across the full MET range, confirming its rightness as a substitute observable in \textsc{MiniAOD}.
+This Pseudo MET was validated on Run~2 AOD samples against the Calo MET, showing a similar distribution after the HSCP pre-selection step.
 
-\cref{fig:TriggEff_AOD_vs_MiniAOD}
+\vspace{0.5 cm}
 
-\begin{figure}[ht!]
-   \centering
-	\includegraphics[width=0.8\linewidth]{Images/Wolfgang.jpg}
-	\caption{Trigger efficiency AOD vs miniAOD.}
-   \label{fig:TriggEff_AOD_vs_MiniAOD}
-\end{figure}
+The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of three observables: the Pseudo MET, the PUppi MET, and the muon-subtracted PUppi MET (PUppi MET NoMu); with the latter being the PUppi MET value with the $p_T^\mu$ contributions removed.  
 
 
 
 
 
-The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of three observables: the Pseudo MET, the PUPPI MET, and the muon-subtracted PUPPI MET (PUPPI MET NoMu), each optionally combined with an offline requirement on $H_{T}$, $\text{MHT}$, or $\text{MHT}^{\text{NoMu}}$ when required by the corresponding trigger leg (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the NoMu path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Efficiencies were computed as the ratio of events passing the HSCP pre-selection and the OR of the MET triggers to events passing the pre-selection alone. The signal efficiency was derived on simulated long-lived gluino samples ($m_{\tilde{g}}=2000$~GeV), while data/simulation scale factors were extracted on an orthogonal single-muon dataset (2024 collision data and the corresponding $W\to\mu\nu$ simulation), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, and otherwise subject to the same jet-veto map, MET filters, and HSCP pre-selection criteria, with the pixel-based ionization fraction requirement relaxed ($F_{\text{pixel}}<0.9$) to preserve a Standard Model-like sample of comparable kinematics.
+, each optionally combined with an offline requirement on $H_{T}$, $\text{MHT}$, or $\text{MHT}^{\text{NoMu}}$ when required by the corresponding trigger leg (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the NoMu path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Efficiencies were computed as the ratio of events passing the HSCP pre-selection and the OR of the MET triggers to events passing the pre-selection alone. The signal efficiency was derived on simulated long-lived gluino samples ($m_{\tilde{g}}=2000$~GeV), while data/simulation scale factors were extracted on an orthogonal single-muon dataset (2024 collision data and the corresponding $W\to\mu\nu$ simulation), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, and otherwise subject to the same jet-veto map, MET filters, and HSCP pre-selection criteria, with the pixel-based ionization fraction requirement relaxed ($F_{\text{pixel}}<0.9$) to preserve a Standard Model-like sample of comparable kinematics.
 
 
 Comparison of the three candidate observables showed that PUPPI MET NoMu performs poorly in data/simulation agreement and was discarded. After a lower threshold on each observable (Pseudo MET~$>250$~GeV, PUPPI MET~$>150$~GeV, PUPPI MET NoMu~$>150$~GeV), the OR trigger efficiency reaches $99.5\%$ on signal for Pseudo MET but only $87$--$95\%$ on data and simulation respectively, with a correspondingly large associated scale factor uncertainty at low MET. Conversely, PUPPI MET yields lower signal efficiency ($\sim37\%$) but substantially better data/simulation closure ($76$--$82\%$), and the impact on signal acceptance across the probed mass range ($m_{\tilde{g}}=1000$--$2600$~GeV) was found to be essentially unaffected by the choice between a Pseudo MET, a PUPPI MET, or a combined (OR) requirement, since a stringent cut on Pseudo MET was found to disproportionately suppress the signal yield without a compensating gain in purity.
