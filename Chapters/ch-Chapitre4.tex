@@ -105,7 +105,7 @@ Assuming the data distribution is perfectly flat when it is not introduces syste
    \centering
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInData_bis.pdf}
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInSignal_bis.pdf}
-	\caption{$F_{\text{pixel}}$ distributions for 2024 data in the control region at low $p_T$ after the analysis preselection criteria (Left) and for a HSCP gluino after the analysis preselection (Right).}
+	\caption{$F_{\text{pixel}}$ distributions for 2024 data in the control region at low $p_T$ after the analysis preselection criteria (Left) and for an HSCP gluino after the analysis preselection (Right).}
    \label{fig:FpixelInSignalData}
 \end{figure}
 
@@ -117,11 +117,11 @@ One way to assess the average ionisation of a track along several silicon strip 
     \label{eq:ih}
 \end{equation}
 \vspace{0.5 cm}
-% $I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
+$I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
 
 \vspace{0.5 cm}
 
-The discriminating power of $I_h$ follows directly from the Bethe--Bloch behaviour of the energy loss. A MIP deposits a nearly constant ionisation, placing standard model tracks at low $I_h$ values, whereas a slow, heavy particle deposits substantially more charge per unit length and populates the high-$I_h$ region. The variable therefore provides a natural separation between Standard Model and BSM processes, complementary to the pixel-based estimator $F_{\text{pixel}}$: while $F_{\text{pixel}}$ exploits the shape of the charge distribution in the innermost layers, $I_h$ aggregates the ionisation measured across the strip tracker.
+The discriminating power of $I_h$ follows directly from the Bethe--Bloch behaviour of the energy loss. A MIP deposits a nearly constant ionisation, placing Standard Model tracks at low $I_h$ values, whereas a slow, heavy particle deposits substantially more charge per unit length and populates the high-$I_h$ region. The variable therefore provides a natural separation between Standard Model and BSM processes, complementary to the pixel-based estimator $F_{\text{pixel}}$: while $F_{\text{pixel}}$ exploits the shape of the charge distribution in the innermost layers, $I_h$ aggregates the ionisation measured across the strip tracker.
 
 \vspace{0.5 cm}
 
@@ -129,8 +129,9 @@ The discriminating power of $I_h$ follows directly from the Bethe--Bloch behavio
 
 \begin{figure}[ht!]
    \centering
-	\includegraphics[width=.7\linewidth]{Images/Ch4/CompareIh_CDF_bis.pdf}
-	\caption{Normalised $I_h$ distributions (top) and their cumulative distribution functions (bottom) for 2024 data and for a simulated HSCP gluino at $m=2000$~GeV, after the analysis preselection criteria.}
+	\includegraphics[width=.49\linewidth,trim={1cm 0 1.7cm 0},clip]{Images/Ch4/Ih_Data_CDF.pdf}
+    \includegraphics[width=.49\linewidth,trim={1cm 0 1.7cm 0},clip]{Images/Ch4/Ih_Signal_CDF.pdf}
+	\caption{$I_h$ distributions with the analysis preselection criteria for 2024 data (Left) and an HSCP gluino at $m=2000$~GeV (Right), with their cumulative distribution functions. Note that the X-axis range is different, as HSCPs most likely ionise the material.}
    \label{fig:IhSignalData}
 \end{figure}
 
@@ -212,32 +213,73 @@ This correspondence can be quantified further. At generator level, essentially a
 
 \vspace{0.5 cm}
 
-The selected MET triggers are determined by the Calo MET and PF MET at the L1 level, and the efficiency of selecting offline events using these triggers can be assessed as a function of these two variables. This trigger-efficiency procedure must be carefully performed on both simulation and data. Near the turn-on region, the efficiency depends on the thresholded observable, and this dependence is governed by the MET resolution, which is not perfectly modelled in simulation. As a result, data and simulation diverge in this region, and the signal efficiency cannot be considered reliable across the whole Calo MET or PF MET range. Beyond the turn-on, in the \textit{trigger plateau}, the efficiency reaches 100\% and becomes flat. In this regime, the ratio of the trigger efficiency in data to that in simulation, expressed as a function of one of the MET variables and known as the \textit{scale factor}, is close to unity. The trigger response should therefore be studied on the plateau rather than integrated over the full turn-on, since the signal acceptance used in the final result is taken from simulation and its trigger contribution is reliable only if the simulated trigger accurately reproduces the one observed in data.
+The selected MET triggers are determined by the Calo MET and PF MET at the L1 level, and the efficiency of selecting offline events using these triggers can be assessed as a function of these two variables. This trigger-efficiency procedure must be carefully performed on both simulation and data. Near the turn-on region, the efficiency depends on the thresholded observable, and this dependence is governed by the MET resolution, which is not perfectly modelled in simulation. As a result, data and simulation diverge in this region, and the signal efficiency cannot be considered reliable across the whole Calo MET or PF MET range. Beyond the turn-on, in the \textit{trigger plateau}, the efficiency saturates and becomes flat. In this regime, the ratio of the trigger efficiency in data to that in simulation, expressed as a function of one of the MET variables and known as the \textit{scale factor}, is close to unity. The trigger response should therefore be studied on the plateau rather than integrated over the full turn-on, since the signal acceptance used in the final result is taken from simulation and its trigger contribution is reliable only if the simulated trigger accurately reproduces the one observed in data.
 
-This requirement is especially critical for the HSCP analysis, where, if no excess is observed, limits on the theoretical model are computed using a shape analysis. A flat plateau efficiency multiplies the mass spectrum by a constant, affecting only its overall normalisation and leaving both the signal shape and the data-driven background prediction unchanged. However, without scale-factor corrections and a selection placed to be on the plateau, the signal's accuracy near the turn-on point is vague, leading to uncertainty in counting signal events and, consequently, unreliable exclusion limits. 
+This requirement is especially critical for the HSCP analysis, where, if no excess is observed, limits on the theoretical model are computed using a shape analysis. A flat plateau efficiency multiplies the mass spectrum by a constant, affecting only its overall normalisation and leaving both the signal shape and the data-driven background prediction unchanged. However, without scale-factor corrections and a selection applied to the plateau, the signal's accuracy near the turn-on point is uncertain, leading to uncertainty in counting signal events and, consequently, to unreliable exclusion limits. 
 
-The adopted strategy follows directly from these considerations. The turn-on curves are first measured in parallel on data and simulation as functions of the offline PF MET and Calo MET, and the corresponding data-to-simulation scale factors are extracted. The offline thresholds are then set sufficiently high to place the analysis on the plateau, where these scale factors are flat and well controlled.
+The adopted strategy follows directly from these considerations. The turn-on curves are first measured in parallel in data and simulation as functions of the offline PUppi MET (the recommended MET estimator for Run--3 physics analyses, instead of PF MET) and Calo MET, and the corresponding data-to-simulation scale factors are extracted. The offline thresholds are then set sufficiently high to place the analysis on the plateau, where these scale factors are flat and well controlled.
 
 \vspace{0.5 cm}
 
-As the HSCP analysis moved from an \textsc{AOD} to a \textsc{MiniAOD} framework for analysing Run--3 data, some variables have changed. This is the case for the Calo MET, where muon energy deposits within the calorimeters are not excluded from the computation of the Calo MET, thereby biasing its value. Since trigger efficiency is driven by Calo MET at the L1 level, to recover the MET deposits within the calo towers, one could build a proxy observable that mimics the Run--2 Calo MET. Therefore, a pseudo-MET variable is reconstructed offline from the calorimeter jet (CaloJets) collection as the magnitude of the vectorial transverse-momentum sum of all calorimeter jets in the event,
+As the HSCP analysis moved from an \textsc{AOD} to a \textsc{MiniAOD} framework for analysing Run--3 data, some variables have changed. This is the case for the Calo MET, where muon energy deposits within the calorimeters are included in its computation, thereby biasing its value. Since trigger efficiency is driven by Calo MET at the L1 level, to recover the MET deposits within the calo towers, one could build a proxy observable that mimics the Run--2 Calo MET. Therefore, a pseudo-MET variable is reconstructed offline from the calorimeter jet (CaloJets) collection as the magnitude of the vectorial transverse-momentum sum of all calorimeter jets in the event,
 \begin{equation}
     E_{T}^{\text{pseudo}} = \sqrt{\left\|\sum_{\text{CaloJets}} \overrightarrow{p_{x_j}}\right\|^2 + \left\|\sum_{\text{CaloJets}} \overrightarrow{p_{y_j}} \right\|^2 } .
 \end{equation}
-This Pseudo MET was validated on Run~2 AOD samples against the Calo MET, showing a similar distribution after the HSCP pre-selection step.
+This Pseudo MET was validated on Run~2 AOD samples against the Calo MET, showing a similar distribution after the analysis pre-selection step. Note, however, that because the Pseudo MET is built directly from the raw CaloJet collection, no offset subtraction, response correction, or residual scale factor is applied to mimic the correction provided by the CMS Jet Energy Resolution and Corrections (JERC) group.
 
 \vspace{0.5 cm}
 
-The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of three observables: the Pseudo MET, the PUppi MET, and the muon-subtracted PUppi MET (PUppi MET NoMu); with the latter being the PUppi MET value with the $p_T^\mu$ contributions removed.  
+The distribution of the Pseudo MET and the PUppi MET in 2024 data and in an HSCP gluino at $m=2000$~GeV, both without any upstream selections, is depicted in \cref{fig:PUppiVSPseudoMET}. The different topologies illustrated in \cref{fig:METtopology} are labelled with their respective digit from 1 to 5. Topology 5 lies along the diagonal for both the data and the signal. For the latter, the two neutral HSCPs create an imbalance in the PUppi MET and the Pseudo MET; on the other hand, standard backgrounds populate the same band, since neutrino or QCD activity leaves MET within the detector. Topology 4 corresponds to the reconstruction of both MET, with the value of the Pseudo MET depending on the ISR jet energy for the signal. Topologies 1 and 3 are similar for both data and signal because they flag common low-PUppi MET events, with some having jet activity in the calorimeters, resulting in medium Pseudo MET values. Topology 2 is slightly more populated for the signal, as most HSCPs are produced in charged-neutral pairs, resulting in high PUppi MET values. This last topology is identified as such in data from poor jet events, typically from neutrinos.
+
+\begin{figure}
+    \centering
+    \metregions[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/PUppiVSPF_Data_bis.pdf}
+    \metregionsbis[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/PUppiVSPF_MC_bis.pdf}
+    \\
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 0.7cm 0},clip]{Images/Ch4/METdist_DATA.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 0.7cm 0},clip]{Images/Ch4/METdist_SIGNAL.pdf}
+    \caption{Distribution of the Pseudo MET as a function of the PUppi MET in 2024 data (Top left) and in an HSCP gluino at $m=2000$~GeV (Top right), both without any upstream selections. The different regions in red represent the five topologies depicted in \cref{fig:METtopology}.}
+    \label{fig:PUppiVSPseudoMET}
+\end{figure}
+
+\vspace{0.5 cm}
+
+The efficiency of the combined (logical-OR) MET trigger was evaluated as a function of the Pseudo MET and the PUppi MET, which drive the online HLT triggers.
+
+In addition to the trigger, requirements on the value of $H_{T}$, MHT, or MHTNoMu are asked as these variable drive the trigger value online (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the \texttt{NoMu} path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Those three variables are computed offline using the jet collection with the recommended Run--3 CMS jet corrections~\cite{CMSJetID13p6TeV}: the jet ID\footnote{A set of quality requirements on the energy fractions and constituent multiplicities of a jet, designed to reject jets originating from detector noise while keeping a nearly uniform efficiency for genuine jets.} and the jet veto map\footnote{A map of $(\eta,\phi)$ regions where the jet response is anomalous, due to dead, noisy or miscalibrated calorimeter channels. Events containing a jet pointing to such a region are discarded to avoid a mismeasurement of the jet energy and of the MET.}.
+
+Signal trigger efficiency is defined as the ratio of events that pass both the analysis pre-selection and the logical OR of the MET triggers to those that pass the analysis pre-selection alone. The results are presented in \cref{fig:triggerEffsig}. The trigger efficiency plateaus at 100\% for Pseudo MET near 250~GeV and at 30\% for PUppi MET near 450~GeV. The lower plateau for PUppi MET is primarily due to events with low Pseudo MET values failing to pass the trigger, while those with higher Pseudo MET values do pass.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/c_orMETtrg_PUppiMET_VS_PseudoMET_SIGNAL__Gluino2000.pdf}
+    \\
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_orMETtrg___PseudoCaloMET__SIGNAL__Gluino2000.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_orMETtrg___PUppiMET__SIGNAL__Gluino2000.pdf}
+    \caption{Trigger efficiency as a function of the Pseudo MET and the PUppi MET (Top) and the respective X (Bottom left) and Y (Bottom right) projections in an HSCP gluino at $m=2000$~GeV.}
+    \label{fig:triggerEffsig}
+\end{figure}
+
+Data and MC trigger efficiencies are extracted on an orthogonal single-muon dataset (2024 data passing a muon trigger saved in the Muon dataset, and the $W\to\mu\nu$ MC), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, in addition to the MET filters, and analysis pre-selection criteria (with the pixel-d$E$/d$x$ discriminator relaxed to $F_{\text{pixel}}<0.9$) to preserve a similar MET as the signal and comparable kinematics. The results are shown in \cref{fig:triggerEffdataMC}.
 
 
 
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/c_orMETtrg_PUppiMET_VS_PseudoMET_DATA__TriggerEffCalib.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/c_orMETtrg_PUppiMET_VS_PseudoMET_MC__TriggerEffCalib.pdf}
+    \\
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/cRatio_orMETtrg_PseudoMET_TriggerEffCalib_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/cRatio_orMETtrg_PUppiMET_TriggerEffCalib_bis.pdf}
+    \caption{.}
+    \label{fig:triggerEffdataMC}
+\end{figure}
 
-, each optionally combined with an offline requirement on $H_{T}$, $\text{MHT}$, or $\text{MHT}^{\text{NoMu}}$ when required by the corresponding trigger leg (e.g. $H_{T}>500$~GeV and $\text{MHT}>100$~GeV for \texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight}, or $\text{MHT}^{\text{NoMu}}>120$~GeV and $H_{T}>60$~GeV for the NoMu path), so as to exclude configurations where the Pseudo MET is populated by mismeasured or ill-defined jet activity. Efficiencies were computed as the ratio of events passing the HSCP pre-selection and the OR of the MET triggers to events passing the pre-selection alone. The signal efficiency was derived on simulated long-lived gluino samples ($m_{\tilde{g}}=2000$~GeV), while data/simulation scale factors were extracted on an orthogonal single-muon dataset (2024 collision data and the corresponding $W\to\mu\nu$ simulation), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, and otherwise subject to the same jet-veto map, MET filters, and HSCP pre-selection criteria, with the pixel-based ionization fraction requirement relaxed ($F_{\text{pixel}}<0.9$) to preserve a Standard Model-like sample of comparable kinematics.
 
 
-Comparison of the three candidate observables showed that PUPPI MET NoMu performs poorly in data/simulation agreement and was discarded. After a lower threshold on each observable (Pseudo MET~$>250$~GeV, PUPPI MET~$>150$~GeV, PUPPI MET NoMu~$>150$~GeV), the OR trigger efficiency reaches $99.5\%$ on signal for Pseudo MET but only $87$--$95\%$ on data and simulation respectively, with a correspondingly large associated scale factor uncertainty at low MET. Conversely, PUPPI MET yields lower signal efficiency ($\sim37\%$) but substantially better data/simulation closure ($76$--$82\%$), and the impact on signal acceptance across the probed mass range ($m_{\tilde{g}}=1000$--$2600$~GeV) was found to be essentially unaffected by the choice between a Pseudo MET, a PUPPI MET, or a combined (OR) requirement, since a stringent cut on Pseudo MET was found to disproportionately suppress the signal yield without a compensating gain in purity.
+After a lower threshold on each observable (Pseudo MET~$>250$~GeV, PUPPI MET~$>150$~GeV, PUPPI MET NoMu~$>150$~GeV), the OR trigger efficiency reaches $99.5\%$ on signal for Pseudo MET but only $87$--$95\%$ on data and simulation, respectively, with a correspondingly large associated scale factor uncertainty at low MET. Conversely, PUPPI MET yields lower signal efficiency ($\sim37\%$) but substantially better data/simulation closure ($76$--$82\%$), and the impact on signal acceptance across the probed mass range ($m_{\tilde{g}}=1000$--$2600$~GeV) was found to be essentially unaffected by the choice between a Pseudo MET, a PUPPI MET, or a combined (OR) requirement, since a stringent cut on Pseudo MET was found to disproportionately suppress the signal yield without a compensating gain in purity.
+
 
 
 Both one-dimensional and two-dimensional (Pseudo MET vs. PUPPI MET) data/simulation scale factors were derived, with the two-dimensional map excluding the low-MET corner outside the trigger-efficient region. Given the comparable acceptance and superior data/simulation agreement, the adopted strategy retains a single requirement on PUPPI MET together with its associated one-dimensional scale factor. Two categories of systematic uncertainty are propagated to the signal: (i) the statistical uncertainty on the scale factors, propagated as correlated up/down variations, and (ii) an uncertainty on the jet energy scale entering the computation of $H_{T}$, $\text{MHT}$, $\text{MHT}^{\text{NoMu}}$, and PUPPI MET, propagated by recomputing these quantities with the nominal jet four-momenta shifted up and down by their respective uncertainties.
