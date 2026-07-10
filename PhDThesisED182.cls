@@ -26,7 +26,7 @@
 \PassOptionsToPackage{english}{babel}\RequirePackage{babel} % Multilingual support
 \RequirePackage{fancyhdr} % Extensive control of page headers and footers
 \RequirePackage{graphicx} % Enhanced support for graphics
-\RequirePackage{xcolor} % Driver-independent color extensions
+\RequirePackage[dvipsnames]{xcolor} % Driver-independent color extensions
 \RequirePackage{amsmath} % AMS mathematical facilities
 \RequirePackage{amsfonts} % TeX fonts from the American Mathematical Society
 \RequirePackage{xspace} % Define commands that appear not to eat spaces
@@ -64,6 +64,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{xpatch}
 \RequirePackage{placeins}
+\usepackage[export]{adjustbox}
 
 \pgfplotsset{compat=1.18}
 

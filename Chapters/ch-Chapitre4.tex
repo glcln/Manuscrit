@@ -225,11 +225,11 @@ As the HSCP analysis moved from an \textsc{AOD} to a \textsc{MiniAOD} framework 
 \begin{equation}
     E_{T}^{\text{pseudo}} = \sqrt{\left\|\sum_{\text{CaloJets}} \overrightarrow{p_{x_j}}\right\|^2 + \left\|\sum_{\text{CaloJets}} \overrightarrow{p_{y_j}} \right\|^2 } .
 \end{equation}
-This Pseudo MET was validated on Run~2 AOD samples against the Calo MET, showing a similar distribution after the analysis pre-selection step. Note, however, that because the Pseudo MET is built directly from the raw CaloJet collection, no offset subtraction, response correction, or residual scale factor is applied to mimic the correction provided by the CMS Jet Energy Resolution and Corrections (JERC) group.
+The Pseudo MET was validated on Run~2 AOD samples by comparison with the Calo MET, which showed a similar distribution after the analysis pre-selection step. Since the Pseudo MET is constructed directly from the raw CaloJet collection, no offset subtraction, response correction, or residual scale factor is applied to replicate the corrections provided by the CMS Jet Energy Resolution and Corrections (JERC) group. Consequently, this alternative MET variable includes uncorrected jet energy contributions, and its absolute scale does not match that of the Calo MET. This does not constitute a limitation, as the Pseudo MET is used exclusively to identify the trigger plateau and extract the corresponding scale factors, both of which depend on the shape of the turn-on rather than on the absolute energy calibration. The same definition is applied consistently to both data and simulation, ensuring that any residual miscalibration cancels in the data/MC ratio.
 
 \vspace{0.5 cm}
 
-The distribution of the Pseudo MET and the PUppi MET in 2024 data and in an HSCP gluino at $m=2000$~GeV, both without any upstream selections, is depicted in \cref{fig:PUppiVSPseudoMET}. The different topologies illustrated in \cref{fig:METtopology} are labelled with their respective digit from 1 to 5. Topology 5 lies along the diagonal for both the data and the signal. For the latter, the two neutral HSCPs create an imbalance in the PUppi MET and the Pseudo MET; on the other hand, standard backgrounds populate the same band, since neutrino or QCD activity leaves MET within the detector. Topology 4 corresponds to the reconstruction of both MET, with the value of the Pseudo MET depending on the ISR jet energy for the signal. Topologies 1 and 3 are similar for both data and signal because they flag common low-PUppi MET events, with some having jet activity in the calorimeters, resulting in medium Pseudo MET values. Topology 2 is slightly more populated for the signal, as most HSCPs are produced in charged-neutral pairs, resulting in high PUppi MET values. This last topology is identified as such in data from poor jet events, typically from neutrinos.
+The distribution of the Pseudo MET and the PUppi MET in 2024 data and in an HSCP gluino at $m=2000$~GeV, both without any upstream selections, is depicted in \cref{fig:PUppiVSPseudoMET}. The different topologies illustrated in \cref{fig:METtopology} are labelled with their respective digit from 1 to 5. Topology 5 lies along the diagonal for both the data and the signal. For the latter, the two neutral HSCPs create an imbalance in the PUppi MET and the Pseudo MET; on the other hand, standard backgrounds populate the same band, since neutrino or QCD activity leaves MET within the detector. Topology 4 corresponds to the reconstruction of both MET, with the value of the Pseudo MET depending on the ISR jet energy for the signal. Topologies 1 and 3 are similar for both data and signal because they flag common low-PUppi MET events, with some having jet activity in the calorimeters, resulting in medium Pseudo MET values. Topology 2 is slightly more populated for the signal, as most HSCPs are produced in charged-neutral pairs, resulting in high PUppi MET values. This last topology is identified in data from poor-jet events, typically from neutrinos. The individual distributions of Pseudo MET and PUppi MET are presented in the lower panel. The principal region of each MET distribution appears at low MET values, especially in the observed data. Moreover, the Pseudo MET distribution exhibits a core shifted toward higher values, indicating that most signal and data events are concentrated in the 200-300 GeV range.
 
 \begin{figure}
     \centering
@@ -256,14 +256,11 @@ Signal trigger efficiency is defined as the ratio of events that pass both the a
     \\
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_orMETtrg___PseudoCaloMET__SIGNAL__Gluino2000.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_orMETtrg___PUppiMET__SIGNAL__Gluino2000.pdf}
-    \caption{Trigger efficiency as a function of the Pseudo MET and the PUppi MET (Top) and the respective X (Bottom left) and Y (Bottom right) projections in an HSCP gluino at $m=2000$~GeV.}
+    \caption{Trigger efficiency as a function of the Pseudo MET and the PUppi MET (Top) and the respective projections (Bottom), in an HSCP gluino at $m=2000$~GeV.}
     \label{fig:triggerEffsig}
 \end{figure}
 
-Data and MC trigger efficiencies are extracted on an orthogonal single-muon dataset (2024 data passing a muon trigger saved in the Muon dataset, and the $W\to\mu\nu$ MC), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, in addition to the MET filters, and analysis pre-selection criteria (with the pixel-d$E$/d$x$ discriminator relaxed to $F_{\text{pixel}}<0.9$) to preserve a similar MET as the signal and comparable kinematics. The results are shown in \cref{fig:triggerEffdataMC}.
-
-
-
+Data and MC trigger efficiencies are extracted on an orthogonal single-muon dataset (2024 data passing a muon trigger saved in the Muon dataset, and the $W\to\mu\nu$ MC), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, in addition to the MET filters, and analysis pre-selection criteria (with the pixel-d$E$/d$x$ discriminator relaxed to $F_{\text{pixel}}<0.9$) to preserve a similar MET as the signal and comparable kinematics. The results are shown in \cref{fig:triggerEffdataMC}. Both datasets exhibit similar trigger efficiencies as functions of Pseudo MET and PUppi MET (Top plots). Minor discrepancies are observed in the projections (bottom plots), as indicated by the lower-panel scale factors. Data and MC exhibit agreement only at the plateau, which occurs at approximately 250~GeV for the Pseudo MET and 150~GeV for PUppi MET.
 
 \begin{figure}
     \centering
@@ -272,18 +269,80 @@ Data and MC trigger efficiencies are extracted on an orthogonal single-muon data
     \\
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/cRatio_orMETtrg_PseudoMET_TriggerEffCalib_bis.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/cRatio_orMETtrg_PUppiMET_TriggerEffCalib_bis.pdf}
-    \caption{.}
+    \caption{Trigger efficiency as a function of the Pseudo MET and the PUppi MET in the 2024 Muon dataset (Top left) and in the $W\to\mu\nu$ MC (Top right), and the respective projections (Bottom).}
     \label{fig:triggerEffdataMC}
+\end{figure}
+
+The efficiency after the plateau cut at 250~GeV for the Pseudo MET and 150~GeV for the PUppi MET are presented in \cref{tab:TriggerEffMCdataSignal}, computed as the ratio of events passing the triggers after the MET cut to the ones passing only the MET cut. These values reflect the one-dimensional trigger efficiency plots for the signal (\cref{fig:triggerEffsig}), as well as for data and MC samples (\cref{fig:triggerEffdataMC}). For the Pseudo MET, the OR trigger efficiency reaches 99.5\% on signal but only 87\% and 95\% on data and MC, respectively, with a correspondingly large scale-factor uncertainty at low MET. Conversely, the PUppi MET yields a lower signal efficiency ($\sim37\%$) but a substantially better data/MC closure (76\% and 82\%).
+
+\begin{table}[htbp]
+    \centering
+    \tiny
+    \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{llccc}
+    \hline
+     & & \multicolumn{3}{c}{after the plateau cut} \\
+    Trigger & Observable & $\varepsilon_{\mathrm{signal}}$ & $\varepsilon_{\mathrm{data}}$ & $\varepsilon_{\mathrm{MC}}$ \\
+    \hline\hline
+\texttt{HLT\_PFMET120\_PFMHT120\_IDTight} & Pseudo MET & 0.9428 $\pm$ 0.0033 & 0.3511 $\pm$ 0.0010 & 0.3341 $\pm$ 0.0016 \\
+\texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight} & Pseudo MET & 0.5697 $\pm$ 0.0071 & 0.1426 $\pm$ 0.0007 & 0.1385 $\pm$ 0.0012 \\
+\texttt{HLT\_PFMETNoMu120\_PFMHTNoMu120\_IDTight\_PFHT60} & Pseudo MET & 0.9712 $\pm$ 0.0024 & 0.8581 $\pm$ 0.0007 & 0.8989 $\pm$ 0.0010 \\
+\texttt{HLT\_MET105\_IsoTrk50} & Pseudo MET & 0.8570 $\pm$ 0.0050 & 0.5505 $\pm$ 0.0011 & 0.7132 $\pm$ 0.0016 \\
+\hline
+\textcolor{CadetBlue}{\texttt{orMETtrg}} & \textcolor{CadetBlue}{Pseudo MET} & \textcolor{CadetBlue}{0.9952 $\pm$ 0.0010} & \textcolor{CadetBlue}{0.8907 $\pm$ 0.0007} & \textcolor{CadetBlue}{0.9478 $\pm$ 0.0008} \\
+    \hline\hline
+\texttt{HLT\_PFMET120\_PFMHT120\_IDTight} & PUppi MET & 0.3318 $\pm$ 0.0026 & 0.5422 $\pm$ 0.0009 & 0.5678 $\pm$ 0.0015 \\
+\texttt{HLT\_PFHT500\_PFMET100\_PFMHT100\_IDTight} & PUppi MET & 0.1168 $\pm$ 0.0018 & 0.1741 $\pm$ 0.0007 & 0.1605 $\pm$ 0.0011 \\
+\texttt{HLT\_PFMETNoMu120\_PFMHTNoMu120\_IDTight\_PFHT60} & PUppi MET & 0.3282 $\pm$ 0.0026 & 0.7292 $\pm$ 0.0008 & 0.7818 $\pm$ 0.0012 \\
+\texttt{HLT\_MET105\_IsoTrk50} & PUppi MET & 0.3095 $\pm$ 0.0026 & 0.4625 $\pm$ 0.0009 & 0.6144 $\pm$ 0.0015 \\
+\hline
+\textcolor{CadetBlue}{\texttt{orMETtrg}} & \textcolor{CadetBlue}{PUppi MET} & \textcolor{CadetBlue}{0.3690 $\pm$ 0.0027} & \textcolor{CadetBlue}{0.7578 $\pm$ 0.0008} & \textcolor{CadetBlue}{0.8234 $\pm$ 0.0012} \\
+    \hline
+  \end{tabular}
+  \caption{Trigger efficiency for the signal (HSCP gluino with $m_{\tilde{g}}=2000$), data (2024 Muon dataset) and MC ($W\to\mu\nu$). The efficiencies are given after a lower cut on the observable (Pseudo MET > 250 GeV, PUppi MET > 150 GeV).}
+  \label{tab:TriggerEffMCdataSignal}
+\end{table}
+
+
+Both one-dimensional and two-dimensional (Pseudo MET versus PUPPI MET) data/MC scale factors were derived. The numerical values are presented in \cref{fig:triggerSF}. In the one-dimensional case (Left table), only the values below the orange lines are utilised following the preliminary cut on the MET variable. For the two-dimensional case (Right plots), the SFs are computed as the ratio of the two two-dimensional trigger efficiency plots of \cref{fig:triggerEffdataMC}. Then, a custom binning strategy groups bins by statistical significance, excluding the low-MET region outside the trigger-efficient area.
+
+\begin{figure}
+    \centering
+    \begin{minipage}[c]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth,trim={6cm 16.5cm 5.5cm 0},clip]{Images/Ch4/1DtriggerSF.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Images/Ch4/SF_orMETtrg_PUppiMET_VS_PseudoMET__TriggerEffCalib_overlay_bis.pdf}\\[1ex]
+        \includegraphics[width=\linewidth]{Images/Ch4/SF_orMETtrg_PUppiMET_VS_PseudoMET__TriggerEffCalib_map_bis.pdf}
+    \end{minipage}
+    \caption{Trigger scale factors (data/MC) for \texttt{orMETtrg} as a function of the individual value of Pseudo MET and PUpppi MET (Left), and in the two-dimensional case using a custom binning (Right).}
+    \label{fig:triggerSF}
+\end{figure}
+
+To test the different cuts for the trigger plateau and see the impact on the signal acceptance, three strategies are compared:
+\begin{itemize}
+    \item[(1)] Pseudo MET > 250 GeV and the associated one-dimensional SFs (\cref{fig:triggerSF} left),
+    \item[(2)] PUppi MET > 250 GeV and the associated one-dimensional SFs (\cref{fig:triggerSF} left),
+    \item[(3)] Pseudo MET > 250 GeV \texttt{OR} PUppi MET > 250 GeV and the associated two-dimensionnals SFs (\cref{fig:triggerSF} right).
+\end{itemize}
+Acceptance is evaluated at each stage of the analysis as the ratio of events satisfying a selection criterion to the total number of events. The results are presented in \cref{fig:triggerMassAcceptance}. Throughout the signal mass range, $m_{\tilde{g}} = 1000$--$2600$~GeV, each selection criterion exhibits a uniform distribution. When the logical OR of the MET triggers is applied, the acceptance matches that observed in the final bin of \cref{fig:pftypeprop} (right). The subsequent check on the $H_T$, MHT, or MHTNoMu variable does not influence the selection at this stage. However, acceptance decreases substantially after applying the Pseudo MET > 250~GeV cut, reaching approximately 13\%, and further declines to about 4\% following the full analysis pre-selections. This reduction is primarily explained by \cref{fig:PUppiVSPseudoMET} (right, green CDF), which shows that 60\% of the signal lies below 250~GeV. By taking 40\% of the approximately 32\% acceptance after the trigger, the resulting value is about 13\%. The outcome differs after the PUppi MET cut; although the selection efficiency is lower for the signal (36\% according to \cref{tab:TriggerEffMCdataSignal}), a lower threshold on this MET variable retains approximately 85\% of the signal (\cref{fig:PUppiVSPseudoMET}, right, orange CDF). A similar conclusion is reached when employing strategy (3), with a modest improvement in overall signal acceptance.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_EffVsMass_METanalysis_TestPseudoMETCut_Eta2p4__EffVsMass_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_EffVsMass_METanalysis_TestPUppiMETCut_Eta2p4__EffVsMass_bis.pdf}
+    \\
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_EffVsMass_METanalysis_TestPseudoMETCut_TestPUppiMETCut_Eta2p4__EffVsMass_bis.pdf}
+    \caption{Signal acceptance for different MET variable cut strategies trough different selection criteria of HSCP gluinos with $m_{\tilde{g}} = 1000$--$2600$~GeV.}
+    \label{fig:triggerMassAcceptance}
 \end{figure}
 
 
 
-After a lower threshold on each observable (Pseudo MET~$>250$~GeV, PUPPI MET~$>150$~GeV, PUPPI MET NoMu~$>150$~GeV), the OR trigger efficiency reaches $99.5\%$ on signal for Pseudo MET but only $87$--$95\%$ on data and simulation, respectively, with a correspondingly large associated scale factor uncertainty at low MET. Conversely, PUPPI MET yields lower signal efficiency ($\sim37\%$) but substantially better data/simulation closure ($76$--$82\%$), and the impact on signal acceptance across the probed mass range ($m_{\tilde{g}}=1000$--$2600$~GeV) was found to be essentially unaffected by the choice between a Pseudo MET, a PUPPI MET, or a combined (OR) requirement, since a stringent cut on Pseudo MET was found to disproportionately suppress the signal yield without a compensating gain in purity.
-
-
-
-Both one-dimensional and two-dimensional (Pseudo MET vs. PUPPI MET) data/simulation scale factors were derived, with the two-dimensional map excluding the low-MET corner outside the trigger-efficient region. Given the comparable acceptance and superior data/simulation agreement, the adopted strategy retains a single requirement on PUPPI MET together with its associated one-dimensional scale factor. Two categories of systematic uncertainty are propagated to the signal: (i) the statistical uncertainty on the scale factors, propagated as correlated up/down variations, and (ii) an uncertainty on the jet energy scale entering the computation of $H_{T}$, $\text{MHT}$, $\text{MHT}^{\text{NoMu}}$, and PUPPI MET, propagated by recomputing these quantities with the nominal jet four-momenta shifted up and down by their respective uncertainties.
-
+The trigger's response to pair-produced HSCPs depends on their electric charge. This study presents a strategy for selecting HSCP gluinos using MET triggers to address the imbalance among the three production scenarios: charged-charged, neutral-charged, and neutral-neutral. Strategy (2) provides an effective compromise for signal acceptance, given that the uncalibrated Pseudo MET variable requires additional caution. Events are selected using a PUppi MET threshold greater than 150~GeV after passing one of the four MET triggers, with additional checks on the $H_T$, MHT, and MHTNoMu variables. The uncertainty in trigger efficiency is managed using scale factors, defined as the ratio of trigger efficiencies in data and MC simulations from orthogonal datasets that produce similar MET and signal signatures. The upward and downward variations of these scale factors will subsequently be applied as systematic uncertainties in the trigger selection, as discussed in \textbf{section XXXX}.
 
 
 
