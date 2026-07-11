@@ -3,48 +3,104 @@
 \label{ch:chapitre4}
 
 
-Splitter en deux sous-chapitres
+\section{Analysis strategy}
 
-\section{Experimental signature}
+This analysis focuses on the search for heavy stable charged particles (HSCPs), specifically R-hadrons produced via gluino pair production. The experimental signature is characterised by a high-momentum, highly ionising track accompanied by missing transverse energy, which originates from ISR jets or from charge flipping during nuclear interactions within the detector. Unlike the previous analysis based on the Muon dataset~\cite{HSCP_Run2}, this search utilises the MET-triggered dataset. R-hadrons are frequently not reconstructed as muons, either due to insufficient velocity or because they become neutral before reaching the muon system. The use of MET trigger paths therefore recovers a significant portion of the signal that would be missed by a muon-based selection. Multiple MET HLT paths are combined, and the tracker acceptance is extended from $|\eta| < 1$ to $|\eta| < 2.4$, relative to the previous analysis.
 
-\subsection{Description of the method}
+A pre-selection step requires events to pass MET triggers, in addition to track-level criteria, the full list of which is described in \cref{sec:HSCPpresel}. The candidate mass is reconstructed using the track momentum $p$ and the harmonic mean $I_h$ of its $\mathrm{d}E/\mathrm{d}x$ deposits in the strip tracker. A Bethe-Bloch parametrisation $I_h = f(\beta\gamma=p/m)$ is then used to compute the mass. Heavy particles are expected to manifest as an excess at large reconstructed mass, while Standard Model tracks predominantly populate lower mass values.
 
-\subsection{dE/dx discriminator}
-
-Rediscuter de Ih,
-
-Ih vs time pour old + new corr en 2024.
+The background is estimated directly from data. The phase space is divided according to transverse momentum and the pixel-based discriminant $F_\text{pixel}$, which is uniformly distributed for Standard Model tracks, peaks at unity for signal, and is uncorrelated with $p_T$. Both high $p_T$ and high $F_\text{pixel}$ correspond to the signal region. The region characterised by high $p_T$ and low $F_\text{pixel}$, where signal contamination is negligible, serves as the control region. Background normalisation in the signal region is determined using an ABCD method, while the mass shape is predicted by convolving, for each pseudo-rapidity slice, the $1/p$ and $I_h$ templates extracted from the control region. The method is validated in an intermediate value of $F_\text{pixel}$, which is kept separate from the blinded signal region. Systematic uncertainties are propagated to the predicted mass spectrum. The comparison between observed and predicted spectra in the signal region is then used to derive exclusion limits on the HSCP production cross section as a function of mass.
 
 
-\subsubsection{Gstrip}
+\section{Datasets}
 
-$G_{strip}$ est un discrimateur de Smirnov-Cramér-Von-Mises
+The samples utilised in this analysis are summarised in \cref{tab:datalist} (data), \cref{tab:signal_samples} (signal) and \cref{tab:mc_samples_2024} (MCs).
 
-T. W. Anderson. “On the Distribution of the Two-Sample Cramer-von Mises
-Criterion”. In: The Annals of Mathematical Statistics 33.3 (1962), pp. 1148
-–1159. doi: 10.1214/aoms/1177704477.
+The data were collected in 2024 at a centre-of-mass energy of $\sqrt{s}=13.6$~TeV and are divided into seven eras (C through I), as detailed in \cref{tab:datalist}. The analysis considers events that pass a MET trigger and are stored in the MET dataset. The total integrated luminosity is 109.95\,fb$^{-1}$.
 
-Tout part de la proba que l'on observe une particule au MIP déposé moins d'énergie que le ième dépôt, ie $p_i$ est une CDF.
+The signal samples comprise pair-produced gluinos that hadronise into R-hadrons, generated using \textsc{MadGraph} at $\sqrt{s}=13.6$\,TeV for ten mass hypotheses between 1.1 and 2.6\,TeV, as detailed in ~\cref{tab:signal_samples}. The theoretical production cross section, computed at NNLO\textsubscript{approx}+NNLL~\cite{10.21468/SciPostPhysCore.7.4.072, Fiaschi_2023}, decreases as the gluino mass increases. This mass range surpasses the exclusion limits established by previous searches ($m_{\tilde{g}}^\textrm{lim}=2.08$~TeV)~\cite{HSCP_Run2}.
 
-Sur une trajectoire de $N$ dépôts on peut ranger les $p_i$ sur une droite de [0,1] par ordre croissant. On s'attend pour une particule au MIP que ces $p_i$ soit uniformément répartis (autant de chance de déposer au dessus du MIP que en dessous). 
+The main background primarily consists of high-$p_T$ muons produced in addition to MET. The dominant processes are top-quark pair production in the dileptonic channel, $t\bar{t}\to 2\ell 2\nu$, and $W$ boson production in association with jets in the muonic decay channel, $W(\to\mu\nu)+\text{jets}$. Additionally, QCD multijet production is modelled using twelve exclusive slices of muon-enriched samples spanning $p_T$ from 15~GeV to above 1~TeV. For each sample, \cref{tab:mc_samples_2024} provides the production cross section and its associated uncertainty.
 
-Alors dans ce cas la position de $p_i$ sur cet axe est environ autour de $\frac{2i-1}{2N}$ qui est le milieu de $\left[ \frac{i-1}{N} , \frac{i}{N}\right]$. 
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tabular}{lcc}
+    \toprule
+    year & era & lumi ($fb^{-1}$) \\
+    \midrule
+    2024 & C & 7.26    \\
+    2024 & D & 7.98    \\
+    2024 & E & 11.42   \\
+    2024 & F & 28.04   \\
+    2024 & G & 38.07   \\
+    2024 & H & 5.49    \\
+    2024 & I & 11.56   \\
+    \midrule
+    \multicolumn{2}{l}{Total} & 109.95 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Summary of the 2024 MET dataset used in the analysis, with the corresponding integrated luminosity per era.}
+    \label{tab:datalist}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \centering
+    \begin{tabular}{cc}
+    \toprule
+    $m_{\tilde{g}}$ [GeV] & $\sigma$ [pb] \\
+    \midrule
+    1100 & $2.450 \times 10^{-1}$ \\
+    1200 & $1.288 \times 10^{-1}$ \\
+    1300 & $6.978 \times 10^{-2}$ \\
+    1400 & $3.883 \times 10^{-2}$ \\
+    1600 & $1.282 \times 10^{-2}$ \\
+    1800 & $4.524 \times 10^{-3}$ \\
+    2000 & $1.684 \times 10^{-3}$ \\
+    2200 & $6.535 \times 10^{-4}$ \\
+    2400 & $2.627 \times 10^{-4}$ \\
+    2600 & $1.089 \times 10^{-4}$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Signal samples of pair-produced gluinos used in the analysis, with the corresponding production theoretical cross sections.}
+    \label{tab:signal_samples}
+\end{minipage}
+\end{table}
 
-A partir de là on veut voir à quel point on s'éloigne de cette valeur attendu, on peut alors s'intéresser à la quantité $\left( p_i - \frac{2i-1}{2N}\right)^2$ et même $p_i \left( p_i - \frac{2i-1}{2N}\right)^2$ qui est la version asymétrique.
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lrc}
+\toprule
+MC sample 2024 & $\sigma$ [pb] & color \\
+\midrule
+QCD $\mu$-enriched, $p_T \in [15,20[$\,GeV   & $2\,982\,000 \pm 9502$   &  \\
+QCD $\mu$-enriched, $p_T \in [20,30[$\,GeV   & $2\,679\,000 \pm 8497$   &  \\
+QCD $\mu$-enriched, $p_T \in [30,50[$\,GeV   & $1\,465\,000 \pm 4593$   &  \\
+QCD $\mu$-enriched, $p_T \in [50,80[$\,GeV   & $409\,500 \pm 1276$      &  \\
+QCD $\mu$-enriched, $p_T \in [80,120[$\,GeV  & $96\,200 \pm 299.4$      &  \\
+QCD $\mu$-enriched, $p_T \in [120,170[$\,GeV & $22\,980 \pm 71.7$       & \colorbox{qcdcol}{\phantom{x}} \\
+QCD $\mu$-enriched, $p_T \in [170,300[$\,GeV & $7763 \pm 23.8$          &  \\
+QCD $\mu$-enriched, $p_T \in [300,470[$\,GeV & $699.1 \pm 2.13$         &  \\
+QCD $\mu$-enriched, $p_T \in [470,600[$\,GeV & $68.24 \pm 0.2042$       &  \\
+QCD $\mu$-enriched, $p_T \in [600,800[$\,GeV & $21.37 \pm 0.06407$      &  \\
+QCD $\mu$-enriched, $p_T \in [800,1000[$\,GeV& $3.913 \pm 0.01164$      &  \\
+QCD $\mu$-enriched, $p_T \geq 1000$\,GeV     & $1.323 \pm 0.003969$     &  \\
+\midrule
+$t\bar{t}\to 2\ell2\nu$                & $98.1^{+2.4}_{-3.5}$ & \colorbox{ttcol}{\phantom{x}} \\
+\midrule
+$W (\to \mu\nu)$ + jets     & $20\,790 \pm 90.5$ & \colorbox{wcol}{\phantom{x}} \\
+\bottomrule
+\end{tabular}
+\caption{Monte Carlo samples used for the 2024 analysis with their production cross sections.}
+\label{tab:mc_samples_2024}
+\end{table}
 
-En ajoutant maintenant l'ensemble des dépôts on a alors: 
+\section{Analysis tools}
 
-\begin{equation}
-    G_{strip} = \frac{3}{N}\left(\frac{1}{12N}+\sum_{i=1}^{N}p_i\left(p_i-\frac{2i-1}{N}\right)^{2}\right)
-\end{equation}
-
-Le terme $\frac{1}{12N}$ est une correction analytique du test de Cramér–von Mises qui assure une distribution uniforme. Et $\frac{3}{N}$ normalise le tout entre 0 et 1.
-
-On à alors construit un discriminateur sur la compatibilité d'une particule fortement ionisante avec une autre au MIP. 
-
-
-
-\subsubsection{d\textit{E}/d\textit{x} discriminator $F_{\text{pixel}}$}
+\subsection{d\textit{E}/d\textit{x} discriminator $F_{\text{pixel}}$}
 
 In this analysis, the pixel information is exploited via $F_{\text{pixel}}$, which quantifies the compatibility of a track with a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
 These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function $V(Q)$ templates to model the charge distribution of MIPs.
@@ -101,7 +157,7 @@ In this analysis, hits from the first layer of the pixel detector were excluded 
 
 Assuming the data distribution is perfectly flat when it is not introduces systematic uncertainties. These uncertainties were estimated by varying the forenamed probability models and will be discussed in~\cref{sec:fi_syst}.
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
    \centering
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInData_bis.pdf}
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInSignal_bis.pdf}
@@ -110,24 +166,15 @@ Assuming the data distribution is perfectly flat when it is not introduces syste
 \end{figure}
 
 
-\subsubsection{The \texorpdfstring{$I_h$}{Ih} estimator}
-One way to assess the average ionisation of a track along several silicon strip modules is to use a harmonic mean function. Therefore, $I_h$ is defined to be the harmonic mean of the ionisation of a charged particle track that has deposited $N$ charge clusters $c_j = (\dedx)_j$ along several silicon strip layers:
-\begin{equation}
-    I_h = \left( \frac{1}{N} \sum_{j=1}^N c_j^{-2} \right)^{-\frac{1}{2}} \, .
-    \label{eq:ih}
-\end{equation}
-\vspace{0.5 cm}
-$I_h$ is, by construction, very robust against upward fluctuations of the $c_j$, which have a non-negligible chance to happen (as they are described by a Landau PDF). On the other hand, $I_h$ is very sensitive to downward fluctuations, which are unlikely to occur randomly (if the $c_j$ are indeed following a Landau distribution), but may occur due to detector effects such as noise, baseline voltage drop, etc.
+\subsection{The \texorpdfstring{$I_h$}{Ih} estimator}
+
+The search for HSCPs relies on tracking anomalous d$E$/d$x$ deposits within detector materials. The average energy deposit per track across the silicon tracker layers is quantified using the $I_h$ estimator, as detailed in \cref{sec:ihpres}. Owing to their greater mass, HSCPs generate higher energy deposits than MIPs produced by SM processes. MIPs exhibit nearly constant ionisation, resulting in low $I_h$ values for SM tracks, whereas HSCPs deposit substantially more charge per unit length and occupy the high-$I_h$ region. Therefore, $I_h$ enables effective discrimination between SM processes and HSCPs. This approach is complementary to the pixel-based estimator $F_{\text{pixel}}$, which utilises the shape of the charge distribution in the innermost layers, whereas $I_h$ aggregates ionisation measurements across the strip tracker.
 
 \vspace{0.5 cm}
 
-The discriminating power of $I_h$ follows directly from the Bethe--Bloch behaviour of the energy loss. A MIP deposits a nearly constant ionisation, placing Standard Model tracks at low $I_h$ values, whereas a slow, heavy particle deposits substantially more charge per unit length and populates the high-$I_h$ region. The variable therefore provides a natural separation between Standard Model and BSM processes, complementary to the pixel-based estimator $F_{\text{pixel}}$: while $F_{\text{pixel}}$ exploits the shape of the charge distribution in the innermost layers, $I_h$ aggregates the ionisation measured across the strip tracker.
+\cref{fig:IhSignalData} demonstrates this separation. The upper panel presents the normalised $I_h$ distribution after the analysis preselection criteria. The data distribution (left) exhibits a sharp peak at low ionisation, approximately $3.2$~MeV/cm, consistent with the MIP expectation, and decreases rapidly at higher values. In contrast, a gluino with $m=2000$~GeV (right) gives rise to higher $\langle\dedx\rangle$ values. The lower panel shows the corresponding cumulative distribution functions: the data CDF rises to unity almost immediately, while the gluino CDF increases gradually, highlighting the strong separation between the two populations across most of the $I_h$ range.
 
-\vspace{0.5 cm}
-
-\Cref{fig:IhSignalData} illustrates this separation. The upper panel shows the normalised $I_h$ distribution for 2024 data and for a simulated HSCP gluino at $m=2000$~GeV, both after the analysis preselection criteria. The data distribution is sharply peaked at low ionisation, around $3$~MeV/cm, consistent with the MIP expectation, and falls steeply towards higher values. The gluino distribution is instead shifted towards markedly larger $I_h$ values, reflecting its higher ionisation per unit path length. The lower panel displays the corresponding cumulative distribution functions: the data CDF rises to unity almost immediately, whereas the gluino CDF increases only gradually, quantifying the strong separation between the two populations across the bulk of the $I_h$ range.
-
-\begin{figure}[ht!]
+\begin{figure}[h!]
    \centering
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.7cm 0},clip]{Images/Ch4/Ih_Data_CDF.pdf}
     \includegraphics[width=.49\linewidth,trim={1cm 0 1.7cm 0},clip]{Images/Ch4/Ih_Signal_CDF.pdf}
@@ -136,19 +183,32 @@ The discriminating power of $I_h$ follows directly from the Bethe--Bloch behavio
 \end{figure}
 
 
-\subsubsection{Stability of d\textit{E}/d\textit{x} variables over the year}
+\subsection{Stability of d\textit{E}/d\textit{x} variables over the year}
 
-Ih vs runnumber
-Fpix vs runnumber
+The stability of the two ionisation observables used in this analysis is monitored throughout the 2024 data-taking period by computing, for each run, the mean values of $I_h$ and $F_\text{pixel}$ for tracks without selections and for those that pass the analysis pre-selection. The evolution of $\langle I_h \rangle$ as a function of run number is presented in \cref{fig:dedx_stability} (top left), along with the distribution of the per-run means (top right). Following the application of the charge calibration described in \cref{app:calibration}, the strip-based estimator remains stable over the year. The per-run means are centred around $\langle I_h \rangle \approx 3.37~(3.32)$~MeV/cm, with a spread at the percent level for tracks that do or do not pass the analysis pre-selection step.
+
+A similar monitoring procedure is applied to the pixel-based discriminant (bottom row). The per-run mean of $F_\text{pixel}$ is centred around 0.65 (0.61) for tracks that do or do not pass the analysis pre-selection step, with a relative dispersion of a few percent. Because $F_\text{pixel}$ is constructed from the pixel charge templates, the slight decrease observed over the year reflects the progressive degradation of the pixel sensors due to irradiation, which reduces the collected charge. However, this drift remains modest compared to the width of the $F_\text{pixel}$ distribution, allowing the variable to be used consistently throughout the 2024 dataset.
+
+These checks confirm that both ionisation variables can be used consistently over the full 2024 dataset without any time-dependent correction beyond the charge calibration already applied.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.48\textwidth,trim={0.8cm 0 1.5cm 0},clip]{Images/Ch4/ProfileVsRunNumber_Ih_bis.pdf}
+    \includegraphics[width=0.48\textwidth,trim={0.8cm 0 1.5cm 0},clip]{Images/Ch4/ProfileVsRunNumber_Ih_hist_bis.pdf}
+    \\
+    \includegraphics[width=0.48\textwidth,trim={0.8cm 0 1.5cm 0},clip]{Images/Ch4/ProfileVsRunNumber_Fpix_bis.pdf}
+    \includegraphics[width=0.48\textwidth,trim={0.8cm 0 1.5cm 0},clip]{Images/Ch4/ProfileVsRunNumber_Fpix_hist_bis.pdf}
+    \caption{Stability of ionisation observables during the 2024 data-taking period. Top: mean $I_h$ per run as a function of run number (left) and distribution of per-run means (right). Bottom: corresponding plots for the pixel-based discriminant $F_\text{pixel}$.}
+    \label{fig:dedx_stability}
+\end{figure}
 
 
-\subsection{Signal considered}
 
 \section{HSCP candidates selection}
-\label{sec:selection}
+\label{sec:HSCPpresel}
 
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_2000_bis.pdf}
     \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_1400_bis.pdf}

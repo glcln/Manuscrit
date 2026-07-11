@@ -68,6 +68,10 @@
 
 \pgfplotsset{compat=1.18}
 
+\definecolor{qcdcol}{HTML}{99FF9A} % bleu
+\definecolor{ttcol}{HTML}{FF8080}  % rouge
+\definecolor{wcol}{HTML}{B2B2FF}   % orange
+
 \tikzset{
   % Fermion: solid with forward arrow
   fermion/.style={
