@@ -64,7 +64,8 @@
 \RequirePackage{booktabs}
 \RequirePackage{xpatch}
 \RequirePackage{placeins}
-\usepackage[export]{adjustbox}
+\RequirePackage[export]{adjustbox}
+\RequirePackage[overload]{textcase}
 
 \pgfplotsset{compat=1.18}
 

@@ -203,19 +203,8 @@ These checks confirm that both ionisation variables can be used consistently ove
 \end{figure}
 
 
-
-\section{HSCP candidates selection}
+\section{Analysis selection}
 \label{sec:HSCPpresel}
-
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_2000_bis.pdf}
-    \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_1400_bis.pdf}
-    \includegraphics[width=0.5\linewidth]{Images/Ch4/CompareKinematics_PT_HSCPmatched_2600_bis.pdf}
-    \caption{Caption}
-    \label{fig:placeholder}
-\end{figure}
 
 \subsection{Trigger event selection}
 
@@ -231,7 +220,8 @@ The naming convention of each HLT path directly encodes the offline-like cuts ap
 
 At the L1 trigger level, the seed lists are a logical OR of several \texttt{L1\_ETMHF} thresholds (MET computing using the central and forward calorimeters). Since \texttt{ETMHF} is a calorimeter-based quantity, the initial L1 decision is essentially always driven by the Calo MET, with the PF MET/MHT only becoming the discriminating variable at the HLT stage.
 
-\vspace{0.5 cm}
+
+\subsubsection{HSCP MET topologies}
 
 Particle-flow (PF) MET is only produced when the R-hadron pair consists of one charged and one neutral state, since a charged-charged or neutral-neutral pair leaves no net PF imbalance. On the other hand, calorimetric MET (Calo MET) still arise from an ISR jet or photon recoiling against the pair. Five kinematic topologies, depending on the nature of the pair-produced HSCP, were identified on this basis and are illustrated in \cref{fig:METtopology}, ranging from configurations with negligible MET to those dominated by either PF or Calo MET, thereby motivating the use of several complementary MET observables rather than a single variable.
 
@@ -256,7 +246,7 @@ Rather than being primarily driven by this muon mis-identification, the efficien
     \label{fig:pftypeprop}
 \end{figure}
 
-\cref{fig:pairtypestages} follows the HSCP pair-type distribution through the analysis chain for a representative signal point ($m_{\tilde{g}}=2000$~GeV), comparing the generated composition to that obtained after the OR of the four MET triggers.
+\cref{fig:pairtypestages} follows the HSCP pair-type distribution through the analysis chain for a representative signal point ($m_{\tilde{g}}=2000$~GeV), comparing the generated composition with that obtained after the OR of the four MET triggers.
 
 The reduction from the generated composition (black dots, summing to unity) to the post-trigger composition (red squares) is essentially uniform across the three pair-type categories, and simply reflects the overall OR-trigger efficiency already measured in \cref{fig:pftypeprop} (Right plot, bin~5): summing the red squares over the three categories recovers the same $\sim$30\% efficiency obtained for the $m_{\tilde{g}}=2000$~GeV point, confirming that the OR trigger is not preferentially selecting a given pair type at this stage, but rather applies an approximately flat acceptance across all three configurations.
 
@@ -271,7 +261,8 @@ This correspondence can be quantified further. At generator level, essentially a
     \label{fig:pairtypestages}
 \end{figure}
 
-\vspace{0.5 cm}
+
+\subsubsection{Trigger MET strategy}
 
 The selected MET triggers are determined by the Calo MET and PF MET at the L1 level, and the efficiency of selecting offline events using these triggers can be assessed as a function of these two variables. This trigger-efficiency procedure must be carefully performed on both simulation and data. Near the turn-on region, the efficiency depends on the thresholded observable, and this dependence is governed by the MET resolution, which is not perfectly modelled in simulation. As a result, data and simulation diverge in this region, and the signal efficiency cannot be considered reliable across the whole Calo MET or PF MET range. Beyond the turn-on, in the \textit{trigger plateau}, the efficiency saturates and becomes flat. In this regime, the ratio of the trigger efficiency in data to that in simulation, expressed as a function of one of the MET variables and known as the \textit{scale factor}, is close to unity. The trigger response should therefore be studied on the plateau rather than integrated over the full turn-on, since the signal acceptance used in the final result is taken from simulation and its trigger contribution is reliable only if the simulated trigger accurately reproduces the one observed in data.
 
@@ -279,7 +270,8 @@ This requirement is especially critical for the HSCP analysis, where, if no exce
 
 The adopted strategy follows directly from these considerations. The turn-on curves are first measured in parallel in data and simulation as functions of the offline PUppi MET (the recommended MET estimator for Run--3 physics analyses, instead of PF MET) and Calo MET, and the corresponding data-to-simulation scale factors are extracted. The offline thresholds are then set sufficiently high to place the analysis on the plateau, where these scale factors are flat and well controlled.
 
-\vspace{0.5 cm}
+
+\subsubsection{MET trigger efficiency}
 
 As the HSCP analysis moved from an \textsc{AOD} to a \textsc{MiniAOD} framework for analysing Run--3 data, some variables have changed. This is the case for the Calo MET, where muon energy deposits within the calorimeters are included in its computation, thereby biasing its value. Since trigger efficiency is driven by Calo MET at the L1 level, to recover the MET deposits within the calo towers, one could build a proxy observable that mimics the Run--2 Calo MET. Therefore, a pseudo-MET variable is reconstructed offline from the calorimeter jet (CaloJets) collection as the magnitude of the vectorial transverse-momentum sum of all calorimeter jets in the event,
 \begin{equation}
@@ -291,7 +283,7 @@ The Pseudo MET was validated on Run~2 AOD samples by comparison with the Calo ME
 
 The distribution of the Pseudo MET and the PUppi MET in 2024 data and in an HSCP gluino at $m=2000$~GeV, both without any upstream selections, is depicted in \cref{fig:PUppiVSPseudoMET}. The different topologies illustrated in \cref{fig:METtopology} are labelled with their respective digit from 1 to 5. Topology 5 lies along the diagonal for both the data and the signal. For the latter, the two neutral HSCPs create an imbalance in the PUppi MET and the Pseudo MET; on the other hand, standard backgrounds populate the same band, since neutrino or QCD activity leaves MET within the detector. Topology 4 corresponds to the reconstruction of both MET, with the value of the Pseudo MET depending on the ISR jet energy for the signal. Topologies 1 and 3 are similar for both data and signal because they flag common low-PUppi MET events, with some having jet activity in the calorimeters, resulting in medium Pseudo MET values. Topology 2 is slightly more populated for the signal, as most HSCPs are produced in charged-neutral pairs, resulting in high PUppi MET values. This last topology is identified in data from poor-jet events, typically from neutrinos. The individual distributions of Pseudo MET and PUppi MET are presented in the lower panel. The principal region of each MET distribution appears at low MET values, especially in the observed data. Moreover, the Pseudo MET distribution exhibits a core shifted toward higher values, indicating that most signal and data events are concentrated in the 200-300 GeV range.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \metregions[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/PUppiVSPF_Data_bis.pdf}
     \metregionsbis[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/PUppiVSPF_MC_bis.pdf}
@@ -310,7 +302,7 @@ In addition to the trigger, requirements on the value of $H_{T}$, MHT, or MHTNoM
 
 Signal trigger efficiency is defined as the ratio of events that pass both the analysis pre-selection and the logical OR of the MET triggers to those that pass the analysis pre-selection alone. The results are presented in \cref{fig:triggerEffsig}. The trigger efficiency plateaus at 100\% for Pseudo MET near 250~GeV and at 30\% for PUppi MET near 450~GeV. The lower plateau for PUppi MET is primarily due to events with low Pseudo MET values failing to pass the trigger, while those with higher Pseudo MET values do pass.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/c_orMETtrg_PUppiMET_VS_PseudoMET_SIGNAL__Gluino2000.pdf}
     \\
@@ -322,7 +314,7 @@ Signal trigger efficiency is defined as the ratio of events that pass both the a
 
 Data and MC trigger efficiencies are extracted on an orthogonal single-muon dataset (2024 data passing a muon trigger saved in the Muon dataset, and the $W\to\mu\nu$ MC), selected with exactly one tight, isolated muon ($p_T>30$~GeV, $I_{\text{rel}}^\mu<0.15$) firing \texttt{HLT\_IsoMu27}, in addition to the MET filters, and analysis pre-selection criteria (with the pixel-d$E$/d$x$ discriminator relaxed to $F_{\text{pixel}}<0.9$) to preserve a similar MET as the signal and comparable kinematics. The results are shown in \cref{fig:triggerEffdataMC}. Both datasets exhibit similar trigger efficiencies as functions of Pseudo MET and PUppi MET (Top plots). Minor discrepancies are observed in the projections (bottom plots), as indicated by the lower-panel scale factors. Data and MC exhibit agreement only at the plateau, which occurs at approximately 250~GeV for the Pseudo MET and 150~GeV for PUppi MET.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/c_orMETtrg_PUppiMET_VS_PseudoMET_DATA__TriggerEffCalib.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.6cm 0 0.1cm 0},clip]{Images/Ch4/c_orMETtrg_PUppiMET_VS_PseudoMET_MC__TriggerEffCalib.pdf}
@@ -335,7 +327,7 @@ Data and MC trigger efficiencies are extracted on an orthogonal single-muon data
 
 The efficiency after the plateau cut at 250~GeV for the Pseudo MET and 150~GeV for the PUppi MET are presented in \cref{tab:TriggerEffMCdataSignal}, computed as the ratio of events passing the triggers after the MET cut to the ones passing only the MET cut. These values reflect the one-dimensional trigger efficiency plots for the signal (\cref{fig:triggerEffsig}), as well as for data and MC samples (\cref{fig:triggerEffdataMC}). For the Pseudo MET, the OR trigger efficiency reaches 99.5\% on signal but only 87\% and 95\% on data and MC, respectively, with a correspondingly large scale-factor uncertainty at low MET. Conversely, the PUppi MET yields a lower signal efficiency ($\sim37\%$) but a substantially better data/MC closure (76\% and 82\%).
 
-\begin{table}[htbp]
+\begin{table}[h!]
     \centering
     \tiny
     \renewcommand{\arraystretch}{1.4}
@@ -363,10 +355,9 @@ The efficiency after the plateau cut at 250~GeV for the Pseudo MET and 150~GeV f
   \label{tab:TriggerEffMCdataSignal}
 \end{table}
 
-
 Both one-dimensional and two-dimensional (Pseudo MET versus PUPPI MET) data/MC scale factors were derived. The numerical values are presented in \cref{fig:triggerSF}. In the one-dimensional case (Left table), only the values below the orange lines are utilised following the preliminary cut on the MET variable. For the two-dimensional case (Right plots), the SFs are computed as the ratio of the two two-dimensional trigger efficiency plots of \cref{fig:triggerEffdataMC}. Then, a custom binning strategy groups bins by statistical significance, excluding the low-MET region outside the trigger-efficient area.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{minipage}[c]{0.49\linewidth}
         \centering
@@ -390,7 +381,7 @@ To test the different cuts for the trigger plateau and see the impact on the sig
 \end{itemize}
 Acceptance is evaluated at each stage of the analysis as the ratio of events satisfying a selection criterion to the total number of events. The results are presented in \cref{fig:triggerMassAcceptance}. Throughout the signal mass range, $m_{\tilde{g}} = 1000$--$2600$~GeV, each selection criterion exhibits a uniform distribution. When the logical OR of the MET triggers is applied, the acceptance matches that observed in the final bin of \cref{fig:pftypeprop} (right). The subsequent check on the $H_T$, MHT, or MHTNoMu variable does not influence the selection at this stage. However, acceptance decreases substantially after applying the Pseudo MET > 250~GeV cut, reaching approximately 13\%, and further declines to about 4\% following the full analysis pre-selections. This reduction is primarily explained by \cref{fig:PUppiVSPseudoMET} (right, green CDF), which shows that 60\% of the signal lies below 250~GeV. By taking 40\% of the approximately 32\% acceptance after the trigger, the resulting value is about 13\%. The outcome differs after the PUppi MET cut; although the selection efficiency is lower for the signal (36\% according to \cref{tab:TriggerEffMCdataSignal}), a lower threshold on this MET variable retains approximately 85\% of the signal (\cref{fig:PUppiVSPseudoMET}, right, orange CDF). A similar conclusion is reached when employing strategy (3), with a modest improvement in overall signal acceptance.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_EffVsMass_METanalysis_TestPseudoMETCut_Eta2p4__EffVsMass_bis.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/c_EffVsMass_METanalysis_TestPUppiMETCut_Eta2p4__EffVsMass_bis.pdf}
@@ -402,24 +393,170 @@ Acceptance is evaluated at each stage of the analysis as the ratio of events sat
 
 
 
-The trigger's response to pair-produced HSCPs depends on their electric charge. This study presents a strategy for selecting HSCP gluinos using MET triggers to address the imbalance among the three production scenarios: charged-charged, neutral-charged, and neutral-neutral. Strategy (2) provides an effective compromise for signal acceptance, given that the uncalibrated Pseudo MET variable requires additional caution. Events are selected using a PUppi MET threshold greater than 150~GeV after passing one of the four MET triggers, with additional checks on the $H_T$, MHT, and MHTNoMu variables. The uncertainty in trigger efficiency is managed using scale factors, defined as the ratio of trigger efficiencies in data and MC simulations from orthogonal datasets that produce similar MET and signal signatures. The upward and downward variations of these scale factors will subsequently be applied as systematic uncertainties in the trigger selection, as discussed in \textbf{section XXXX}.
+The trigger's response to pair-produced HSCPs depends on their electric charge. This study presents a strategy for selecting HSCP gluinos using MET triggers to address the imbalance among the three production scenarios: charged-charged, neutral-charged, and neutral-neutral. Strategy (2) provides an effective compromise for signal acceptance, given that the uncalibrated Pseudo MET variable requires additional caution. Events are selected using a PUppi MET threshold greater than 150~GeV after passing one of the four MET triggers, with additional checks on the $H_T$, MHT, and MHTNoMu variables. The uncertainty in trigger efficiency is managed using scale factors, defined as the ratio of trigger efficiencies in data and MC simulations from orthogonal datasets that produce similar MET and signal signatures. The upward and downward variations of these scale factors will subsequently be applied as systematic uncertainties in the trigger selection, as discussed in \cref{sec:systematics}.
+
+
+\subsection{HSCP candidates selection}
 
 
 
 
-\subsection{Pre-selection criteria}
+\section{Systematics}
 \label{sec:systematics}
 
 
 \section{Mass reconstruction strategy}
 
+
+
 \subsection{Description of the method}
 
 Mass parametrization
 
+
 \section{Background estimation method}
 
-\subsection{Systematics uncertainties}
+\subsection{Method description}
+
+The background estimation is then performed using the ABCD method, where the phase space is divided between the $F_\textrm{pixel}$ variable and the transverse momentum $p_T$ values. The control (CR) and signal regions (SR) are defined with cuts on these assumed non-correlated variables. The sketch in \cref{fig:scheme_ABCDmass} shows the different regions. We define the signal region as the region $D$, corresponding to HSCP candidates with  high $p_T$ and high $F_\textrm{pixel}$ values, while the regions $A$, $B$ and $C$ correspond respectively to candidates with low $p_T$ and low $F_\textrm{pixel}$ values, 
+to candidates with low $p_T$ and high $F_\textrm{pixel}$ values, and to candidates with high $p_T$ and low $F_\textrm{pixel}$ values. 
+
+In reality, we can define several B and D regions on which to apply the background prediction method, such that, in addition to the signal regions, different validation regions defined by slicing the $F_\textrm{pixel}$ distribution can be used as validation regions (VR) to test the validity of the mass prediction.
+
+Distributions of MC and signal events in the $F_\textrm{pixel}$ vs $p_T$ plane are shown in \cref{fig:2D_mc_fpix_pt}. The $F_\textrm{pixel}$ threshold of 0.9 has been chosen to achieve high signal efficiency (around 90\%) while maintaining good background rejection (around 10\%). A visual representation of the $F_\textrm{pixel}$ distribution for a Wjets MC sample and a signal sample is shown in \cref{fig:fpix_mc_signal}.
+
+The method predicts the normalisation (the number of events) in the signal region $D$, based on the number of events of the control regions $A$, $B$ and $C$, such as 
+\begin{equation}
+	{\rm yield}_D= {\rm yield}_B\times {\rm yield}_C/{\rm yield}_A. 
+\label{eq:normalisation}
+\end{equation}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Images/Ch4/hscp_regions_abcd.pdf}
+  \caption{Schematic representation of the ABCD method used for the background estimation. The phase space is divided between $F_\textrm{pixel}$ and $p_T$ values. Templates used to derive the predicted mass spectrum are obtained in a control region (CR). The signal region (SR) is defined as the region with high $F_\textrm{pixel}$ and $p_T$ values.
+  }
+  \label{fig:scheme_ABCDmass}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\linewidth]{Images/Ch4/CompareMaping_mc.pdf}
+  \includegraphics[width=0.49\linewidth]{Images/Ch4/CompareMaping_gluino.pdf}
+  \caption{Distribution of $p_T$ as a function of $F_\textrm{pixel}$ for a MC SM process with the Y--profile in Red (Left), and for a gluino sample with $m_{\tilde{g}}=2000$~GeV (Right).
+  }
+  \label{fig:2D_mc_fpix_pt}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Images/Ch4/Fpixel_plot.pdf}
+  \caption{Distribution of $F_\textrm{pixel}$ for MC Wjets and for a signal sample. The dashed line represents the $F_\textrm{pixel}$ cut at 0.9, defining the SR for high $p_T$ values.
+  }
+  \label{fig:fpix_mc_signal}
+\end{figure}
+
+Moreover, the method predicts the shape of the mass distribution in the signal region $D$, based on information coming from the CR $C$. To do so, the \dedx\ estimator $I_h$\ and the inverse of the momentum $1/p$ distributions are extracted from the CR. An example of such templates is provided in \cref{fig:ih_oP_fit}, note that fits are performed on the tail of these templates and used later on in the procedure to minimise the effect of statistical fluctuations.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Ih_newfit.pdf}
+  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/oP_newfit.pdf}
+  \caption{Templates of the $I_h$\ (Left) and $1/p$ (Right) distributions extracted in the CR $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.
+  }
+  \label{fig:ih_oP_fit}
+\end{figure}
+
+Since the pseudo-rapidity $\eta$ distribution in the control region $C$ does not reflect the $\eta$ distribution of the region $D$ (as shown on \cref{fig:eta_reweighting} (Left)), a reweighing is performed to match the $\eta$ distribution in the SR. The distribution in the CR $C$ is changed to
+
+\begin{equation}
+  \eta_C \rightarrow \eta_C \times \frac{\eta_B}{\eta_A} \, .
+\end{equation}
+The weights are then applied to the $1/p$ distribution of the region CR $C$ to match the distribution in the SR. \cref{fig:eta_reweighting} (Right) shows the agreement between the reweighted distribution in the CR $C$ and the one in the VR.
+
+\begin{figure}[!h]
+    \centering
+	  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg__1oP.pdf}
+    \caption{(Left) Distribution of $\eta$ for the region $C$ (Green) and the region $D$ (Black), and the distribution after the eta reweighting (Red). (Right) Distribution of $1/p$ in the region VR (Black), compared to the one in C after the eta reweighting (Red).
+    }
+		 \label{fig:eta_reweighting}
+\end{figure}
+
+
+Because of the correlation between $p$, $p_T$ and $\eta$ (also between $I_h$ and $\eta$, but smaller), the mass distribution is reconstructed per bin in $\eta$. To achieve this, the templates in the CR are now constructed in 2 dimensions: ($1/p$, $\eta$) and ($\eta$, $I_h$). 24 bins are used for the $\eta$ distribution, 100 for $I_h$\ and 500 for $1/p$. 
+
+The mass distribution is therefore filled by doing a triple loop: starting first a loop over $\eta$, inside which we run over $1/p$ bins, inside which we finally run over $I_h$\ bins. Inside this triple loop, using the indices ($i$, $j$, $k$) associated to the ($\eta$, $1/p$, $I_h$) bin, we compute :
+
+\begin{itemize}
+  \item the mass value $M_{i,j,k}$ as
+  \begin{equation}
+    M_{i,j,k} = p_{j,i} \times \sqrt{\frac{I_{h_{i,k}}-C}{K} }
+  \end{equation}
+  where $p_{j,i}$ is the momentum value taken as the inverse of the $1/p$ value in the $(j,i)$ bin of the $(1/p,\eta)$ template, and $I_{h_{i,k}}$ is the \dedx\ $I_h$\ value of the $(i,k)$ bin of the $(\eta,$$I_h$$)$ template;
+  
+  \item and the associated weight $w_{i,j,k}$
+  \begin{equation}
+    w_{i,j,k} = \left(\frac{n_{ji}}{\sum_m n_{mi}}\right) \cdot h_{ik}
+  \end{equation}
+  where $n_{ji}$ is the number of observed events in the $(j,i)$ bin of the $(1/p,\eta)$ distribution and $h_{ik}$ is the number of observed events in the $(i,k)$ bin of the $(\eta,$ $I_h$$)$ distribution;
+\end{itemize}
+and fill the mass distribution accordingly. Once the mass shape is constructed, it is rescaled to the expected global normalisation given by equation (\ref{eq:normalisation}).
+
+To compute the statistical uncertainty associated with the prediction, 200 pseudo-experiments are used. For each of them, new templates are generated by throwing the value randomly in each bin from a Poisson distribution with mean equal to the yield content of the original template bin. The randomisation also applies to the yield in the CR entering the global normalisation. The average of these 200 pseudo mass predictions is used as the central value for the mass prediction; the RMS defines the statistical uncertainty envelope.
+
+\subsection{Preliminary remarks on the mass reconstruction method}
+\label{sec:abcd_remarks}
+
+This method was used in numerous previous versions of the HSCP analysis. But several modifications have been made since the last CMS public results; here is the list:
+\begin{itemize}
+  \item New mapping for the phase space, $F_\textrm{pixel}$, as the latter is slightly correlated to the transverse momentum $p_T$, leading to a bias in the mass spectrum prediction. 
+	\item New fit for the $I_h$ and $1/p$ templates. Especially for the $1/p$ distribution, for which in the forward region ($|\eta|>1$) the shape is different at low $1/p$, leading to a bad mass calculation after all using the previous fit function.
+  \item The eta reweighting is now performed using the three other regions ($A-B-C$) of the ABCD method, instead of using only the regions $B$ and $C$ as it was done in the previous version of the analysis.
+\end{itemize}
+
+
+
+\subsubsection{Validation of the mass reconstruction method}
+\label{sec:validation_proc}
+
+{\bf Validation in data}
+
+In the data, we can separately use the regions $D$ with $0.8 < F_\textrm{pixel} \leq 0.9$ as a validation region, with $C$ defined as the region with $F_\textrm{pixel} \leq 0.8$ and $p_T>70$~GeV. The predictions are displayed in \cref{fig:abcd_mass_slices_data} for the 2024 data for different eta categories. The binning with an enlarged bin width for larger masses has been chosen to match the mass resolution. Therefore, the observed change in slope in the background prediction is due to a change in bin width; the plot has not been corrected for the bin width to see the actual number of events per bin. The agreement between prediction and observation is reasonable.
+
+Three different ways to assess the quality of the agreement between the observed and predicted shapes are shown in the lower panels. The first panel shows the ratio $R$:
+\begin{equation}
+	{\rm Ratio} R = \frac{ \int_M^{\infty} d M_{obs}}{\int_M^{\infty} d M_{pred}} 
+	\label{eq:ratio_integral}
+\end{equation}
+For a bin $M$, the second one is the ratio $obs/pred$ estimated per bin, and the last one shows the pull $( M_{obs} -  M_{pred})/\sigma$. We clearly see some trend in the three bottom panels.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/mass_plot_NoC_region8fp9_2024_Eta1.pdf}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/mass_plot_NoC_region8fp9_2024_Eta1_2p4.pdf}
+    \\
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/mass_plot_NoC_region8fp9_2024_Eta2p4.pdf}
+    \caption{
+	Mass distribution in the validation region $D$ with $0.8 < F_\textrm{pixel} \leq 0.9$ and $p_T>70$~GeV, for the 2024 data for different eta category: $|\eta|<1$ (Top Left), $1<|\eta|<2.4$ (Top Right) and $|\eta|<2.4$ (Bottom). The observed data points are displayed as black markers. The data-driven background estimate is displayed as the red markers, with the yellow envelope representing the statistical uncertainty coming from the RMS of the 200 pseudo-experiments. Several signal scenarios are also displayed. The last bin includes the overflow. In each of the plots, three bottom panels are displayed: the first one shows the ratio defined by eq~(\ref{eq:ratio_integral}), while the second one shows the bin ratio and the third one shows the pull.}
+    \label{fig:abcd_mass_slices_data}
+\end{figure}
+
+
+{\bf Validation in MC}
+
+In MC, in addition to testing the method in VR, we can also look at the SR. Figure\cref{fig:abcd_mass_mc} shows the mass distribution in the region of the VR (Left) and the SR (Right) for the MC Wj+jets, TTbar and QCD samples. While the W+jets process is the dominant background, using the ttbar MC allows access to higher mass values.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.47\textwidth]{Images/Wolfgang.jpg}
+    \includegraphics[width=0.47\textwidth]{Images/Wolfgang.jpg}
+    \caption{
+	    Mass distribution in the validation region $D$ with $0.8 < F_\textrm{pixel} \leq 0.9$ and $p_T>70$~GeV (Left) and the search region (Right) for the W+jets + TTbar + QCD MC. The simulated MC distribution is displayed as black markers. The simulated data-driven estimate is shown as red markers, with the yellow envelope representing the statistical uncertainty from the RMS of the 200 pseudo-experiments. In each plot, three bottom panels are displayed.}
+    \label{fig:abcd_mass_mc}
+\end{figure}
 
 
 

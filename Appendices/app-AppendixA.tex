@@ -1,94 +1,40 @@
-\chapter{Run 3 calibration of the strip \texorpdfstring{d$E$/d$x$}{dE/dx}}
-\label{app:run3_calib}
+\chapter{Run--3 calibration of the strip \texorpdfstring{d$E$/d$x$}{dE/dx}}
+\chaptermark{Run--3 calibration of the strip  \texorpdfstring{$\mathrm{d}E/\mathrm{d}x$}{dE/dx}}
+\label{app:calibration}
 
-The harmonic estimator \ih\ relies on a calibrated charge per unit path length in each
-silicon module. In Run 2 this charge was stable over the whole data-taking period, so no
-time-dependent correction was needed. This is no longer the case in Run 3, and a dedicated
-calibration was derived for the 2022--2024 data. The estimator is defined as
-\begin{equation}
-    I_{h}= \biggl( \cfrac{1}{N} \sum_j^{N} \Bigl(\cfrac{\mathrm{d}E}{\mathrm{d}x}(j)\Bigr)^{-2} \biggr)^{-1/2},
-    \label{eq:app_harmonic}
-\end{equation}
-where $\mathrm{d}E/\mathrm{d}x(j)$ is the calibrated charge per unit path length of the
-$j^{\text{th}}$ measurement along a track.
+The calibration described in this appendix was carried out by Caroline Collard (IPHC Strasbourg). It is reported here for completeness, as this calibration work is used in the HSCP analysis, but none of the work presented in this section is my own.
 
-Figure~\ref{fig:app_stab_nocalib} compares the stability of \ih\ between the two runs. The
-\ih\ mean is extracted from a Gaussian fit, plotted against the run number for Run 2
-(run number $<310$k for 2017, $>310$k for 2018) and against the integrated luminosity for
-Run 3. In Run 2 the variation stays around 0.3\%, while Run 3 drifts downwards by several
-percent. The difference comes from the reconstruction: the Run 2 samples use the
-Ultra-Legacy reprocessing, whereas the Run 3 samples are produced with prompt reconstruction.
+\vspace{0.5 cm}
+
+The harmonic estimator $I_h$ depends on a calibrated measurement of charge per unit path length in each silicon module. During Run--2, this charge remained stable throughout the data-taking period, eliminating the need for time-dependent corrections. In contrast, Run--3 exhibited instability, necessitating a dedicated calibration for the 2022--2024 data.
+
+\cref{fig:app_stab_nocalib} presents a comparison of $I_h$ stability between the two runs. The mean value of $I_h$, obtained from a Gaussian fit, is plotted as a function of run number for Run--2 and integrated luminosity for Run--3. In Run--2, the variation remains approximately 0.3\%, whereas in Run--3, $I_h$ decreases by several percent. This discrepancy arises from differences in reconstruction: Run--2 samples utilise Ultra-Legacy reprocessing, while Run--3 samples employ prompt reconstruction.
 
 \begin{figure}[h!]
     \centering
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/Stab_Ih_Gauss_Run2.pdf}
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/Stab_IhNoCalib_Run3_Lumi.pdf}
-    \caption{Stability of \ih\ before calibration: (left) Run 2~\cite{CMS-AN-22-129}, from
-    2017--2018 Single Muon UL AOD samples with $\pt>55\GeV$ and $|\eta|<1$; (right) Run 3,
-    from 2022--2024 ZMu skim Prompt Reco AOD samples with $25<\pt<55\GeV$ and $|\eta|<2.4$.}
+     \includegraphics[width=0.47\textwidth]{Images/Ch4/Stab_Ih_Gauss_Run2.pdf}
+     \includegraphics[width=0.47\textwidth]{Images/Ch4/Stab_IhNoCalib_Run3_Lumi.pdf}
+    \caption{Stability of $I_h$ before calibration: (left) Run--2~\cite{HSCP_Run2}, from 2017--2018 Single Muon UL AOD samples with $p_T>55$~GeV and $|\eta|<1$; (right) Run--3, from 2022--2024 ZMu skim Prompt Reco AOD samples with $25<p_T<55$~GeV and $|\eta|<2.4$.}
     \label{fig:app_stab_nocalib}
 \end{figure}
 
-The d$E$/d$x$ information is only available in the AOD format. Following the current rules on
-data-format availability, the calibration is derived from the ZMu skim, which gives access to
-muon tracks with lower \pt than the analysis selection, at the price of a smaller sample than
-the Run 2 Single Muon datasets. The \ih\ stability uses tracks with $25<\pt<55\GeV$,
-$|\eta|<2.4$, High Purity, $N_{\text{Pix}}\ge 2$, $N_{\text{validhits}}\ge 8$,
-$\chi^2/\text{ndf}\le 5$, $|d_{xy}|\le 0.02$, $|d_z|\le 0.1$, $E/P\le 0.3$,
-MiniRel Iso $\le 0.1$, $\sum_{\Delta R<0.3}\pt\le 15\GeV$ and $\sigma(\pt)/\pt\le 0.25$.
-For the per-layer calibration the selection is loosened to gain statistics:
-$15<\pt<55\GeV$, $|d_{xy}|\le 0.5$, $|d_z|\le 0.5$, and the $E/P$ and isolation-sum
-requirements are dropped.
+The d$E$/d$x$ information is available exclusively in the AOD format. Consequently, calibration is performed using this format and is derived from the ZMu skim, which provides access to muon tracks with lower $p_T$ than those included in the HSCP analysis pre-selection. Standard quality and isolation criteria are applied to the tracks, with a slightly relaxed selection for per-layer calibration to increase statistical power.
 
-The luminosity binning is chosen to contain enough events per bin for the fit, while staying
-narrow enough to follow changes such as new gain settings or HV adjustments. It is shown in
-Fig.~\ref{fig:app_lumibin} and corresponds to bins of 3--5\fbinv.
+Luminosity binning is selected to ensure sufficient events per bin for fitting while keeping the bins narrow enough to monitor changes, such as new gain settings or HV adjustments. This approach results in bins of 3 to 5~fb$^{-1}$.
+
+\vspace{0.5 cm}
+
+Within each luminosity bin, the peak of the d$E$/d$x$ distribution is fitted using a Gaussian function, and the mean is adopted as the reference for that layer. The corresponding MPV for each layer of the silicon tracker is subsequently extracted. The pixel detector remains uncalibrated and is therefore not included in this work.
+
+A correction factor is defined in each bin as $\text{CF}=3.10/\mu_{\text{Gauss}}$, where the value 3.10 establishes the normalisation. Application of these correction factors results in a marked improvement in Run--3 $I_h$ stability, rendering it comparable to that observed in Run--2, as demonstrated in \cref{fig:app_stab_calib}.
 
 \begin{figure}[h!]
     \centering
-     \includegraphics[width=0.55\textwidth]{figures/Run3_StripCalibratrion/lumi_ranges.pdf}
-    \caption{Luminosity binning (vertical lines) used to calibrate the d$E$/d$x$ per strip
-    layer over the 2022--2024 period.}
-    \label{fig:app_lumibin}
-\end{figure}
-
-In each luminosity bin, the peak of the d$E$/d$x$ distribution is fitted with a Gaussian, and
-its mean is taken as the reference for that layer. The corresponding MPV values are shown in
-Fig.~\ref{fig:app_mpv} for the TIB and TOB layers and for the TID and TEC rings. The pixel
-detector is not calibrated and is not shown here.
-
-\begin{figure}[h!]
-    \centering
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/ChargTib_zoom_Lumi.pdf}
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/ChargTob_zoom_Lumi.pdf}\\
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/ChargRTid_zoom_Lumi.pdf}
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/ChargRTec_zoom_Lumi.pdf}
-    \caption{Gaussian peak of the d$E$/d$x$ distribution as a function of the integrated
-    luminosity: TIB layers (top left), TOB layers (top right), TID rings (bottom left) and
-    TEC rings (bottom right). Each layer or ring is drawn in a separate colour.}
-    \label{fig:app_mpv}
-\end{figure}
-
-A correction factor is defined in each bin as $\text{CF}=3.10/\mu_{\text{Gauss}}$, where the
-value 3.10 sets the normalisation. Once these factors are applied, the Run 3 \ih\ stability
-improves markedly and becomes comparable to Run 2, as shown in
-Fig.~\ref{fig:app_stab_calib}. The residual structure in the corrected Run 3 plot follows
-from the different binnings: the correction factors are derived in bins of 3--5\fbinv, while
-the stability is displayed with a 1\fbinv\ binning.
-
-\begin{figure}[h!]
-    \centering
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/Stab_Ih_Gauss_Run2.pdf}
-     \includegraphics[width=0.47\textwidth]{figures/Run3_StripCalibratrion/Stab_Ih_Run3_Lumi.pdf}
-    \caption{Stability of \ih\ after calibration: (left) Run 2, repeated from
-    Fig.~\ref{fig:app_stab_nocalib} for convenience~\cite{CMS-AN-22-129}; (right) Run 3 with
-    the correction factors applied.}
+     \includegraphics[width=0.47\textwidth]{Images/Ch4/Stab_Ih_Gauss_Run2.pdf}
+     \includegraphics[width=0.47\textwidth]{Images/Ch4/Stab_Ih_Run3_Lumi.pdf}
+    \caption{Stability of $I_h$ after calibration: (left) Run--2, repeated from \cref{fig:app_stab_nocalib} for convenience~\cite{HSCP_Run2}; (right) Run--3 with the correction factors applied.}
     \label{fig:app_stab_calib}
 \end{figure}
 
 This calibration was presented in the ``Strip calibration and local reconstruction''
-meetings of the Tracker DPG, the last time on March 25, 2025
-(\href{https://indico.cern.ch/event/1505992/#b-603415-strip-calibration-loc}{indico agenda}).
-The Tracker DPG convener, Martin Delcourt, gave his green light on the proposed correction at
-the end of that meeting.
-
+meetings of the Tracker DPG, where it was approved.
