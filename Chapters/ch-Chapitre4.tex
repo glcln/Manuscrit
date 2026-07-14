@@ -1,6 +1,7 @@
 \chapter{Search for Heavy Stable Charged Particles}
 \chaptermark{Search for Heavy Stable Charged Particles}
 \label{ch:chapitre4}
+\minitoc
 
 
 \section{Analysis strategy}
@@ -20,7 +21,12 @@ The data were collected in 2024 at a centre-of-mass energy of $\sqrt{s}=13.6$~Te
 
 The signal samples comprise pair-produced gluinos that hadronise into R-hadrons, generated using \textsc{MadGraph} at $\sqrt{s}=13.6$\,TeV for ten mass hypotheses between 1.1 and 2.6\,TeV, as detailed in ~\cref{tab:signal_samples}. The theoretical production cross section, computed at NNLO\textsubscript{approx}+NNLL~\cite{10.21468/SciPostPhysCore.7.4.072, Fiaschi_2023}, decreases as the gluino mass increases. This mass range surpasses the exclusion limits established by previous searches ($m_{\tilde{g}}^\textrm{lim}=2.08$~TeV)~\cite{HSCP_Run2}.
 
-The main background primarily consists of high-$p_T$ muons produced in addition to MET. The dominant processes are top-quark pair production in the dileptonic channel, $t\bar{t}\to 2\ell 2\nu$, and $W$ boson production in association with jets in the muonic decay channel, $W(\to\mu\nu)+\text{jets}$. Additionally, QCD multijet production is modelled using twelve exclusive slices of muon-enriched samples spanning $p_T$ from 15~GeV to above 1~TeV. For each sample, \cref{tab:mc_samples_2024} provides the production cross section and its associated uncertainty.
+The main background primarily consists of high-$p_T$ muons produced in addition to MET. The dominant processes are top-quark pair production in the dileptonic channel, $t\bar{t}\to 2\ell 2\nu$, and $W$ boson production in association with jets in the muonic decay channel, $W(\to\mu\nu)+\text{jets}$. Additionally, QCD multijet production is modelled using twelve slices of muon-enriched samples spanning $p_T$ from 15~GeV to above 1~TeV. For each sample, \cref{tab:mc_samples_2024} provides the production cross section with its associated uncertainty.
+
+All signal and background MC samples are reweighted to match the 2024 luminosity, from which the corresponding weight is calculated as follows:
+\begin{equation}
+    w = \frac{\sigma \times \mathcal{L}}{\rm Total\,\,number\,\,of\,\,events} \, .
+\end{equation} 
 
 \begin{table}[h!]
 \centering
@@ -48,20 +54,20 @@ The main background primarily consists of high-$p_T$ muons produced in addition 
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \centering
-    \begin{tabular}{cc}
+    \begin{tabular}{ccc}
     \toprule
-    $m_{\tilde{g}}$ [GeV] & $\sigma$ [pb] \\
+    $m_{\tilde{g}}$ [GeV] & $\sigma$ [pb] & weight \\
     \midrule
-    1100 & $2.450 \times 10^{-1}$ \\
-    1200 & $1.288 \times 10^{-1}$ \\
-    1300 & $6.978 \times 10^{-2}$ \\
-    1400 & $3.883 \times 10^{-2}$ \\
-    1600 & $1.282 \times 10^{-2}$ \\
-    1800 & $4.524 \times 10^{-3}$ \\
-    2000 & $1.684 \times 10^{-3}$ \\
-    2200 & $6.535 \times 10^{-4}$ \\
-    2400 & $2.627 \times 10^{-4}$ \\
-    2600 & $1.089 \times 10^{-4}$ \\
+    1100 & $2.450 \times 10^{-1}$ & $2.622 \times 10^{-1}$ \\
+    1200 & $1.288 \times 10^{-1}$ & $1.377 \times 10^{-1}$ \\
+    1300 & $6.978 \times 10^{-2}$ & $7.422 \times 10^{-2}$ \\
+    1400 & $3.883 \times 10^{-2}$ & $4.214 \times 10^{-2}$ \\
+    1600 & $1.282 \times 10^{-2}$ & $1.444 \times 10^{-2}$ \\
+    1800 & $4.524 \times 10^{-3}$ & $5.165 \times 10^{-3}$ \\
+    2000 & $1.684 \times 10^{-3}$ & $1.906 \times 10^{-3}$ \\
+    2200 & $6.535 \times 10^{-4}$ & $7.211 \times 10^{-4}$ \\
+    2400 & $2.627 \times 10^{-4}$ & $2.860 \times 10^{-4}$ \\
+    2600 & $1.089 \times 10^{-4}$ & $1.241 \times 10^{-4}$ \\
     \bottomrule
     \end{tabular}
     \caption{Signal samples of pair-produced gluinos used in the analysis, with the corresponding production theoretical cross sections.}
@@ -72,35 +78,35 @@ The main background primarily consists of high-$p_T$ muons produced in addition 
 \begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{lrc}
+\begin{tabular}{lrrc}
 \toprule
-MC sample 2024 & $\sigma$ [pb] & color \\
+\multicolumn{1}{c}{MC sample 2024} & \multicolumn{1}{c}{$\sigma$ [pb]} & \multicolumn{1}{c}{weight} & color \\
 \midrule
-QCD $\mu$-enriched, $p_T \in [15,20[$\,GeV   & $2\,982\,000 \pm 9502$   &  \\
-QCD $\mu$-enriched, $p_T \in [20,30[$\,GeV   & $2\,679\,000 \pm 8497$   &  \\
-QCD $\mu$-enriched, $p_T \in [30,50[$\,GeV   & $1\,465\,000 \pm 4593$   &  \\
-QCD $\mu$-enriched, $p_T \in [50,80[$\,GeV   & $409\,500 \pm 1276$      &  \\
-QCD $\mu$-enriched, $p_T \in [80,120[$\,GeV  & $96\,200 \pm 299.4$      &  \\
-QCD $\mu$-enriched, $p_T \in [120,170[$\,GeV & $22\,980 \pm 71.7$       & \colorbox{qcdcol}{\phantom{x}} \\
-QCD $\mu$-enriched, $p_T \in [170,300[$\,GeV & $7763 \pm 23.8$          &  \\
-QCD $\mu$-enriched, $p_T \in [300,470[$\,GeV & $699.1 \pm 2.13$         &  \\
-QCD $\mu$-enriched, $p_T \in [470,600[$\,GeV & $68.24 \pm 0.2042$       &  \\
-QCD $\mu$-enriched, $p_T \in [600,800[$\,GeV & $21.37 \pm 0.06407$      &  \\
-QCD $\mu$-enriched, $p_T \in [800,1000[$\,GeV& $3.913 \pm 0.01164$      &  \\
-QCD $\mu$-enriched, $p_T \geq 1000$\,GeV     & $1.323 \pm 0.003969$     &  \\
+QCD $\mu$-enriched, $p_T \in [15,20[$\,GeV   & $2\,982\,000 \pm 9502$   & $2599$  &  \\
+QCD $\mu$-enriched, $p_T \in [20,30[$\,GeV   & $2\,679\,000 \pm 8497$   & $3128$  &  \\
+QCD $\mu$-enriched, $p_T \in [30,50[$\,GeV   & $1\,465\,000 \pm 4593$   & $1678$  &  \\
+QCD $\mu$-enriched, $p_T \in [50,80[$\,GeV   & $409\,500 \pm 1276$      & $415.2$  &  \\
+QCD $\mu$-enriched, $p_T \in [80,120[$\,GeV  & $96\,200 \pm 299.4$      & $111.3$  &  \\
+QCD $\mu$-enriched, $p_T \in [120,170[$\,GeV & $22\,980 \pm 71.7$       & $25.08$  & \colorbox{qcdcol}{\phantom{x}} \\
+QCD $\mu$-enriched, $p_T \in [170,300[$\,GeV & $7763 \pm 23.8$          & $8.965$  &  \\
+QCD $\mu$-enriched, $p_T \in [300,470[$\,GeV & $699.1 \pm 2.13$         & $0.9543$ &  \\
+QCD $\mu$-enriched, $p_T \in [470,600[$\,GeV & $68.24 \pm 0.2042$       & $0.1036$ &  \\
+QCD $\mu$-enriched, $p_T \in [600,800[$\,GeV & $21.37 \pm 0.06407$      & $0.02712$ &  \\
+QCD $\mu$-enriched, $p_T \in [800,1000[$\,GeV& $3.913 \pm 0.01164$      & $0.005226$ &  \\
+QCD $\mu$-enriched, $p_T \geq 1000$\,GeV     & $1.323 \pm 0.003969$     & $0.001671$ &  \\
 \midrule
-$t\bar{t}\to 2\ell2\nu$                & $98.1^{+2.4}_{-3.5}$ & \colorbox{ttcol}{\phantom{x}} \\
+$t\bar{t}\to 2\ell2\nu$                & $98.1^{+2.4}_{-3.5}$ & $0.02341$ & \colorbox{ttcol}{\phantom{x}} \\
 \midrule
-$W (\to \mu\nu)$ + jets     & $20\,790 \pm 90.5$ & \colorbox{wcol}{\phantom{x}} \\
+$W (\to \mu\nu)$ + jets     & $20\,790 \pm 90.5$ & $4.234$ & \colorbox{wcol}{\phantom{x}} \\
 \bottomrule
 \end{tabular}
-\caption{Monte Carlo samples used for the 2024 analysis with their production cross sections.}
+\caption{Monte Carlo samples used for the 2024 analysis with their production cross sections and event weights.}
 \label{tab:mc_samples_2024}
 \end{table}
 
 \section{Analysis tools}
 
-\subsection{d\textit{E}/d\textit{x} discriminator $F_{\text{pixel}}$}
+\subsection{The d\textit{E}/d\textit{x} pixel discriminator \texorpdfstring{$F_{\text{pixel}}$}{Fpixel}}
 
 In this analysis, the pixel information is exploited via $F_{\text{pixel}}$, which quantifies the compatibility of a track with a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
 These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function $V(Q)$ templates to model the charge distribution of MIPs.
@@ -166,13 +172,13 @@ Assuming the data distribution is perfectly flat when it is not introduces syste
 \end{figure}
 
 
-\subsection{The \texorpdfstring{$I_h$}{Ih} estimator}
+\subsection{The d\textit{E}/d\textit{x} strip estimator \texorpdfstring{$I_h$}{Ih}}
 
 The search for HSCPs relies on tracking anomalous d$E$/d$x$ deposits within detector materials. The average energy deposit per track across the silicon tracker layers is quantified using the $I_h$ estimator, as detailed in \cref{sec:ihpres}. Owing to their greater mass, HSCPs generate higher energy deposits than MIPs produced by SM processes. MIPs exhibit nearly constant ionisation, resulting in low $I_h$ values for SM tracks, whereas HSCPs deposit substantially more charge per unit length and occupy the high-$I_h$ region. Therefore, $I_h$ enables effective discrimination between SM processes and HSCPs. This approach is complementary to the pixel-based estimator $F_{\text{pixel}}$, which utilises the shape of the charge distribution in the innermost layers, whereas $I_h$ aggregates ionisation measurements across the strip tracker.
 
 \vspace{0.5 cm}
 
-\cref{fig:IhSignalData} demonstrates this separation. The upper panel presents the normalised $I_h$ distribution after the analysis preselection criteria. The data distribution (left) exhibits a sharp peak at low ionisation, approximately $3.2$~MeV/cm, consistent with the MIP expectation, and decreases rapidly at higher values. In contrast, a gluino with $m=2000$~GeV (right) gives rise to higher $\langle\dedx\rangle$ values. The lower panel shows the corresponding cumulative distribution functions: the data CDF rises to unity almost immediately, while the gluino CDF increases gradually, highlighting the strong separation between the two populations across most of the $I_h$ range.
+\cref{fig:IhSignalData} demonstrates this separation. The upper panel presents the normalised $I_h$ distribution after the analysis preselection criteria. The data distribution (left) exhibits a sharp peak at low ionisation, approximately $3.2$~MeV/cm, consistent with the MIP expectation, and decreases rapidly at higher values. In contrast, a gluino with $m=2000$~GeV (right) gives rise to higher $\langle\mathrm{d}E/\mathrm{d}x\rangle$ values. The lower panel shows the corresponding cumulative distribution functions: the data CDF rises to unity almost immediately, while the gluino CDF increases gradually, highlighting the strong separation between the two populations across most of the $I_h$ range.
 
 \begin{figure}[h!]
    \centering
@@ -207,6 +213,7 @@ These checks confirm that both ionisation variables can be used consistently ove
 \label{sec:HSCPpresel}
 
 \subsection{Trigger event selection}
+\label{sec:trigger}
 
 The Run~3 HSCP analysis targets primarily hadron-like candidates, for which the $dE/dx$-based single-muon trigger strategy adopted in Run~2 is not optimal. R-hadrons are pair-produced with a charged and a neutral component in roughly half of the events, and the resulting momentum imbalance, together with initial-state radiations (ISRs), gives rise to missing transverse energy. A dedicated MET trigger strategy was therefore developed, combining four HLT paths:
 
@@ -397,166 +404,247 @@ The trigger's response to pair-produced HSCPs depends on their electric charge. 
 
 
 \subsection{HSCP candidates selection}
+\label{sec:preselection}
 
+Before background estimation, a set of offline requirements is imposed on events and tracks to select HSCP candidates. The primary sources of such tracks in data are $W(\to \mu\nu)$+jets, $t\bar{t}\to 2\ell 2\nu$ events, and QCD multijet $\mu$-enriched production, where a high $p_T$ muon can imitate the signature of a slow, highly ionising particle. The preselection aims to suppress these backgrounds while maintaining high signal efficiency. Final selection occurs in the $\left(p_T, F_\textrm{pixel}\right)$ plane, as defined in the ABCD method at the background estimation step, with region D serving as the signal region.
 
+\vspace{0.5 cm}
 
+At the event level, candidates must activate at least one of the MET trigger paths described in \cref{sec:trigger} and pass the standard MET noise filters, which remove events where missing transverse momentum arises from detector effects such as noisy calorimeter cells. An offline requirement of PUppi MET > 150~GeV is subsequently applied to ensure robust signal selection while maintaining scale factors close to unity, thereby preserving reliable simulation modelling.
 
-\section{Systematics}
-\label{sec:systematics}
+The candidate track must satisfy $p_T > 50$~GeV and $|\eta| < 2.4$. The transverse momentum threshold minimally affects the signal, as $p/m = \beta\gamma$ implies that particles with masses of several hundred GeV possess momenta well above this limit, while the background spectrum decreases sharply. The pseudorapidity range matches the full tracker acceptance. Unlike the Run-2 analysis, which relied on a single-muon trigger and limited the search to $|\eta| < 1.0$ (homogeneous silicon tracker and mostly muon DTs), the current MET-based strategy eliminates dependence on the muon system and restores forward acceptance.
+
+\vspace{0.5 cm}
+
+A first group of criteria targets the quality of the track reconstruction and of the ionisation measurement:
+\begin{itemize}
+  \item at least two valid pixel hits are required, so that the $F_\textrm{pixel}$ discriminant is built from a minimum of two independent cluster probabilities;
+  \item the fraction of valid hits, i.e.\ the fraction of hits compatible with the propagated trajectory among the crossed modules, must exceed 0.8, rejecting misreconstructed tracks;
+  \item at least ten $\mathrm{d}E/\mathrm{d}x$ measurements must enter the estimators, the first barrel pixel layer being excluded as it is the most exposed to radiation effects. For signal tracks, the number of measurements peaks around fifteen, so this requirement mainly removes short tracks;
+  \item the track must carry the \textit{HighPurity} flag (see \cref{sec:final_track_fit}) and satisfy $\chi^{2}/N_{\mathrm{dof}} < 5$, the latter being largely redundant with the former but removing a residual population with anomalous fit quality.
+\end{itemize}
+
+Compatibility with the primary vertex is enforced through $|d_{z}| < 0.1$~cm and $|d_{xy}| < 0.02$~cm, restricting the search to promptly produced particles.
+
+\vspace{0.5 cm}
+
+Two isolation criteria are applied to reject non-prompt leptons produced within jets, which are the primary sources of QCD and $t\overline{t}$ background contributions. The relative isolation, calculated from particle-flow candidates surrounding the track, must satisfy $I_\textrm{rel}^\textrm{PF} < 0.02$. Additionally, the tracker-based isolation $I_\textrm{trk}$, defined for all tracks within a cone of $\Delta R < 0.3$, must remain below 15~GeV (both isolations are defined in \cref{sec:muons}). As shown in the cutflow of table~\ref{tab:preselection}, the particle-flow isolation requirement is among the most effective offline discriminants in the data. This criterion reduces the selected sample by nearly an order of magnitude, while the associated signal loss remains at the percent level.
+
+Due to the relativistic rise of the Bethe-Bloch curve, electrons in this region can produce ionisation signatures similar to those of slow, massive particles. However, electrons deposit nearly all their energy in the electromagnetic calorimeter. Therefore, imposing the requirement that the calorimetric energy be less than the track momentum ($E/p < 0.3$) effectively removes this background without affecting the signal. Tracks with poorly measured momentum, which may result from incorrectly assigned hits or hit sharing between nearby particles, are excluded by requiring $\sigma_{p_T}/p_T^{2} < 0.0008$~GeV$^{-1}$ and $\sigma_{p_T}/p_T < 1$. The latter criterion specifically addresses the high-momentum region, where the relative resolution deteriorates.
+
+Two additional requirements are imposed directly on the ionisation estimators. Broken clusters, which occur when a long pixel cluster is split into multiple clusters in the readout chips or due to irradiation effects, bias the charge estimate toward lower values. Applying a cut at $F_\textrm{pixel} > 0.3$ removes these affected tracks, while the signal distribution peaks near unity. A minimum ionisation requirement of $I_h > C_\mathrm{mass}$ is also imposed, where $C_\mathrm{mass}$ is a parameter used in the subsequent mass reconstruction; its value sits near the MIP level ($\approx3$~MeV/cm).
+
+\vspace{0.5 cm}
+
+\cref{tab:preselection} presents the successive selection requirements and their cumulative efficiencies for the 2024 MET dataset and a pair-produced gluino sample with $m_{\tilde{g}} = 2000$~GeV. \cref{fig:cutflow} displays the corresponding cutflow in terms of the absolute number of events. The preselection reduces the dataset by nearly four orders of magnitude while retaining $11.6\%$ of the signal. In comparison, the Run~2 analysis achieved a final efficiency of $4.8\%$ for the same mass point. The improvement by more than a factor of two is attributed to the revised trigger strategy, which no longer relies on reconstructing the HSCP as a muon, and to the extended pseudorapidity coverage enabled by this approach.
+
+\begin{table}[h!]
+  \centering
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{rcc}
+    \toprule
+    Requirement & MET data (\%) & $m_{\tilde{g}}=2000$~GeV (\%) \\
+    \midrule
+    All                                  & $100.00$ & $100.00$ \\
+    MET trigger (OR)                  & $9.64$   & $31.46$  \\
+    MET filters                       & $9.32$   & $30.79$  \\
+    PUppi MET > 150~GeV                & $4.29$   & $25.84$  \\
+    $p_T > 50$~GeV                       & $0.59$   & $18.78$  \\
+    $|\eta| < 2.4$                       & $0.53$   & $18.49$  \\
+    $N_{\text{pixel hits}} \geq 2$       & $0.51$   & $17.80$  \\
+    $f_{\text{valid hits}} > 0.8$        & $0.50$   & $17.79$  \\
+    $N_{\mathrm{d}E/\mathrm{d}x} \geq 10$                  & $0.41$   & $16.05$  \\
+    High purity                          & $0.41$   & $16.04$  \\
+    $\chi^{2}/N_{\text{dof}} < 5$        & $0.41$   & $16.03$  \\
+    $|d_{z}| < 0.1$~cm                   & $0.40$   & $16.02$  \\
+    $|d_{xy}| < 0.02$~cm                 & $0.40$   & $16.00$  \\
+    $I_\textrm{rel}^\textrm{PF} < 0.02$                     & $0.05$   & $13.38$  \\
+    $I_{\text{trk}} < 15$~GeV & $0.04$ & $11.96$  \\
+    $E/p < 0.3$                          & $0.03$   & $11.94$  \\
+    $\sigma_{p_T}/p_T^{2} < 0.0008$      & $0.03$   & $11.76$  \\
+    $F_\textrm{pixel} > 0.3$                      & $0.02$   & $11.74$  \\
+    $\sigma_{p_T}/p_T < 1$               & $0.02$   & $11.62$  \\
+    $I_h > C_\mathrm{mass}$                            & $0.02$   & $11.61$  \\
+    \bottomrule
+  \end{tabular}
+  \caption{Cumulative efficiencies of the preselection requirements for the 2024 MET dataset and a pair-produced gluino signal with $m_{\tilde{g}} = 2000$~GeV. Each line includes all the requirements listed above it.}
+  \label{tab:preselection}
+\end{table}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.85\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/EventCutflow.pdf}
+  \caption{Number of events passing each successive preselection requirement, for the 2024 MET dataset, the simulated background and a pair-produced gluino signal with $m_{\tilde{g}} = 2000$~GeV.}
+  \label{fig:cutflow}
+\end{figure}
+
+The distributions of three representative preselection variables, $\eta$, $I_\mathrm{rel}^\mathrm{PF}$, and $I_h$, are presented in \cref{fig:nminus1} at three stages of the selection process. The top row illustrates the distributions before any selection requirements are applied. The middle row represents the N$-$1 configuration, where all requirements except the one under study are applied. This configuration reveals the individual distributions once the remaining selection criteria are imposed, allowing one to choose the threshold based on both signal and data. The bottom row displays the variables after the full preselection is applied. In each panel, the lower pad presents the cumulative distributions, and the dashed lines denote the applied cuts. In the N$-$1 configuration, each cut removes a data-dominated region while preserving most of the signal, thereby confirming that the strategy adopted from previous analysis iterations remains suitable for Run--3 conditions.
+ 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.32\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/NoselEff_ALL-2.pdf}
+    \includegraphics[width=0.33\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/NoselEff_ALL-3.pdf}
+    \includegraphics[width=0.32\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/NoselEff_ALL-9.pdf}
+    \\
+    \includegraphics[width=0.32\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1Eff_ALL-5.pdf}
+    \includegraphics[width=0.33\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1Eff_ALL-13.pdf}
+    \includegraphics[width=0.32\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1Eff_ALL-19.pdf}
+    \\
+    \includegraphics[width=0.32\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1EffCutZeroed_ALL-5.pdf}
+    \includegraphics[width=0.33\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1EffCutZeroed_ALL-13.pdf}
+    \includegraphics[width=0.32\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1EffCutZeroed_ALL-19.pdf}
+  \caption{Distributions of $\eta$ (Left), $I_\mathrm{rel}^\mathrm{PF}$ (Middle) and $I_h$ (Right) before any selection (Top), in the N$-$1 configuration where all requirements are applied except the one displayed (Middle), and after the full preselection (Bottom). The lower pads show the cumulative distributions, and the dashed lines indicate the applied cuts. In each distribution, the last bin groups the overflow bin.}
+  \label{fig:nminus1}
+\end{figure}
+
 
 
 \section{Mass reconstruction strategy}
 
 
 
-\subsection{Description of the method}
-
-Mass parametrization
-
 
 \section{Background estimation method}
 
+The background estimation relied on the mass reconstruction of HSCP candidates. It allows prediction of the event yield in the signal region as well as the background mass spectrum. 
+
 \subsection{Method description}
 
-The background estimation is then performed using the ABCD method, where the phase space is divided between the $F_\textrm{pixel}$ variable and the transverse momentum $p_T$ values. The control (CR) and signal regions (SR) are defined with cuts on these assumed non-correlated variables. The sketch in \cref{fig:scheme_ABCDmass} shows the different regions. We define the signal region as the region $D$, corresponding to HSCP candidates with  high $p_T$ and high $F_\textrm{pixel}$ values, while the regions $A$, $B$ and $C$ correspond respectively to candidates with low $p_T$ and low $F_\textrm{pixel}$ values, 
-to candidates with low $p_T$ and high $F_\textrm{pixel}$ values, and to candidates with high $p_T$ and low $F_\textrm{pixel}$ values. 
+Background estimation is performed using the ABCD method, in which the phase space is partitioned according to the $F_\textrm{pixel}$ variable and transverse momentum $p_T$. Control (CR) and signal regions (SR) are established by applying selection criteria to these variables, which are assumed to be uncorrelated. The schematic in \cref{fig:scheme_ABCDmass} illustrates the defined regions. The signal region, denoted as region $D$, includes HSCP candidates with both high $p_T$ and high $F_\textrm{pixel}$ values. Regions $A$, $B$, and $C$ correspond to candidates with low $p_T$ and low $F_\textrm{pixel}$ values, to candidates with low $p_T$ and high $F_\textrm{pixel}$ values, and to candidates with high $p_T$ and low $F_\textrm{pixel}$ values, respectively.
 
-In reality, we can define several B and D regions on which to apply the background prediction method, such that, in addition to the signal regions, different validation regions defined by slicing the $F_\textrm{pixel}$ distribution can be used as validation regions (VR) to test the validity of the mass prediction.
-
-Distributions of MC and signal events in the $F_\textrm{pixel}$ vs $p_T$ plane are shown in \cref{fig:2D_mc_fpix_pt}. The $F_\textrm{pixel}$ threshold of 0.9 has been chosen to achieve high signal efficiency (around 90\%) while maintaining good background rejection (around 10\%). A visual representation of the $F_\textrm{pixel}$ distribution for a Wjets MC sample and a signal sample is shown in \cref{fig:fpix_mc_signal}.
-
-The method predicts the normalisation (the number of events) in the signal region $D$, based on the number of events of the control regions $A$, $B$ and $C$, such as 
-\begin{equation}
-	{\rm yield}_D= {\rm yield}_B\times {\rm yield}_C/{\rm yield}_A. 
-\label{eq:normalisation}
-\end{equation}
-
+Multiple $B$ and $D$ regions can be defined for application of the background prediction method. In addition to the signal regions, various validation regions (VR), determined by segmenting the $F_\textrm{pixel}$ distribution, are utilised to assess the validity of the mass prediction.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.6\linewidth]{Images/Ch4/hscp_regions_abcd.pdf}
-  \caption{Schematic representation of the ABCD method used for the background estimation. The phase space is divided between $F_\textrm{pixel}$ and $p_T$ values. Templates used to derive the predicted mass spectrum are obtained in a control region (CR). The signal region (SR) is defined as the region with high $F_\textrm{pixel}$ and $p_T$ values.
-  }
+  \caption{Schematic representation of the ABCD method used for the background estimation. The phase space is divided between $F_\textrm{pixel}$ and $p_T$ values. Templates used to derive the predicted mass spectrum are obtained in a control region (CR). The signal region (SR) is defined as the region with high $F_\textrm{pixel}$ and $p_T$ values.}
   \label{fig:scheme_ABCDmass}
 \end{figure}
 
+Distributions of background (represented by the MC) and signal events in the $F_\textrm{pixel}$ versus $p_T$ plane are presented in \cref{fig:2D_mc_fpix_pt}. A threshold of $F_\textrm{pixel} = 0.9$ is selected to achieve approximately 90\% signal efficiency while maintaining background rejection near 10\%. The Y-profile of the plane indicates that the average $p_T$ of the background remains constant at approximately 120~GeV, regardless of the $F_\textrm{pixel}$ value.
+
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\linewidth]{Images/Ch4/CompareMaping_mc.pdf}
+  \includegraphics[width=0.49\linewidth]{Images/Ch4/CompareMaping_MC.pdf}
   \includegraphics[width=0.49\linewidth]{Images/Ch4/CompareMaping_gluino.pdf}
   \caption{Distribution of $p_T$ as a function of $F_\textrm{pixel}$ for a MC SM process with the Y--profile in Red (Left), and for a gluino sample with $m_{\tilde{g}}=2000$~GeV (Right).
   }
   \label{fig:2D_mc_fpix_pt}
 \end{figure}
 
+
+This method estimates the normalisation, defined as the number of events, in the signal region $D$ by utilising the event counts from control regions $A$, $B$, and $C$ as follows:
+\begin{equation}
+	{\rm yield}_D= {\rm yield}_B\times {\rm yield}_C/{\rm yield}_A. 
+\label{eq:normalisation}
+\end{equation}
+
+Furthermore, the method predicts the shape of the mass distribution in the signal region $D$ using information from the control region (CR) $C$. The $\mathrm{d}E/\mathrm{d}$ estimator $I_h$ and the inverse momentum $1/p$ distributions are extracted from the CR to ensure that high values of $p$ are excluded.
+
+An example of these templates is presented in \cref{fig:ih_oP_fit}. Fits are applied to the tails of these templates to minimise the influence of statistical fluctuations. The $I_h$ tail distribution is fitted with a Gaussian function, and the latter is used when the bin content is below 100 tracks and with an $I_h$ value of at least 10\% greater than the maximum. The $1/p$ initial tail distribution is fitted using an Error function for bins below 90\% of the maximum and is used when $1/p$ is less than 20\% of the maximum. For the latter, the fit exhibits a higher $\chi^2/N_\textrm{dof}$, primarily due to fluctuations near the distribution's maximum.
+
+
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.6\linewidth]{Images/Ch4/Fpixel_plot.pdf}
-  \caption{Distribution of $F_\textrm{pixel}$ for MC Wjets and for a signal sample. The dashed line represents the $F_\textrm{pixel}$ cut at 0.9, defining the SR for high $p_T$ values.
-  }
-  \label{fig:fpix_mc_signal}
-\end{figure}
-
-Moreover, the method predicts the shape of the mass distribution in the signal region $D$, based on information coming from the CR $C$. To do so, the \dedx\ estimator $I_h$\ and the inverse of the momentum $1/p$ distributions are extracted from the CR. An example of such templates is provided in \cref{fig:ih_oP_fit}, note that fits are performed on the tail of these templates and used later on in the procedure to minimise the effect of statistical fluctuations.
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Ih_newfit.pdf}
-  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/oP_newfit.pdf}
-  \caption{Templates of the $I_h$\ (Left) and $1/p$ (Right) distributions extracted in the CR $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.
-  }
+  \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/Ih_newfit_bis.pdf}
+  \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/oP_newfit_bis.pdf}
+  \caption{Templates of the $I_h$ (Left) and $1/p$ (Right) distributions extracted in the CR $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.}
   \label{fig:ih_oP_fit}
 \end{figure}
 
-Since the pseudo-rapidity $\eta$ distribution in the control region $C$ does not reflect the $\eta$ distribution of the region $D$ (as shown on \cref{fig:eta_reweighting} (Left)), a reweighing is performed to match the $\eta$ distribution in the SR. The distribution in the CR $C$ is changed to
-
+Because the $\eta$ distribution in the CR $C$ does not accurately represent the $\eta$ distribution in region $D$ (as shown in \cref{fig:eta_reweighting} (Left)), a reweighting procedure is implemented to align the $\eta$ distribution with that of the SR. The distribution in CR $C$ is modified as follows:
 \begin{equation}
   \eta_C \rightarrow \eta_C \times \frac{\eta_B}{\eta_A} \, .
 \end{equation}
-The weights are then applied to the $1/p$ distribution of the region CR $C$ to match the distribution in the SR. \cref{fig:eta_reweighting} (Right) shows the agreement between the reweighted distribution in the CR $C$ and the one in the VR.
+These weights are subsequently applied to the $1/p$ distribution in CR $C$ to achieve consistency with the distribution observed in the signal region. \cref{fig:eta_reweighting} (Right) demonstrates the agreement between the reweighted distribution in CR $C$ and that in the VR.
 
 \begin{figure}[!h]
     \centering
-	  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg.pdf}
-    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg__1oP.pdf}
-    \caption{(Left) Distribution of $\eta$ for the region $C$ (Green) and the region $D$ (Black), and the distribution after the eta reweighting (Red). (Right) Distribution of $1/p$ in the region VR (Black), compared to the one in C after the eta reweighting (Red).
-    }
+	  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg__1oP_bis.pdf}
+    \caption{Left: Distribution of $\eta$ for the region $C$ (Green) and the region $D$ (Black), and the distribution after the eta reweighting (Red). Right: Distribution of $1/p$ in the region VR (Black), compared to the one in C after the eta reweighting (Red).}
 		 \label{fig:eta_reweighting}
 \end{figure}
 
+Due to the correlation between $p$, $p_T$, and $\eta$ (and to a lesser extent between $I_h$ and $\eta$), the mass distribution is reconstructed in bins of $\eta$. To facilitate this, templates in the CR are constructed in two dimensions: ($1/p$, $\eta$) and ($\eta$, $I_h$). The $\eta$ distribution is divided into 24 bins, $I_h$ into 100 bins, and $1/p$ into 500 bins.
 
-Because of the correlation between $p$, $p_T$ and $\eta$ (also between $I_h$ and $\eta$, but smaller), the mass distribution is reconstructed per bin in $\eta$. To achieve this, the templates in the CR are now constructed in 2 dimensions: ($1/p$, $\eta$) and ($\eta$, $I_h$). 24 bins are used for the $\eta$ distribution, 100 for $I_h$\ and 500 for $1/p$. 
-
-The mass distribution is therefore filled by doing a triple loop: starting first a loop over $\eta$, inside which we run over $1/p$ bins, inside which we finally run over $I_h$\ bins. Inside this triple loop, using the indices ($i$, $j$, $k$) associated to the ($\eta$, $1/p$, $I_h$) bin, we compute :
+The mass distribution is filled using a triple loop: the outer loop iterates over $\eta$ bins, the middle loop over $1/p$ bins, and the inner loop over $I_h$ bins. Within this structure, the indices ($i$, $j$, $k$) correspond to the ($\eta$, $1/p$, $I_h$) bin, where the relevant computations are performed:
 
 \begin{itemize}
   \item the mass value $M_{i,j,k}$ as
   \begin{equation}
     M_{i,j,k} = p_{j,i} \times \sqrt{\frac{I_{h_{i,k}}-C}{K} }
   \end{equation}
-  where $p_{j,i}$ is the momentum value taken as the inverse of the $1/p$ value in the $(j,i)$ bin of the $(1/p,\eta)$ template, and $I_{h_{i,k}}$ is the \dedx\ $I_h$\ value of the $(i,k)$ bin of the $(\eta,$$I_h$$)$ template;
+  where $p_{j,i}$ is the momentum value taken as the inverse of the $1/p$ value in the $(j,i)$ bin of the $(1/p,\,\eta)$ template, and $I_{h_{i,k}}$ is the $\langle\mathrm{d}E/\mathrm{d}x\rangle$ value of the $(i,k)$ bin of the $(\eta,\,I_h)$ template;
   
   \item and the associated weight $w_{i,j,k}$
   \begin{equation}
     w_{i,j,k} = \left(\frac{n_{ji}}{\sum_m n_{mi}}\right) \cdot h_{ik}
   \end{equation}
-  where $n_{ji}$ is the number of observed events in the $(j,i)$ bin of the $(1/p,\eta)$ distribution and $h_{ik}$ is the number of observed events in the $(i,k)$ bin of the $(\eta,$ $I_h$$)$ distribution;
+  where $n_{ji}$ is the number of observed events in the $(j,i)$ bin of the $(1/p,\,\eta)$ distribution and $h_{ik}$ is the number of observed events in the $(i,k)$ bin of the $(\eta,\,I_h)$ distribution.
 \end{itemize}
-and fill the mass distribution accordingly. Once the mass shape is constructed, it is rescaled to the expected global normalisation given by equation (\ref{eq:normalisation}).
+Thus, the mass distribution is constructed and is then rescaled to the expected global normalisation given by equation (\ref{eq:normalisation}).
 
-To compute the statistical uncertainty associated with the prediction, 200 pseudo-experiments are used. For each of them, new templates are generated by throwing the value randomly in each bin from a Poisson distribution with mean equal to the yield content of the original template bin. The randomisation also applies to the yield in the CR entering the global normalisation. The average of these 200 pseudo mass predictions is used as the central value for the mass prediction; the RMS defines the statistical uncertainty envelope.
+Statistical uncertainty associated with the prediction is estimated using 200 pseudo-experiments. For each pseudo-experiment, new $I_h$ and $1/p$ templates are generated by randomly sampling each bin from a Poisson distribution with a mean equal to the yield of the corresponding original template bin. This randomisation is also applied to the yield in the CR used for global normalisation. The mean of the 200 pseudo-mass predictions serves as the central value for the mass prediction, while the RMS defines the statistical uncertainty envelope.
+
+
 
 \subsection{Preliminary remarks on the mass reconstruction method}
 \label{sec:abcd_remarks}
 
-This method was used in numerous previous versions of the HSCP analysis. But several modifications have been made since the last CMS public results; here is the list:
+This method has been employed in several previous iterations of the HSCP analysis. However, multiple modifications have been implemented since the most recent CMS public results~\cite{HSCP_Run2}. The key changes are as follows:
 \begin{itemize}
-  \item New mapping for the phase space, $F_\textrm{pixel}$, as the latter is slightly correlated to the transverse momentum $p_T$, leading to a bias in the mass spectrum prediction. 
-	\item New fit for the $I_h$ and $1/p$ templates. Especially for the $1/p$ distribution, for which in the forward region ($|\eta|>1$) the shape is different at low $1/p$, leading to a bad mass calculation after all using the previous fit function.
-  \item The eta reweighting is now performed using the three other regions ($A-B-C$) of the ABCD method, instead of using only the regions $B$ and $C$ as it was done in the previous version of the analysis.
+  \item A new mapping for the phase space, $F_\textrm{pixel}$, is employed in place of $G_\textrm{strip}$. The $G_\textrm{strip}$ estimator relies on d$E$/d$x$ deposits within strip sensors to determine whether a HSCP candidate is compatible with a track depositing at the MIP level. $G_\textrm{strip}$ increases exponentially towards 1 for events that are incompatible with the MIP. However, this estimator correlates with $p_T$: higher $p_T$ values yield greater d$E$/d$x$ deposits, introducing bias in mass-spectrum predictions.
+  \item The fits of the $I_h$ and $1/p$ tail templates have been refined to accommodate the expanded eta acceptance. This adjustment is particularly significant for the $1/p$ distribution, where, in the forward region ($|\eta|>1$), the shape differs at low $1/p$, leading to inaccurate mass calculations with previous fitting strategies.
+  \item Eta reweighting is now conducted using all three alternative regions ($A$, $B$, and $C$) of the ABCD method, rather than relying solely on regions $B$ and $C$ as in the previous version of the analysis.
 \end{itemize}
 
 
 
-\subsubsection{Validation of the mass reconstruction method}
+\subsection{Validation of the mass reconstruction method}
 \label{sec:validation_proc}
 
 {\bf Validation in data}
 
-In the data, we can separately use the regions $D$ with $0.8 < F_\textrm{pixel} \leq 0.9$ as a validation region, with $C$ defined as the region with $F_\textrm{pixel} \leq 0.8$ and $p_T>70$~GeV. The predictions are displayed in \cref{fig:abcd_mass_slices_data} for the 2024 data for different eta categories. The binning with an enlarged bin width for larger masses has been chosen to match the mass resolution. Therefore, the observed change in slope in the background prediction is due to a change in bin width; the plot has not been corrected for the bin width to see the actual number of events per bin. The agreement between prediction and observation is reasonable.
+In this analysis, we designate region $D$ with $0.8 \leq F_\textrm{pixel} < 0.9$ as the validation region and define region $C$ as $F_\textrm{pixel} \leq 0.8$ with $p_T > 70$~GeV. Predictions are shown in \cref{fig:abcd_mass_slices_data} for the 2024 data across different eta categories. The binning uses wider bin widths at higher masses to match the mass resolution. The observed change in the slope of the background prediction arises from the variation in bin width for the $|\eta|<1$ and $1<|\eta|<2.4$ categories (top plots). When the barrel and forward regions are combined, the mass distribution with $|\eta|<2.4$ (bottom plot) exhibits a difference in slope attributable to the distinct eta regimes. The prediction and observation show reasonable agreement.
 
-Three different ways to assess the quality of the agreement between the observed and predicted shapes are shown in the lower panels. The first panel shows the ratio $R$:
+Three distinct methods are used to evaluate the agreement between observed and predicted shapes, as illustrated in the lower panels. The first panel presents the Ratio $R$:
 \begin{equation}
-	{\rm Ratio} R = \frac{ \int_M^{\infty} d M_{obs}}{\int_M^{\infty} d M_{pred}} 
-	\label{eq:ratio_integral}
+ {\rm Ratio}~R = \frac{ \displaystyle \int_M^{\infty} d M_{\rm obs}}{ \displaystyle \int_M^{\infty} d M_{\rm pred}} \, .
+ \label{eq:ratio_integral}
 \end{equation}
-For a bin $M$, the second one is the ratio $obs/pred$ estimated per bin, and the last one shows the pull $( M_{obs} -  M_{pred})/\sigma$. We clearly see some trend in the three bottom panels.
+This ratio quantifies the predictive accuracy from the mass bin $M$ up to the end of the distribution. The second panel displays the observed-to-predicted ratio for each bin, while the third presents the pull, defined as $( M_{\rm obs} -  M_{\rm pred})/\sigma$, with $\sigma=\sqrt{\sigma_{\rm obs}^2 + \sigma_{\rm pred}^2}$.
 
 
-\begin{figure}[!h]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=0.49\textwidth]{Images/Ch4/mass_plot_NoC_region8fp9_2024_Eta1.pdf}
-    \includegraphics[width=0.49\textwidth]{Images/Ch4/mass_plot_NoC_region8fp9_2024_Eta1_2p4.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta1.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta1_2p4.pdf}
     \\
-    \includegraphics[width=0.49\textwidth]{Images/Ch4/mass_plot_NoC_region8fp9_2024_Eta2p4.pdf}
-    \caption{
-	Mass distribution in the validation region $D$ with $0.8 < F_\textrm{pixel} \leq 0.9$ and $p_T>70$~GeV, for the 2024 data for different eta category: $|\eta|<1$ (Top Left), $1<|\eta|<2.4$ (Top Right) and $|\eta|<2.4$ (Bottom). The observed data points are displayed as black markers. The data-driven background estimate is displayed as the red markers, with the yellow envelope representing the statistical uncertainty coming from the RMS of the 200 pseudo-experiments. Several signal scenarios are also displayed. The last bin includes the overflow. In each of the plots, three bottom panels are displayed: the first one shows the ratio defined by eq~(\ref{eq:ratio_integral}), while the second one shows the bin ratio and the third one shows the pull.}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta2p4.pdf}
+    \caption{Mass distribution in the validation region $D$ with $0.8 \leq F_\textrm{pixel} < 0.9$ and $p_T > 70$~GeV is shown for the 2024 data across different eta categories: $|\eta| < 1$ (top left), $1 < |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate is represented by red markers, with the yellow envelope denoting the statistical uncertainty derived from the RMS of 200 pseudo-experiments. Several signal scenarios are also presented. The last bin includes the overflow. Each plot contains three lower panels: the first displays the ratio defined by (\cref{eq:ratio_integral}), the second shows the bin ratio, and the third presents the pull.}
     \label{fig:abcd_mass_slices_data}
 \end{figure}
 
 
 {\bf Validation in MC}
 
-In MC, in addition to testing the method in VR, we can also look at the SR. Figure\cref{fig:abcd_mass_mc} shows the mass distribution in the region of the VR (Left) and the SR (Right) for the MC Wj+jets, TTbar and QCD samples. While the W+jets process is the dominant background, using the ttbar MC allows access to higher mass values.
+In MC simulations, in addition to evaluating the method in the VR, the SR is also examined. \cref{fig:abcd_mass_mc} presents the mass distributions in the VR (left) and SR (right) for the MC samples ($W$+jets, $t\overline{t}$, and QCD).
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.47\textwidth]{Images/Wolfgang.jpg}
-    \includegraphics[width=0.47\textwidth]{Images/Wolfgang.jpg}
-    \caption{
-	    Mass distribution in the validation region $D$ with $0.8 < F_\textrm{pixel} \leq 0.9$ and $p_T>70$~GeV (Left) and the search region (Right) for the W+jets + TTbar + QCD MC. The simulated MC distribution is displayed as black markers. The simulated data-driven estimate is shown as red markers, with the yellow envelope representing the statistical uncertainty from the RMS of the 200 pseudo-experiments. In each plot, three bottom panels are displayed.}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta1.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta1_2p4.pdf}
+    \\
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta2p4.pdf}
+    \caption{Mass distribution in the validation region $D$ with $0.8 \leq F_\textrm{pixel} < 0.9$ and $p_T > 70$~GeV is shown for the 2024 MC samples ($W$+jets, $t\overline{t}$, and QCD) across different eta categories: $|\eta| < 1$ (top left), $1 < |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed points are indicated by black markers. The data-driven background estimate is represented by red markers, with the yellow envelope denoting the statistical uncertainty derived from the RMS of 200 pseudo-experiments. Several signal scenarios are also presented. The last bin includes the overflow. Each plot contains three lower panels: the first displays the ratio defined by (\cref{eq:ratio_integral}), the second shows the bin ratio, and the third presents the pull.}
     \label{fig:abcd_mass_mc}
 \end{figure}
+
+
+
+\section{Systematics}
+\label{sec:systematics}
 
 
 
@@ -578,14 +666,14 @@ Ajouter listes du travail personnel
 
 
 
-\section{Systematic Uncertainties}\label{sec:systematics}
+\section{Systematic Uncertainties}
 
-\subsection{$F_\text{pixel}$ systematic uncertainty}
+\subsection{\texorpdfstring{$F_\text{pixel}$}{Fpixel} systematic uncertainty}
 \label{sec:fi_syst}
 
 The value of $F_\text{pixel}$ is sensitive to the pixel hit reconstruction, in particular to the Lorentz angle corrections and the pixel charge templates used during reconstruction. To evaluate the systematic uncertainty associated with the pixel calibration, a dedicated simulation sample is produced with the same generator-level signal (gluino, $m=1800$~GeV, $\sqrt{s}=13.6$ TeV) but simulated with an updated Global Tag\footnote{A Global Tag is a versioned label that identifies a coherent set of conditions and calibration data, including alignment constants, electric-field maps, and detector-response parameters, which are applied consistently during the reconstruction and simulation of a specific data-taking period.}. The updated tag contains new conditions describing the detector at the end of 2024 (i.e., after significant irradiation): one- and two-dimensional pixel charge templates (for the charge-reweighting irradiation model), Lorentz-angle corrections for data and simulation, and generic pixel-error parameters. The full simulation chain with 100k events is rerun with the new tag, and the results are processed using the standard analysis code.
 
-\cref{fig:fi_syst} shows the $F_\text{pixel}$ distributions for the nominal and systematic samples, normalised to unity, both without any selection and after the standard track preselection described in Section~\cref{sec:selection}. The ratio of the number of tracks satisfying $F_\text{pixel}>0.9$ in the systematic variation to the nominal is $1.037$ before any selection and $1.016$ after preselection.
+\cref{fig:fi_syst} shows the $F_\text{pixel}$ distributions for the nominal and systematic samples, normalised to unity, both without any selection and after the standard track preselection described in ~\cref{sec:preselection}. The ratio of the number of tracks satisfying $F_\text{pixel}>0.9$ in the systematic variation to the nominal is $1.037$ before any selection and $1.016$ after preselection.
 
 \begin{figure}[h!]
   \centering

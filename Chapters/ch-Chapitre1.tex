@@ -653,6 +653,7 @@ The CMS collaboration has developed new tools and algorithms to handle the highe
 Ambiguities in the track-finding process arise when a seed yields more than one track candidate or when a track belongs to multiple seeds. To counter that, the CTF process evaluates the fraction of shared hits among nearby tracks. If this ratio exceeds a given threshold, the track with the fewest hits is discarded; if the total number of hits is the same, the track with the highest $\chi^2$ is rejected~\cite{CTF_track_cms}.
 
 \subsubsection{Final track fit}
+\label{sec:final_track_fit}
 
 Once the procedure is complete, fits are performed, and spurious hits are removed, both are done iteratively until a certain level of convergence is reached. Final track candidates are then labelled based on the number of hits, the track's compatibility with each hit, the $\chi^2$ score of the track fit, or the distance between the track and the associated primary vertex (namely the \textit{impact parameter}). Finally, tracks are classified as \textit{loose}, \textit{tight}, or \textit{HighPurity}, with each consecutive label being a subset of the previous one and applying more stringent criteria.
 
@@ -694,6 +695,7 @@ Despite this classification, cosmic muons produced by cosmic rays interacting wi
 The Particle-Flow algorithm (PF) aims to reconstruct particles and objects from an event by combining information from the tracker, calorimeters, and muon chambers. The PF algorithm is applied to the raw data, using all low-level reconstructed objects from the sub-detectors to correlate measurements and thereby label particles and their kinematic properties \cite{PFalgo}. Once a PF candidate is fully reconstructed, it is removed from the chain to reconstruct other PF elements.
 
 \subsubsection{Muons}
+\label{sec:muons}
 
 Thanks to the muon track procedure described in \cref{subsubsection:muon_track}, the CMS reconstruction achieves a muon reconstruction efficiency greater than 99\% for tracker muons or global muons \cite{MuonreconstructionCMS}. If their $p_T$ is below 200~GeV/$c$, the transverse momentum is measured primarily from the inner-track fit. In contrast, for higher $p_T$, the global fit performed by the Tracker Plus First Muon Station (TPFMS) allows a better measurement \cite{MuonFitalgorithm}. A standard approach for offline muon momentum reconstruction is the TuneP algorithm~\cite{MuonreconstructionCMS}, which dynamically selects the most appropriate track fit depending on the available inner tracker and muon chamber information.
 
