@@ -829,7 +829,7 @@ In addition, MET may originate from detector inefficiency, limited acceptance, m
 
 \vspace{0.5 cm}
 
-The MET definition introduced previously refers to PF-based missing transverse energy (PFMET), which uses information from all sub-detectors. In contrast, the alternative estimator, CaloMET, is defined as the negative vectorial sum of the energies of all calorimeter towers (in the ECAL and HCAL) projected onto the transverse plane, using only energy deposits in these calorimeters. Because it relies solely on calorimeter information, CaloMET is less precise than PFMET and more sensitive to calorimeter noise, nonlinearity, and uninstrumented regions.
+The MET definition introduced previously refers to PF-based missing transverse energy (PF MET), which uses information from all sub-detectors. In contrast, the alternative estimator, Calo MET, is defined as the negative vectorial sum of the energies of all calorimeter towers (in the ECAL and HCAL) projected onto the transverse plane, using only energy deposits in these calorimeters. Because it relies solely on calorimeter information, Calo MET is less precise than PF MET and more sensitive to calorimeter noise, nonlinearity, and uninstrumented regions.
 
 \vspace{0.5 cm}
 
@@ -847,7 +847,7 @@ Unlike MET, which is built from all PF candidates, MHT relies exclusively on rec
 
 \vspace{0.5 cm}
 
-Since the PFMET is built from the vectorial sum of all PF candidates, any miscalibration of the jet energy scale propagates directly into it. The standard correction procedure, referred to as \textit{Type-1}, propagates the full JEC chain to the PFMET by replacing the raw jet momenta with their corrected counterparts in the sum~\cite{METcalib}. An additional \textit{XY-shift} correction is then applied to remove a spurious sinusoidal modulation of the MET azimuthal angle $\phi$, arising from anisotropic detector response, inactive calorimeter cells, detector misalignment, and beam-spot displacement~\cite{METcalib}. The recommended MET estimator for Run--3 physics analyses is the PUppi-based MET (PUppiMET), which benefits from the pile-up weighting applied at the particle level before jet clustering, resulting in improved resolution and reduced sensitivity to pile-up fluctuations compared to the CHS-based PFMET.
+Since the PF MET is built from the vectorial sum of all PF candidates, any miscalibration of the jet energy scale propagates directly into it. The standard correction procedure, referred to as \textit{Type-1}, propagates the full JEC chain to the PF MET by replacing the raw jet momenta with their corrected counterparts in the sum~\cite{METcalib}. An additional \textit{XY-shift} correction is then applied to remove a spurious sinusoidal modulation of the MET azimuthal angle $\phi$, arising from anisotropic detector response, inactive calorimeter cells, detector misalignment, and beam-spot displacement~\cite{METcalib}. The recommended MET estimator for Run--3 physics analyses is the PUppi-based MET (PUppi MET), which benefits from the pile-up weighting applied at the particle level before jet clustering, resulting in improved resolution and reduced sensitivity to pile-up fluctuations compared to the PF MET.
 
 
 

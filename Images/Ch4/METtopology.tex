@@ -9,10 +9,10 @@
 }
 
 \newcommand{\topoCircle}{%
-  \draw[fill=hscpwhite, draw=black, line width=1pt] (0,0) circle (3.3);
+  \draw[fill=hscpwhite, draw=black, line width=1pt] (0,0) circle (3.5);
 }
 \newcommand{\topoTitle}[1]{%
-  \node at (0,3.8) {\underline{\textbf{#1}}};
+  \node at (0,4.0) {\underline{\textbf{\Large{#1}}}};
 }
 \newcommand{\topoDot}{%
   \fill (0,0) circle (2.5pt);
@@ -30,7 +30,7 @@
   \node[anchor=south west] at (-3.2,0.1) {\textbf{HSCP 1}};
   \node[anchor=south east] at (3.2,0.1) {\textbf{HSCP 2}};
   \node[hscpblue, font=\bfseries] at (0,-1.6) {Little or no calo MET};
-  \node[hscpred, font=\bfseries] at (0,-2.15) {Little or no PF MET};
+  \node[hscpred, font=\bfseries] at (0,-2.15) {Little or no PUppi MET};
 \end{scope}
 
 \begin{scope}[xshift=8.4cm]
@@ -42,7 +42,7 @@
   \topoDot
   \node[anchor=south west] at (-3.2,0.1) {\textbf{HSCP 1}};
   \node[anchor=south east] at (3.2,0.1) {\textbf{HSCP 2}};
-  \node[hscpred, font=\bfseries, anchor=north west] at (0.4,-0.25) {PF MET};
+  \node[hscpred, font=\bfseries, anchor=north west] at (0.4,-0.25) {PUppi MET};
   \node[hscpblue, font=\bfseries] at (0,-1.9) {Little or no calo MET};
 \end{scope}
 
@@ -58,7 +58,7 @@
   \node[hscpblue, font=\bfseries, anchor=north] at (0,-2.6) {Calo MET};
   \node[rotate=30, anchor=south east] at (-1.1,-0.6) {\textbf{HSCP 1}};
   \node[rotate=-30, anchor=south west] at (1.1,-0.6) {\textbf{HSCP 2}};
-  \node[hscpred, font=\bfseries, align=center] at (1.4,-2.0) {Little or no\\ PF MET};
+  \node[hscpred, font=\bfseries, align=center] at (1.4,-2.0) {Little or no\\ PUppi MET};
 \end{scope}
 
 % ============ Row 2: Topology 4, 5 (centered under row 1) ============
@@ -75,7 +75,7 @@
   \node[hscpblue, font=\bfseries, anchor=north] at (0,-2.6) {Calo MET};
   \node[rotate=30, anchor=south east] at (-1.1,-0.6) {\textbf{HSCP 1}};
   \node[rotate=-30, anchor=south west] at (1.1,-0.6) {\textbf{HSCP 2}};
-  \node[rotate=-30, hscpred, font=\bfseries] at (1.4,-1.4) {PF MET};
+  \node[rotate=-30, hscpred, font=\bfseries] at (1.4,-1.4) {PUppi MET};
 \end{scope}
 
 \begin{scope}[xshift=12.6cm, yshift=-7.4cm]
@@ -91,7 +91,7 @@
   \node[rotate=30, anchor=south east] at (-1.1,-0.6) {\textbf{HSCP 1}};
   \node[rotate=-30, anchor=south west] at (1.1,-0.6) {\textbf{HSCP 2}};
   \node[hscpblue, font=\bfseries, anchor=north] at (0,-2.3) {Calo MET};
-  \node[hscpred, font=\bfseries, anchor=north] at (0,-2.7) {PF MET};
+  \node[hscpred, font=\bfseries, anchor=north] at (0,-2.7) {PUppi MET};
 \end{scope}
 
 \end{tikzpicture}
@@ -113,6 +113,6 @@
   \node[anchor=west] at (8.8,-1.2) {Calo MET};
  
   \draw[hscpline, hscpred] (13.0,-1.2) -- (14.2,-1.2);
-  \node[anchor=west] at (14.3,-1.2) {PF MET};
+  \node[anchor=west] at (14.3,-1.2) {PUppi MET};
 \end{scope}
 \end{tikzpicture}
