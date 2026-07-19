@@ -184,16 +184,22 @@
 
 
 %% Save default margin lengths
+
+\geometry{
+    bottom=2.5cm,
+    headheight=14pt,        % fix fancyhdr warning
+    inner=2cm,
+    outer=3cm,
+    % topmargin=-1.6pt      % optionnel, pour compenser
+}
+
 \newlength{\defaultOddsidemargin}
 \setlength{\defaultOddsidemargin}{\oddsidemargin}
 \newlength{\defaultEvensidemargin}
 \setlength{\defaultEvensidemargin}{\evensidemargin}
 
-\geometry{
-    bottom=2.5cm,
-    headheight=14pt,        % fix fancyhdr warning
-    % topmargin=-1.6pt      % optionnel, pour compenser
-}
+
+
 
 
 %% Figure environment with "This Thesis" mention
