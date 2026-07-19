@@ -732,113 +732,96 @@ The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{
 \section{Statistical interpretation and expected limits}
 \label{sec:limits}
 
-The background prediction and the signal mass spectra derived in the previous sections are now combined into a statistical model from which upper limits on the gluino pair-production cross section are extracted. As the signal region remains blinded at this stage of the analysis, the observed data entering the model are replaced by the background expectation, and all results presented below are expected limits. They serve two purposes: quantifying the sensitivity of the search prior to unblinding and motivating the choice of the acceptance configuration and the extraction method for the final interpretation.
+The background prediction derived in the previous sections is combined with signal mass distributions to construct a statistical model from which upper limits on the gluino pair-production cross section are extracted. Because the signal region remains blinded at this stage of the analysis, the observed data entering the model are replaced by the background expectation, and all results presented below are expected limits. These expected limits serve two purposes: they quantify the sensitivity of the search prior to unblinding and inform the selection of the acceptance configuration and extraction method for the final interpretation.
 
 \subsection{The \texorpdfstring{CL$_\text{s}$}{CLs} method}
 \label{sec:limits:cls}
 
-Upper limits are derived with the modified frequentist CL$_\text{s}$ method~\cite{CLSpaper},
-the standard prescription for searches at the LHC. Two hypotheses are confronted: the background-only hypothesis $b$, under which the data are entirely described by known processes, and the signal-plus-background hypothesis $s+b$, under which a gluino contribution of strength $\mu$ is added on top of the background. The comparison between the two relies on the profile likelihood ratio test statistic
+Upper limits are determined using the modified frequentist CL$_\text{s}$ method~\cite{CLSpaper}. This approach represents the standard procedure for searches at the LHC. Two hypotheses are considered: the background-only hypothesis $b$, in which the data are fully described by known processes, and the signal-plus-background hypothesis $s+b$, in which a gluino contribution of strength $\mu$ is included in addition to the background. The comparison between these hypotheses is based on the profile likelihood ratio test statistic, defined as follows:
 \begin{equation}
     q_\mu = -2 \ln \frac{\mathcal{L}\left(\text{data} \,\middle|\, \mu s + b,\, \hat{\hat{\theta}}_\mu\right)}{\mathcal{L}\left(\text{data} \,\middle|\, \hat{\mu} s + b,\, \hat{\theta}\right)},
-    \qquad 0 \leq \hat{\mu} \leq \mu,
+    \qquad 0 \leq \hat{\mu} \leq \mu\,,
     \label{eq:limits:qmu}
 \end{equation}
-where $\theta$ denotes the ensemble of nuisance parameters encoding the systematic uncertainties, $\hat{\mu}$ and $\hat{\theta}$ maximise the likelihood globally, and $\hat{\hat{\theta}}_\mu$ maximises it for a fixed signal strength $\mu$. The CL$_\text{s}$ quantity is defined as the ratio of the $p$-values of the two hypotheses, $\textrm{CL$_\text{s}$} = \text{CL}_{s+b}/\text{CL}_b$, a construction that prevents the exclusion of signal hypotheses to which the analysis has no actual sensitivity. A cross section is excluded at $95\%$ confidence level when $\textrm{CL$_\text{s}$} < 0.05$.
+where $\theta$ represents the set of nuisance parameters that encode systematic uncertainties. The parameters $\hat{\mu}$ and $\hat{\theta}$ globally maximise the likelihood, while $\hat{\hat{\theta}}_\mu$ maximises the likelihood for a fixed signal strength $\mu$. The distributions of $q_\mu$ under the two hypotheses determine the corresponding $p$-values: $\text{CL}_{s+b}$ is the probability, under the signal-plus-background hypothesis, of obtaining a value of $q_\mu$ at least as large as the observed value. Similarly, $\text{CL}_b$ is the probability computed under the background-only hypothesis. The quantity CL$_\text{s}$ is defined as the ratio of the $p$-values for the two hypotheses, $\textrm{CL$_\text{s}$} = \text{CL}_{s+b}/\text{CL}_b$. This construction prevents the exclusion of signal hypotheses that the analysis lacks sensitivity to. The $95\%$ confidence level upper limit on the cross section corresponds to the value of $\mu$ for which $\textrm{CL$_\text{s}$} = 0.05$.
 
-All limits in this section are computed in the asymptotic approximation~\cite{AsymptoticPaper}, in which the distributions of $q_\mu$ under both hypotheses take analytic forms and the median expected limit, together with its one and two standard deviation bands, is obtained from a single Asimov dataset. This bypasses the need to generate pseudo-experiments and reduces computation to a few minutes per mass hypothesis, compared with several hours of parallel toy generation for the full CL$_\text{s}$ construction. The extraction is performed with the \textsc{Combine} package developed by the CMS collaboration~\cite{CombinePaper}.
+\vspace{0.5 cm}
+
+All limits in this section are computed using the asymptotic approximation~\cite{AsymptoticPaper}, where the distributions of $q_\mu$ under both hypotheses assume analytic forms. The median expected limit, along with its $\pm1\sigma$ and $\pm2\sigma$ bands, is derived from a single Asimov dataset. This approach eliminates the need for pseudo-experiment generation and reduces computation time to a few minutes per mass hypothesis, in contrast to several hours required for parallel toy generation in the full CL$_\text{s}$ construction. Limit extraction is performed using the \textsc{Combine} package developed by the CMS collaboration~\cite{CombinePaper}.
 
 \subsection{Construction of the statistical models}
 \label{sec:limits:models}
 
-Two statistical treatments of the mass spectrum are compared, built from identical inputs: a counting experiment in a mass window, hereafter referred to as the cut-and-count method, and a binned maximum-likelihood fit of the full spectrum, referred to as the shape analysis.
+This study compares two statistical approaches to analysing the mass spectrum, both constructed from identical inputs: a counting experiment within a defined mass window, referred to as the \textit{cut-and-count method}, and a binned maximum-likelihood fit of the entire spectrum, known as \textit{shape analysis}.
 
-In both cases a mass window is defined for each signal hypothesis as $[\mu_m - \sigma_m,\, \mu_m + 2\sigma_m]$, where $\mu_m$ and $\sigma_m$ are the mean and standard deviation of the reconstructed mass distribution of the signal of mass $m$; the lower edge is in addition not allowed to fall below $300$~GeV, so as to stay clear of the region where the background is largest. The asymmetry of the window with respect to $\mu_m$ reflects the steeply falling background: extending the window downwards admits background at a much higher rate than it gains signal, whereas the upper side is nearly background free.
+\vspace{0.5 cm}
 
-In the cut-and-count method, the signal and background yields are the integrals of the corresponding spectra within the window, and the statistical model reduces to a single-bin Poisson counting experiment. Systematic uncertainties are treated as log-normal nuisance parameters, with factors obtained by integrating the systematically varied templates over the same window and normalising to the nominal yield. Two-sided variations are symmetrised by retaining the larger of the two deviations, while one-sided variations translate into a single multiplicative factor.
+In the cut-and-count method, a mass window is defined for each signal hypothesis as $[\mu_m - \sigma_m,\, \mu_m + 2\sigma_m]$, where $\mu_m$ and $\sigma_m$ represent the mean and standard deviation of the reconstructed mass distribution for a signal of mass $m$. The lower edge of the window is constrained to remain above $300$~GeV to avoid the region with the highest background. The asymmetry of the window relative to $\mu_m$ accounts for the steeply falling background: extending the window downward increases the background rate significantly more than the signal, while the upper side remains nearly free of background. Signal and background yields are calculated as the integrals of their respective spectra within the defined window. The statistical model is thereby reduced to a single-bin Poisson counting experiment. Systematic uncertainties are included as log-normal nuisance parameters, with scaling factors determined by integrating the systematically varied templates over the same window and normalising to the nominal yield. For two-sided variations, the larger deviation is retained to symmetrise the uncertainty, whereas one-sided variations are represented by a single multiplicative factor.
 
-In the shape analysis, the full mass spectrum is included in the likelihood. The spectra are cast into a common variable binning spanning $0$ to $4000$~GeV, with a constant $20$~GeV width up to about $400$~GeV that progressively widens to several hundred GeV at high mass, following the decrease of the background statistics so that the predicted spectrum remains populated over the whole range. Each systematic uncertainty is described by a pair of alternative templates, from which \textsc{Combine} interpolates continuously; one-sided uncertainties use the same template for both directions. The background normalisation is deliberately left free in the fit through an unconstrained rate parameter, one per channel: the limit thus exploits the predicted shape of the background, while its normalisation is determined in situ from the sidebands of the mass spectrum. Finally, the statistical uncertainty of the templates is accounted for bin by bin with the Barlow--Beeston-lite approach implemented in the \texttt{autoMCStats} directive.
+The shape analysis incorporates the full mass spectrum into the likelihood. Spectra are rebinned to the same adaptive binning as for the background estimation method. Each systematic uncertainty is represented by a pair of alternative templates, which \textsc{Combine} interpolates continuously; for one-sided uncertainties, the same template is used for both directions. Background normalisation is left unconstrained in the fit via a free rate parameter for each channel. Consequently, the limit uses the predicted background shape, while its normalisation is determined in situ from the mass spectrum. Statistical uncertainties of the templates are incorporated on a bin-by-bin basis using the Barlow-Beeston lite method~\cite{Cranmer:1456844}.
 
-The systematic uncertainties entering the models are summarised in \cref{tab:limits:systs}. The uncertainties affecting the signal are the level of pileup, the trigger scale factors, the calibration constants $K_\textrm{mass}$ and $C_\textrm{mass}$ of the mass reconstruction, the $F_\textrm{pixel}$ calibration through the up and down procedure described in \cref{subsec:systSignal}
-the jet energy scale, and the integrated luminosity, assigned a $1.4\%$ normalisation uncertainty. The uncertainties affecting the background prediction probe the stability of the method itself: the binning of the $\eta$, $I_h$ and momentum templates is halved and doubled with respect to the nominal choice, the fits of the $I_h$ and $1/p$ templates are varied within their uncertainties, and a one-sided variation replaces the nominal $I_h$ template with its corrected counterpart. In the cut-and-count model the same sources are propagated as log-normal factors.
+\vspace{0.5 cm}
 
-\begin{table}[htbp]
+The systematic uncertainties, described in \cref{subsec:systSignal}, entering the models are summarised in \cref{tab:limits:systs}.
+
+\begin{table}[h!]
     \centering
-    \caption{Systematic uncertainties included in the statistical models. Each source is implemented as a shape nuisance parameter in the shape analysis and as a log-normal factor in the cut-and-count method, except for the luminosity, which is a normalisation uncertainty in both cases.}
-    \label{tab:limits:systs}
+    \footnotesize
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{llll}
         \toprule
         Source & Process & Sidedness & Origin \\
         \midrule
-        Pileup                & Signal      & Two-sided & Pileup profile reweighting \\
+        Pile-Up                & Signal      & Two-sided & Pile-Up templates variations \\
         Trigger scale factors & Signal      & Two-sided & MET trigger efficiency measurement \\
-        $K_\textrm{mass}$ and $C_\textrm{mass}$              & Signal      & Two-sided & d$E$/d$x$ mass calibration constants \\
-        $F_\textrm{pixel}$             & Signal      & Two-sided & Up/down variation of the $F_\textrm{pixel}$ calibration \\
-        Jet energy scale      & Signal      & Two-sided & Propagation to the PUppi MET selection \\
+        $K_\textrm{mass}$ and $C_\textrm{mass}$              & Signal      & Two-sided & Mass reconstruction method \\
+        $F_\textrm{pixel}$             & Signal      & Two-sided & Ageing of the pixel sensors \\
+        Jet energy scale      & Signal      & Two-sided & Jet and MET energy resolution \\
         Luminosity            & Signal      & Two-sided & $1.4\%$ normalisation uncertainty \\
         \midrule
         $\eta$ binning        & Background  & Two-sided & Template binning halved and doubled \\
         $I_h$ binning         & Background  & Two-sided & Template binning halved and doubled \\
-        $p$ binning           & Background  & Two-sided & Template binning halved and doubled \\
+        $1/p$ binning           & Background  & Two-sided & Template binning halved and doubled \\
         $I_h$ fit             & Background  & Two-sided & Variation of the $I_h$ template fit \\
         $1/p$ fit             & Background  & Two-sided & Variation of the $1/p$ template fit \\
-        $I_h$ template corr.  & Background  & One-sided & Corrected $I_h$ template \\
+        $I_h$ correlation  & Background  & One-sided & $I_h$ and $F_\textrm{pixel}$ correlation \\
         \bottomrule
     \end{tabular}
+    \caption{Systematic uncertainties included in the computation of the limits. Each source is represented as a shape nuisance parameter in the shape analysis and as a log-normal factor in the cut-and-count method. The luminosity is treated as a normalisation uncertainty in both approaches.}
+    \label{tab:limits:systs}
 \end{table}
+
 
 \subsection{Acceptance configurations}
 \label{sec:limits:categories}
 
-The extension of the track acceptance from $|\eta|<1$, as retained in earlier searches, to $|\eta|<2.4$ raises the question of how the forward region should enter the statistical model. Three configurations are considered. In the first, only the central region $|\eta|<1$ is used. In the second, the full acceptance $|\eta|<2.4$ is treated as a single inclusive channel. In the third, the central and forward ($1<|\eta|<2.4$) regions enter the fit as two separate channels: the signal templates, the background prediction and all its systematic variations are produced independently in each region, and the two channels are combined in a single likelihood. All nuisance parameters are correlated between the two channels, since both regions are built from the same dataset, the same calibration and the same prediction machinery; the only exceptions are the background rate parameters, which float independently in each channel. The framework nevertheless allows any individual source to be decorrelated between the categories, should the treatment of a given uncertainty require it.
+The extension of track acceptance from $|\eta|<1$ to $|\eta|<2.4$ necessitates consideration of the endcap region within the statistical model. Three eta regimes are evaluated: the first utilises only the central region ($|\eta|<1$), the second treats the full acceptance ($|\eta|<2.4$) as a single inclusive channel, and the third configuration incorporates the central and endcap ($1\leq|\eta|<2.4$) regions as two distinct channels. Signal templates, background predictions, and all systematic variations are generated independently for each regime, and the channels are combined in a unified likelihood. All nuisance parameters are correlated between the channels, reflecting their derivation from the same dataset, calibration, and prediction framework. The background rate parameters are the only exceptions, allowed to vary independently in each channel.
 
-For each configuration and each extraction method, a datacard and, for the shape analysis, the associated template file are produced for the ten gluino mass hypotheses ranging from $1100$ to $2600$~GeV. The resulting limits on the signal strength are converted into cross section limits using the NNLO+NNLL gluino pair-production cross sections at $\sqrt{s}=13.6$~TeV.
+For each configuration and extraction method, a datacard is generated, and for the shape analysis, the corresponding template file is produced for the gluino mass hypotheses spanning $1100$ to $2600$~GeV. The derived limits on signal strength are subsequently converted into cross section limits using NNLO+NNLL gluino pair-production cross sections at $\sqrt{s}=13.6$~TeV~\cite{10.21468/SciPostPhysCore.7.4.072, Fiaschi_2023}.
+
 
 \subsection{Expected upper limits}
 \label{sec:limits:results}
 
-The expected limits obtained in the six combinations of acceptance configuration and extraction method are shown in \cref{fig:limits:individual}. In each panel, the dashed black line is the median expected limit, the green and yellow bands its one- and two-standard-deviation intervals, and the blue line the theoretical cross section with its uncertainty band. The mass hypothesis is expected to be excluded up to the point where the theoretical curve crosses the median expected limit; the corresponding masses are collected in \cref{tab:limits:masses}.
+\cref{fig:limits:individual} presents the expected limits for the combinations of the three eta regimes and the two methods of calculation. In each panel, the dashed black line represents the median expected limit, while the green and yellow bands indicate the $\pm1\sigma$ and $\pm2\sigma$ intervals, respectively. The blue line denotes the theoretical cross section with its associated uncertainty band. The mass hypothesis is excluded up to the point where the theoretical curve intersects the median expected limit; the corresponding masses are summarised in \cref{tab:limits:masses}.
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
     \centering
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/limits_shape_9fp10_Eta1_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/limits_shape_9fp10_Eta1_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \end{minipage}
-    \\[1ex]
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/limits_shape_9fp10_Eta2p4_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/limits_shape_9fp10_Eta2p4_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \end{minipage}
-    \\[1ex]
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/limits_shape_9fp10_split_Eta1_Eta1_2p4_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/limits_shape_9fp10_split_Eta1_Eta1_2p4_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \end{minipage}
-    \caption{Expected $95\%$ confidence level upper limits on the gluino pair-production cross section as a function of the gluino mass, for the cut-and-count method (left) and the shape analysis (right), in the central region $|\eta|<1$ (top), the inclusive acceptance $|\eta|<2.4$ (middle) and the combination of the central and forward channels (bottom). The dashed black line shows the median expected limit, the green and yellow bands the one- and two-standard-deviation intervals, and the blue line the NNLO+NNLL theoretical cross section at $\sqrt{s}=13.6$~TeV with its uncertainty.}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_Eta1_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_Eta1_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
+    \\
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_Eta2p4_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_Eta2p4_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
+    \\
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_split_Eta1_Eta1_2p4_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_split_Eta1_Eta1_2p4_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
+    \caption{Expected $95\%$ confidence level upper limits on the gluino pair-production cross section as a function of the gluino mass, for the cut-and-count method (left) and the shape analysis (right), in the central region $|\eta|<1$ (top), the inclusive acceptance $|\eta|<2.4$ (middle) and the combination of the central and endcap region (bottom). The dashed black line shows the median expected limit, the green and yellow bands the $\pm1\sigma$ and $\pm2\sigma$ intervals, and the blue line the theoretical cross section at with its uncertainty.}
     \label{fig:limits:individual}
 \end{figure}
 
-\begin{table}[htbp]
+\begin{table}[h!]
     \centering
-    \caption{Expected excluded gluino masses at $95\%$ confidence level, defined by the intersection of the median expected limit with the theoretical cross section, for the three acceptance configurations and the two extraction methods.}
-    \label{tab:limits:masses}
+    \small
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{lcc}
         \toprule
@@ -849,6 +832,8 @@ The expected limits obtained in the six combinations of acceptance configuration
         $|\eta|<1$ $+$ $1<|\eta|<2.4$ (split)   & $2.39$\,TeV & $2.42$\,TeV \\
         \bottomrule
     \end{tabular}
+    \caption{Expected excluded gluino masses at $95\%$ confidence level, defined by the intersection of the median expected limit with the theoretical cross section, for the three eta regimes and the two extraction methods.}
+    \label{tab:limits:masses}
 \end{table}
 
 The six configurations are compared directly in \cref{fig:limits:compare}, together with the limit published by the previous CMS search~\cite{HSCP_Run2}. Three observations emerge from this comparison.
@@ -859,7 +844,7 @@ Second, the treatment of the forward region substantially affects sensitivity. M
 
 Third, the comparison with the previous CMS result places the expected reach of this analysis at $2.42$~TeV, to be compared with the $2.08$~TeV excluded by the Run~2 search at a comparable integrated luminosity. This comparison calls for some care: the earlier result is an observed limit obtained with the full CL$_\text{s}$ construction and compared to the $13$~TeV cross sections, whereas the present figures are expected limits in the asymptotic approximation, which is known to be somewhat aggressive in the low-count regime, compared to the slightly larger $13.6$~TeV cross sections. These caveats accounted for, the improvement remains considerable, and reflects the higher signal efficiency of the MET-based trigger strategy developed for this analysis.
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.85\textwidth]{Images/Ch4/ExpectedCompare_etaRebinPerso_Oldfit__PUppiMETcut_step6.pdf}
     \caption{Comparison of the median expected upper limits for the three acceptance configurations, with the cut-and-count method (solid) and the shape analysis (dashed). The limit published by the previous CMS search~\cite{HSCP_Run2} is shown in grey, and the NNLO+NNLL theoretical cross sections at $\sqrt{s}=13$~TeV and $13.6$~TeV are shown as the orange and blue bands. The vertical dotted lines mark the expected excluded masses of the previous search and of the split shape configuration.}
@@ -871,34 +856,18 @@ Third, the comparison with the previous CMS result places the expected reach of 
 
 The role of each source of uncertainty in the final result is assessed by computing the impact of the nuisance parameters, using the split shape configuration, on the Asimov dataset. The impact of a nuisance parameter is defined as the shift induced in the fitted signal strength when the parameter is moved by one standard deviation of its post-fit uncertainty around its best-fit value, with all other parameters profiled. \Cref{fig:limits:impacts} shows the ranked impacts of the four highest-mass hypotheses that drive the exclusion reach.
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
     \centering
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/Gluino2000_2024_impacts.pdf}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/Gluino2200_2024_impacts.pdf}
-    \end{minipage}
-    \\[1ex]
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/Gluino2400_2024_impacts.pdf}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{Images/Ch4/Gluino2600_2024_impacts.pdf}
-    \end{minipage}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/Gluino2000_2024_impacts.pdf}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/Gluino2200_2024_impacts.pdf}
+    \\
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/Gluino2400_2024_impacts.pdf}
+    \includegraphics[width=0.49\textwidth]{Images/Ch4/Gluino2600_2024_impacts.pdf}
     \caption{Impacts of the nuisance parameters on the fitted signal strength for the $2000$~GeV (top left), $2200$~GeV (top right), $2400$~GeV (bottom left) and $2600$~GeV (bottom right) gluino mass hypotheses, computed with the split shape configuration on the Asimov dataset. For each parameter, the left panel shows the pull and post-fit constraint, and the right panel shows the impact on the signal strength for a one-standard-deviation variation.}
     \label{fig:limits:impacts}
 \end{figure}
 
 The picture is consistent across the four mass points. The two leading parameters are the free background normalisations of the central and forward channels, which is the expected behaviour of a model in which the background rate is determined by the fit itself rather than constrained a priori. They are followed by the d$E$/d$x$ calibration constants $K_\textrm{mass}$ and $C_\textrm{mass}$ of the signal mass reconstruction and by the uncertainties on the background modelling, in particular the variations of the $1/p$ fit and of the $I_h$ template binning. The remaining sources, among which the pileup, the trigger scale factors, the luminosity and the $\eta$ and momentum binnings, contribute only marginally. No parameter exhibits a significant pull or an anomalously strong constraint, as expected from a fit to the Asimov dataset. The ordering varies only mildly from one mass point to the next, indicating that the sensitivity is not driven by any single systematic effect but limited by the background normalisation, and therefore ultimately by the statistical precision of the prediction in the high-mass sidebands.
-
-
 
 
 
