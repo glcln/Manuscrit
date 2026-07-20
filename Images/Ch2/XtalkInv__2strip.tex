@@ -1,0 +1,53 @@
+\definecolor{dkgreen}{rgb}{0.0,0.5,0.0}
+\resizebox{0.8\textwidth}{!}{
+\scalebox{0.8}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\useasboundingbox (10,-3.5) rectangle (30,5.5);
+% --- Premier dessin ---
+\draw (10.7,-2.3) node[below] {\large{4\%}};
+\draw (12.2,-2.3) node[below] {\large{10\%}};
+\draw (12.2,-3) node[below] {\large{$L_{\mathrm{max}}$}};
+\draw (13.7,-2.3) node[below] {\large{36\%}};
+\draw (15.2,-2.3) node[below] {\large{36\%}};
+\draw (16.7,-2.3) node[below] {\large{10\%}};
+\draw (16.7,-3) node[below] {\large{$R_{\mathrm{max}}$}};
+\draw (18.2,-2.3) node[below] {\large{4\%}};
+\draw (10,-2)-- (10,-1.7);
+\draw (11.5,-1.7)-- (10,-1.7);
+\draw (11.5,-0.9)-- (11.5,-2);
+\draw (13,-0.9)-- (11.5,-0.9);
+\draw (13,1.5)-- (13,-2);
+\draw (14.5,1.5)-- (13,1.5);
+\draw (14.5,1.5)-- (14.5,-2);
+\draw (16,1.5)-- (14.5,1.5);
+\draw (16,1.5)-- (16,-2);
+\draw (17.5,-0.9)-- (16,-0.9);
+\draw (17.5,-0.9)-- (17.5,-2);
+\draw (19,-1.7)-- (17.5,-1.7);
+\draw (19,-1.7)-- (19,-2);
+% --- Second dessin décalé ---
+\begin{scope}[xshift=10.5cm]
+\draw [dkgreen] (14.5,-2.3) node[below] {\large{100\%}};
+\draw [thick,dash dot] (10,-2)-- (10,-1.7);
+\draw [thick,dash dot] (11.5,-1.7)-- (10,-1.7);
+\draw [thick,dash dot] (11.5,-0.9)-- (11.5,-2);
+\draw [thick,dash dot] (13,-0.9)-- (11.5,-0.9);
+\draw (13,5)-- (13,-2);
+\draw (14.5,5)-- (14.5,-2);
+\draw (16,5)-- (13,5);
+\draw (16,5)-- (16,-2);
+\draw [thick,dash dot] (17.5,-0.9)-- (16,-0.9);
+\draw [thick,dash dot] (17.5,-0.9)-- (17.5,-2);
+\draw [thick,dash dot] (19,-1.7)-- (17.5,-1.7);
+\draw [thick,dash dot] (19,-1.7)-- (19,-2);
+\fill [pattern={Lines[distance=2mm,angle=45,line width=0.7mm]},pattern color=dkgreen] (13,-2) rectangle (16,5);
+\node (a) at (10.5,-1.5) {};
+\node (b) at (12,-0.7) {};
+\node (c) at (13.7,5.2) {};
+\node (cp) at (15.3,5.2) {};
+\node (d) at (17,-0.7) {};
+\node (e) at (18.5,-1.5) {};
+\draw [->,dkgreen] (b) edge [out=110, in=120] (c);
+\draw [->,dkgreen] (d) edge [in=60, out=70] (cp);
+\end{scope}
+\end{tikzpicture}
+}}

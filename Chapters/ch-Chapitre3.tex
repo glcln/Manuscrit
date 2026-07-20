@@ -29,7 +29,7 @@ From now on, natural units will be the default.
 
 \subsection{General overview}
 
-The Standard Model (SM) of particle physics~\cite{Glashow1961, Weinberg1967, Salam1968} is the theoretical framework that describes all known elementary particles and their interactions, except gravity. Built on the mathematical foundation of quantum field theory and local gauge symmetries, it describes three of the four fundamental forces: the electromagnetic, weak, and strong interactions, unified under the gauge group $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. Developed primarily during the 1960s and 1970s, the SM was completed with the discovery of the Higgs boson by the ATLAS and CMS
+The Standard Model (SM) of particle physics~\cite{Glashow1961, Weinberg1967, Salam1968} is the theoretical framework that describes all known elementary particles and their interactions, except gravity. Built on the mathematical foundation of quantum field theory and local gauge symmetries, it describes three of the four fundamental forces: the electromagnetic, weak, and strong interactions, described by the gauge group $\mathrm{SU}(3)_c \otimes \mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. Developed primarily during the 1960s and 1970s, the SM was completed with the discovery of the Higgs boson by the ATLAS and CMS
 collaborations in 2012~\cite{ATLAS_Higgs, CMS_Higgs}.
 
 \vspace{0.5 cm}
@@ -38,11 +38,11 @@ Elementary particles are classified into two categories according to their spin.
 
 \subsubsection{Gauge bosons}
 
-The gauge bosons mediate the fundamental interactions. The photon $\gamma$, the massless mediator of the electromagnetic interaction, couples to all electrically charged particles. The weak interaction is mediated by the massive $W^\pm$ and $Z^0$ bosons, whose masses arise from spontaneous electroweak symmetry breaking, as discussed in Section~\ref{subsection:BEH}. The strong interaction is mediated by eight massless gluons, which carry colour charge and therefore interact among themselves in addition to coupling to quarks. An additional scalar boson, the Higgs boson $H$, is a direct consequence of the symmetry-breaking mechanism and is responsible for generating particle masses. 
+The gauge bosons mediate the fundamental interactions. The photon $\gamma$, the massless mediator of the electromagnetic interaction, couples to all electrically charged particles. The weak interaction is mediated by the massive $W^\pm$ and $Z^0$ bosons, whose masses arise from spontaneous electroweak symmetry breaking, as discussed in \cref{subsection:BEH}. The strong interaction is mediated by eight massless gluons, which carry colour charge and therefore interact among themselves in addition to coupling to quarks. An additional scalar field, the Higgs boson $H$, is responsible of the electroweak symmetry breaking and the generation of the charged fermion masses. 
 
 \subsubsection{Fermions}
 
-The fermions are arranged in three generations of increasing mass, each containing two quarks and two leptons.
+The fermions are arranged in three generations with the same quantum numbers but different mass, each containing two quarks and two leptons.
 
 Leptons are fermions which are not affected by the strong interaction. Each generation contains a charged lepton and an associated neutrino: the electron $e$ and $\nu_e$, the muon $\mu$ and $\nu_\mu$, and the tau $\tau$ and $\nu_\tau$. The charged leptons carry an electric charge of $-1$ and interact via the electromagnetic and weak interactions, while neutrinos are electrically neutral and interact only via the weak interaction. 
 
@@ -58,7 +58,7 @@ As the SM describes elementary particles at high energy scales, its formalism re
 
 Quantum mechanics, in its original formulation, is a non-relativistic theory. The Schrödinger equation treats time and space asymmetrically and assumes that the number of particles is fixed. This framework becomes inconsistent at high energies, where special relativity must be taken into account.
 
-One needs to consider special relativity when dealing with particles moving at speeds far beyond those encountered in everyday life. This formalism imposes that the rest energy and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. The particle number is therefore no longer conserved, and a single-particle wavefunction $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
+One needs to consider special relativity when dealing with particles moving at speeds far beyond those encountered in everyday life. This formalism imposes that the rest energy and mass are related by $E=mc^2$, so that when the energy of a process exceeds the rest mass energy of a particle, there is sufficient energy to create new particle-antiparticle pairs from the vacuum. The particle number is therefore no longer conserved, and a single-particle wave function $\psi(\mathbf{x},t)$ is no longer an adequate description of the system.
 
 The natural resolution is to get rid of the wave-function as a fundamental object and instead use the dynamical variable as a field $\phi(\mathbf{x},t)$, defined at every point in spacetime, so that particle creation and annihilation are naturally accommodated as excitations of the underlying field.
 
@@ -74,7 +74,7 @@ where $\mathcal{L}$ must be a scalar for $\mathcal{S}$ to be invariant under Lor
 \end{equation}
 which governs the classical evolution of each field $\phi_i$. 
 
-Quantisation is subsequently achieved by imposing canonical commutation relations on the fields and their conjugate momenta, extending the classical field theory to a full quantum field theory.
+Quantisation is subsequently achieved by imposing canonical commutation and anti-commutation relations on the fields and their conjugate momenta, extending the classical field theory to a full quantum field theory.
 
 \vspace{0.5 cm}
 
@@ -118,7 +118,7 @@ Therefore, solving the Dirac equation yields a relativistic quantum-mechanical f
 
 \subsection{Quantum electrodynamics}
 
-One missing point of the Dirac equation is the absence of interactions between the fields. If one wants to include it, the effects of local and global field transformations on the associated Lagrangian must be described. 
+One missing point of the Dirac equation is the absence of interactions between the fields. If one wants to include them, the effects of local and global field transformations on the associated Lagrangian must be described. 
 
 \vspace{0.5 cm}
 
@@ -133,7 +133,7 @@ where the variable $Q_\mathrm{em}$ denotes the electric charge, a conserved quan
 
 \vspace{0.5 cm}
 
-The dynamics of this gauge boson are captured by a kinematic term in the Lagrangian. It follows that this kinematic term arises from the Maxwell Lagrangian $\mathcal{L}_{\mathrm{Maxwell}}$ defined as:
+The dynamics of this gauge boson are captured by its kinematic term in the Lagrangian. It follows that this kinematic term arises from the Maxwell Lagrangian $\mathcal{L}_{\mathrm{Maxwell}}$ defined as:
 
 \begin{equation}
     \mathcal{L}_{\mathrm{Maxwell}} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} \quad \mathrm{with} \, F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
@@ -163,7 +163,7 @@ This theory is referred to as the U(1)$_\mathrm{em}$ because the QED Lagrangian 
 
 One thing that QED failed to describe is the change in the particles' flavour in a given process.
 
-First modelled by Enrico Fermi in 1933, neutron decay and later muon decay were explained by introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ that describes the interaction. As this vision breaks unitarity, with each new Fermi vertex adding a square-energy term, one could say that this theory was a first step toward a hidden interaction that could be probed at higher energies.
+First modelled by Enrico Fermi in 1933, neutron decay and later muon decay were explained by introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ that describes the interaction. As this vision breaks unitarity at high energies, with each new Fermi vertex adding a square-energy term, one could say that this theory was a first step toward a hidden interaction that could be probed at higher energies.
 
 To address the unitarity issue and follow QED examples, it was supposed that the interaction was mediated by a massive charged gauge boson, later identified as the $W^\pm$ bosons. Because these interactions occur at short distances, the term "weak" has been adopted to describe such processes.
 
@@ -245,7 +245,7 @@ The $\mathrm{U}(1)_Y$ gauge boson $B$ couples to all fermions with a strength pr
 \end{align}
 where $g_W$ and $g'$ are the $\mathrm{SU}(2)_L$ and $\mathrm{U}(1)_Y$ coupling constants respectively, and $T_a = \sigma_a/2$ the generators of $\mathrm{SU}(2)_L$ with $\sigma_a$ the Pauli matrices. 
 
-The interaction between the fermions is described by the Lagrangian:
+The interaction between the fermions is described by the kinetic terms in the Lagrangian:
 \begin{equation}
     \begin{split}
         \mathcal{L}_\mathrm{fermions} &= 
@@ -265,7 +265,7 @@ where $W^a_{\mu\nu} = \partial_\mu W^a_\nu - \partial_\nu W^a_\mu + g_W\, \varep
 
 \vspace{0.5 cm}
 
-However, the total Lagrangian $\mathcal{L}_\mathrm{fermions}+\mathcal{L}_\mathrm{gauge}$, contains no mass terms: an explicit Dirac mass $m\bar{\psi}\psi = m(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R)$ couples a left-handed doublet to a right-handed singlet and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. Similarly, an explicit mass term $m^2 W^\mu_a W_{a\mu}$ for the gauge bosons breaks gauge invariance. Since the weak bosons are observed to be massive, a dynamical mechanism is required to generate these masses without spoiling the gauge symmetry: this is achieved by introducing a scalar field whose potential admits a non-zero vacuum expectation value, spontaneously breaking the $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ symmetry down to $\mathrm{U}(1)_{\mathrm{em}}$.
+However, the total Lagrangian $\mathcal{L}_\mathrm{fermions}+\mathcal{L}_\mathrm{gauge}$, contains no mass terms: an explicit Dirac mass $m\bar{\psi}\psi = m(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R)$ couples a left-handed doublet to a right-handed singlet and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. Similarly, an explicit mass term $m^2 W^\mu_a W_{a\mu}$ for the gauge bosons breaks gauge invariance. Since fermions and the weak bosons are observed to be massive, a dynamical mechanism is required to generate these masses without spoiling the gauge symmetry: this is achieved by introducing a scalar field whose potential admits a non-zero vacuum expectation value, spontaneously breaking the $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$ symmetry down to $\mathrm{U}(1)_{\mathrm{em}}$.
 
 
 \subsection{Electroweak symmetry breaking}
@@ -374,7 +374,7 @@ where $y^f_{ij}$ are complex coupling constants, the indices $i,j$ run over the 
     \mathcal{L}_{\mathrm{Yukawa}}^\mathrm{EWSB}=  -\frac{v}{\sqrt{2}} y^f_{ij}\,\overline{\psi}_i \psi_j - \frac{y^f_{ij}}{\sqrt{2}}\, \overline{\psi}_i \psi_j\, h + \mathrm{h.c.}
 \end{equation}
 
-The physical fermion masses are obtained by diagonalising these matrices via independent unitary rotations in the up- and down-type quark sectors. Since these rotations do not generally coincide, the $W^\pm$ bosons can mediate transitions between quark generations, a mismatch parametrised by the Nicola Cabibbo--Makoto Kobayashi--Toshihide Maskawa (CKM) matrix. In the lepton sector, neutrinos are massless in the SM, so the single unitary rotation can always be absorbed into a field redefinition, leaving no physical mixing matrix.
+The physical fermion masses are obtained by diagonalising these matrices via independent unitary rotations in the up- and down-type quark sectors. Since the left-handed rotations of the up-type and down-type quarks do not generally coincide, the $W^\pm$ bosons can mediate transitions between quark generations, a mismatch parametrised by the Nicola Cabibbo--Makoto Kobayashi--Toshihide Maskawa (CKM) matrix. In the lepton sector, neutrinos are massless in the SM, so the single unitary rotation can always be absorbed into a field redefinition, leaving no physical mixing matrix.
 
 
 \subsection{The Standard Model Lagrangian}
@@ -441,15 +441,11 @@ The SM contains 19 free parameters that must be determined experimentally:
 
 To illustrate the historical development of the SM, \cref{fig:SM_discovery_table} summarises the timeline of particle discoveries, distinguishing between theoretical predictions and experimental observations, and illustrating the broad range of masses spanning more than 15 orders of magnitude.
 
-Finally, the predictive power of the SM is strikingly illustrated in \cref{fig:CMS_xsec_summary}, where theory and experiment agree across more than fourteen orders of magnitude in production cross section, spanning a wide range of processes from inclusive QCD and electroweak production to rare and multi-boson final states. 
-
-\vspace{0.5 cm}
-
-Nevertheless, this remarkable agreement masks the limitations of this theory: several observed phenomena remain unexplained, and the 19 free parameters of the SM, whose values must be determined experimentally with no theoretical justification, point to a more fundamental underlying theory.
+Finally, the predictive power of the SM is strikingly illustrated in \cref{fig:CMS_xsec_summary}, where theory and experiment agree across more than fourteen orders of magnitude in production cross section, spanning a wide range of processes from inclusive QCD and electroweak production to rare and multi-boson final states. Nevertheless, this remarkable agreement masks the limitations of this theory: several observed phenomena remain unexplained (for some of which are described in \cref{subsec:limitSM}), and the 19 free parameters of the SM, whose values must be determined experimentally with no theoretical justification, point to a more fundamental underlying theory.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\linewidth]{Images/Ch3/SM_discovery_table.pdf}
+    \includegraphics[width=0.85\linewidth]{Images/Ch3/SM_discovery_table.pdf}
     \caption{Timeline of SM particle discoveries. Circles indicate the year of theoretical prediction and stars the year of experimental discovery. Particles are grouped by type: leptons (Cyan), quarks (Red), gauge bosons (Purple), and the Higgs boson (Yellow). Massless particles ($\gamma$, $g$, neutrinos) are shown on a separate linear scale below the dashed line, while massive particles are displayed on a logarithmic mass scale.}
     \label{fig:SM_discovery_table}
 \end{figure}
@@ -464,6 +460,7 @@ Nevertheless, this remarkable agreement masks the limitations of this theory: se
 \newpage
 
 \subsection{Limitations of the Standard Model}
+\label{subsec:limitSM}
 
 Despite its remarkable predictive success, the SM leaves several experimental observations unexplained and suffers from several theoretical shortcomings, providing strong motivation for physics beyond the Standard Model (BSM).
 
@@ -471,19 +468,19 @@ Despite its remarkable predictive success, the SM leaves several experimental ob
 \noindent\textbf{Neutrino masses and oscillations}
 \vspace{0.5 cm}
 
-In the SM, neutrinos are strictly massless, as no right-handed neutrino field is introduced and no Yukawa coupling can be constructed for them. However, the observation of the transformation of a neutrino of one flavour into another during propagation \cite{NeutrinoOscillations}, constitutes direct experimental evidence that neutrinos are massive, since oscillations require non-zero mass eigenstates. Likewise to the quark sector, the mismatch between the neutrino mass eigenstates and the weak interaction eigenstates is parametrised by the Bruno Pontecorvo -- Ziro Maki -- Masami Nakagawa -- Shoichi Sakata (PMNS) matrix, a $3\times 3$  unitary mixing matrix whose parameters, including a potentially $CP$-violating phase, are the subject of ongoing experimental investigation. The SM must therefore be extended to accommodate neutrino masses, either via a Dirac mechanism requiring right-handed neutrinos, or via a Majorana mass term that would make neutrinos their own antiparticles.
+In the SM, neutrinos are strictly massless, as lepton number is an accidental symmetry and no Yukawa coupling can be constructed for them. However, the observation of the transformation of a neutrino of one flavour into another during propagation~\cite{NeutrinoOscillations}, constitutes direct experimental evidence that neutrinos are massive, since oscillations require at least two non-zero mass eigenstates with non-degenerated masses. Likewise to the quark sector, the mismatch between the neutrino mass eigenstates and the weak interaction eigenstates is parametrised by the Bruno Pontecorvo -- Ziro Maki -- Masami Nakagawa -- Shoichi Sakata (PMNS) matrix, a $3\times 3$  unitary mixing matrix whose parameters, including a potentially $CP$-violating phase, are the subject of ongoing experimental investigation. The SM must therefore be extended to accommodate neutrino masses, either via a Dirac mechanism requiring right-handed neutrinos, or via a Majorana mass term that would make neutrinos their own antiparticles.
 
 \vspace{0.5 cm}
 \noindent\textbf{Matter--antimatter asymmetry}
 \vspace{0.5 cm}
 
-The SM predicts that matter and antimatter should have been produced in equal amounts at the Big Bang, while the observable universe is composed almost entirely of matter. This asymmetry requires, as formulated by Andrei Sakharov in 1967, baryon-number violation, a departure from thermal equilibrium, and $C$ and $CP$ violation. While the SM contains a source of $CP$ violation through the complex phase of the CKM matrix, it is insufficient by several orders of magnitude to account for the observed baryon asymmetry of the universe. Additional sources of $CP$ violation, beyond those present in the SM, are therefore required.
+The SM predicts that matter and antimatter should have been produced in equal amounts at the Big Bang, while the observable universe is composed almost entirely of matter. This asymmetry requires, as formulated by Andrei Sakharov in 1967, baryon-number violation, a departure from thermal equilibrium, and $C$ and $CP$ violation. While the SM contains a source of $CP$ violation through the complex phase of the CKM matrix, it is insufficient by several orders of magnitude to account for the observed baryon asymmetry of the universe. Additional sources of $CP$ violation that would also satisfy the other two Sakharov conditions, beyond those present in the SM, are therefore required.
 
 \vspace{0.5 cm}
 \noindent\textbf{Dark matter and dark energy}
 \vspace{0.5 cm}
 
-Multiple independent cosmological observations indicate the existence of a non-luminous, non-baryonic form of matter that accounts for approximately 27\% of the energy content of the universe. None of the SM particles has the required properties: stability on cosmological timescales, small electromagnetic and strong interactions, and the correct density, making dark matter one of the most convincing arguments for BSM physics.
+Multiple independent cosmological observations indicate the existence of a cold, non-interacting, non-luminous, non-baryonic form of matter that accounts for approximately 27\% of the energy content of the universe. None of the SM particles has the required properties: stability on cosmological timescales, small electromagnetic and strong interactions, and the correct density, making dark matter one of the most convincing arguments for BSM physics.
 
 Observations of Type Ia supernovae in 1998 revealed that the expansion of the universe is accelerating \cite{Riess1998, Perlmutter1999}, attributed to a form of energy of unknown origin, namely dark energy, which constitutes approximately 68\% of the total energy budget. Similarly, no SM particle can account for dark energy, and the vacuum energy estimated from QFT exceeds the observed value by some 120 orders of magnitude.
 
@@ -502,14 +499,14 @@ The SM does not describe gravitational interactions at the quantum level. Genera
 
 \vspace{0.5 cm}
 
-On top of those main problems, the strong $CP$ problem persists, as does the question of gauge coupling unification: the three constants $g_s$, $g_W$, and $g'$ run with energy but do not converge to a single value within the SM, hinting at a deeper unified structure. This non-exhaustive list of issues further emphasises the theory's incompleteness.
+On top of those main problems, the strong $CP$ problem persists, as does the almost unification of the SM gauge couplings: the three constants $g_s$, $g_W$, and $g'$ run with energy but do not converge to a single value within the SM, hinting at a deeper unified structure. This non-exhaustive list of issues further emphasises the theory's incompleteness.
 
 
 
 \section{Supersymmetry, a theory beyond the Standard Model}
 \label{sec:bsm}
 
-The convergence of these experimental and theoretical arguments strongly suggests that the SM is an effective theory, valid at the energy scales currently accessible, but incomplete. The search for BSM physics is therefore a central goal of modern high-energy physics. One of the most theoretically motivated BSM frameworks is supersymmetry (SUSY), which addresses several of the shortcomings discussed above simultaneously and serves as the theoretical foundation for the HSCP analysis presented in this thesis.
+The convergence of these experimental and theoretical arguments strongly suggests that the SM is an effective theory, valid at the energy scales currently accessible, but incomplete. The search for BSM physics is therefore a central goal of modern high-energy physics. One of the most theoretically motivated BSM frameworks is supersymmetry (SUSY), which addresses several of the shortcomings discussed above simultaneously and serves as the theoretical foundation for the analysis presented in this thesis.
 
 \subsection{Particle content and structure of the minimal supersymmetric extension of the Standard Model}
 
@@ -525,13 +522,13 @@ The formalism of any supersymmetric model is built from a Lagrangian containing 
                 + \mathcal{L}_{\mathrm{SUSY}\, \times} .
 \end{equation}
 
-The supersymmetric piece $\mathcal{L}_\mathrm{SUSY}$ of the MSSM shares the same gauge structure as the SM, while its Yukawa interactions are derived from a \textit{superpotential} $W$, a cubic holomorphic function containing the left-handed fermions. This superpotential generates the masses of the charged fermions and accounts for the structure of the CKM matrix. A key feature of the MSSM is that holomorphy of $W$ and anomaly cancellation require the introduction of two Higgs doublets, $H_{1,2}$, rather than the single doublet of the SM.
+The supersymmetric piece $\mathcal{L}_\mathrm{SUSY}$ of the minimal supersymmetric extension of the Standard Model (MSSM) shares the same gauge structure as the SM, while its Yukawa interactions are derived from a \textit{superpotential} $W$, a cubic holomorphic function containing the left-handed fermions. This superpotential generates the masses of the charged fermions and accounts for the structure of the CKM matrix. A key feature of the MSSM is that holomorphy of $W$ and anomaly cancellation require the introduction of two Higgs doublets, $H_{1,2}$, rather than the single doublet of the SM.
 
 After electroweak symmetry breaking, the superpartners of the electroweak gauge and Higgs bosons mix with one another. The supersymmetric partners of the $W^\pm$ and of the charged Higgs bosons $H^\pm$ combine into two charged mass eigenstates, the \textit{charginos} $\chi_{1,2}^\pm$. Similarly, the partners of the $\gamma$, $Z^0$ and of the neutral Higgs bosons $H_{1,2}^0$ mix into four neutral mass eigenstates, the \textit{neutralinos} $\chi_{1,2,3,4}^0$. The lightest neutralino $\chi \equiv \chi_1^0$ is, in $R$-parity conserving scenarios\footnote{$R$-parity is a quantum number defined as $R=(-1)^{3(B-L)+2s}$, where $B$ is the baryon number, $L$ the lepton number and $s$ the spin, equal to $+1$ for SM particles and $-1$ for their superpartners; its conservation forbids proton decay and stabilises the lightest supersymmetric particle.}, the natural lightest supersymmetric particle (LSP) and a prime candidate for astrophysical cold dark matter~\cite{ELLIS1984453}.
 
 \vspace{0.5 cm}
 
-In this model, the physical chargino $\chi^\pm$ and neutralino $\chi^0$ states are combinations of the higgsinos and gauginos. The full content of the minimal supersymmetric extension of the Standard Model (MSSM) is summarised in \cref{tab:susy_particles}.
+In this model, the physical chargino $\chi^\pm$ and neutralino $\chi^0$ states are combinations of the higgsinos and gauginos. The full content of the MSSM is summarised in \cref{tab:susy_particles}.
 
 \begin{table}[h]
 \centering
@@ -658,21 +655,20 @@ $|m_{\tilde{\chi}_{1,2}^{\pm}} - m_{\tilde{\chi}_{1}^{0}}|\sim 160\,\mathrm{MeV}
 
 LLP searches within the CMS detector are, by construction, signature-driven: the diversity of theoretical scenarios is too large for any single analysis to cover them all, and the lifetimes of interest span many orders of magnitude. A generic strategy based solely on experimental signatures is therefore the natural way to probe a broad range of BSM models simultaneously, with each lifetime regime giving rise to a distinct search topology. Those main classes, summarised schematically in \cref{fig:llp_signatures}, are:
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\linewidth]{Images/Ch3/BSM_longlived-2.pdf}
-    \caption{Schematic overview of the main long-lived particle signatures at the CMS detector, adapted from \cite{tikz}.}
-    \label{fig:llp_signatures}
-\end{figure}
-
 \begin{itemize}
     \item \textbf{Displaced vertices.} A neutral LLP decaying inside the tracker volume into charged SM particles produces a vertex displaced by hundreds of micrometres to several metres from the PV. Specialised algorithms identify groups of objects that converge towards a common secondary point, among which the specific final states are displaced dijets~\cite{PhysRevD.109.112005, Collaboration_2025}, displaced leptons~\cite{CMS:2019qjk, 2024baababazed} or displaced photons~\cite{PhysRevD.100.112003}.
     \item \textbf{Disappearing tracks.} In compressed spectra scenarios, a charged particle decays into a nearly invisible neutral state plus a very soft pion of negligible $p_T$. This results in a high-quality track in the innermost pixel layers that abruptly stops in the strip tracker, with no associated calorimeter or muon-system activity~\cite{2020135502}, but with MET~\cite{PhysRevD.109.112005}.
     \item \textbf{Delayed signals.} Heavy LLPs are typically produced with $\beta\gamma\lesssim 1$, leading to measurable delays in the calorimeter timing or in dedicated muon-system measurements. Such searches could be done using the scouting dataset, without being constrained by the trigger~\cite{cmscollaboration2026searchheavylonglivedcharged}, or using new triggers developped for Run--3~\cite{cmscollaboration2026strategyperformancecmslonglived}.
-    \item \textbf{Long isolated tracks.} Charged LLPs whose decay length exceeds the detector size traverse the entire apparatus and leave a single, continuous, high-momentum track from the pixel layers to the muon chambers. This is the topology relevant for HSCP searches, discussed in detail after.
+    \item \textbf{Long isolated tracks.} Charged LLPs whose decay length exceeds the detector size traverse the entire apparatus and leave a single, continuous, high-momentum track from the pixel layers to the muon chambers. This is the topology relevant for this analysis, discussed in detail after.
     \\item \textbf{Muon detector showers.} A neutral LLP traversing the calorimeters and solenoid without interacting can decay inside the steel flux-return yoke of the muon system. The resulting hadronic or electromagnetic shower deposits a high-multiplicity cluster of hits in the surrounding chambers, using the muon detector as a sampling calorimeter sensitive to sub-GeV masses and long decay lengths beyond the reach of inner-tracker techniques~\cite{PhysRevD.110.032007, PhysRevD.110.012004}.
 \end{itemize}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/Ch3/BSM_longlived-2.pdf}
+    \caption{Schematic overview of the main long-lived particle signatures at the CMS detector, adapted from \cite{tikz}.}
+    \label{fig:llp_signatures}
+\end{figure}
 
 The CMS collaboration has developed dedicated analyses targeting each of these signatures. The experimental challenges differ markedly across the decay length range, but the underlying logic is the same: identify a kinematic or topological feature that has no counterpart in the prompt SM background.
 
@@ -803,7 +799,7 @@ Another type of HSCPs interacts only via the electroweak force and propagates th
 \vspace{0.5 cm}
 
 The theoretical cross-section for HSCP production spans more than ten orders of magnitude at $\sqrt{s} = 13.6\,\mathrm{TeV}$, depending on the particle types and their masses; \cref{fig:xsec_theory} shows these results. 
-The contrasts arise from strong versus electroweak production. At this energy, quark-antiquark fusion with gluon emission is favoured over Drell-Yan processes, producing more hadron-like HSCPs. On top of that, the gluino-gluon interaction, due to its colour-octet structure, boosts gluino production cross sections to about ten times those of squarks at equal mass, making these hypothetical particles the favoured HSCPs at the LHC. On the other hand, tau' couplings increase with electric charge, whereas stau couplings are lower than those of tau'.
+The contrasts arise from strong versus electroweak production. At this energy, quark-antiquark fusion with gluon emission is favoured over Drell-Yan processes, producing more hadron-like HSCPs. On top of that, the gluino-gluon interaction, due to its colour-octet structure, boosts gluino production cross sections to about ten times those of squarks at equal mass, making these hypothetical particles the favoured HSCPs at the LHC. On the other hand, tau' couplings increase with electric charge, whereas stau couplings are lower than those of tau.
 
 \begin{figure}[h]
     \centering
