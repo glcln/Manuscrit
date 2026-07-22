@@ -1,16 +1,35 @@
-\chapter{Search for Heavy Stable Charged Particles}
-\chaptermark{Search for Heavy Stable Charged Particles}
+\chapter{Search for Heavy Stable Charged Particles using the Run--3 data}
+\chaptermark{Search for Heavy Stable Charged Particles using the Run--3 data}
 \label{ch:chapitre4}
 \minitoc
 
 
+\section{Motivations for the Run--3 analysis} RELIRE !
+
+The theoretical motivation for searching for heavy stable charged particles (HSCPs), the phenomenology of R-hadrons, and their experimental signatures have been established in \cref{chap:theory}. This section aims to describe how these theoretical predictions are translated into measurable quantities within the CMS detector and to clarify why the specific combination of sub-detectors makes this search feasible.
+
+HSCP searches differ from most analyses conducted within CMS in that they do not focus on particle decays. There is no resonance reconstruction or assembly of final-state object cascades; instead, the signature is inherent to the candidate track itself. This approach is atypical within CMS analyses but remains conceptually straightforward. The methodology relies on the Bethe-Bloch formula for energy loss: particles with low $\beta\gamma$ values exhibit significant ionisation. Since HSCPs are highly massive, they are produced with low $\beta\gamma$ across nearly the entire accessible momentum range. Consequently, a heavy candidate produces a track characterised by both high momentum and anomalously high ionisation, and the combination of these measurements yields a reconstructed mass well beyond the Standard Model spectrum.
+
+The straightforward nature of the HSCP signature is reflected in the analytical tools employed. The analysis utilises a limited set of direct track-level selection criteria, foregoing multivariate or machine-learning classifiers. Background estimation is performed directly from data using the ABCD method. This intentional simplicity enhances transparency, reduces dependence on simulation, and facilitates the scrutiny and validation of each step in the background prediction process.
+
+This search is motivated by the limitations identified in its Run-2 predecessor~\cite{HSCP_Run2}. The previous analysis relied on muon triggers, making it insensitive to a significant fraction of R-hadrons that arrive at the detector as neutral states and do not produce a muon signature, even though they leave a fully reconstructed ionising track in the tracker. Additionally, its acceptance was confined to the central region, and the lower integrated luminosity of Run-2 restricted sensitivity to the highest masses, where the expected signal yield is minimal. The current analysis addresses these limitations by triggering on missing transverse energy, thereby recovering the neutral-escape topology missed by muon-based selections; extending tracker acceptance to the full pseudo-rapidity range to ensure no signal track is excluded for geometrical reasons; and utilising the larger Run-3 dataset, collected at a higher centre-of-mass energy, to enhance sensitivity to higher masses. Collectively, these improvements result in a search that is both more comprehensive and methodologically streamlined than its predecessor.
+
+
+
+
+
 \section{Analysis strategy}
 
-This analysis focuses on the search for heavy stable charged particles (HSCPs), specifically R-hadrons produced via gluino pair production. The experimental signature is characterised by a high-momentum, highly ionising track accompanied by missing transverse energy, which originates from ISR jets or from charge flipping during nuclear interactions within the detector. Unlike the previous analysis based on the Muon dataset~\cite{HSCP_Run2}, this search utilises the MET-triggered dataset. R-hadrons are frequently not reconstructed as muons, either due to insufficient velocity or because they become neutral before reaching the muon system. The use of MET trigger paths therefore recovers a significant portion of the signal that would be missed by a muon-based selection. Multiple MET HLT paths are combined, and the tracker acceptance is extended from $|\eta| < 1$ to $|\eta| < 2.4$, relative to the previous analysis.
+The analysis targets specifically R-hadrons produced via gluino pair production. The experimental signature consists of a high-momentum, highly ionising track accompanied by missing transverse energy (MET). This missing energy may originate from intrinsic signal properties, mis-reconstruction of these particles, or detector effects. Unlike the Run--2 analysis, which relied on the muon system, the current search employs MET triggers to recover a substantial fraction of the signal that was missed by the muon-based selection. Tracker acceptance is extended to its full range compared to the previous search.
 
-A pre-selection step requires events to pass MET triggers, in addition to track-level criteria, the full list of which is described in \cref{sec:HSCPpresel}. The candidate mass is reconstructed using the track momentum $p$ and the harmonic mean $I_h$ of its $\mathrm{d}E/\mathrm{d}x$ deposits in the strip tracker. Heavy particles are expected to manifest as an excess at large reconstructed mass, while Standard Model tracks predominantly populate lower mass values.
+Events are selected based on passing MET triggers and satisfying track-level quality criteria. For each candidate, mass is reconstructed by combining track momentum with ionisation energy loss measured in the tracker. An authentic signal manifests as an excess at large reconstructed mass, while Standard Model tracks are concentrated at low mass.
 
-The background is estimated directly from data. The phase space is divided according to transverse momentum and the pixel-based discriminant $F_\text{pixel}$, which is uniformly distributed for Standard Model tracks, peaks at unity for signal, and is uncorrelated with $p_T$. Both high $p_T$ and high $F_\text{pixel}$ correspond to the signal region. The region characterised by high $p_T$ and low $F_\text{pixel}$, where signal contamination is negligible, serves as the control region. Background normalisation in the signal region is determined using an ABCD method, while the mass shape is predicted by convolving, for each pseudo-rapidity slice, the $1/p$ and $I_h$ templates extracted from the control region. The method is validated in an intermediate value of $F_\text{pixel}$, which is kept separate from the blinded signal region. Systematic uncertainties are propagated to the predicted mass spectrum. The comparison between observed and predicted spectra in the signal region is then used to derive exclusion limits on the HSCP production cross section as a function of mass.
+Background estimation is performed directly from data. The relevant phase space is partitioned using candidate $p_T$ and a dedicated discriminating variable that separates signal-like from background-like tracks. This approach defines a blinded signal region, a signal-free control region, and an intermediate validation region. The expected background mass distribution in the signal region is inferred from the control region. The method is validated in the intermediate region, and systematic uncertainties are propagated to the predicted spectrum. Comparison of observed and predicted mass spectra yields exclusion limits on the HSCP production cross section as a function of mass.
+
+Within this analysis, my contributions included studying MET trigger efficiency and the associated trigger strategy, developing the data-driven background estimation method, and deriving the exclusion limits. The event selection closely follows the Run--2 analysis, while simulated samples were managed by other members of the international team.
+
+
+
 
 
 \section{Datasets}
