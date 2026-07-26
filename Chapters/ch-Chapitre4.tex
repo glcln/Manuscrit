@@ -96,6 +96,8 @@ $W (\to \mu\nu)$ + jets     & $20\,790 \pm 90.5$ & $4.234$ & \colorbox{wcol}{\ph
 
 \section{d\textit{E}/d\textit{x} discriminators}
 
+The identification of HSCPs relies on the anomalously large ionisation produced along their trajectory. The CMS tracker provides this information using two technologically distinct subdetectors. Rather than combining all measurements into a single estimator, this analysis utilises them separately through a pixel discriminator $F_{\text{pixel}}$ and a strip estimator $I_h$. The two subdetectors provide complementary information. The pixel modules yield a small number of high-granularity, two-dimensional clusters whose charge distribution is accurately modelled by dedicated simulations, allowing the compatibility of each cluster with the MIP hypothesis to be expressed as a probability. The strip modules, which are thicker and more numerous along the trajectory, average out Landau fluctuations in the collected charge and provide a robust estimate of $\langle\mathrm{d}E/\mathrm{d}x\rangle$. Maintaining the two measurements separately also serves a practical purpose. Because they are performed by different sensors with distinct calibration procedures and independent sources of systematic uncertainty, the two observables are expected to be uncorrelated for Standard Model tracks.
+
 \subsection{The d\textit{E}/d\textit{x} pixel discriminator \texorpdfstring{$F_{\text{pixel}}$}{Fpixel}}
 
 In this analysis, the pixel information is exploited via $F_{\text{pixel}}$, which quantifies the compatibility of a track with a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
@@ -466,6 +468,10 @@ Two additional requirements are imposed directly on the ionisation estimators. B
 
 \vspace{0.5 cm}
 
+Finally, if multiple candidates are retained in the same event, the candidate with the highest $I_h$ is selected.
+
+\vspace{0.5 cm}
+
 \cref{tab:preselection} presents the successive selection requirements and their cumulative efficiencies for the 2024 MET dataset and a pair-produced gluino sample with $m_{\tilde{g}} = 2000$~GeV. \cref{fig:cutflow} displays the corresponding cutflow in terms of the absolute number of events. The discrepancy between the data and the MC in the first bins indicates that not all MC processes have been accounted for. The most significant reduction in signal after the trigger stage occurs at the $p_T>50$~GeV requirement, which is the first criterion applied directly to the candidate track. Events showing no tracks, particularly where both R-hadrons are neutral in the tracker, are excluded at this stage. The subsequent two isolation requirements further remove a related subset of events. A track from a jet being identified as an HSCP candidate is rejected at this step. The pre-selection reduces the number of events in data by nearly four orders of magnitude while retaining $11.6\%$ of the signal (for $m_{\tilde{g}}=2000$~GeV). In comparison, the Run~2 analysis achieved a final efficiency of $4.8\%$ with the muon trigger approach for the same mass point. The improvement by more than a factor of two is attributed to the revised trigger strategy ($\approx11\%$ trigger efficiency for \texttt{HLT\_Mu50} alone compared to approximately $\approx30\%$ with MET triggers, as shown in \cref{fig:HSCPfractionPairTrigger}), as well as from the extended pseudorapidity coverage (approximately $\approx8.5\%$ for retraining with $|\eta|<1$ compared to approximately $\approx11.6\%$ for $|\eta|<2.4$ after pre-selection, as shown in \cref{fig:signalAcceptance}).
 
 \begin{table}[h!]
@@ -531,6 +537,10 @@ The distribution of three representative pre-selection variable (PUppi MET, $p_T
 \label{sec:massreconstruction}
 
 
+Retour sur la paramétrisation d'ATLAS, fit bien les données MC et data en 2024 mais reconstruit mal la masse du gluino. Surement car track beaucoup moins courbé pour gluino donc 
+[Mettre MPV de proton, Kaon, gluino dans tous le tracker et seulement dans le TIB]
+
+
 
 
 \section{Background estimation method}
@@ -566,18 +576,7 @@ The number of events in the SR $D$ is computed from the event counts in regions 
 \label{eq:normalisation}
 \end{equation}
 
-Furthermore, the method predicts the shape of the mass distribution in the SR $D$ using information from the distributions of the $\langle\dedx\rangle$ estimator $I_h$ and the inverse momentum $1/p$ (to include high $p$ values) taken from the CR $C$.
-
-An example of these templates is presented in \cref{fig:ih_oP_fit}. Fits are applied to the tails of these templates to minimise the influence of statistical fluctuations. The $I_h$ tail distribution is fitted with a Gaussian function, and the latter is used when the bin content is below 100 tracks and with an $I_h$ value of at least 10\% greater than the maximum. The $1/p$ initial tail distribution is fitted using an Error function for bins below 90\% of the maximum and is used when $1/p$ is less than 20\% of the maximum. For the latter, the fit exhibits a higher $\chi^2/N_\textrm{dof}$, primarily due to fluctuations near the distribution's maximum.
-
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/Ih_newfit_bis.pdf}
-  \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/oP_newfit_bis.pdf}
-  \caption{Templates of the $I_h$ (Left) and $1/p$ (Right) distributions extracted in the control region $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.}
-  \label{fig:ih_oP_fit}
-\end{figure}
+\vspace{0.5 cm}
 
 Because the $\eta$ distribution in the CR $C$ does not accurately represent the $\eta$ distribution in region $D$ (as shown in \cref{fig:eta_reweighting} (Left)), a rescaling procedure is implemented to align the $\eta$ distribution with that of the SR. The distribution in CR $C$ is modified as follows:
 \begin{equation}
@@ -587,13 +586,29 @@ These weights are subsequently applied to the $1/p$ distribution in CR $C$ to ac
 
 \begin{figure}[!h]
     \centering
-	  \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg_bis.pdf}
-    \includegraphics[width=0.49\linewidth,trim={0 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg__1oP_bis.pdf}
-    \caption{Left: Distribution of $\eta$ in the region $C$ before rescaling (Green) and after (Red), and the one in the region $D$ (Black). Right: Distribution of $1/p$ in the VR (Black), compared to the one in C after the eta rescaling (Red).}
+	  \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg_bis.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.5cm 0},clip]{Images/Ch4/Eta_reweighting_bkg__1oP_bis.pdf}
+    \caption{Left: Distribution of $\eta$ in the region $C$ before rescaling (green) and after (red), and the one in the region $D$ (black). Right: Distribution of $1/p$ in the VR (black), compared to the one in C before and after the eta rescaling (green and red).}
 		 \label{fig:eta_reweighting}
 \end{figure}
 
+\vspace{0.5 cm}
+
+Furthermore, the method predicts the shape of the mass distribution in the SR $D$ using information from the distributions of the $\langle\dedx\rangle$ estimator $I_h$ and the inverse momentum $1/p$ (to include high $p$ values) taken from the CR $C$.
+
 Due to the correlation between $p$, $p_T$, and $\eta$ (and to a lesser extent between $I_h$ and $\eta$), the mass distribution is reconstructed in bins of $\eta$. To facilitate this, templates in the CR are constructed in two dimensions: ($1/p$, $\eta$) and ($\eta$, $I_h$). The $\eta$ distribution is divided into 24 bins ($\Delta_{\eta} = 0.1$), $I_h$ into 100 bins ($\Delta_{I_h} = 0.05~\mathrm{MeV/cm}$), and $1/p$ into 500 bins ($\Delta_{1/p} = 0.4$~GeV$^{-1}$).
+
+An example of these templates for $1.20\leq\eta<1.44$ is presented in \cref{fig:ih_oP_fit}. Fits are applied to the tails of these templates to minimise the influence of statistical fluctuations. A Gaussian fit is applied to describe the tail of the $I_h$ distribution. For bins with fewer than 100 tracks and situated at least 10\% above the distribution maximum, the fitted function value replaces the measured bin. The lower tail of the $1/p$ distribution is modelled using an Error function\footnote{The error function is defined as $\mathrm{erf}(x) = \frac{ \displaystyle2}{ \displaystyle\sqrt{\pi}} \displaystyle \int_{0}^{x} e^{-t^{2}} \, \mathrm{d}t$. The function actually fitted is $f(x) = \frac{ \displaystyle p_{0}}{ \displaystyle2}\left[1 + \mathrm{erf}\!\left(\frac{ \displaystyle x - p_{1}}{ \displaystyle \sqrt{2}\,p_{2}}\right)\right]$, i.e.\ the cumulative distribution function of a Gaussian of mean $p_{1}$ and width $p_{2}$, scaled by $p_{0}$.}, which is fitted to the bins below 90\% of the distribution's maximum position. For $1/p$ values below 20\% of this maximum, the fitted value replaces the measured value for that bin. For the latter, the fit exhibits a higher $\chi^2/N_\textrm{dof}$, primarily due to fluctuations near the distribution's maximum.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/Ih_bkgfit_proj_ih_eta10_bis.pdf}
+  \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/oP_bkgfit_forfit_p_eta16_bis.pdf}
+  \caption{Example of templates for $1.20\leq\eta<1.44$ of the $I_h$ (Left) and $1/p$ (Right) distributions extracted in the control region $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.}
+  \label{fig:ih_oP_fit}
+\end{figure}
+
+\vspace{0.5 cm}
 
 The mass distribution is filled using a triple loop: the outer loop iterates over $\eta$ bins, the middle loop over $1/p$ bins, and the inner loop over $I_h$ bins. Within this structure, the indices ($i$, $j$, $k$) correspond to the ($\eta$, $1/p$, $I_h$) bin, where the relevant computations are performed:
 
