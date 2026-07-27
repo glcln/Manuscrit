@@ -84,7 +84,7 @@ QCD $\mu$-enriched, $\hat{p}_T \in [600,800[$\,GeV & $21.37 \pm 0.06407$      & 
 QCD $\mu$-enriched, $\hat{p}_T \in [800,1000[$\,GeV& $3.913 \pm 0.01164$      & $0.005226$ &  \\
 QCD $\mu$-enriched, $\hat{p}_T \geq 1000$\,GeV     & $1.323 \pm 0.003969$     & $0.001671$ &  \\
 \midrule
-$t\bar{t}\to \ell\nu qq$                & $405^{+3.2}_{-4.7}$ & XXXX & \colorbox{ttcol}{\phantom{x}} \\
+$t\bar{t}\to \ell\nu qq$                & $405^{+3.2}_{-4.7}$ & $0.09111$ & \colorbox{ttcol}{\phantom{x}} \\
 $t\bar{t}\to 2\ell2\nu$                & $98.1^{+2.4}_{-3.5}$ & $0.02341$ & \colorbox{ttcol}{\phantom{x}} \\
 \midrule
 $W (\to \mu\nu)$ + jets     & $20\,790 \pm 90.5$ & $4.234$ & \colorbox{wcol}{\phantom{x}} \\
@@ -635,8 +635,9 @@ The mass distribution is then constructed and rescaled to the expected global no
 This method has been employed in several previous iterations of the HSCP analysis. However, multiple modifications have been implemented since the most recent CMS public results~\cite{HSCP_Run2}. The key changes are as follows:
 \begin{itemize}
   \item A new mapping for the phase space, $F_\textrm{pixel}$, is employed in place of $G_\textrm{strip}$. The $G_\textrm{strip}$ estimator relies on d$E$/d$x$ deposits within strip sensors to determine whether a HSCP candidate is compatible with a track depositing at the MIP level. $G_\textrm{strip}$ increases exponentially towards 1 for events that are incompatible with the MIP. However, this estimator correlates with $p_T$: higher $p_T$ values yield greater d$E$/d$x$ deposits, introducing bias in mass-spectrum predictions.
-  \item The fits of the $I_h$ and $1/p$ tail templates have been refined to accommodate the expanded eta acceptance. This adjustment is particularly significant for the $1/p$ distribution, where, in the endcap region ($|\eta|>1$), the shape differs at low $1/p$, leading to inaccurate mass calculations with previous fitting strategies.
   \item Eta reweighting is now conducted using all three alternative regions ($A$, $B$, and $C$) of the ABCD method, rather than relying solely on regions $B$ and $C$ as in the previous version of the analysis.
+  \item The templates are taken from the same CR.
+  \item The fits of the $I_h$ and $1/p$ tail templates have been refined to accommodate the expanded eta acceptance. This adjustment is particularly significant for the $1/p$ distribution, where, in the endcap region ($|\eta|>1$), the shape differs at low $1/p$, leading to inaccurate mass calculations with previous fitting strategies.
 \end{itemize}
 
 
@@ -647,22 +648,25 @@ This method has been employed in several previous iterations of the HSCP analysi
 
 \subsubsection{Validation in data}
 
-In this analysis, we designate region $D'$ with $0.8 < F_\textrm{pixel} \leq 0.9$ as the validation region and define region $C$ as $F_\textrm{pixel} \leq 0.8$ with $p_T > 70$~GeV. Predictions are shown in \cref{fig:abcd_mass_slices_data} for the 2024 data across different regimes in eta. The binning uses wider bin widths at higher masses to match the mass resolution. The observed change in the slope of the background prediction arises from the variation in bin width for the $|\eta|<1$ and $1\leq|\eta|<2.4$ categories (top plots). When the barrel and endcap regions are combined, the mass distribution with $|\eta|<2.4$ (bottom plot) exhibits a difference in slope attributable to the distinct eta regimes. The prediction and observation show reasonable agreement.
-
-Three distinct methods are used to evaluate the agreement between observed and predicted shapes, as illustrated in the lower panels. The first panel presents the Ratio $R$:
-\begin{equation}
- {\rm Ratio}~R = \frac{ \displaystyle \int_M^{\infty} d M_{\rm obs}}{ \displaystyle \int_M^{\infty} d M_{\rm pred}} \, .
- \label{eq:ratio_integral}
-\end{equation}
-This ratio quantifies the predictive accuracy from the mass bin $M$ up to the end of the distribution. The second panel displays the observed-to-predicted ratio for each bin, while the third presents the pull, defined as $( M_{\rm obs} -  M_{\rm pred})/\sigma$, with $\sigma=\sqrt{\sigma_{\rm obs}^2 + \sigma_{\rm pred}^2}$.
+In the following, we designate region $D'$ with $0.8 < F_\textrm{pixel} \leq 0.9$ and with $ p_T > 70$~GeV as the VR and region $B'$ as $F_\textrm{pixel} \leq 0.8$ with $55\leq p_T < 70$~GeV. Predictions are shown in \cref{fig:abcd_mass_slices_data} for the 2024 data across different eta regimes. The binning uses wider bin widths at higher masses to match the mass resolution. The prediction and observation demonstrate reasonable agreement, as shown in the top plots. The observed change in the slope of the background prediction results from differences in the $p$ distribution between the barrel ($|\eta|<1$) and endcap ($1\leq|\eta|<2.4$) regions, as illustrated in \cref{fig:Ihand1oPinEtaslices} (left). In contrast, the $I_h$ distributions (right) exhibit less variation across eta bins. When the barrel and endcap regions are combined, the mass distribution for $|\eta|<2.4$ (\cref{fig:abcd_mass_slices_data} top plot) displays a difference in slope attributable to this effect. The mass distribution for various signal hypotheses (colored histograms) is presented, demonstrating the absence of contamination in the VR. The sample at $m_{\tilde{g}}=2000$~GeV, which was excluded during the final iteration of the analysis, is also drawn.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_wRatioR_Eta1.pdf}
-    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_wRatioR_Eta1_2p4.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/oP_bkg_etaSlices_bis.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/Ih_bkg_etaSlices_bis.pdf}
+    \caption{Distributions of the $1/p$ (left) and $I_h$ (right) templates across various eta slices.}
+    \label{fig:Ihand1oPinEtaslices}
+\end{figure}
+
+Two distinct methods are used to evaluate the agreement between observed and predicted shapes, as illustrated in the lower panels. The first panel illustrates the ratio of observed to predicted values for each bin. The second panel presents the pull, defined as $( M_{\rm obs} -  M_{\rm pred})/\sigma$, where $\sigma=\sqrt{\sigma_{\rm obs}^2 + \sigma_{\rm pred}^2}=\sqrt{N_{\rm obs} + \sigma_{\rm pred}^2}$. This definition is appropriate since the data follow a Poisson distribution.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.2cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta1.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.2cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta1_2p4.pdf}
     \\
-    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_wRatioR_Eta2p4.pdf}
-    \caption{Mass distribution in the validation region for the 2024 data across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains three lower panels: the Ratio~$R$ defined by (\cref{eq:ratio_integral}), the bin ratio, and the pull.}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.2cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_Eta2p4.pdf}
+    \caption{Mass distribution in the validation region for the 2024 data across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains two lower panels: the bin ratio and the pull.}
     \label{fig:abcd_mass_slices_data}
 \end{figure}
 
@@ -678,7 +682,7 @@ The SR is also examined, for which results are shown in \cref{fig:abcd_mass_mc_S
     \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_wRatioR_MC_Eta1_2p4.pdf}
     \\
     \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region8fp9_2024_onlyNominal_wRatioR_MC_Eta2p4.pdf}
-    \caption{Mass distribution in the validation region for the 2024 2024 MC samples ($W$+jets, $t\overline{t}$, and QCD) across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains three lower panels: the Ratio~$R$ defined by (\cref{eq:ratio_integral}), the bin ratio, and the pull.}
+    \caption{Mass distribution in the validation region for the 2024 MC samples ($W$+jets, $t\overline{t}$, and QCD) across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains two lower panels: the bin ratio and the pull.}
     \label{fig:abcd_mass_mc}
 \end{figure}
 
@@ -688,7 +692,7 @@ The SR is also examined, for which results are shown in \cref{fig:abcd_mass_mc_S
     \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_wRatioR_MC_Eta1_2p4.pdf}
     \\
     \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_wRatioR_MC_Eta2p4.pdf}
-    \caption{Mass distribution in the signal region for the 2024 2024 MC samples ($W$+jets, $t\overline{t}$, and QCD) across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains three lower panels: the Ratio~$R$ defined by (\cref{eq:ratio_integral}), the bin ratio, and the pull.}
+    \caption{Mass distribution in the signal region for the 2024 2024 MC samples ($W$+jets, $t\overline{t}$, and QCD) across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains two lower panels: the bin ratio and the pull.}
     \label{fig:abcd_mass_mc_SR}
 \end{figure}
 
@@ -698,7 +702,7 @@ The SR is also examined, for which results are shown in \cref{fig:abcd_mass_mc_S
 \section{Systematics}
 \label{sec:systematics}
 
-This strategy considers two primary types of systematic uncertainties for the final interpretation. These uncertainties may arise from variable calibration, methodological biases, or binning choices. Systematic uncertainties are incorporated into both the background prediction and the signal modelling.
+This analysis addresses two categories of systematic uncertainties in the final interpretation: uncertainties associated with the background prediction method and those associated with signal modelling.
 
 \subsection{Systematics related to the background prediction}
 \label{subsec:systBkgPred}
@@ -784,7 +788,7 @@ The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{
     \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_Eta1_2p4.pdf}
     \\
     \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_Eta2p4.pdf}
-    \caption{Mass distribution in the signal region for the 2024 data across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers and plotted up to 300~GeV to be blind. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains three lower panels: the Ratio~$R$ defined by (\cref{eq:ratio_integral}), the bin ratio, and the pull.}
+    \caption{Mass distribution in the signal region for the 2024 data across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers and plotted up to 300~GeV to be blind. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains two lower panels: the bin ratio and the pull.}
     \label{fig:abcd_mass_SR}
 \end{figure}
 
