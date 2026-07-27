@@ -17,7 +17,7 @@ After World War II, European physics had fallen behind. This was largely due to 
 
 With the organisation in place, CERN quickly built its first accelerators. The Synchrocyclotron (SC) began operation in 1957 as a 600 MeV proton machine. In 1958, the SC enabled CERN's first major discovery: the observation of a charged pion decaying into an electron and a neutrino. Soon after, the 28 GeV Proton Synchrotron (PS) came online in 1959, briefly making CERN home to the world's highest-energy accelerator. The PS would continue to serve as a beam source for decades to come.
 
-During the 1960s, particle detection at CERN was dominated by the low-rate visual, bubble, and spark chambers, which produced vast numbers of photographic images. This method was slow and laborious. A breakthrough came in 1968 when Georges Charpak invented the multiwire proportional chamber, a gas-filled detector with parallel wires connected to amplifiers. Charpak's chamber could count particles roughly 1,000 times faster than previous techniques, ushering in the modern electronic era of particle detectors.
+During the 1960s, particle detection at CERN was dominated by low-rate visual, bubble, and spark chambers, which produced vast numbers of photographs. This method was slow and laborious. A breakthrough came in 1968 when Georges Charpak invented the multiwire proportional chamber, a gas-filled detector with parallel wires connected to amplifiers. Charpak's chamber could count particles roughly 1,000 times faster than previous techniques, ushering in the modern electronic era of particle detectors.
 
 \vspace{0.5 cm}
 
@@ -25,7 +25,7 @@ CERN next pioneered colliding-beam accelerators. In 1971, the Intersecting Stora
 
 \vspace{0.5 cm}
 
-Building on this progress, CERN inaugurated the Large Electron–Positron collider (LEP) in 1989. LEP was installed in a 27 km tunnel (the largest circular collider then built), designed for high-precision studies of the electroweak interaction. In its first phase, it ran at about 100 GeV centre-of-mass energy and produced on the order of 17 million $Z^0$ bosons. LEP's experiments performed very precise measurements; notably, they confirmed that there are exactly three light neutrino species (three generations of matter particles)11{LEPEW2006}. After roughly eleven years of operatimake wayLEP was shut down in 2000 to push,n collider using the same tunnel: the Large Hadron Collider.
+Building on this progress, CERN inaugurated the Large Electron–Positron collider (LEP) in 1989. LEP was installed in a 27 km tunnel (the largest circular collider then built), designed for high-precision studies of the electroweak interaction. In its first phase, it ran at about 100 GeV centre-of-mass energy and produced on the order of 17 million $Z^0$ bosons. LEP's experiments performed very precise measurements; notably, they confirmed that there are exactly three light neutrino species (three generations of matter particles)11{LEPEW2006}. After roughly eleven years of operation, LEP was shut down in 2000 to push for the next-generation collider using the same tunnel: the Large Hadron Collider.
 
 
 \section{The Large Hadron Collider}
@@ -207,7 +207,7 @@ In practice, three distinct luminosity quantities are defined. The \textit{deliv
     \label{fig:intlumi}
 \end{figure}
 
-\subsection{Pile-Up}
+\subsection{Pile-up}
 \label{subsec:PileUp}
 
 Monitoring the real-time value of the instantaneous luminosity is tricky if using \cref{eq:instantaneous_luminosity}. This would require knowing the precise value of the parameters. An alternative is to monitor processes for which we know the cross-section of production $\sigma_{\textrm{ref}}$ and count how many of them are produced, which is the rate $\textrm{R}_{\textrm{ref}}$:
@@ -235,7 +235,7 @@ Inverting this expression yields an average pile-up of $\mu \simeq 22$ under the
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/Ch1/pileup.pdf}
-    \caption{Distribution of the average number of interactions per crossing (Pile-Up) for proton-proton collisions per year \cite{LumiIntCMS}.}
+    \caption{Distribution of the average number of interactions per crossing (pile-up) for proton-proton collisions per year \cite{LumiIntCMS}.}
     \label{fig:pileup}
 \end{figure}
 
@@ -790,7 +790,7 @@ where $k=-1$ controls the clustering behaviour in the anti--$k_T$ method, $\Delt
 
 Pile-up contributions degrade jet resolution, especially for low-$p_T$ jets, reducing the jet energy resolution. This effect is even more pronounced for Run--3 data, as the average pile-up tends to increase with year, reaching $\langle \textrm{PU} \rangle=60$ in 2024, 2025 and 2026. To make this work, CMS has developed the Pile-Up Per Particle Identification (PUppi)~\cite{PUPPI_cms}, which is more stable and efficient than CHS in high-pile-up scenarios. PF candidates are weighted by their probability of arising from pile-up before applying the anti--$k_t$ method. 
 
-At this point, two classes of jets are created: AK4PF jets (resulting from the CHS process) and AK4 PUppi jets, the latter being those recommended by CMS for Run--3 physics analysis.
+At this point, two classes of jets are created: AK4PF jets (resulting from the CHS process) and AK4 PUppi jets, the latter of which are recommended by CMS for Run--3 physics analysis.
 
 Jet energies are then corrected through a series of jet energy corrections (JEC) applied sequentially. Relative and absolute corrections account for non-uniformities in the detector response as functions of $\eta$ and $p_T$, thereby bringing the jet energy scale to a uniform, well-calibrated reference. Finally, residual corrections are implemented to the data to account for remaining discrepancies between the data and the simulation, derived from dedicated in situ measurements such as the $p_T$ balance in $\gamma$+jet, $Z^0$+jet, and dijet events. After the full JEC chain, the jet energy resolution (JER) is also smeared in simulation to match the resolution observed in data~\cite{CMS-DP-2026-034}. The latest results show that the jet energy scale is stable over Run--3, at the order of a percent~\cite{CMS-DP-2025-042, CMS-DP-2025-044}.
 

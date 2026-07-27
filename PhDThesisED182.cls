@@ -71,6 +71,7 @@
 
 \definecolor{qcdcol}{HTML}{99FF9A} % bleu
 \definecolor{ttcol}{HTML}{FF8080}  % rouge
+\definecolor{ttsemicol}{HTML}{CC7E7F}  % rouge
 \definecolor{wcol}{HTML}{B2B2FF}   % orange
 
 \tikzset{
