@@ -43,6 +43,7 @@ All signal and background MC samples are reweighted to match the 2024 luminosity
 
 \begin{table}[h!]
     \centering
+    \small
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{ccc}
     \toprule
@@ -66,6 +67,7 @@ All signal and background MC samples are reweighted to match the 2024 luminosity
 
 \begin{table}[h!]
 \centering
+\small
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{lrrc}
 \toprule
@@ -252,7 +254,7 @@ At the L1 trigger level, the seed lists consist of a logical \texttt{OR} of seve
 
 \vspace{0.5 cm}
 
-\cref{fig:HSCPfractionPairTrigger} (left) presents the individual MET trigger efficiency, the efficiency after the logical \texttt{OR} combination of these triggers, and the efficiency following application of the muon trigger for several signal mass points. The MET triggers demonstrate higher event selection efficiency ($\approx30\%$) compared to muon triggers ($\approx11\%$).
+\cref{fig:HSCPfractionPairTrigger} (left) presents the individual MET trigger efficiency, the efficiency after the logical \texttt{OR} combination of these triggers, and the efficiency following application of the muon trigger for several signal mass points. The MET triggers demonstrate a higher event selection efficiency ($\approx30\%$) than muon triggers ($\approx11\%$).
 
 \cref{fig:HSCPfractionPairTrigger} (right) presents the HSCP-generated pair-type distribution (black dots, identical to \cref{fig:HSCPfractionPair}) following the application of MET triggers (red squares) and, for comparison, the \texttt{HLT\_Mu50} triggers (dark yellow crosses) for the $m_{\tilde{g}}=2000$~GeV point. The reduction from the generated composition to the post MET trigger composition remains essentially uniform across all three pair-type categories: summing the red squares over the three categories recovers the same $\approx$30\% efficiency obtained for the $m_{\tilde{g}}=2000$~GeV point of \cref{fig:HSCPfractionPairTrigger} (left). This efficiency is higher than that achieved with the muon trigger, because only events containing a charged HSCP and an associated track are selected, thus retaining only the neutral-charged and charged-charged categories.
 
@@ -262,18 +264,16 @@ Consequently, MET triggers are designated for this analysis, as they demonstrate
     \centering
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.2cm 0},clip]{Images/Ch4/c_TriggerEfficiency__TriggerEff_bis.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.2cm 0},clip]{Images/Ch4/PairTypeStages_SingleMass__Trigger_2000__PairTypeStages_bis.pdf}
-    \caption{Left: efficiency of the individual MET HLT paths and of their logical \texttt{OR}, and the HLT Muon path for various gluino mass points. Right: evolution of the HSCP pair-type composition across the analysis chain, for a gluino signal with $m_{\tilde{g}}=2000$~GeV: at the generated level (Black dots), after applying the MET triggers (red squares), and after applying the Muon trigger (dark yellow crosses).}
+    \caption{Left: efficiency of the individual MET HLT paths and of their logical \texttt{OR}, and the HLT Muon path for various gluino mass points. Right: evolution of the HSCP pair-type composition across the analysis chain, for a gluino signal with $m_{\tilde{g}}=2000$~GeV: at the generated level (black dots), after applying the MET triggers (red squares), and after applying the Muon trigger (dark yellow crosses).}
     \label{fig:HSCPfractionPairTrigger}
 \end{figure}
 
 
 \subsubsection{HSCP MET topologies}
 
-The MET signature arising from the distinct properties of R-hadrons deserves further investigation, as PF MET and Calo MET measurements vary with the specific production topology.
+The MET signature arising from the distinct properties of R-hadrons deserves further investigation, as PF MET and Calo MET measurements vary with the specific production topology. PUppi MET, the Run 3 recommended MET estimator, which is similar to PF MET but incorporates more robust pile-up mitigation, will be used in place of PF MET. PUppi MET is only produced when the R-hadron pair consists of one charged and one neutral state, since a charged-charged or neutral-neutral pair leaves no net $p_T$ imbalance. In contrast, an ISR gluon, which would hadronise into a jet, or a photon recoiling against the pair production, produces ECAL or HCAL deposits. Since charged or neutral HSCPs leave minimal calorimeter information, this results in an imbalance in the calorimeter towers and consequently leads to non-zero Calo MET. Five kinematic topologies, depending on the nature of the pair-produced HSCP, were identified on this basis and are illustrated in \cref{fig:METtopology}, ranging from configurations with negligible MET to those dominated by either PUppi or Calo MET, thereby motivating the use of several complementary MET observables rather than a single variable.
 
-PUppi MET, the Run 3 recommended MET estimator, which is similar to PF MET but incorporates more robust pile-up mitigation, will be used in place of PF MET. PUppi MET is only produced when the R-hadron pair consists of one charged and one neutral state, since a charged-charged or neutral-neutral pair leaves no net $p_T$ imbalance. In contrast, an ISR gluon, which would hadronise into a jet, or a photon recoiling against the pair production, produces ECAL or HCAL deposits. Since charged or neutral HSCPs leave minimal calorimeter information, this results in an imbalance in the calorimeter towers and consequently leads to non-zero Calo MET. Five kinematic topologies, depending on the nature of the pair-produced HSCP, were identified on this basis and are illustrated in \cref{fig:METtopology}, ranging from configurations with negligible MET to those dominated by either PUppi or Calo MET, thereby motivating the use of several complementary MET observables rather than a single variable.
-
-\begin{figure}[h!]
+\begin{figure}[htbp!]
     \centering
     \input{Images/Ch4/METtopology.tex}
     \caption{The five kinematic topologies considered for the MET trigger strategy, defined by the relative directions of the two HSCP candidates and the possible presence of ISRs.}
@@ -400,6 +400,8 @@ Both one-dimensional and two-dimensional (function of Pseudo MET and PUPPI MET) 
     \label{fig:triggerSF}
 \end{figure}
 
+\clearpage
+
 \subsubsection{Impact on the signal acceptance}
 
 To test the different regimes in which the SFs are flat and see the impact on the signal acceptance, three strategies are compared:
@@ -437,12 +439,12 @@ The pre-selection stage established for the Run--3 analysis closely follows the 
 
 Events must activate at least one of the MET trigger paths described in \cref{sec:trigger} and pass the standard MET noise filters, which remove events where missing transverse momentum arises from detector effects such as noisy calorimeter cells. An offline requirement of PUppi MET > 150~GeV is subsequently applied to ensure robust signal selection while maintaining scale factors close to unity, thereby preserving reliable simulation modelling.
 
-At least one track with PF and track (difference discussed in \cref{sec:PFvsTrack}) $p_T > 50$~GeV and $|\eta| < 2.4$. The $p_T$ requirement is a mandatory selection to retain tracks with d$E$/d$x$ clusters in the \textsc{MiniAOD} datasets. This threshold minimally affects the signal, as $p/m = \beta\gamma$ implies that particles with masses of several hundred GeV possess momenta well above this limit, while the background spectrum decreases sharply. The pseudorapidity range matches the full tracker acceptance, unlike for the Run-2 analysis, which relied on a limited search to $|\eta| < 1.0$. \cref{fig:signalAcceptance} shows the signal acceptance for various signal mass points and MET data following the analysis pre-selection. The extension in eta increases the signal acceptance from approximately 8.5\% at $|\eta|<1$ to about 11.5\% at $|\eta|<2.4$. A similar trend is observed in the data, accompanied by an increase in background events.
+At least one track with PF and track (difference discussed in \cref{sec:PFvsTrack}) $p_T > 50$~GeV and $|\eta| < 2.4$. The $p_T$ requirement is a mandatory selection to retain tracks with d$E$/d$x$ clusters in the \textsc{MiniAOD} datasets. This threshold minimally affects the signal, as $p/m = \beta\gamma$ implies that particles with masses of several hundred GeV possess momenta well above this limit, while the background spectrum decreases sharply. The pseudorapidity range matches the full tracker acceptance, unlike for the Run-2 analysis, which relied on a limited search to $|\eta| < 1.0$. \cref{fig:signalAcceptance} shows the signal acceptance for various signal mass points and MET data after applying the analysis pre-selection. The extension in eta increases the signal acceptance from approximately 8.5\% at $|\eta|<1$ to about 11.5\% at $|\eta|<2.4$. A similar trend is observed in the data, accompanied by an increase in background events.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/Ch4/SignalAcceptance_EtaSlice_bis.pdf}
-    \caption{Acceptance as a function of the detector eta range for various signal samples (colored) and the MET datasets (black dots scaled x400).}
+    \caption{Acceptance as a function of the detector eta range for various signal samples (colored) and the MET datasets (black dots scaled x400) after applying the analysis pre-selection.}
     \label{fig:signalAcceptance}
 \end{figure}
 
@@ -483,26 +485,26 @@ Finally, if multiple candidates are retained in the same event, the candidate wi
     \toprule
     Requirement & MET data (\%) & $m_{\tilde{g}}=2000$~GeV (\%) \\
     \midrule
-    All                                  & $100.00$ & $100.00$ \\
-    MET trigger (\texttt{OR})                  & $9.64$   & $31.46$  \\
-    MET filters                       & $9.32$   & $30.79$  \\
-    PUppi MET > 150~GeV                & $4.29$   & $25.84$  \\
+    All                                  & $100$ & $100$ \\
+    MET trigger (\texttt{OR})            & $9.64$   & $31.46$  \\
+    MET filters                          & $9.32$   & $30.79$  \\
+    PUppi MET > 150~GeV                  & $4.29$   & $25.84$  \\
     $p_T > 50$~GeV                       & $0.59$   & $18.78$  \\
     $|\eta| < 2.4$                       & $0.53$   & $18.49$  \\
     $N_{\text{pixel hits}} \geq 2$       & $0.51$   & $17.80$  \\
     $f_{\text{valid hits}} > 0.8$        & $0.50$   & $17.79$  \\
-    $N_{\mathrm{d}E/\mathrm{d}x} \geq 10$                  & $0.41$   & $16.05$  \\
-    High purity                          & $0.41$   & $16.04$  \\
+    $N_{\mathrm{d}E/\mathrm{d}x} \geq 10$& $0.41$   & $16.05$  \\
+    High purity                          & $0.41$   & $16.08$  \\
     $\chi^{2}/N_{\text{dof}} < 5$        & $0.41$   & $16.03$  \\
     $|d_{z}| < 0.1$~cm                   & $0.40$   & $16.02$  \\
-    $|d_{xy}| < 0.02$~cm                 & $0.40$   & $16.00$  \\
-    $I_\textrm{rel}^\textrm{PF} < 0.02$                     & $0.05$   & $13.38$  \\
-    $I_{\text{trk}} < 15$~GeV & $0.04$ & $11.96$  \\
-    $E/p < 0.3$                          & $0.03$   & $11.94$  \\
-    $\sigma_{p_T}/p_T^{2} < 0.0008$      & $0.03$   & $11.76$  \\
-    $F_\textrm{pixel} > 0.3$                      & $0.02$   & $11.74$  \\
-    $\sigma_{p_T}/p_T < 1$               & $0.02$   & $11.62$  \\
-    $I_h > C_\mathrm{mass}$                            & $0.02$   & $11.61$  \\
+    $|d_{xy}| < 0.02$~cm                 & $0.39$   & $16.00$  \\
+    $I_\textrm{rel}^\textrm{PF} < 0.02$  & $0.054$  & $13.38$  \\
+    $I_{\text{trk}} < 15$~GeV            & $0.042$  & $11.96$  \\
+    $E/p < 0.3$                          & $0.026$  & $11.94$  \\
+    $\sigma_{p_T}/p_T^{2} < 0.0008$      & $0.026$  & $11.76$  \\
+    $F_\textrm{pixel} > 0.3$             & $0.022$  & $11.74$  \\
+    $\sigma_{p_T}/p_T < 1$               & $0.022$  & $11.62$  \\
+    $I_h > C_\mathrm{mass}$              & $0.018$  & $11.61$  \\
     \bottomrule
   \end{tabular}
   \caption{Cumulative efficiencies of the pre-selection requirements for the 2024 MET dataset and a pair-produced gluino signal with $m_{\tilde{g}} = 2000$~GeV. Each line includes all the requirements listed above it.}
@@ -534,14 +536,100 @@ The distribution of three representative pre-selection variable (PUppi MET, $p_T
 
 
 
-\section{Mass reconstruction strategy}
-\label{sec:massreconstruction}
+\section{Mass reconstruction}
+\label{sec:massreco}
 
+The final observable in this analysis is the candidate mass, which is reconstructed from the candidate momentum $p$ and its average ionisation $I_h$. Within the momentum range of the preselected candidates, the Bethe-Bloch formula is dominated by the $1/\beta^2$ term. Therefore, the average energy loss of a singly charged particle can be approximated as follows:
 
-Retour sur la paramétrisation d'ATLAS, fit bien les données MC et data en 2024 mais reconstruit mal la masse du gluino. Surement car track beaucoup moins courbé pour gluino donc 
-[Mettre MPV de proton, Kaon, gluino dans tous le tracker et seulement dans le TIB]
+\begin{equation}
+\label{eq:fitKC}
+\begin{split}
+    f^{\rm KC}: \quad I_h &\simeq K_\textrm{mass}\cdot \frac{1}{(\beta\gamma)^2} + C_\textrm{mass} \\
+        &=      K_\textrm{mass}\cdot \frac{m^2}{p^2}          + C_\textrm{mass} \, ,
+\end{split}
+\end{equation}
+$C_\textrm{mass}$ represents the value of the ionisation plateau for MIP, while $K_\textrm{mass}$ denotes the slope of the low-velocity rise. Both are fitted in the $(I_h, p)$ plane, similarly to \cref{fig:FitData_atlas_vs_KC}. Inversion of this relation yields a closed-form mass estimate:
 
+\begin{equation}
+    M = p \cdot \sqrt{ \frac{I_h - C_\textrm{mass}}{K_\textrm{mass}} }.
+    \label{eq:massHSCPanalysis}
+\end{equation}
 
+Alternatively, the five-parameter empirical parametrisation described in \cref{eq:fitAtlas} and introduced in \cref{sec:dedxperf} models the complete $\beta\gamma$ dependence of energy loss, with mass values computed numerically using the Brent method (labelled $f^{\rm 5p}$). Both fit functions are evaluated on low-momentum 2024 data, employing the same selection criteria as in \cref{fig:dedx_vs_p_2024}, and applying the upstream saturation correction using the shape method. The results, presented in \cref{fig:FitData_atlas_vs_KC}, with the left panel being the $f^{\rm 5p}$ fit, demonstrate close agreement across all mass lines. The same procedure is applied to the $f^{\rm KC}$ fit (left). However, this parametrisation does not reproduce the observed behaviour: the two degrees of freedom are insufficient, and the fit diverges from the data specifically in the low-momentum region that defines the mass scale.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.49\linewidth]{Images/Ch2/dEdX0stripVsP_lowp_FIT_A.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch4/dEdX0stripVsP_lowp_FIT.pdf}
+    \caption{$I_h$ estimator as a function of the momentum in data after the saturation correction and upstream selections, fitted with the $f^{\rm 5p}$ fit (left) and with the $f^{\rm KC}$ one.}
+    \label{fig:FitData_atlas_vs_KC}
+\end{figure}
+
+Data and MC ($W$+jets) samples are fitted with the two fit functions to extract the relevant parameters. When the MC-derived fit parameters are used to model the signal, discrepancies emerge because the two functional forms exhibit different behaviours in describing gluino ionisation relative to SM processes. \cref{fig:fitgluinodifferent} (left) presents both $f^{\rm 5p}$ and $f^{\rm KC}$ fitted to the signal, with all parameters free except $C_\textrm{mass}$, which is fixed to the ionisation plateau determined from a fit to the pion line in simulation. The $f^{\rm 5p}$ parametrisation, due to its greater flexibility, provides a more accurate description of the gluino band than the $f^{\rm KC}$ parametrisation. Nevertheless, neither parametrisation extracted from the MC samples extrapolates accurately to the signal (right).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.49\linewidth]{Images/Ch4/GluinoFitParam.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch4/GluinoFitParam__MC.pdf}
+    \caption{$I_h$ estimator as a function of the momentum for gluinos. Left: direct fits of the gluino band fitted with the $f^{\rm 5p}$ function (left) and with the $f^{\rm KC}$ one. Right: the same distribution with the parametrisations extracted in a MC sample.}
+    \label{fig:fitgluinodifferent}
+\end{figure}
+
+The mean energy loss of a singly charged particle depends solely on its velocity. Therefore, the $I_h$ curves for protons, kaons, and gluinos are expected to align on a universal curve when plotted as a function of $\beta\gamma$. \cref{fig:TIBandALLbetagamma} (left) demonstrates that this alignment holds approximately when the estimator is limited to the TIB. In contrast, the right panel, which uses the same events but incorporates the inclusive tracker, reveals a distinct separation below $\beta\gamma \simeq 1$ between the signal and SM particles. The gluino points fall below the proton points, and the proton points themselves shift upward relative to their TIB-only values. Because the only difference between the two panels is the set of modules included in the estimator, this discrepancy is attributed to instrumental effects. Signal tracks, produced at high momenta and traversing the modules at near-normal incidence, deposit charge on a small group of strips, thereby most likely to saturate all affected strips. In contrast, SM processes do not exhibit the same behaviour in the lower $\beta\gamma$ regime. For example, a proton with $p \approx 0.6$~GeV has a curvature radius of approximately 50~cm and reaches the outer-layer strip modules at flattening angles, distributing its charge over a larger number of strips and thereby reducing the fraction of saturated clusters. Consequently, calibration using only Monte Carlo samples cannot compensate for this effect.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.49\linewidth]{Images/Ch4/TIB_only_bis.pdf}
+    \includegraphics[width=0.49\linewidth]{Images/Ch4/ALL_bis.pdf}
+    \caption{Average strip \dedx{} as a function of $\beta\gamma$ for protons, kaons, and gluinos, shown with strip hits restricted to the TIB sensors (left) and to the entire tracker (right).}
+    \label{fig:TIBandALLbetagamma}
+\end{figure}
+
+These observations impose constraints on the calibration protocol. Fitting the parametrisation directly to the signal or to a combination of the signal and data is excluded. If the reconstructed mass is based on such a parametrisation, the track entering the data-driven background prediction would systematically yield higher reconstructed masses, thereby shifting the mass spectrum in the region of interest for the signal search. Consequently, the parametrisation is extracted exclusively from the MC samples, which introduces a known bias: the reconstructed mass of the particle is lower than its true value.
+
+The remaining choice between $f^{\rm 5p}$ and $f^{\rm KC}$ is determined by the mass resolution. \cref{fig:massrel} presents the reconstructed mass distributions obtained with both parametrisations for each gluino mass hypothesis, while \cref{tab:mass_resolution} summarises their mean, width, and relative bias. The ATLAS parametrisation produces a consistently larger bias and a broader distribution, with the disparity between the two increasing as the mass increases. As a result, the parametrisation derived from the 2024 MC samples using the $f^{\rm KC}$ function is employed to reconstruct the mass according to \cref{eq:massHSCPanalysis}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Ch4/SignalMassResolution_bis.pdf}
+    \caption{Reconstructed mass as a function of the generated mass for the gluino signal sample, comparing the $f^{\rm KC}$ parametrisation with the $f^{\rm 5p}$ one.}
+    \label{fig:massrel}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{c| ccc ccc}
+\toprule
+& \multicolumn{3}{c}{$f^{\rm KC}$ param.} & \multicolumn{3}{c}{$f^{\rm 5p}$ param.} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+$m_{\text{gen}}$ [GeV] & $m_{\text{reco}}$ [GeV] & width [GeV] & $\Delta m / m_{\text{gen}}$ & $m_{\text{reco}}$ [GeV] & width [GeV] & $\Delta m / m_{\text{gen}}$ \\
+\midrule
+1100 & 989  & 267 & 10.1\% & 969  & 292 & 11.9\% \\
+1400 & 1259 & 343 & 10.1\% & 1214 & 380 & 13.2\% \\
+1600 & 1418 & 372 & 11.4\% & 1356 & 421 & 15.3\% \\
+1800 & 1579 & 409 & 12.3\% & 1498 & 466 & 16.8\% \\
+2000 & 1752 & 458 & 12.4\% & 1651 & 518 & 17.4\% \\
+2200 & 1912 & 501 & 13.1\% & 1791 & 566 & 18.6\% \\
+2400 & 2060 & 534 & 14.1\% & 1916 & 595 & 20.2\% \\
+2600 & 2208 & 575 & 15.1\% & 2057 & 643 & 20.9\% \\
+\bottomrule
+\end{tabular}
+\caption{Mean reconstructed mass, width (RMS) and relative bias $\Delta m / m_{\text{gen}} = |m_{\text{reco}} - m_{\text{gen}}| / m_{\text{gen}}$ for each gluino mass hypothesis, comparing the $f^{\rm KC}$ parametrisation to the $f^{\rm 5p}$ one.}
+\label{tab:mass_resolution}
+\end{table}
+
+The fit of \cref{eq:massHSCPanalysis} is performed independently on data and on simulation, yielding the following set of values:
+
+\begin{itemize}
+    \item $K_\textrm{mass}^\textrm{data}=2.82$ and $C_\textrm{mass}^\textrm{data}=2.98$;
+    \item $K_\textrm{mass}^\textrm{MC}=2.84$ and $C_\textrm{mass}^\textrm{MC}=3.02$.
+\end{itemize}
+The differences $\Delta K_\textrm{mass}$ and $\Delta C_\textrm{mass}$ between data and simulation are propagated as a systematic uncertainty on the signal mass scale, as described in
+\cref{sec:systematics}.
+
+The mass bias does not influence the exclusion limits. In the statistical analysis, the reconstructed mass is not considered an absolute measurement. Instead, it is used to define a window for calculating background and signal yields (cut-and-count method) or to analyse the mass spectrum shape (shape method). The shape method remains unaffected by this bias because both signal and data utilise the same reconstruction procedure. The bias becomes relevant only when interpreting a potential excess in the background mass spectrum. For instance, an excess observed near a reconstructed mass of $1500$~GeV corresponds to a true mass of approximately $1750$~GeV. \cref{tab:mass_resolution} presents the mapping necessary to translate between reconstructed and true mass values.
 
 
 \section{Background estimation method}
@@ -635,7 +723,7 @@ The mass distribution is then constructed and rescaled to the expected global no
 
 This method has been employed in several previous iterations of the HSCP analysis. However, multiple modifications have been implemented since the most recent CMS public results~\cite{HSCP_Run2}. The key changes are as follows:
 \begin{itemize}
-  \item A new mapping for the phase space, $F_\textrm{pixel}$, is employed in place of $G_\textrm{strip}$. The $G_\textrm{strip}$ estimator relies on d$E$/d$x$ deposits within strip sensors to determine whether a HSCP candidate is compatible with a track depositing at the MIP level. $G_\textrm{strip}$ increases exponentially towards 1 for events that are incompatible with the MIP. However, this estimator correlates with $p_T$: higher $p_T$ values yield greater d$E$/d$x$ deposits, introducing bias in mass-spectrum predictions.
+  \item A new mapping for the phase space, $F_\textrm{pixel}$, is employed in place of $G_\textrm{strip}$. The $G_\textrm{strip}$ estimator relies on d$E$/d$x$ deposits within strip sensors to determine whether a HSCP candidate is compatible with a track depositing at the MIP level. $G_\textrm{strip}$ increases exponentially towards 1 for events that are incompatible with the MIP hypothesis. However, this estimator correlates with $p_T$: higher $p_T$ values yield greater d$E$/d$x$ deposits, introducing bias in mass-spectrum predictions.
   \item Eta reweighting is now conducted using all three alternative regions ($A$, $B$, and $C$) of the ABCD method, rather than relying solely on regions $B$ and $C$ as in the previous version of the analysis.
   \item The templates are taken from the same CR.
   \item The fits of the $I_h$ and $1/p$ tail templates have been refined to accommodate the expanded eta acceptance. This adjustment is particularly significant for the $1/p$ distribution, where, in the endcap region ($|\eta|>1$), the shape differs at low $1/p$, leading to inaccurate mass calculations with previous fitting strategies.
@@ -766,7 +854,7 @@ Uncertainties in the simulation affect the signal predictions. These uncertainti
     \item Trigger scale factors related to the PUppi MET shown in \cref{fig:triggerSF} (left) are varied within their respective statistical uncertainties.
     \item The $K_\textrm{mass}$ and $C_\textrm{mass}$ calibration factors used in mass reconstruction are varied based on the observed differences between data and simulation. The upward and downward variations are defined as $K_\textrm{mass}^\textrm{MC} \pm |K_\textrm{mass}^\textrm{data} - K_\textrm{mass}^\textrm{MC}|$, and in the same way for $C_\textrm{mass}$.
     \item Jet energy uncertainties, provided by the CMS Jet MET working group, are propagated upward and downward in the computation of $H_T$, MHT, and MHT$^\mathrm{NoMu}$ for the trigger requirement, as well as for the PUppi MET.
-    \item The value of $F_\textrm{pixel}$ is sensitive to pixel hit reconstruction, particularly to angle corrections coming from high-$p$ tracks, and the charge templates applied during reconstruction. To evaluate the impact of pixel calibration, a dedicated sample of 100,000 gluino events ($m_{\tilde{g}} = 1800$~GeV) was simulated using an updated Global Tag\footnote{A Global Tag serves as a versioned identifier that defines the coherent set of calibration, alignment, and detector-condition records utilised by CMSSW during dataset processing.} that reflects pixel conditions at the end of 2024, following significant irradiation, and processed with the standard analysis chain. \cref{fig:fi_syst} presents the $F_\textrm{pixel}$ distributions for the nominal and systematic samples, after the analysis pre-selection step. The ratio of yields in the region $F_\textrm{pixel} > 0.9$ between the two samples is $1.016$ after pre-selection. The difference of $1.6\%$ is symmetrised and propagated by selecting HSCP candidates in the Signal region such that $F_\textrm{pixel} \cdot (1 \pm 0.016) > 0.9$. The resulting effect is taken as a normalisation-only uncertainty on the signal yield.
+    \item The value of $F_\textrm{pixel}$ is sensitive to pixel hit reconstruction, particularly to angle corrections coming from high-$p$ tracks, and the charge templates applied during reconstruction. To evaluate the impact of pixel calibration, a dedicated sample of 100,000 gluino events ($m_{\tilde{g}} = 1800$~GeV) was simulated using an updated Global Tag\footnote{A Global Tag serves as a versioned identifier that defines the coherent set of calibration, alignment, and detector-condition records utilised by the CMS software during dataset processing.} that reflects pixel conditions at the end of 2024, following significant irradiation, and processed with the standard analysis chain. \cref{fig:fi_syst} presents the $F_\textrm{pixel}$ distributions for the nominal and systematic samples, after the analysis pre-selection step. The ratio of yields in the region $F_\textrm{pixel} > 0.9$ between the two samples is $1.016$ after pre-selection. This $1.6\%$ difference is treated as a normalisation-only uncertainty on the signal yield.
 \end{itemize}
 
 \begin{figure}[h!]
@@ -784,7 +872,7 @@ Uncertainties in the simulation affect the signal predictions. These uncertainti
     \includegraphics[width=0.49\textwidth]{Images/Ch4/summary_Gluino_2000_Eta1_2p4.pdf}
     \\
     \includegraphics[width=0.5\textwidth]{Images/Ch4/summary_Gluino_2000_Eta2p4.pdf}
-    \caption{Relative systematic uncertainties on the signal prediction as a function of the mass, for a gluino with $m_{\tilde{g}} = 2000$~GeV and for candidates with $|\eta| < 1$ (top left), $1 < |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Individual sources are shown together with the total, which is calculated as the quadratic sum.}
+    \caption{Relative systematic uncertainties on the signal prediction as a function of the mass, for a gluino with $m_{\tilde{g}} = 2000$~GeV and for individual candidates with $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Individual sources are shown together with the total, which is calculated as the quadratic sum.}
     \label{fig:systSignal2000}
 \end{figure}
 
@@ -796,22 +884,21 @@ The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{
     \includegraphics[width=0.49\textwidth]{Images/Ch4/sysTot_allMasses_Eta1_2p4.pdf}
     \\
     \includegraphics[width=0.5\textwidth]{Images/Ch4/sysTot_allMasses_Eta2p4.pdf}
-    \caption{Total systematic uncertainty on the signal prediction as a function of the mass, for three gluino mass hypotheses and for candidates with $|\eta| < 1$ (top left), $1 < |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom).}
+    \caption{Total systematic uncertainty on the signal prediction as a function of the mass, for three gluino mass hypotheses and for individual candidates with $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom).}
     \label{fig:systSignalAllMasses}
 \end{figure}
 
 
-\section{Results and interpretation}
+\section{Blinded results in the signal region}
 
-\subsection{Background prediction in the signal region}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_Eta1.pdf}
-    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_Eta1_2p4.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024__Eta1.pdf}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024__Eta1_2p4.pdf}
     \\
-    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024_onlyNominal_Eta2p4.pdf}
-    \caption{Mass distribution in the signal region for the 2024 data across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers and plotted up to 300~GeV to be blind. The data-driven background estimate (red markers) is shown with its statistical uncertainty (yellow envelope). Several signal scenarios are also presented. Each plot contains two lower panels: the bin ratio and the pull.}
+    \includegraphics[width=0.49\textwidth,trim={1cm 0 1.5cm 0},clip]{Images/Ch4/mass_plot_Cnoabs_region9fp10_2024__Eta2p4.pdf}
+    \caption{Mass distribution in the signal region for the 2024 data across different eta regimes: $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Observed data points are indicated by black markers and plotted up to 300~GeV to be blind. The data-driven background estimate (red markers) is shown with its statistical and systematic uncertainties (yellow envelope). Several signal scenarios are also presented. Each plot contains two lower panels: the bin ratio and the pull.}
     \label{fig:abcd_mass_SR}
 \end{figure}
 
@@ -821,12 +908,13 @@ The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{
 \section{Statistical interpretation and expected limits}
 \label{sec:limits}
 
-The background prediction derived in the previous sections is combined with signal mass distributions to construct a statistical model from which upper limits on the gluino pair-production cross section are extracted. Because the signal region remains blinded at this stage of the analysis, the observed data entering the model are replaced by the background expectation, and all results presented below are expected limits. These expected limits serve two purposes: they quantify the sensitivity of the search prior to unblinding and inform the selection of the acceptance configuration and extraction method for the final interpretation.
+The background prediction derived in the previous sections is combined with signal mass distributions to construct a statistical model from which upper limits on the gluino pair-production cross section are extracted. Because the signal region remains blinded at this stage of the analysis, the observed data entering the model are replaced by the background expectation, and all results presented below are expected limits. These expected limits serve two purposes: they quantify the sensitivity of the search prior to unblinding and allow for comparison of different analysis configurations, including selection thresholds and the treatment of pseudorapidity acceptance regimes.
+
 
 \subsection{The \texorpdfstring{CL$_\text{s}$}{CLs} method}
 \label{sec:limits:cls}
 
-Upper limits are determined using the modified frequentist CL$_\text{s}$ method~\cite{CLSpaper}. This approach represents the standard procedure for searches at the LHC. Two hypotheses are considered: the background-only hypothesis $b$, in which the data are fully described by known processes, and the signal-plus-background hypothesis $s+b$, in which a gluino contribution of strength $\mu$ is included in addition to the background. The comparison between these hypotheses is based on the profile likelihood ratio test statistic, defined as follows:
+Upper limits are determined using the modified frequentist CL$_\text{s}$ method~\cite{CLSpaper}. This approach represents the standard procedure for searches at the LHC. Two hypotheses are considered: the background-only hypothesis $b$, in which the data are fully described by known SM processes, and the signal-plus-background hypothesis $s+b$, in which a gluino contribution of strength $\mu$ is included in addition to the background. The comparison between these hypotheses is based on the profile likelihood ratio test statistic, defined as follows:
 \begin{equation}
     q_\mu = -2 \ln \frac{\mathcal{L}\left(\text{data} \,\middle|\, \mu s + b,\, \hat{\hat{\theta}}_\mu\right)}{\mathcal{L}\left(\text{data} \,\middle|\, \hat{\mu} s + b,\, \hat{\theta}\right)},
     \qquad 0 \leq \hat{\mu} \leq \mu\,,
@@ -841,39 +929,37 @@ All limits in this section are computed using the asymptotic approximation~\cite
 \subsection{Construction of the statistical models}
 \label{sec:limits:models}
 
-This study compares two statistical approaches to analysing the mass spectrum, both constructed from identical inputs: a counting experiment within a defined mass window, referred to as the \textit{cut-and-count method}, and a binned maximum-likelihood fit of the entire spectrum, known as \textit{shape analysis}.
+This study compares two statistical approaches to analyse the mass spectrum, both constructed from identical inputs: a counting experiment within a defined mass window, referred to as the \textit{cut-and-count method}, and a binned maximum-likelihood fit of the entire spectrum, known as \textit{shape analysis}.
 
 \vspace{0.5 cm}
 
-In the cut-and-count method, a mass window is defined for each signal hypothesis as $[\mu_m - \sigma_m,\, \mu_m + 2\sigma_m]$, where $\mu_m$ and $\sigma_m$ represent the mean and standard deviation of the reconstructed mass distribution for a signal of mass $m$. The lower edge of the window is constrained to remain above $300$~GeV to avoid the region with the highest background. The asymmetry of the window relative to $\mu_m$ accounts for the steeply falling background: extending the window downward increases the background rate significantly more than the signal, while the upper side remains nearly free of background. Signal and background yields are calculated as the integrals of their respective spectra within the defined window. The statistical model is thereby reduced to a single-bin Poisson counting experiment. Systematic uncertainties are included as log-normal nuisance parameters, with scaling factors determined by integrating the systematically varied templates over the same window and normalising to the nominal yield. For two-sided variations, the larger deviation is retained to symmetrise the uncertainty, whereas one-sided variations are represented by a single multiplicative factor.
-
-The shape analysis incorporates the full mass spectrum into the likelihood. Spectra are rebinned to the same adaptive binning as for the background estimation method. Each systematic uncertainty is represented by a pair of alternative templates, which \textsc{Combine} interpolates continuously; for one-sided uncertainties, the same template is used for both directions. Background normalisation is left unconstrained in the fit via a free rate parameter for each channel. Consequently, the limit uses the predicted background shape, while its normalisation is determined in situ from the mass spectrum. Statistical uncertainties of the templates are incorporated on a bin-by-bin basis using the Barlow-Beeston lite method~\cite{Cranmer:1456844}.
+In the cut-and-count method, a mass window is defined for each signal hypothesis as $[\mu_m - \sigma_m,\, \mu_m + 2\sigma_m]$, where $\mu_m$ and $\sigma_m$ represent the mean and standard deviation of the reconstructed mass distribution for a signal of mass $m$. The lower edge of the window is constrained to remain above $300$~GeV to avoid the region with the highest background. The asymmetry of the window relative to $\mu_m$ accounts for the steeply falling background: extending the window downward increases the background rate significantly more than the signal, while the upper side remains nearly free of background. Signal and background yields are calculated as the integrals of their respective spectra within the defined window. The statistical model is thereby reduced to a single-bin Poisson counting experiment. Systematic uncertainties are included as log-normal nuisance parameters, with scaling factors determined by integrating the systematically varied templates over the same window and normalising to the nominal yield. Two-sided variations are treated as asymmetric log-normal uncertainties, with separate down and up scaling factors, while one-sided variations are represented by a single multiplicative factor.
 
 \vspace{0.5 cm}
 
-The systematic uncertainties, described in \cref{subsec:systSignal}, entering the models are summarised in \cref{tab:limits:systs}.
+The shape analysis incorporates the full mass spectrum into the likelihood. Spectra are rebinned to the same adaptive mass binning as for the background estimation method. Each systematic uncertainty is represented by a pair of up and down templates, which \textsc{Combine} interpolates continuously; for one-sided uncertainties, the same template is symmetrised in both directions. Background normalisation is left unconstrained in the fit. Consequently, the limit uses the predicted background shape, while its normalisation is determined from the mass spectrum. Statistical uncertainties of the templates are incorporated on a bin-by-bin basis using the Barlow-Beeston lite method~\cite{Cranmer:1456844}. The systematic uncertainties, described in \cref{subsec:systSignal}, entering the models are summarised in \cref{tab:limits:systs}.
 
 \begin{table}[h!]
     \centering
     \footnotesize
     \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{llll}
+    \begin{tabular}{lclcc}
         \toprule
-        Source & Process & Sidedness & Origin \\
+        Source & Process & Sidedness & Cut-and-count treatment & Shape treatment \\
         \midrule
-        Pile-up                & Signal      & Two-sided & Pile-up templates variations \\
-        Trigger scale factors & Signal      & Two-sided & MET trigger efficiency measurement \\
-        $K_\textrm{mass}$ and $C_\textrm{mass}$              & Signal      & Two-sided & Mass reconstruction method \\
-        $F_\textrm{pixel}$             & Signal      & Two-sided & Ageing of the pixel sensors \\
-        Jet energy scale      & Signal      & Two-sided & Jet and MET energy resolution \\
-        Luminosity            & Signal      & Two-sided & $1.4\%$ normalisation uncertainty \\
+        Pile-up                & Signal      & Two-sided & lnN & shape \\
+        Trigger scale factors & Signal      & Two-sided &  lnN & shape \\
+        $K_\textrm{mass}$ and $C_\textrm{mass}$ & Signal      & Two-sided & lnN & shape \\
+        Jet Energy Scale      & Signal      & Two-sided & lnN & shape \\
+        $F_\textrm{pixel}$             & Signal      & Two-sided & lnN & lnN \\
+        Luminosity            & Signal      & Two-sided & lnN & lnN \\
         \midrule
-        $\eta$ binning        & Background  & Two-sided & Template binning halved and doubled \\
-        $I_h$ binning         & Background  & Two-sided & Template binning halved and doubled \\
-        $1/p$ binning           & Background  & Two-sided & Template binning halved and doubled \\
-        $I_h$ fit             & Background  & Two-sided & Variation of the $I_h$ template fit \\
-        $1/p$ fit             & Background  & Two-sided & Variation of the $1/p$ template fit \\
-        $I_h$ correlation  & Background  & One-sided & $I_h$ and $F_\textrm{pixel}$ correlation \\
+        $\eta$ binning        & Background  & Two-sided & lnN & shape \\
+        $I_h$ binning         & Background  & Two-sided & lnN & shape \\
+        $1/p$ binning           & Background  & Two-sided & lnN & shape \\
+        $I_h$ fit             & Background  & Two-sided & lnN & shape \\
+        $1/p$ fit             & Background  & Two-sided & lnN & shape \\
+        $I_h$ correlation  & Background  & One-sided & lnN & shape \\
         \bottomrule
     \end{tabular}
     \caption{Systematic uncertainties included in the computation of the limits. Each source is represented as a shape nuisance parameter in the shape analysis and as a log-normal factor in the cut-and-count method. The luminosity is treated as a normalisation uncertainty in both approaches.}
@@ -884,15 +970,95 @@ The systematic uncertainties, described in \cref{subsec:systSignal}, entering th
 \subsection{Acceptance configurations}
 \label{sec:limits:categories}
 
-The extension of track acceptance from $|\eta|<1$ to $|\eta|<2.4$ necessitates consideration of the endcap region within the statistical model. Three eta regimes are evaluated: the first utilises only the central region ($|\eta|<1$), the second treats the full acceptance ($|\eta|<2.4$) as a single inclusive channel, and the third configuration incorporates the central and endcap ($1\leq|\eta|<2.4$) regions as two distinct channels. Signal templates, background predictions, and all systematic variations are generated independently for each regime, and the channels are combined in a unified likelihood. All nuisance parameters are correlated between the channels, reflecting their derivation from the same dataset, calibration, and prediction framework. The background rate parameters are the only exceptions, allowed to vary independently in each channel.
+The extension of track acceptance from $|\eta|<1$ to $|\eta|<2.4$ necessitates accounting for the endcap region in the statistical model. Three eta regimes are evaluated: the first utilises only the central region ($|\eta|<1$), the second treats the full acceptance ($|\eta|<2.4$) as a single inclusive channel, and the third configuration incorporates the central and endcap ($1\leq|\eta|<2.4$) regions as two distinct channels. Signal templates, background predictions, and all systematic variations are generated independently for each regime, and the channels are combined in a unified likelihood. All nuisance parameters are correlated between the channels, reflecting their derivation from the same dataset, calibration, and prediction framework. The background rate parameters are the only exceptions, allowed to vary independently in each channel.
 
-For each configuration and extraction method, a datacard is generated, and for the shape analysis, the corresponding template file is produced for the gluino mass hypotheses spanning $1100$ to $2600$~GeV. The derived limits on signal strength are subsequently converted into cross section limits using NNLO+NNLL gluino pair-production cross sections at $\sqrt{s}=13.6$~TeV~\cite{10.21468/SciPostPhysCore.7.4.072, Fiaschi_2023}.
+For each configuration and extraction method, a datacard is generated, and for the shape analysis, the corresponding template file is produced for gluino mass hypotheses ranging from $1100$ to $2600$~GeV. The derived limits on signal strength are subsequently converted into cross section limits using NNLO+NNLL gluino pair-production cross sections at $\sqrt{s}=13.6$~TeV~\cite{10.21468/SciPostPhysCore.7.4.072}.
+
+
+\subsection{Expected yields}
+\label{sec:Expectedyields}
+
+\cref{tab:expectedyield} presents the expected signal and background yields, used for limit derivation utilising the cut-and-count method, for each gluino mass hypothesis, within the mass window $[\mu_m - \sigma_m, \mu_m + 2\sigma_m]$ across the three eta regimes. The central region shows a very low background prediction, decreasing from approximately $0.99$ events at $1100$~GeV to about $0.006$ events at $2600$~GeV, reflecting the clean barrel environment already demonstrated in \cref{fig:abcd_mass_slices_data} (top left). Expanding the acceptance to $|\eta|<2.4$ enhances the signal efficiency, increasing the yield by $\approx35\%$ for every mass point. However, this also increases the background by nearly two orders of magnitude due to the inclusion of the endcap region.
+
+In the split configuration, the barrel and the endcap channel are analysed separately. The yields from the barrel and endcap channels do not sum to the inclusive $|\eta|<2.4$ yield. This discrepancy arises because the mass window is defined independently in each channel using its own mean $\mu_m$ and width $\sigma_m$.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{l|cc|cc}
+\toprule
+ \multicolumn{1}{c}{ }& \multicolumn{2}{c}{$|\eta|<1$} & \multicolumn{2}{c}{$|\eta|<2.4$} \\
+ \multicolumn{1}{c}{} & Pred. & Signal & Pred. & Signal \\
+\midrule
+$\tilde{g}$ (M=1100 GeV) & $9.87\times10^{-1}$ & $1.47\times10^{3}$ & $7.17\times10^{1}$ & $2.01\times10^{3}$ \\
+$\tilde{g}$ (M=1200 GeV) & $6.14\times10^{-1}$ & $8.24\times10^{2}$ & $5.46\times10^{1}$ & $1.10\times10^{3}$ \\
+$\tilde{g}$ (M=1300 GeV) & $3.90\times10^{-1}$ & $4.64\times10^{2}$ & $3.98\times10^{1}$ & $6.28\times10^{2}$ \\
+$\tilde{g}$ (M=1400 GeV) & $2.46\times10^{-1}$ & $2.66\times10^{2}$ & $3.24\times10^{1}$ & $3.57\times10^{2}$ \\
+$\tilde{g}$ (M=1600 GeV) & $1.13\times10^{-1}$ & $9.24\times10^{1}$ & $1.94\times10^{1}$ & $1.25\times10^{2}$ \\
+$\tilde{g}$ (M=1800 GeV) & $5.49\times10^{-2}$ & $3.40\times10^{1}$ & $1.23\times10^{1}$ & $4.51\times10^{1}$ \\
+$\tilde{g}$ (M=2000 GeV) & $2.74\times10^{-2}$ & $1.27\times10^{1}$ & $8.66\times10^{0}$ & $1.67\times10^{1}$ \\
+$\tilde{g}$ (M=2200 GeV) & $1.50\times10^{-2}$ & $4.86\times10^{0}$ & $6.01\times10^{0}$ & $6.42\times10^{0}$ \\
+$\tilde{g}$ (M=2400 GeV) & $9.28\times10^{-3}$ & $1.90\times10^{0}$ & $4.61\times10^{0}$ & $2.53\times10^{0}$ \\
+$\tilde{g}$ (M=2600 GeV) & $6.01\times10^{-3}$ & $7.65\times10^{-1}$ & $3.65\times10^{0}$ & $1.00\times10^{0}$ \\
+\bottomrule
+\multicolumn{5}{c}{} \\
+\toprule
+ \multicolumn{1}{c}{}& \multicolumn{4}{c}{split $\eta$: $|\eta|<1$ ~/~ $1\leq|\eta|<2.4$} \\
+ \multicolumn{1}{c}{}& Pred. & Signal & Pred. & Signal \\
+\midrule
+$\tilde{g}$ (M=1100 GeV) & $9.87\times10^{-1}$ & $1.47\times10^{3}$ & $9.95\times10^{1}$ & $5.74\times10^{2}$ \\
+$\tilde{g}$ (M=1200 GeV) & $6.14\times10^{-1}$ & $8.24\times10^{2}$ & $6.94\times10^{1}$ & $3.08\times10^{2}$ \\
+$\tilde{g}$ (M=1300 GeV) & $3.90\times10^{-1}$ & $4.64\times10^{2}$ & $4.79\times10^{1}$ & $1.77\times10^{2}$ \\
+$\tilde{g}$ (M=1400 GeV) & $2.46\times10^{-1}$ & $2.66\times10^{2}$ & $3.82\times10^{1}$ & $9.69\times10^{1}$ \\
+$\tilde{g}$ (M=1600 GeV) & $1.13\times10^{-1}$ & $9.24\times10^{1}$ & $2.34\times10^{1}$ & $3.48\times10^{1}$ \\
+$\tilde{g}$ (M=1800 GeV) & $5.49\times10^{-2}$ & $3.40\times10^{1}$ & $1.56\times10^{1}$ & $1.23\times10^{1}$ \\
+$\tilde{g}$ (M=2000 GeV) & $2.74\times10^{-2}$ & $1.27\times10^{1}$ & $1.00\times10^{1}$ & $4.60\times10^{0}$ \\
+$\tilde{g}$ (M=2200 GeV) & $1.50\times10^{-2}$ & $4.86\times10^{0}$ & $6.57\times10^{0}$ & $1.76\times10^{0}$ \\
+$\tilde{g}$ (M=2400 GeV) & $9.28\times10^{-3}$ & $1.90\times10^{0}$ & $5.13\times10^{0}$ & $7.20\times10^{-1}$ \\
+$\tilde{g}$ (M=2600 GeV) & $6.01\times10^{-3}$ & $7.65\times10^{-1}$ & $3.68\times10^{0}$ & $2.75\times10^{-1}$ \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Expected yields in the signal region for the three eta regimes. The lower block shows the split configuration with its two sub-channels ($|\eta|<1$ and $1\leq|\eta|<2.4$).}
+\label{tab:expectedyield}
+\end{table}
+
+\vspace{0.5 cm}
+
+The signal yields obtained in this analysis using the cut-and-count method, restricted to the barrel region for direct comparison, surpass those reported in the previous Run--2 HSCP search~\cite{HSCP_Run2}, as shown in \cref{tab:compYieldRun2}. The expected signal yield increases by a factor of about 1.5 at 1400~GeV, then grows to around 5 at 2600~GeV. This enhancement is primarily due to a larger gluino pair-production cross section at $\sqrt{s}=13.6$~TeV compared to 13~TeV, as well as improved signal acceptance, with the two effects compounding towards higher masses. My background prediction yield is also higher. However, the barrel region remains nearly background-free, thereby preserving the strong signal-to-background separation that is fundamental to the search's sensitivity.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\resizebox{0.8\textwidth}{!}{%
+\begin{tabular}{l|cc|cc}
+    \toprule
+     \multicolumn{1}{c}{ }& \multicolumn{2}{c}{This thesis ($|\eta|<1$)} & \multicolumn{2}{c}{Run--2 HSCP CMS~\cite{HSCP_Run2} ($|\eta|<1$)} \\
+     \multicolumn{1}{c}{} & Pred. & Signal & Pred. & Signal \\
+    \midrule
+    $\tilde{g}$ (M=1100 GeV) & $9.87\times10^{-1}$ & $1.47\times10^{3}$ & $-$ & $-$ \\
+    $\tilde{g}$ (M=1200 GeV) & $6.14\times10^{-1}$ & $8.24\times10^{2}$ & $-$ & $-$ \\
+    $\tilde{g}$ (M=1300 GeV) & $3.90\times10^{-1}$ & $4.64\times10^{2}$ & $-$ & $-$ \\
+    $\tilde{g}$ (M=1400 GeV) & $2.46\times10^{-1}$ & $2.66\times10^{2}$ & $3.97\times10^{-2}$ & $1.81\times10^{2}$ \\
+    $\tilde{g}$ (M=1600 GeV) & $1.13\times10^{-1}$ & $9.24\times10^{1}$ & $1.87\times10^{-2}$ & $4.98\times10^{1}$ \\
+    $\tilde{g}$ (M=1800 GeV) & $5.49\times10^{-2}$ & $3.40\times10^{1}$ & $1.14\times10^{-2}$ & $1.49\times10^{1}$ \\
+    $\tilde{g}$ (M=2000 GeV) & $2.74\times10^{-2}$ & $1.27\times10^{1}$ & $6.04\times10^{-3}$ & $4.47\times10^{0}$ \\
+    $\tilde{g}$ (M=2200 GeV) & $8.50\times10^{-2}$ & $4.86\times10^{0}$ & $3.52\times10^{-3}$ & $1.32\times10^{0}$ \\
+    $\tilde{g}$ (M=2400 GeV) & $9.28\times10^{-3}$ & $1.90\times10^{0}$ & $2.21\times10^{-3}$ & $4.44\times10^{-1}$ \\
+    $\tilde{g}$ (M=2600 GeV) & $6.01\times10^{-3}$ & $7.65\times10^{-1}$ & $1.54\times10^{-3}$ & $1.48\times10^{-1}$ \\
+    \bottomrule
+\end{tabular}%
+}
+\caption{Comparison between the expected yields in the signal region in the barrel region (taken from \cref{tab:expectedyield}) to the previous HSCP search in CMS~\cite{HSCP_Run2}.}
+\label{tab:compYieldRun2}
+\end{table}
 
 
 \subsection{Expected upper limits}
 \label{sec:limits:results}
 
-\cref{fig:limits:individual} presents the expected limits for the combinations of the three eta regimes and the two methods of calculation. In each panel, the dashed black line represents the median expected limit, while the green and yellow bands indicate the $\pm1\sigma$ and $\pm2\sigma$ intervals, respectively. The blue line denotes the theoretical cross section with its associated uncertainty band. The mass hypothesis is excluded up to the point where the theoretical curve intersects the median expected limit; the corresponding masses are summarised in \cref{tab:limits:masses}.
+\cref{fig:limits:individual} presents the expected limits for both the cut-and-count (left) and the shape analysis (right). The top row shows results for the $|\eta|<1$ regime, the middle row for the $|\eta|<2.4$ regime, and the bottom row for the combined $|\eta|<1$ and $1\leq|\eta|<2.4$ regimes. In each panel, the dashed black line represents the median expected limit, while the green and yellow bands indicate the 68\% and 95\% intervals, respectively. The blue line denotes the theoretical cross section with its associated uncertainty band. The mass hypothesis is excluded up to the point where the theoretical curve intersects the median expected limit; the corresponding masses are summarised in \cref{tab:limits:masses}.
 
 \begin{figure}[h!]
     \centering
@@ -904,7 +1070,7 @@ For each configuration and extraction method, a datacard is generated, and for t
     \\
     \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_split_Eta1_Eta1_2p4_cutandcount_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
     \includegraphics[width=0.49\textwidth]{Images/Ch4/limits_shape_9fp10_split_Eta1_Eta1_2p4_etaRebinPerso_Oldfit__PUppiMETcut.pdf}
-    \caption{Expected $95\%$ confidence level upper limits on the gluino pair-production cross section as a function of the gluino mass, for the cut-and-count method (left) and the shape analysis (right), in the central region $|\eta|<1$ (top), the inclusive acceptance $|\eta|<2.4$ (middle) and the combination of the central and endcap region (bottom). The dashed black line shows the median expected limit, the green and yellow bands the $\pm1\sigma$ and $\pm2\sigma$ intervals, and the blue line the theoretical cross section at with its uncertainty.}
+    \caption{Expected $95\%$ confidence level upper limits on the gluino pair-production cross section as a function of the gluino mass, for the cut-and-count method (left) and the shape analysis (right), in the central region $|\eta|<1$ (top), the inclusive acceptance $|\eta|<2.4$ (middle) and the combination of the central and endcap region (bottom). The dashed black line shows the median expected limit, the green and yellow bands the 68\% and 95\% intervals, and the blue line the theoretical cross section with its uncertainty.}
     \label{fig:limits:individual}
 \end{figure}
 
@@ -918,7 +1084,7 @@ For each configuration and extraction method, a datacard is generated, and for t
         \midrule
         $|\eta|<1$                              & $2.39$\,TeV & $2.42$\,TeV \\
         $|\eta|<2.4$ (inclusive)                & $2.15$\,TeV & $2.22$\,TeV \\
-        $|\eta|<1$ $+$ $1<|\eta|<2.4$ (split)   & $2.39$\,TeV & $2.42$\,TeV \\
+        $|\eta|<1$ $\&$ $1\leq|\eta|<2.4$ (split)   & $2.39$\,TeV & $2.42$\,TeV \\
         \bottomrule
     \end{tabular}
     \caption{Expected excluded gluino masses at $95\%$ confidence level, defined by the intersection of the median expected limit with the theoretical cross section, for the three eta regimes and the two extraction methods.}
@@ -927,11 +1093,11 @@ For each configuration and extraction method, a datacard is generated, and for t
 
 The six configurations are compared directly in \cref{fig:limits:compare}, together with the observed limit computed using the full CL$_\textrm{s}$ in the previous HSCP search~\cite{HSCP_Run2}. Three observations emerge from this comparison.
 
-Shape analysis performs at least as well as the cut-and-count method in all configurations. However, the magnitude of improvement varies significantly: in the central region (black) and the split configuration (green), both methods yield nearly identical results, while shape analysis demonstrates a clear advantage for the inclusive tracker acceptance (red). This behaviour is attributed to differences in the background composition of the mass windows. For the $2000$~GeV mass hypothesis, the central window contains $12.70$ expected signal events and only $0.03$ background events, resulting in a background-free regime in which the limit is determined solely by the signal yield, and the event distribution within the window provides no additional information. In contrast, the endcap region contains $4.60$ signal events and $10.04$ background events. When both regions are combined into a single inclusive channel, the endcap background contaminates the otherwise pure central sample, reducing the performance of the counting experiment. Shape analysis partially mitigates this loss, as the background is concentrated at low mass while the signal is distributed in the upper part of the window.
+Shape analysis performs at least as well as the cut-and-count method in all configurations. However, the magnitude of improvement varies significantly: in the central region (black) and the split configuration (green), both methods yield nearly identical results, while shape analysis demonstrates a clear advantage for the inclusive tracker acceptance (red). This behaviour is attributed to differences in the background composition in the different eta regimes. For the $2000$~GeV mass hypothesis, the barrel region contains $12.70$ expected signal events and only $0.03$ background events, resulting in a background-free regime in which the limit is determined solely by the signal yield, and the event distribution within the window provides no additional information. In contrast, the endcap region contains $4.60$ signal events and $10.04$ background events. When both regions are combined into a single inclusive channel, the endcap background contaminates the otherwise pure central sample, reducing the performance of the counting experiment. Shape analysis partially mitigates this loss, as the background is concentrated at low mass while the signal is distributed in the upper part of the window.
 
 These results clarify why the split configuration consistently outperforms the inclusive configuration, independent of the extraction method. In the inclusive channel, increased endcap background reduces the purity of the central region. Dividing the acceptance into two distinct channels mitigates this effect, as the likelihood function assigns weights to each region based on its purity. The central channel, which is nearly background-free, determines the exclusion limit, while the endcap channel, with a signal-to-background ratio below one half, contributes minimally. Consequently, the exclusion limit aligns with that of the central channel alone at the studied mass points, demonstrating that sensitivity to centrally produced gluino signals is dominated by the $|\eta|<1$ region.
 
-A comparison with the previous HSCP result shows that the expected reach of this analysis is $2.42$~TeV, while the Run--2 search excluded up to $2.08$~TeV at a similar integrated luminosity. However, this comparison requires caution: the earlier result is an observed limit derived using the full CL$_\text{s}$ method and $13$~TeV cross sections, whereas the current values are expected limits based on the asymptotic approximation, which may be optimistic in low-count scenarios, and are compared to the slightly higher $13.6$~TeV cross sections. Nevertheless, the improvement is significant and is primarily due to the increased signal efficiency of the MET trigger strategy implemented in this analysis.
+A comparison with the previous HSCP result shows that the expected reach of this analysis is $2.42$~TeV, while the Run--2 search excluded up to $2.08$~TeV at a similar integrated luminosity. However, this comparison requires caution: the earlier result is an observed limit derived using the full CL$_\text{s}$ method and $13$~TeV cross sections, whereas the current values are expected limits based on the asymptotic approximation, which may be optimistic in low-count scenarios, and are compared to the slightly higher $13.6$~TeV cross sections. Nevertheless, the improvement is significant and is primarily due to the increased signal efficiency of the MET trigger strategy implemented in this analysis (acceptance of the doubled signal compared with muon triggers, discussed in \cref{sec:preselection}).
 
 \begin{figure}[h!]
     \centering
