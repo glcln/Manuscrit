@@ -467,7 +467,7 @@ Due to the relativistic rise of the Bethe-Bloch curve, electrons in this region 
 
 Tracks with poorly measured momentum, which may result from incorrectly assigned hits or hit sharing between nearby particles, are excluded by requiring $\sigma_{p_T}/p_T^{2} < 0.0008$~GeV$^{-1}$ and $\sigma_{p_T}/p_T < 1$. The latter criterion specifically addresses the high-momentum region, where the relative resolution deteriorates.
 
-Two additional requirements are imposed directly on the ionisation estimators. Broken clusters, which occur when a long pixel cluster is split into multiple clusters in the readout chips or due to irradiation effects, bias the charge estimate toward lower values. Applying a cut at $F_\textrm{pixel} > 0.3$ removes these affected tracks, while the signal distribution peaks near unity. A minimum ionisation requirement of $I_h > C_\mathrm{mass}$ is also imposed, where $C_\mathrm{mass}$ is a parameter used in the subsequent mass reconstruction (see \cref{sec:massreconstruction}). Its value sits near the MIP level ($\approx3$~MeV/cm).
+Two additional requirements are imposed directly on the ionisation estimators. Broken clusters, which occur when a long pixel cluster is split into multiple clusters in the readout chips or due to irradiation effects, bias the charge estimate toward lower values. Applying a cut at $F_\textrm{pixel} > 0.3$ removes these affected tracks, while the signal distribution peaks near unity. A minimum ionisation requirement of $I_h > C_\mathrm{mass}$ is also imposed, where $C_\mathrm{mass}$ is a parameter used in the subsequent mass reconstruction (see \cref{sec:massreco}). Its value sits near the MIP level ($\approx3$~MeV/cm).
 
 \vspace{0.5 cm}
 
@@ -534,7 +534,7 @@ The distribution of three representative pre-selection variable (PUppi MET, $p_T
   \label{fig:nminus1}
 \end{figure}
 
-
+\clearpage
 
 \section{Mass reconstruction}
 \label{sec:massreco}
@@ -543,10 +543,7 @@ The final observable in this analysis is the candidate mass, which is reconstruc
 
 \begin{equation}
 \label{eq:fitKC}
-\begin{split}
-    f^{\rm KC}: \quad I_h &\simeq K_\textrm{mass}\cdot \frac{1}{(\beta\gamma)^2} + C_\textrm{mass} \\
-        &=      K_\textrm{mass}\cdot \frac{m^2}{p^2}          + C_\textrm{mass} \, ,
-\end{split}
+    f^{\rm KC}: \quad I_h \simeq K_\textrm{mass}\cdot \frac{1}{(\beta\gamma)^2} + C_\textrm{mass} =      K_\textrm{mass}\cdot \frac{m^2}{p^2}          + C_\textrm{mass} \, ,
 \end{equation}
 $C_\textrm{mass}$ represents the value of the ionisation plateau for MIP, while $K_\textrm{mass}$ denotes the slope of the low-velocity rise. Both are fitted in the $(I_h, p)$ plane, similarly to \cref{fig:FitData_atlas_vs_KC}. Inversion of this relation yields a closed-form mass estimate:
 
@@ -629,7 +626,7 @@ The fit of \cref{eq:massHSCPanalysis} is performed independently on data and on 
 The differences $\Delta K_\textrm{mass}$ and $\Delta C_\textrm{mass}$ between data and simulation are propagated as a systematic uncertainty on the signal mass scale, as described in
 \cref{sec:systematics}.
 
-The mass bias does not influence the exclusion limits. In the statistical analysis, the reconstructed mass is not considered an absolute measurement. Instead, it is used to define a window for calculating background and signal yields (cut-and-count method) or to analyse the mass spectrum shape (shape method). The shape method remains unaffected by this bias because both signal and data utilise the same reconstruction procedure. The bias becomes relevant only when interpreting a potential excess in the background mass spectrum. For instance, an excess observed near a reconstructed mass of $1500$~GeV corresponds to a true mass of approximately $1750$~GeV. \cref{tab:mass_resolution} presents the mapping necessary to translate between reconstructed and true mass values.
+The mass bias does not influence the exclusion limits. In the statistical interpretation, the reconstructed mass is not considered an absolute measurement. Instead, the full mass spectrum is considered (shape method), or a window is defined to calculate background and signal yields (cut-and-count method). The shape method remains unaffected by this bias because both signal and data utilise the same reconstruction procedure. The bias becomes relevant only when interpreting a potential excess in the background mass spectrum. For instance, an excess observed near a reconstructed mass of $1500$~GeV corresponds to a true mass of approximately $1750$~GeV. \cref{tab:mass_resolution} presents the mapping necessary to translate between reconstructed and true mass values.
 
 
 \section{Background estimation method}
@@ -914,17 +911,17 @@ The background prediction derived in the previous sections is combined with sign
 \subsection{The \texorpdfstring{CL$_\text{s}$}{CLs} method}
 \label{sec:limits:cls}
 
-Upper limits are determined using the modified frequentist CL$_\text{s}$ method~\cite{CLSpaper}. This approach represents the standard procedure for searches at the LHC. Two hypotheses are considered: the background-only hypothesis $b$, in which the data are fully described by known SM processes, and the signal-plus-background hypothesis $s+b$, in which a gluino contribution of strength $\mu$ is included in addition to the background. The comparison between these hypotheses is based on the profile likelihood ratio test statistic, defined as follows:
+Upper limits are determined using the modified frequentist CL$_\text{s}$ method~\cite{CLSpaper}. This approach represents the standard procedure for searches at the LHC. Two hypotheses are considered: the background-only hypothesis $b$, in which the data are fully described by known SM processes, and the signal-plus-background hypothesis $s+b$, in which a gluino contribution of strength $r$ is included in addition to the background. The comparison between these hypotheses is based on the profile likelihood ratio test statistic, defined as follows:
 \begin{equation}
-    q_\mu = -2 \ln \frac{\mathcal{L}\left(\text{data} \,\middle|\, \mu s + b,\, \hat{\hat{\theta}}_\mu\right)}{\mathcal{L}\left(\text{data} \,\middle|\, \hat{\mu} s + b,\, \hat{\theta}\right)},
-    \qquad 0 \leq \hat{\mu} \leq \mu\,,
+    q_r = -2 \ln \frac{\mathcal{L}\left(\text{data} \,\middle|\, r s + b,\, \hat{\hat{\theta}}_r\right)}{\mathcal{L}\left(\text{data} \,\middle|\, \hat{r} s + b,\, \hat{\theta}\right)},
+    \qquad 0 \leq \hat{r} \leq r\,,
     \label{eq:limits:qmu}
 \end{equation}
-where $\theta$ represents the set of nuisance parameters that encode systematic uncertainties. The parameters $\hat{\mu}$ and $\hat{\theta}$ globally maximise the likelihood, while $\hat{\hat{\theta}}_\mu$ maximises the likelihood for a fixed signal strength $\mu$. The distributions of $q_\mu$ under the two hypotheses determine the corresponding $p$-values: $\text{CL}_{s+b}$ is the probability, under the signal-plus-background hypothesis, of obtaining a value of $q_\mu$ at least as large as the observed value. Similarly, $\text{CL}_b$ is the probability computed under the background-only hypothesis. The quantity CL$_\text{s}$ is defined as the ratio of the $p$-values for the two hypotheses, $\textrm{CL$_\text{s}$} = \text{CL}_{s+b}/\text{CL}_b$. This construction prevents the exclusion of signal hypotheses that the analysis lacks sensitivity to. The $95\%$ confidence level upper limit on the cross section corresponds to the value of $\mu$ for which $\textrm{CL$_\text{s}$} = 0.05$.
+where $\theta$ represents the set of nuisance parameters that encode systematic uncertainties. The parameters $\hat{r}$ and $\hat{\theta}$ globally maximise the likelihood, while $\hat{\hat{\theta}}_r$ maximises the likelihood for a fixed signal strength $r$. The distributions of $q_r$ under the two hypotheses determine the corresponding $p$-values: $\text{CL}_{s+b}$ is the probability, under the signal-plus-background hypothesis, of obtaining a value of $q_r$ at least as large as the observed value. Similarly, $\text{CL}_b$ is the probability computed under the background-only hypothesis. The quantity CL$_\text{s}$ is defined as the ratio of the $p$-values for the two hypotheses, $\textrm{CL$_\text{s}$} = \text{CL}_{s+b}/\text{CL}_b$. This construction prevents the exclusion of signal hypotheses that the analysis lacks sensitivity to. The $95\%$ confidence level upper limit on the cross section corresponds to the value of $r$ for which $\textrm{CL$_\text{s}$} = 0.05$.
 
 \vspace{0.5 cm}
 
-All limits in this section are computed using the asymptotic approximation~\cite{AsymptoticPaper}, where the distributions of $q_\mu$ under both hypotheses assume analytic forms. The median expected limit, along with its $\pm1\sigma$ and $\pm2\sigma$ bands, is derived from a single Asimov dataset\footnote{The Asimov dataset is an artificial construct in which each observable is assigned its expected value under the background-only hypothesis. This approach eliminates statistical fluctuations, enabling a single evaluation of the test statistic to reproduce the median expected result.}. This approach eliminates the need for pseudo-experiment generation and reduces computation time to a few minutes per mass hypothesis, in contrast to several hours required for parallel toy generation in the full CL$_\text{s}$ construction. Limit extraction is performed using the \textsc{Combine} package developed by the CMS collaboration~\cite{CombinePaper}.
+All limits in this section are computed using the asymptotic approximation~\cite{AsymptoticPaper}, where the distributions of $q_r$ under both hypotheses assume analytic forms. The median expected limit, along with its $\pm1\sigma$ and $\pm2\sigma$ bands, is derived from a single Asimov dataset\footnote{The Asimov dataset is an artificial construct in which each observable is assigned its expected value under the background-only hypothesis. This approach eliminates statistical fluctuations, enabling a single evaluation of the test statistic to reproduce the median expected result.}. This approach eliminates the need for pseudo-experiment generation and reduces computation time to a few minutes per mass hypothesis, in contrast to several hours required for parallel toy generation in the full CL$_\text{s}$ construction. Limit extraction is performed using the \textsc{Combine} package developed by the CMS collaboration~\cite{CombinePaper}.
 
 \subsection{Construction of the statistical models}
 \label{sec:limits:models}
@@ -1106,10 +1103,40 @@ A comparison with the previous HSCP result shows that the expected reach of this
     \label{fig:limits:compare}
 \end{figure}
 
-\subsection{Impacts of the nuisance parameters}
+
+\subsection{Expected discovery significance}
+\label{sec:limits:significance}
+
+In addition to the exclusion limits, the expected discovery significance is evaluated for each gluino mass hypothesis in the split configuration ($|\eta|<1$ and $1\leq|\eta|<2.4$), which offers the best sensitivity. The significance is calculated using the \textsc{Combine} \texttt{Significance} method applied to the Asimov dataset, with a nominal-strength signal injected ($r=1$). For each mass point, the test statistic $q_0$ corresponding to the background-only hypothesis is determined and, under the asymptotic approximation, converted into a Gaussian significance $Z=\sqrt{q_0}$. This value represents the number of standard deviations by which the background-only hypothesis would be excluded. Thus, the expected significance serves as the counterpart to the expected limits: the exclusion reach indicates the extent to which a signal can be excluded, and the significance quantifies the strength with which a signal, if present, would be observed.
+
+\cref{fig:limits:significance} shows the expected significance as a function of gluino mass. The significance declines with increasing mass, ranging from values well above the $5\sigma$ discovery threshold at low mass to approximately $3\sigma$ near $2600$~GeV. This trend directly reflects the signal and background yields reported in \cref{tab:expectedyield}. At low mass, the barrel channel yields a large signal with minimal background, resulting in a high nominal significance. At higher masses, the decreasing signal cross section reduces the expected yield to only a few events, making it increasingly difficult to distinguish a nominal-strength signal from the background-only hypothesis. Although the $5\sigma$ value is close to the $2.4$~TeV exclusion reach obtained from the median expected limits, this similarity does not reflect a physical equivalence. These two quantities are based on different hypotheses. The significance is evaluated using a signal-injected Asimov dataset ($r=1$) and measures the strength with which a gluino signal at its theoretical cross section would be observed. In contrast, the exclusion reach is determined under the background-only hypothesis ($r=0$), where the $95\%$~confidence level criterion corresponds to a one-sided significance of approximately $1.64\sigma$, not $5\sigma$.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Images/Ch4/summary_significance_gluino_split_Eta1_Eta1_2p4.pdf}
+    \caption{Expected discovery significance as a function of the gluino mass, computed on a signal-injected Asimov dataset ($r=1$) in the split configuration ($|\eta|<1$ and $1\leq|\eta|<2.4$). The significance is obtained as $Z=\sqrt{q_0}$ in the asymptotic approximation.}
+    \label{fig:limits:significance}
+\end{figure}
+
+
+\subsection{Nuisance parameter impacts}
 \label{sec:limits:impacts}
 
-Each source of uncertainty is evaluated by quantifying the impact of the nuisance parameters on the Asimov dataset using the splitting configuration (barrel+endcap) in the shape analysis. The impact of a nuisance parameter is defined as the change in the fitted signal strength when the parameter is varied by one standard deviation of its post-fit uncertainty around its best-fit value, while all other parameters are profiled. \cref{fig:limits:impacts} presents the ranked impacts of the four highest-mass hypotheses that determine the exclusion reach.
+Exclusion limits are influenced by systematic uncertainties solely through nuisance parameters, making it unclear from the limits alone which sources are most significant. The impact of a nuisance parameter $\theta$ on the signal strength $r$ is defined as the shift $\Delta\hat{r}$ observed when $\theta$ is fixed at its post-fit value displaced by $\pm 1$ post-fit standard deviation, with all other parameters profiled. This impact quantifies the extent to which uncertainty in $\hat{r}$ is propagated through a given parameter, rather than reflecting the magnitude of that uncertainty.
+
+The calculation is done using the \texttt{MultiDimFit} method within \textsc{Combine}. An initial fit determines $\hat{r}$ along with the post-fit values and uncertainties for all parameters. Afterwards, a separate likelihood scan is performed for each nuisance parameter, and the results are ranked in decreasing order of $|\Delta\hat{r}|$. The analysis is conducted using the split configuration in the shape analysis and is based on an Asimov dataset with the signal set at its nominal cross section.
+
+\vspace{0.5 cm}
+
+\cref{fig:limits:impacts} presents the ranking for four gluino mass hypotheses. Each figure consists of two panels. The left panel displays, for each parameter, the quantity $(\hat{\theta}-\theta_{0})/\sigma_{0}$, where $\hat{\theta}$ and $\theta_{0}$ denote the post-fit and pre-fit values, and $\sigma_{0}$ is the pre-fit uncertainty. The horizontal bar attached to each point represents the ratio of the post-fit to pre-fit uncertainty. A bar shorter than $\pm 1$ indicates that the data constrain the parameter beyond its external prior. Blue crosses indicate the pull $(\hat{\theta}-\theta_{0})/\sqrt{\sigma_{0}^{2}-\sigma^{2}}$, with $\sigma$ as the post-fit uncertainty. The right panel illustrates the impact, with red and blue bands corresponding to $+1\sigma$ and $-1\sigma$ displacements of the parameter. The position of each band indicates whether the parameter is correlated or anti-correlated with the signal strength. The two lowest entries correspond to free background normalisations without prior constraints, for which the fitted value is shown instead of a pull. The value in the upper-right corner indicates the fitted signal strength and its total uncertainty.
+
+Because the fit is performed on an Asimov dataset, all constrained parameters remain at their pre-fit values, resulting in no observed pull, as anticipated. Consequently, the primary information in the left panel is the length of the error bars. Most parameters exhibit post-fit uncertainties consistent with their priors. However, the $1/p$ template binning, the $I_h$ template binning, and the $I_h$ correlation parameters show reduced uncertainties below unity.
+
+The trigger SFs, pile-up reweighting, luminosity, and $F_\textrm{pixel}$ systematic uncertainties directly affect the signal normalisation: their effect on $\hat{r}$ is nearly a one-to-one translation. However, the impact is greater for the SFs because their uncertainties remain relatively high (approximately $4\%$ on average, as shown in \cref{fig:triggerSF} left). On the other hand, adjusting the binning of templates (in $\eta$, $1/p$, and $I_h$) used in the background prediction alters the shape, and the relative magnitude of this effect increases with the signal mass. The \dedx{} calibration constants $K_\textrm{mass}$ and $C_\textrm{mass}$, template-fit variations, $I_h$ binning, and jet energy scale contribute have a poor impact.
+
+The free background normalisations for the two channels exhibit negligible variation, with both fitted to $1.000 \pm 0.006$ at each mass point. This level of precision is attributed solely to statistical effects: a parameter that scales every bin is constrained exclusively by the total yield, resulting in $\sigma = 1/\sqrt{N} = 0.50\%$ and $0.54\%$ for the $4.1\times10^{4}$ and $3.4\times10^{4}$ events in the central and endcap channels, respectively. Adjusting the normalisation by this interval alters the background under the signal by only $0.6\%$, leading to a shift in the signal strength of a few $10^{-3}$. In contrast, a shape-altering uncertainty is not similarly constrained, as the low-mass region that determines the normalisation provides no information about the tail.
+
+Overall, the largest individual impact is approximately $0.03$ at $2000$~GeV and $0.05$ at $2600$~GeV, while the total uncertainty on $\hat{r}$ is $^{+0.28}_{-0.24}$ and $^{+1.4}_{-0.7}$, respectively. For this mass hypothesis, the signal at nominal strength cannot be distinguished from the background-only hypothesis because the uncertainty becomes comparable to the injected signal strength. The ordering of parameters changes only gradually across the four mass points, indicating that the treatment of systematic uncertainties is stable over the considered range. In both scenarios, systematic sources contribute only a small fraction of the total uncertainty, and sensitivity is primarily limited by the number of high-mass events rather than by systematic uncertainties.
 
 \begin{figure}[h!]
     \centering
@@ -1118,17 +1145,81 @@ Each source of uncertainty is evaluated by quantifying the impact of the nuisanc
     \\
     \includegraphics[width=0.49\textwidth]{Images/Ch4/Gluino2400_2024_impacts.pdf}
     \includegraphics[width=0.49\textwidth]{Images/Ch4/Gluino2600_2024_impacts.pdf}
-    \caption{Impacts of nuisance parameters on the fitted signal strength for the $2000$~GeV (top left), $2200$~GeV (top right), $2400$~GeV (bottom left), and $2600$~GeV (bottom right) gluino mass hypotheses, computed using the split shape configuration on the Asimov dataset. For each parameter, the left panel presents the pull and post-fit constraint, while the right panel displays the impact on the signal strength for a $\pm1\sigma$ variation.}
+    \caption{Impacts of the nuisance parameters on the fitted signal strength for the $2000$~GeV (top left), $2200$~GeV (top right), $2400$~GeV (bottom left) and $2600$~GeV (bottom right) gluino mass hypotheses, in the split configuration of the shape analysis, computed on an Asimov dataset containing a signal at nominal cross section.}
     \label{fig:limits:impacts}
 \end{figure}
 
-The highest-ranked uncertainties originate from two primary sources. The most significant impacts are linked to the trigger scale factors applied to the expected signal yield. These factors rank first at the $2000$~GeV point and remain among the top three parameters across all masses. Variables related to the background estimation method, particularly the binning of the $\eta$ and $1/p$ templates, become increasingly important as the mass hypothesis increases. Adjustments to binning, whether coarser or finer, alter the predicted spectrum in the sparsely populated high-mass region where the signal windows are located. Pile-up reweighting, luminosity, and $F_\textrm{pixel}$ calibration have moderate effects, while the d$E$/d$x$ calibration constants $K_\textrm{mass}$ and $C_\textrm{mass}$, template fit variations, $I_h$ binning and jet energy variations have minimal impact.
+\clearpage
 
-The free background normalisations of the two channels are ranked lowest (\texttt{rateAll\_Eta1} and \texttt{rateAll\_Eta1\_2p4}), which may initially seem unexpected given that these are the only parameters left unconstrained in the fit. This outcome is explained by the definition of impact: each parameter is varied by its post-fit uncertainty, and for a free parameter, this uncertainty is determined entirely by the data. Because the mass spectrum contains many events at low mass, the fit constrains the overall normalisation with precision that exceeds any systematic effect. Consequently, shifting the normalisation within such a narrow range has minimal effect on the background expected under the signal. However, an uncertainty that alters the spectrum shape, such as binning variations, changes the predicted background in the signal window even if the normalisation is perfectly known. This effect directly translates into a shift in the signal strength. Therefore, shape-altering uncertainties dominate the ranking, whereas the normalisation itself does not.
 
-The fitted signal strength $\hat{r}$ shown in each figure represents the ratio of the fitted cross section to its nominal theoretical value. Because the Asimov dataset is generated with a nominal-strength injected signal, the fit yields $\hat{r}=1$ by design. The key information is contained in the uncertainty, which indicates the precision with which a nominal cross section signal could be measured. This uncertainty increases from $^{+0.28}_{-0.24}$ at $2000$~GeV to $^{+1.5}_{-0.7}$ at $2600$~GeV, reflecting the rapid decline in signal yield. When the uncertainty approaches unity, a nominal-strength signal can no longer be distinguished from the background-only hypothesis, consistent with an exclusion reach just above $2.4$~TeV. No parameter shows a significant pull, as expected for a fit to the Asimov dataset, and the ranking changes only gradually with increasing mass.
+\subsection{Correlations between nuisance parameters}
+\label{sec:limits:correlations}
+
+The impacts quantify how each parameter shifts the signal strength, but do not indicate whether two parameters represent the same underlying effect. This relationship is characterised by the post-fit correlation matrix, which is obtained by inverting the Hessian of the likelihood at its minimum\footnote{The Hessian is the matrix of second partial derivatives of the negative log-likelihood with respect to the fitted parameters, evaluated at the minimum, and describes the local curvature of the likelihood. Its inverse is the covariance matrix of the estimators.}. \cref{fig:limits:correlation} presents this matrix for $m_{\tilde{g}}=2200$~GeV in the split configuration, evaluated using an Asimov dataset with a nominal-strength injected signal ($r=1$). All nuisance parameters are independent prior to the fit. Therefore, any observed correlation arises from the data constraining multiple parameters within the same mass-spectrum bins.
+
+No correlation with the signal strength exceeds $0.18$ in magnitude. At this mass, the expected signal yield is small, and the uncertainty on $r$ is dominated by its statistical component, thereby reducing the influence of systematic parameters in determining $r$. The two background normalisations exhibit a correlation of $3\times10^{-3}$, meaning that each channel constrains its own normalisation and the two regimes (barrel and endcap) can be treated as non-correlated. Comparable results are obtained for other signal mass hypotheses (not shown here).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Ch4/correlation_Gluino2200_2024.pdf}
+    \caption{Post-fit correlation matrix of the nuisance parameters and of the signal strength, for the $2200$~GeV gluino mass hypothesis in the split configuration, computed on the Asimov dataset with a signal of nominal strength.}
+    \label{fig:limits:correlation}
+\end{figure}
+
+
+
 
 
 
 \section{Perspectives}
+\label{sec:perspectives}
 
+The analysis presented in this chapter has reached a mature stage: the trigger strategy, the pre-selection, the data-driven background estimation, and the statistical framework are in place, and the expected reach of $2.42$~TeV on the gluino mass exceeds the previous CMS exclusion by more than $300$~GeV~\cite{HSCP_Run2}. Several directions remain open, ranging from the finalisation of the present search to its long-term evolution at the HL--LHC. They are discussed below in order of increasing time scale.
+
+
+\subsection{Towards unblinding}
+
+The first objective is to address the residual population of high-mass events observed in the validation region (\cref{fig:abcd_mass_slices_data} and \cref{fig:abcd_mass_mc}). Analysis of the $t\overline{t}\to\ell\nu$ and $t\overline{t}\to2\ell2\nu$ samples demonstrates that this process constitutes the dominant source of these events, and characterisation of these candidates is ongoing. If a common feature is identified, an updated or a new selection criterion may be incorporated into the pre-selection. As the sensitivity of the search in the barrel is already constrained by the signal yield rather than the background, such a criterion would primarily benefit the endcap channel, where the signal-to-background ratio is lower, and would enhance the robustness of the background prediction in the region where the limits are determined.
+
+A subsequent step involves refining the statistical treatment. All limits presented in \cref{sec:limits} are based on the asymptotic approximation, which tends to be optimistic when expected event counts are low, as observed in the barrel channel at high mass. Prior to unblinding, the final results should be recalculated using the full CL$_\text{s}$ construction with pseudo-experiments, despite the increased computational demands. In the previous iteration of the analysis, the comparison between the asymptotic and full constructions revealed differences of several tens of GeV in the excluded mass range. This comparison should be repeated for the current configuration.
+
+
+\subsection{Expected gains from additional luminosity}
+
+Analysis of nuisance parameter impacts (\cref{sec:limits:impacts}) indicates that the sensitivity of this search is constrained primarily by the number of expected signal events, rather than by systematic uncertainties. Consequently, the most significant improvement arises from increased integrated luminosity, and the associated gain in mass reach can be estimated using a straightforward scaling argument.
+
+\vspace{0.5 cm}
+
+The exclusion sensitivity is dominated by the barrel channel, which is effectively background-free (\cref{tab:expectedyield}). In this regime, the counting experiment can be modelled as a Poisson process. Thus the expected signal yield is $N_s = \sigma\,\varepsilon\,\mathcal{L}$, where $\varepsilon$ denotes the signal efficiency. In addition, in the exclusion-relevant region, the theoretical cross section $\sigma^{\rm th}(m)$ is locally well approximated by an exponential function: $\sigma^{\rm th}(m) \approx \sigma_0\, e^{-m/m_0}$. The slope parameter is determined from \cref{tab:signal_samples}: between $2200$ and $2600$~GeV, the cross section decreases by a factor of approximately $5.83$, yielding
+\begin{equation}
+    m_0 = \left(\frac{\mathrm{d}\ln\sigma^{\rm th}}{\mathrm{d}m}\right)^{-1} = \frac{400~\textrm{GeV}}{\ln(5.83)} \approx 227~\textrm{GeV} \, ,
+\end{equation}
+This result indicates that the cross section decreases by a factor of $e$ for every approximately $227$~GeV increase in mass.
+
+The excluded mass $m_{\rm excl}$ is defined by the intersection of the theoretical and experimental cross section curves, $\sigma^{\rm th}(m_{\rm excl}) = \sigma^{95\%}=N^{95\%}_s/(\varepsilon\mathcal{L})$. Expressing this condition for two luminosities $\mathcal{L}$ and $\mathcal{L}'$ and taking their ratio results in:
+\begin{equation}
+    \Delta m_{\tilde{g}} \simeq m_0 \ln\frac{\mathcal{L}'}{\mathcal{L}} \approx 227~\textrm{GeV} \times \ln\frac{\mathcal{L}'}{\mathcal{L}} \, .
+    \label{eq:persp:deltam}
+\end{equation}
+
+Extending the analysis from the 2024 dataset ($110$\,fb$^{-1}$) to the full Run--3 dataset, which is approximately three times larger, would increase the expected mass reach by about $\Delta m_{\tilde{g}}=265$~GeV, bringing it to $2600$--$2700$~GeV.
+
+\vspace{0.5 cm}
+
+This estimate is indicative and is based on several assumptions: the signal efficiency is considered mass-independent, consistent with the flat acceptance observed in \cref{fig:triggerMassAcceptance}; the background in the barrel channel increases linearly with luminosity, eventually moving the channel out of the background-free regime; and the endcap channel, which is already background-dominated, benefits less from increased luminosity.
+
+A statistical combination with the Run--2 dataset would yield a further improvement. This gain is constrained by the lower centre-of-mass energy and the muon-based trigger strategy employed in the earlier data.
+
+
+\subsection{Extending the interpretations and the trigger coverage}
+
+This search is interpreted exclusively in terms of gluino R-hadrons. The same experimental signature, selection criteria, and background prediction are directly applicable to R-hadrons formed from pair-produced top squarks. As a colour triplet, the stop is produced with a cross section approximately two orders of magnitude lower than that of the gluino at equal mass (\cref{fig:xsec_theory}), and the previous CMS search excluded stop masses below $1.47$~TeV~\cite{HSCP_Run2}. Reinterpreting this analysis for the stop hypothesis requires only processing the corresponding signal samples, with the full analysis chain remaining unchanged. Further interpretations for finite lifetimes and charge-suppression scenarios, in which R-hadrons preferentially become neutral in the calorimeters, would also enlarge the phase-space coverage.
+
+The trigger strategy may also be expanded. The MET triggers used in this analysis are optimal for R-hadrons, whose neutral fraction and charge flipping reduce the effectiveness of muon-based selections. However, these triggers are inefficient for lepton-like HSCPs such as tau sleptons, for which muon triggers retain $\approx70\%$ of the signal~\cite{HSCP_Run2}. Run--2 studies demonstrated that a logical OR of the muon and MET paths increases the event selection efficiency to approximately $\approx45\%$ for gluino R-hadrons and $\approx85\%$ for tau sleptons, compared to $\approx30\%$ and $\approx15\%$ respectively with MET triggers alone~\cite{haebe2024}. This combined approach could provide a single analysis framework to target both hadron-like and lepton-like candidates, although it requires handling two partially overlapping datasets (muon and MET) and extending trigger-efficiency and scale-factor measurements to the muon paths. Since sensitivity is statistically limited, recovering otherwise lost signal topologies represents one of the most significant advancements in the search.
+
+
+\subsection{The HSCP search at the HL--LHC}
+
+Over a longer timescale, the Phase--2 upgrade of CMS will significantly alter the experimental inputs for this search. As detailed in \cref{sec:HLLHC}, the outer tracker will feature a binary readout and will no longer provide charge measurements. Consequently, the \dedx{} information will be limited to the upgraded inner tracker, reducing the average number of ionisation measurements per track from approximately 15 to a maximum of 6. Two new features will partially offset this reduction. First, the PS modules of the outer tracker will implement a programmable threshold, optimised at 1.4 times the MIP level, to flag highly ionising hits and provide a coarse \dedx{} discriminator usable up to the L1 trigger. Second, the MIP Timing Detector, positioned between the tracker and the calorimeters, will measure the time-of-flight of charged particles with a resolution of 30--60~ps, enabling direct determination of $\beta$ at a distance of approximately one metre from the interaction point. Timing is anticipated to become the primary signature for slow particles at the HL--LHC and will also enable interpretations of particle lifetimes of a few nanoseconds, which are not accessible with the current strategy. Together with the extended tracker acceptance and the $3000$~fb$^{-1}$ expected for the Phase--2 programme, these upgrades will refocus the HSCP search on timing, with ionisation serving a supporting function.
+
+This development underscores the significance of the Run--3 programme. The current analysis utilises a precise, full-tracker \dedx{} measurement, which will not be available in this format following the Phase--2 upgrade. Completing the search using the full Run--3 dataset, along with the aforementioned improvements, therefore constitutes both the culmination of the ionisation-based strategy employed by CMS since Run--1 and the most sensitive investigation of the R-hadron hypothesis achievable prior to the implementation of timing-based methods.
