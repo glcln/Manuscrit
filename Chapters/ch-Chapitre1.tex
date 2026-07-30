@@ -230,7 +230,7 @@ with $\mu$ the mean number of interactions per bunch crossing at the IP, namely 
     \label{eq:lumi_measured}
 \end{equation}
 
-Inverting this expression yields an average pile-up of $\mu \simeq 22$ under the LHC's nominal design parameters. However, as the instantaneous luminosity has steadily increased over time by a factor of 2-2.5 today, this has resulted in a higher average pile-up of 50, with peaks exceeding 80. The pile-up values measured by the CMS collaboration for the different years of data-taking between Run--1 and Run--3 are shown in \cref{fig:pileup}. Notice that the value of $\sigma_{\textrm{inel}}$ differs from the one given above; here, it is the total inelastic cross-section obtained over the full phase space.
+Inverting this expression yields an average pile-up of $\mu \approx 22$ under the LHC's nominal design parameters. However, as the instantaneous luminosity has steadily increased over time by a factor of 2-2.5 today, this has resulted in a higher average pile-up of 50, with peaks exceeding 80. The pile-up values measured by the CMS collaboration for the different years of data-taking between Run--1 and Run--3 are shown in \cref{fig:pileup}. Notice that the value of $\sigma_{\textrm{inel}}$ differs from the one given above; here, it is the total inelastic cross-section obtained over the full phase space.
 
 \begin{figure}[h]
     \centering
@@ -260,7 +260,7 @@ Run--1 (2009-2013) marked the first completed operational stage of the LHC. Duri
 
 After the first LS that lasted 3 years, the superconducting magnets and detector systems were upgraded to support higher luminosity. Run--2 (2015-2018) started with a centre-of-mass energy of 13 TeV and a bunch spacing of 50 ns, then halved the bunch spacing for the rest of the period. CMS then recorded a \textit{golden} integrated luminosity of about 138 $\textrm{fb}^{-1}$.
 
-Run--3 (2022-2026) raised the centre-of-mass energy to 13.6 TeV (still below the expected 14 TeV at the LHC's design). So far, this period has been marked by a spectacular data collection campaign. CMS has recorded a \textit{golden} integrated luminosity of respectively 38 $\textrm{fb}^{-1}$, 30 $\textrm{fb}^{-1}$, 113 $\textrm{fb}^{-1}$, 114 $\textrm{fb}^{-1}$ and 33 $\textrm{fb}^{-1}$ from 2022 to 2026.
+Run--3 (2022-2026) raised the centre-of-mass energy to 13.6 TeV (still below the expected 14 TeV at the LHC's design). So far, this period has been marked by a spectacular data collection campaign. CMS has recorded a total \textit{golden} integrated luminosity of about 310 $\textrm{fb}^{-1}$, corresponding respectively to 35 $\textrm{fb}^{-1}$, 28 $\textrm{fb}^{-1}$, 110 $\textrm{fb}^{-1}$, 111 $\textrm{fb}^{-1}$ and 28 $\textrm{fb}^{-1}$ from 2022 to 2026.
 
 \vspace{0.5 cm}
 
@@ -557,7 +557,7 @@ After all, event rates are reduced to 100 kHz and are then transferred to the HL
 
 \subsubsection{The High-Level trigger}
 
-The High-Level Trigger (HLT) is a software-based selection system that uses CPUs and GPUs to cope with increased luminosity. With a latency of 90 ms per event, it reduces the physics rate from L1 input of 100 kHz to a few kHz. Each event undergoes object reconstruction for particles such as electrons, muons, photons, taus, and jets. To do so, a set of algorithms does data processing --- HLT paths ---, each with a dedicated physics reconstruction that preserves topologies of interest. They are designed as a sequence of reconstruction steps and filters, such that an event that fails a step does not pass through all of them, thereby keeping the HLT decision flow optimised \cite{CMShlt}.
+The High-Level Trigger (HLT) is a software-based selection system that uses CPUs and GPUs to cope with increased luminosity. With a latency of 90 ms per event, it reduces the physics rate from L1 input of 100 kHz to a few kHz. Each event undergoes particle reconstruction for electrons, muons, photons, taus, and jets. To do so, a set of algorithms processes the data (HLT paths), each with a dedicated physics reconstruction that preserves topologies of interest. They are designed as a sequence of reconstruction steps and filters, such that an event that fails a step does not pass through all of them, thereby keeping the HLT decision flow optimised \cite{CMShlt}.
 
 Monitoring the output rates of the L1 trigger and HLT is essential for assessing the overall performance of the trigger system, as these rates directly determine the data recorded for physics analyses. During data-taking, a dedicated shift crew oversees the smooth operation of the experiment, with each member assigned specific responsibilities. The trigger shifter monitors trigger rates in real time and adjusts prescales accordingly to maintain a stable output rate and prevent the data acquisition system from being overloaded. Since the start of Run--3, I have personally contributed to this effort by completing 27 8-hour shifts dedicated to monitoring the trigger system.
 
@@ -593,7 +593,7 @@ Data scouting addresses the same bandwidth constraint from a different angle. Ra
 \section{Event reconstruction, identification and calibration}
 \label{sec:EventReconstruction}
 
-Among the various particles produced at each proton-proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $e^\pm$, the charged hadrons (proton $p^\pm$, pions $\pi^\pm$, kaons $K^\pm$), the neutral ones (neutron $n$, neutral pion $\pi^0$), and the photons $\gamma$. Given different physics interactions, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
+Among the various particles produced at each proton-proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $e^\pm$, the charged hadrons (proton $p^\pm$, pions $\pi^\pm$, kaons $K^\pm$), the neutral ones (neutron $n$, neutral pion $\pi^0$), and the photons $\gamma$. Depending on the physics interaction, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
 
 The CMS Particle Flow (PF) algorithm performs a complete reconstruction of events. This algorithm, detailed in the section below, reconstructs the basic particles listed above by looking for tracker hits, energy deposits within the calorimeters, or muon chamber hits. Afterwards, the PF particles are used to reconstruct more complex objects.
 
