@@ -56,7 +56,7 @@ At this point, reaching significantly higher energies with a linear accelerator 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1.\linewidth]{Images/Ch1/CERNComplexAccelerator.png}
+    \includegraphics[width=1.\linewidth,trim={25cm 2cm 12cm 8cm},clip]{Images/Ch1/CCC-v2017.png}
     \caption{The CERN accelerator complex, showing the chain of accelerators leading to the LHC. The LHC is represented by the large ring on the top of the sketch, with the four major experiments indicated by yellow dots \cite{CernComplexAccelerator_ref}.}
     \label{fig:CERNComplexAccelerator}
 \end{figure}
@@ -65,7 +65,7 @@ Once in the LHC, protons are accelerated to their nominal energy. For that, osci
 
 The beams are confined in a low-pressure environment of approximately $10^{-13}$ atm to mitigate beam losses from collisions between the proton beams and unknown floating objects in the beam pipe.
 
-In each curved arc of the LHC, a magnetic field generated individually by the 1232 superconducting NbTi dipoles bends the beams toward the centre of the LHC ring. The field intensity goes from 0.54 to 8.33~T at the nominal value as the beam accelerates. These magnets need to be cooled to 1.9 K using superfluid helium to allow a current of 11800 A to pass through the magnet coils. This current value, and thus the bending power of dipole magnets, is so far the limitation of the higher kinetic energy of the proton beams inside the LHC tunnel. The LHC uses quadrupole magnets (for a total of 858) that act like magnetic lenses and focus the beam, especially at the interaction points. However, their focusing strength depends on the particle energy. 688 sextupole magnets are therefore used to correct this energy dependence. Finally, 168 octupole magnets introduce controlled non-linear effects that help stabilise the beam against collective instabilities (Landau damping).
+In each curved arc of the LHC, a magnetic field generated individually by the 1232 superconducting NbTi dipoles bends the beams toward the centre of the LHC ring. The field intensity goes from 0.54 to 8.33~T at the nominal value as the beam accelerates. These magnets need to be cooled to 1.9 K using superfluid helium to allow a current of 11800 A to pass through the magnet coils. This current value, and thus the bending power of dipole magnets, is currently limited by the higher kinetic energy of the proton beams inside the LHC tunnel. The LHC uses quadrupole magnets (for a total of 858) that act like magnetic lenses and focus the beam, especially at the interaction points. However, their focusing strength depends on the particle energy. 688 sextupole magnets are therefore used to correct this energy dependence. Finally, 168 octupole magnets introduce controlled non-linear effects that help stabilise the beam against collective instabilities (Landau damping).
 
 Charged particles emit electromagnetic radiation when accelerated along a curved trajectory, a phenomenon known as synchrotron radiation. The energy loss per turn scales as $m^{-4}$, where $m$ denotes the particle mass. Due to their relatively large mass, protons can be accelerated to much higher energies than electrons before synchrotron losses become significant. Under identical magnetic fields, electrons radiate approximately $10^{13}$ times more rapidly than protons, which motivated the selection of protons for multi-TeV accelerators such as the LHC. With a dipole field of 8.33~T, the resulting energy loss for protons is only 10 keV per turn, a value sufficiently small for the RF cavities to compensate during nominal operation.
 
@@ -200,12 +200,15 @@ At the LHC, the integrated luminosity is usually defined in inverse femtobarn $\
 
 In practice, three distinct luminosity quantities are defined. The \textit{delivered luminosity} corresponds to the total luminosity produced by the LHC at the interaction point. The \textit{recorded luminosity} is the fraction actually recorded by the detector, accounting for trigger and data-acquisition dead time. Finally, the luminosity used for physics analysis --- certified through the so-called \textit{golden JSON files} --- retains only data collected under stable, fully operational detector conditions, excluding runs affected by hardware failures or suboptimal performance in any sub-detector. A comparison of the \textit{golden} integrated luminosity recorded by CMS over the years of data-taking is presented in \cref{fig:intlumi}. Summed over the period 2010 to 2026, the integrated luminosity is close to 504 $\mathrm{fb}^{-1}$.
 
+\clearpage
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{Images/Ch1/IntLumi.pdf}
     \caption{Integrated luminosity recorded by CMS for proton-proton collisions as a function of time per year \cite{LumiIntCMS}.}
     \label{fig:intlumi}
 \end{figure}
+
 
 \subsection{Pile-up}
 \label{subsec:PileUp}
@@ -347,6 +350,8 @@ The four barrel pixel modules (BPIX) cover radial distances from 2.9 to 16~cm fr
 
 This first part of the tracker ensures reconstruction of the primary vertex, the initial hard-scatter interaction point. On top of that, it identifies in-flight decays, such as those from B-hadrons, D-hadrons, or $\tau$ leptons, using the reconstruction of secondary vertices.
 
+\clearpage
+
 \begin{figure}[h!]
     \centering
     \input{Images/Ch1/PixelTracker.tex}
@@ -367,6 +372,8 @@ In total, 15\,148 modules fill the volume of the silicon strip detector. Some of
 In addition to providing precise position measurements, the silicon strip modules also record the charge deposited by particles crossing the sensors. This information can be used to estimate the specific energy loss, $dE/dx$, defined as the collected charge per unit path length in the silicon. Since the energy loss depends on the particle velocity (discussed in \cref{sec:interactionWithMatter}), this observable provides valuable information for particle identification. It is particularly useful in searches for slow, highly ionising particles.
 
 A summary of the different geometries is given in \cref{tab:tracker_modules}.
+
+\clearpage
 
 \begin{table}[ht]
     \centering
@@ -478,7 +485,7 @@ Charged particles with electric charge $q$ and velocity $\vec{v}$ bend when expo
 
 Thus, the CMS solenoid is a central component of the CMS detector. The magnet consists of a 12.5~m-long superconducting coil with an external diameter of 6 m that produces a quasi-uniform magnetic field of 3.8~T along the $z$--axis within its volume. The coil itself is approximately 60~cm thick, and, in contrast to ATLAS, where the solenoid is located in front of the calorimeters, the CMS design places the magnet outside the calorimetric system. This configuration avoids additional material upstream of the ECAL and HCAL, thereby preserving the intrinsic calorimetric response and improving the overall reconstruction performance for electromagnetic objects and jets \cite{CMSmagnet}. The magnetic field variation map is shown in \cref{fig:CMSmagnet} and is used for precise momentum reconstruction.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.75\linewidth,trim={0 0 7cm 0},clip]{Images/Ch1/magnet.png}
     \caption{Colour map of the magnetic field $|B|$ generated by the solenoid magnet and the corresponding magnetic field lines for a longitudinal section of CMS \cite{CMSmagnet}.}
@@ -705,10 +712,10 @@ The track compatibility with one of three muon categories (tracker, standalone, 
 
 The PF algorithm also provides dedicated isolation criteria for the muon reconstruction.
 
-The relative particle-flow isolation $I_{\textrm{rel}}^\mu$ quantifies the amount of hadronic and electromagnetic activity in a cone of radius $\Delta R<0.4$ around the muon direction, normalised by the muon transverse momentum $p_{T,\mu}$. Its expression is given by:
+The relative particle-flow isolation $I_{\textrm{rel}}^\mu$ quantifies the amount of hadronic and electromagnetic activity in a cone of radius $\Delta R<0.4$ around the muon direction, normalised by the muon transverse momentum $p_T^\mu$. Its expression is given by:
 
 \begin{equation}
-    I_{\textrm{rel}}^\mu = \frac{1}{p_{T,\mu}} \left[
+    I_{\textrm{rel}}^\mu = \frac{1}{p_T^\mu} \left[
         \sum\limits_{\substack{\textrm{ch.} \\ \textrm{had.}}} p_T 
         + \max \left( 0 , 
             \sum\limits_{\substack{\textrm{neut.} \\ \textrm{had.}}} E_T 
@@ -721,9 +728,9 @@ The relative particle-flow isolation $I_{\textrm{rel}}^\mu$ quantifies the amoun
 
 The numerator sums the transverse momenta of all charged hadrons (ch. had.), plus a pile-up-corrected neutral contribution. This neutral term, taken under the max operator, adds the neutral hadron (neut. had.) and photon (ph.) transverse energies while subtracting the estimated pile-up contribution, which approximates the neutral pile-up energy using the charged tracks associated with other primary vertices and considered as pile-up (ch. had. PU). The $\max(0,\cdot)$ ensures this corrected neutral term never goes negative, preventing unphysical values. A small value of $I_{\textrm{rel}}^\mu$ indicates an isolated muon, typical of \textit{prompt muons} coming from the primary vertex. In contrast, a large value suggests the muon is embedded in a jet.
 
-A tracker-based isolation variable is similarly defined, relying solely on charged-particle tracks reconstructed in the inner tracker rather than on PF candidates. The relative tracker isolation $I_{\textrm{trk}}^\mu$ sums the transverse momenta of all tracks within a cone of radius $\Delta R < 0.3$ around the muon direction, normalised by the muon transverse momentum $p_{T,\mu}$:
+A tracker-based isolation variable is similarly defined, relying solely on charged-particle tracks reconstructed in the inner tracker rather than on PF candidates. The relative tracker isolation $I_{\textrm{trk}}^\mu$ sums the transverse momenta of all tracks within a cone of radius $\Delta R < 0.3$ around the muon direction, normalised by the muon transverse momentum $p_T^\mu$:
 \begin{equation}
-    I_{\textrm{trk}}^\mu = \frac{1}{p_{T,\mu}} \sum_{\substack{i \,\in\, \Delta R < 0.3 \\ i \,\neq\, \mu}} p_{T,i}\, ,
+    I_{\textrm{trk}}^\mu = \frac{1}{p_T^\mu} \sum_{\substack{i \,\in\, \Delta R < 0.3 \\ i \,\neq\, \mu}} p_{T,i}\, ,
     \label{eq:TrkisoMu}
 \end{equation}
 where the sum runs over all tracks $i$ reconstructed within the cone, excluding the muon track itself. A smaller cone radius than the one used for $I_{\textrm{rel}}^\mu$ is chosen to reduce pile-up contamination further. Rather than applying an explicit pile-up subtraction term as in \cref{eq:PFisoMu}, pile-up mitigation here relies directly on requiring that each track originate from the same primary vertex as the muon. The tracker isolation is a purely tracking-based, calorimeter-independent variable, where a small value of $I_{\textrm{trk}}^\mu$ indicates that the muon is well isolated from other charged activity, as expected for prompt muons. In contrast, a large value indicates that the muon is embedded in a jet.
@@ -732,9 +739,9 @@ Finally, a mini-isolation variable is built to target muons produced in the deca
 
 \begin{equation}
     \Delta R = \left\{ \begin{array}{rcl}
-        0.2 & \mbox{for} & p_{T,\mu}<50 \, \textrm{GeV}/c \, ,\\ 
-        \displaystyle \frac{10 \, \textrm{GeV}/c}{p_{T,\mu}} & \mbox{for} & 50 \leq p_{T,\mu} \leq 200 \, \textrm{GeV}/c \, ,\\
-        0.05 & \mbox{for} & p_{T,\mu}>200 \, \textrm{GeV}/c \, .
+        0.2 & \mbox{for} & p_T^\mu<50 \, \textrm{GeV}/c \, ,\\ 
+        \displaystyle \frac{10 \, \textrm{GeV}/c}{p_T^\mu} & \mbox{for} & 50 \leq p_T^\mu \leq 200 \, \textrm{GeV}/c \, ,\\
+        0.05 & \mbox{for} & p_T^\mu>200 \, \textrm{GeV}/c \, .
         \end{array}\right.
     \label{eq:coneRadius}
 \end{equation}
@@ -760,7 +767,7 @@ Electron identification is defined through the MVA score. The \textit{loose} wor
 
 \vspace{0.5 cm}
 
-Unlike electrons, photons are reconstructed by looking for ECAL seeds with transverse energy greater than 10 GeV/$c$ that are not associated with a track. A dedicated conversion recovery algorithm also attempts to reconstruct photons that have converted into an $\textrm{e}^+\textrm{e}^-$ pair before reaching the ECAL by looking for pairs of oppositely curved tracks that point back to the supercluster. The energy of the photon is then calibrated using simulation-based corrections such as $Z^0 \to \textrm{e}^+\textrm{e}^-$ events. Finally, photons are distinguished from other neutral particles --- most notably $\pi^0 \to \gamma\gamma$ decays, which are the dominant source of fake isolated photons --- using shower-shape variables.
+Unlike electrons, photons are reconstructed by looking for ECAL seeds with transverse energy greater than 10 GeV/$c$ that are not associated with a track. A dedicated conversion recovery algorithm also attempts to reconstruct photons that have converted into an $\textrm{e}^+\textrm{e}^-$ pair before reaching the ECAL by looking for pairs of oppositely curved tracks that point back to the supercluster. The energy of the photon is then calibrated using simulation-based corrections such as $Z^0 \to \textrm{e}^+\textrm{e}^-$ events. Finally, photons are distinguished from other neutral particles (most notably $\pi^0 \to \gamma\gamma$ decays, which are the dominant source of fake isolated photons) using shower-shape variables.
 
 
 \subsubsection{Charged and neutral hadrons}
@@ -773,7 +780,7 @@ Charged hadrons are identified by linking inner tracker tracks to matched HCAL c
 
 \subsubsection{Jets}
 
-On average, approximately 60\% of the energy in a jet is in the form of charged particles (mostly $\pi^\pm$), 30\% of the energy is in the form of photons from $\pi^0 \to \gamma\gamma$ decays, and 10\% is in the form of neutral hadrons (mostly neutrons and $K_L$s)~\cite{Thomson_2013}. Thus, the reconstruction of PF muons, electrons, photons, and charged and neutral hadrons is essential for jet reconstruction.
+On average, approximately 60\% of the energy in a jet is in the form of charged particles (mostly $\pi^\pm$), 30\% of the energy is in the form of photons from $\pi^0 \to \gamma\gamma$ decays, and 10\% is in the form of neutral hadrons (mostly neutrons and $K_L$s)~\cite{Thomson_2013}. Thus, identifying PF muons, electrons, photons, and charged and neutral hadrons is essential for jet reconstruction.
 
 In the CMS detector, jets are reconstructed from the PF candidates using the anti--$k_T$ clustering algorithm~\cite{AntiKT_cms}. This algorithm is infrared-safe\footnote{Infrared safety ensures that the jet definition is not altered by the emission of soft (low-energy) particles, meaning that adding an arbitrarily soft gluon to the event does not change the resulting jet configuration.} and collinear-safe\footnote{Collinear safety ensures that the jet definition is not affected by the collinear splitting of a particle into two particles carrying the same total momentum, meaning that replacing one particle by two collinear particles does not change the resulting jet configuration.}. To mitigate the effects of PU, the Charged Hadron Subtraction (CHS) process~\cite{CHS_cms} excludes from the computation charged and neutral PF candidates that do not originate from the PV. Anti--$k_T$ algorithm defines a distance between two objects $i$ and $j$ or between the object $i$ and the beam axis:
 
@@ -784,7 +791,7 @@ In the CMS detector, jets are reconstructed from the PF candidates using the ant
     \end{array}\right.
     \label{eq:antikt}
 \end{equation}
-where $k=-1$ controls the clustering behaviour in the anti--$k_T$ method, $\Delta R$ being the distance in the $\eta-\phi$ plane and $R$ the distance parameter which defines the cone size over which the PF candidates are aggregated. Two types of jets are then considered, AK4 and AK8 jets, with $R = 0.4$ or $R = 0.8$. The anti--$k_T$ algorithm proceeds iteratively over the list of PF candidates. At each iteration, the global minimum over all $d_{i,j}$ and $d_{i,i}$ is identified. If the minimum is a pair distance $d_{i,j}$, the two particles $i$ and $j$ are merged into a single pseudo-particle by summing their four-momenta. If instead the minimum is a beam distance $d_{i,i}$, particle $i$ is declared a jet and removed from the list. This procedure is repeated until no particles remain. The consequence of setting $k=-1$ is that soft particles are preferentially clustered around hard seeds first. Note that, independently of the value of $k$, for high-energy jets, the separation between individual particles is typically smaller than the calorimeter segmentation, and not all particles in the jet can be resolved.
+where $k=-1$ controls the clustering behaviour in the anti--$k_T$ method, $\Delta R$ is the distance in the $\eta-\phi$ plane, and $R$ is the distance parameter that defines the cone size over which the PF candidates are aggregated. Two types of jets are then considered, AK4 and AK8 jets, with $R = 0.4$ or $R = 0.8$. The anti--$k_T$ algorithm proceeds iteratively over the list of PF candidates. At each iteration, the global minimum over all $d_{i,j}$ and $d_{i,i}$ is identified. If the minimum is a pair distance $d_{i,j}$, the two particles $i$ and $j$ are merged into a single pseudo-particle by summing their four-momenta. If instead the minimum is a beam distance $d_{i,i}$, particle $i$ is declared a jet and removed from the list. This procedure is repeated until no particles remain. The consequence of setting $k=-1$ is that soft particles are preferentially clustered around hard seeds first. Note that, independently of the value of $k$, for high-energy jets, the separation between individual particles is typically smaller than the calorimeter segmentation, and not all particles in the jet can be resolved.
 
 \vspace{0.5 cm}
 
