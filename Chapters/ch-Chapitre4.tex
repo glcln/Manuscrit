@@ -750,7 +750,7 @@ In the following, we designate region $D'$ with $0.8 < F_\textrm{pixel} \leq 0.9
 
 Predictions are shown in \cref{fig:abcd_mass_slices_data} for the 2024 data across different eta regimes. The binning uses wider bin widths at higher masses to match the mass resolution, leading to a change in the slope of the background prediction at $M\approx500$~GeV. The prediction and observation demonstrate reasonable agreement, as shown in the top plots. The mass spectrum exhibits a higher tail in the endcap region as the candidates are most likely to have higher $p$ in this region (\cref{fig:Ihand1oPinEtaslices}, left).
 
-The mass distributions for various signal hypotheses (coloured histograms) are presented, demonstrating the absence of contamination in the VR. The sample at $m_{\tilde{g}}=2000$~GeV, which was already excluded by the last CMS HSCP results, is also drawn, derived using its theoretical cross-section. Two distinct methods are used to evaluate the agreement between observed and predicted shapes, as illustrated in the lower panels. The first panel illustrates the ratio of observed to predicted values for each bin. The second panel presents the pull, defined as $( M_{\rm obs} -  M_{\rm pred})/\sigma$, where $\sigma=\sqrt{\sigma_{\rm obs}^2 + \sigma_{\rm pred}^2}=\sqrt{N_{\rm obs} + \sigma_{\rm pred}^2}$. This definition is appropriate since the data follow a Poisson distribution.
+The mass distributions for various signal hypotheses (coloured histograms) are presented, demonstrating the absence of contamination in the VR. The sample at $m_{\tilde{g}}=2000$~GeV, which was already excluded by the last CMS results, is also drawn, derived using its theoretical cross-section. Two distinct methods are used to evaluate the agreement between observed and predicted shapes, as illustrated in the lower panels. The first panel illustrates the ratio of observed to predicted values for each bin. The second panel presents the pull, defined as $( M_{\rm obs} -  M_{\rm pred})/\sigma$, where $\sigma=\sqrt{\sigma_{\rm obs}^2 + \sigma_{\rm pred}^2}=\sqrt{N_{\rm obs} + \sigma_{\rm pred}^2}$. This definition is appropriate since the data follow a Poisson distribution.
 
 \begin{figure}[h!]
     \centering
@@ -766,13 +766,9 @@ The mass distributions for various signal hypotheses (coloured histograms) are p
 
 \cref{fig:abcd_mass_mc} presents the mass distributions in the VR for the MC samples ($W(\to\mu\nu)$+jets, $t\overline{t}\to\ell\nu qq$, $t\overline{t}\to2\ell2\nu$, and QCD). The uncertainties associated with the observed points are not assigned as Poisson errors, in contrast to those in the data plots. Observed points (black dots) are the sum of their individual counterpart (stacked coloured histograms).
 
-The spectrum demonstrates agreement between observations and predictions. However, negative pull values indicate a tendency to overpredict events. This effect is amplified by gaps between the predictions and the observed points at intermediate and high masses, indicative of low-statistics samples, such as around $M\approx500$~GeV for $|\eta|<1$. This bias arises because the prediction band is generated from pseudo-experiments, in which each template bin is modelled as a Poisson distribution with a mean equal to the yield of the original template bin. As a result, a single outlier bin may cause substantial overestimation or underestimation. Additionally, variations in the weights of individual MC contributions cause certain events to be magnified by an order of magnitude, for example, the QCD point at $M\approx1600$ for $|\eta|<2.4$. Notably, in contrast to the corresponding plots in the data’s VR, the MC’s VR contains a substantially larger number of high-mass events, primarily from the $t\overline{t}\to2\ell2\nu$ sample. This allows for an isolated study of the prediction on this sample, shown in \cref{fig:MCcompTTbar}. Further analysis of these events reveals that they originate from ...
+The spectrum demonstrates agreement between observations and predictions. However, negative pull values indicate a tendency to overpredict events. This effect is amplified by gaps between the predictions and the observed points at intermediate and high masses, indicative of low-statistics samples, such as around $M\approx500$~GeV for $|\eta|<1$. This bias arises because the prediction band is generated from pseudo-experiments, in which each template bin is modelled as a Poisson distribution with a mean equal to the yield of the original template bin. As a result, a single outlier bin may cause substantial overestimation or underestimation. Additionally, variations in the weights of individual MC contributions cause certain events to be magnified by an order of magnitude, for example, the QCD point at $M\approx1600$~GeV for $|\eta|<2.4$. Notably, in contrast to the corresponding plots in the data’s VR, the MC’s VR contains a substantially larger number of high-mass events, primarily from the $t\overline{t}$ sample. The prediction in the VR was performed using the $t\overline{t}\to2l2\nu$ sample, as shown in \cref{fig:MCcompTTbar}. Discrepancies between the observation and the predicted spectrum vanish because of the larger statistics, along with the same event weighting.
 
-\vspace{0.5 cm}
-
-[Je suis en train de dump les caractéristiques pour les 2 TTbar et Wjets.]
-
-\vspace{0.5 cm}
+Identification of events with masses $M>1500$~GeV is ongoing. This analysis may result in the implementation of more stringent or additional pre-selection criteria.
 
 \begin{figure}[!h]
     \centering
@@ -808,7 +804,7 @@ The background prediction is based on several methodological choices, including 
 \begin{itemize}
     \item The binning of the $\eta$, $I_h$, and $10^{4}/p$ distributions used in the convolution employs nominal bin widths of $\Delta_{\eta} = 0.1$, $\Delta_{I_h} = 0.05~\mathrm{MeV/cm}$, and $\Delta_{1/p} = 0.4$~GeV$^{-1}$, respectively. For each variable, upward (downward) variation is implemented by doubling (halving) the nominal bin width, while all other aspects of the procedure remain unchanged.
     \item The fits used to model the tails of the $I_h$ and $1/p$ templates are varied by shifting the fitted parameters upward and downward by their respective uncertainties. The prediction is then recalculated using these modified templates.
-    \item The method assumes that the $I_h$ and $1/p$ templates are independent of the $F_\textrm{pixel}$ variable. Violation of this assumption would invalidate the prediction of the shape in the SR, which is fundamental to the method. The residual correlation between $1/p$ and $F_\textrm{pixel}$ is addressed through the rescaling in $\eta$ shown in \cref{fig:eta_reweighting}. The correlation between $I_h$ and $F_\textrm{pixel}$ is evaluated by taking the ratio of the $I_h$ template in the CR to that in the VR (see \cref{fig:ih_correlation}). This ratio is fitted with a linear function, and the resulting bias is corrected in the $I_h$ template in the CR prior to mass spectrum construction. The systematic uncertainty is estimated by omitting this correction and comparing the resulting mass spectrum with the nominal one, the observed deviation being symmetrised around the nominal prediction to define the up and down variations. The values of this linear correlation are similar between VR and CR for the MC samples.
+    \item The method assumes that the $I_h$ and $1/p$ templates are independent of the $F_\textrm{pixel}$ variable. Violation of this assumption would invalidate the prediction of the shape in the SR, which is fundamental to the method. The residual correlations are evaluated by taking the ratio of the $I_h$ and $1/p$ templates in the CR to that in the VR. For the latter, the distributions almost coincide, as the rescaling in $\eta$ already corrects the dependence between $1/p$ and $F_\textrm{pixel}$.  However, as shown in \cref{fig:ih_correlation}, the correlation between $I_h$ and $F_\textrm{pixel}$ remains. This ratio is fitted with a linear function, and the resulting bias is corrected in the $I_h$ template in the CR prior to mass spectrum construction. The systematic uncertainty is estimated by omitting this correction and comparing the resulting mass spectrum with the nominal one, the observed deviation being symmetrised around the nominal prediction to define the up and down variations. The values of this linear correlation are similar between VR and CR for the MC samples.
 \end{itemize}
 
 
@@ -816,7 +812,7 @@ The background prediction is based on several methodological choices, including 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/Ch4/IhRatio_bis.pdf}
-    \caption{Distribution of $I_h$ in the control region (blue) and the validation region (red). Changes between the two $F_\textrm{pixel}$ slices are corrected using the ratio of the former distributions, as illustrated in the bottom panel.}
+    \caption{Distribution of $I_h$ in the control region (blue) and the validation region (red).}
     \label{fig:ih_correlation}
 \end{figure}
 
@@ -852,7 +848,7 @@ Uncertainties in the simulation affect the signal predictions. These uncertainti
   \label{fig:fi_syst}
 \end{figure}
 
-\cref{fig:systSignal2000} presents the individual contributions for a gluino with $m_{\tilde{g}} = 2000$~GeV across three pseudorapidity regimes as a function of reconstructed mass. The uncertainties, evaluated on the mass spectrum, exhibit shape dependence. Large uncertainties at low reconstructed mass primarily affect bins far from the signal peak, which contain only a marginal fraction of the signal and thus have minimal impact on sensitivity. Near the signal peak, the total uncertainty remains on the order of 10\% and is primarily dominated by the pile-up and trigger SF uncertainties.
+\cref{fig:systSignal2000} presents the individual contributions for a gluino with $m_{\tilde{g}} = 2000$~GeV across three pseudorapidity regimes as a function of reconstructed mass. The uncertainties, evaluated on the mass spectrum, exhibit shape dependence. Large uncertainties at low reconstructed mass primarily affect bins far from the signal peak, which contain only a marginal fraction of the signal and thus have minimal impact on sensitivity. Near the signal peak, the total uncertainty remains on the order of 10\% and is primarily dominated by the pile-up and trigger SF uncertainties, for which individual up- and down-variations in the $|\eta|<2.4$ regime are shown in \cref{fig:IndividualPUSFsyst}.
 
 \begin{figure}[h!]
     \centering
@@ -862,6 +858,14 @@ Uncertainties in the simulation affect the signal predictions. These uncertainti
     \includegraphics[width=0.5\textwidth]{Images/Ch4/summary_Gluino_2000_Eta2p4.pdf}
     \caption{Relative systematic uncertainties on the signal prediction as a function of the mass, for a gluino with $m_{\tilde{g}} = 2000$~GeV and for individual candidates with $|\eta| < 1$ (top left), $1 \leq |\eta| < 2.4$ (top right), and $|\eta| < 2.4$ (bottom). Individual sources are shown together with the total, which is calculated as the quadratic sum.}
     \label{fig:systSignal2000}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Pile-Up.pdf}
+    \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Trigger SF.pdf}
+    \caption{Up- and down-variation of the signal mass spectrum for the pile-up (left) and trigger SFs (right) systematic uncertainties in the $|\eta|<2.4$ regime.}
+    \label{fig:IndividualPUSFsyst}
 \end{figure}
 
 The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{g}} = 2000$, $2400$, $2600$~GeV) are compared in \cref{fig:systSignalAllMasses} across the same three pseudorapidity categories. All mass points exhibit similar behaviour, with the most relevant region consistently located near the respective mass peak.
@@ -878,6 +882,12 @@ The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{
 
 
 \section{Blinded results in the signal region}
+
+The prediction is performed in the signal region $D$, defined by $0.9 < F_\textrm{pixel} \leq 1.0$ and $p_T > 70$~GeV. The $F_\textrm{pixel}$ range for control region $C$ is extended from $0.3 < F_\textrm{pixel} \leq 0.8$ to $0.3 < F_\textrm{pixel} \leq 0.9$, as no signal contamination has been observed. Similarly, regions $A$ and $B$ are redefined as $0.3 < F_\textrm{pixel} \leq 0.9$ and $0.9 < F_\textrm{pixel} \leq 1.0$, respectively, both with $p_T < 70$~GeV.
+
+Predictions are presented in \cref{fig:abcd_mass_SR} for the 2024 data across various eta regimes, up to reconstructed masses of 300~GeV, as the full spectrum remains blinded. The prediction and observed data are in reasonable agreement. The uncertainty band, incorporating all background systematic uncertainties (as detailed in \cref{fig:systBkgPred}), is indicated in yellow.
+
+Mass distributions for several signal hypotheses (represented by coloured histograms) are shown, with higher amplitudes observed in the signal region, which is the relevant phase-space for the signal. The sample at $m_{\tilde{g}}=2000$~GeV, previously excluded by the most recent CMS results, is also included and is derived using its theoretical cross-section.
 
 
 \begin{figure}[h!]
@@ -931,26 +941,26 @@ The shape analysis incorporates the full mass spectrum into the likelihood. Spec
     \centering
     \footnotesize
     \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{lclcc}
+    \begin{tabular}{lccc}
         \toprule
-        Source & Process & Sidedness & Cut-and-count treatment & Shape treatment \\
+        Source & Process & Cut-and-count treatment & Shape treatment \\
         \midrule
-        Pile-up                & Signal      & Two-sided & lnN & shape \\
-        Trigger scale factors & Signal      & Two-sided &  lnN & shape \\
-        $K_\textrm{mass}$ and $C_\textrm{mass}$ & Signal      & Two-sided & lnN & shape \\
-        Jet Energy Scale      & Signal      & Two-sided & lnN & shape \\
-        $F_\textrm{pixel}$             & Signal      & Two-sided & lnN & lnN \\
-        Luminosity            & Signal      & Two-sided & lnN & lnN \\
+        Pile-up                & Signal       & lnN & shape \\
+        Trigger scale factors & Signal       &  lnN & shape \\
+        $K_\textrm{mass}$ and $C_\textrm{mass}$ & Signal       & lnN & shape \\
+        Jet Energy Scale      & Signal       & lnN & shape \\
+        $F_\textrm{pixel}$             & Signal       & lnN & lnN \\
+        Luminosity            & Signal       & lnN & lnN \\
         \midrule
-        $\eta$ binning        & Background  & Two-sided & lnN & shape \\
-        $I_h$ binning         & Background  & Two-sided & lnN & shape \\
-        $1/p$ binning           & Background  & Two-sided & lnN & shape \\
-        $I_h$ fit             & Background  & Two-sided & lnN & shape \\
-        $1/p$ fit             & Background  & Two-sided & lnN & shape \\
-        $I_h$ correlation  & Background  & One-sided & lnN & shape \\
+        $\eta$ binning        & Background   & lnN & shape \\
+        $I_h$ binning         & Background   & lnN & shape \\
+        $1/p$ binning           & Background   & lnN & shape \\
+        $I_h$ fit             & Background   & lnN & shape \\
+        $1/p$ fit             & Background   & lnN & shape \\
+        $I_h$ correlation  & Background   & lnN & shape \\
         \bottomrule
     \end{tabular}
-    \caption{Systematic uncertainties included in the computation of the limits. Each source is represented as a shape nuisance parameter in the shape analysis and as a log-normal factor in the cut-and-count method. The luminosity is treated as a normalisation uncertainty in both approaches.}
+    \caption{Systematic uncertainties included in the computation of the limits. The luminosity and $F_\textrm{pixel}$ systematic uncertainties are treated as a normalisation uncertainty (log-normal factor) in both limit treatments. All the other sources are represented as a shape nuisance parameter in the shape analysis and as a log-normal factor in the cut-and-count method.}
     \label{tab:limits:systs}
 \end{table}
 
