@@ -39,6 +39,7 @@
 \RequirePackage{geometry} % Flexible and complete interface to document dimensions
 \RequirePackage{lineno} % Line numbers on paragraphs
 \RequirePackage{mathrsfs}
+\RequirePackage{microtype}
 
 \RequirePackage{physics}
 \RequirePackage{afterpage}
