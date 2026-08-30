@@ -17,11 +17,7 @@ The International System of Units (SI) is used in macroscopic sciences and group
 \begin{equation*}
     \mathrm{[energy]=[mass]=[momentum]=[time]^{-1}=[length]^{-1}=eV}
 \end{equation*}
-where the electronvolt (eV) is the unit of choice. In these units, a proton has a mass of $m_p=1.673\times10^{-27}\,\mathrm{kg}=938\times10^6\,\rm eV = 938\,\mathrm{MeV}$.
-
-\vspace{0.5 cm}
-
-From now on, natural units will be the default. 
+where the electronvolt (eV) is the unit of choice. In these units, a proton has a mass of $m_p=1.673\times10^{-27}\,\mathrm{kg}=938\times10^6\,\rm eV = 938\,\mathrm{MeV}$. From now on, natural units will be the default. 
 
 
 \section{The Standard Model of particle physics}
@@ -99,9 +95,7 @@ This led to Paul Dirac's 1928 work, which resolved the issue by considering an e
     \alpha_i = \left( \begin{array}{cc} 0 & \sigma_i \\ \sigma_i & 0 \end{array} \right) 
     \quad \mathrm{and} \quad \beta= \left( \begin{array}{cc} \mathds{1}_2 & 0 \\ 0 & -\mathds{1}_2 \end{array} \right)
 \end{equation}
-where $i=x,y,z$ and $\sigma_i$ the three Pauli matrices. Those matrices acts on four wave-functions $\psi_i$ forming the Dirac spinor $\psi=(\psi_1 \, \psi_2 \, \psi_3 \, \psi_4)^\mathrm{T}$.
-
-Following that, the Dirac equation is expressed as:
+with $i=x,y,z$ and $\sigma_i$ the three Pauli matrices. Those matrices acts on four wave functions $\psi_i$ forming the Dirac spinor $\psi=(\psi_1 \, \psi_2 \, \psi_3 \, \psi_4)^\mathrm{T}$. Following that, the Dirac equation is expressed as:
 \begin{equation}
     i\gamma^\mu\partial_\mu\psi(\mathbf{x},t)-m\psi(\mathbf{x},t)=0
 \end{equation}
@@ -136,14 +130,14 @@ where the variable $Q_\mathrm{em}$ denotes the electric charge, a conserved quan
 The dynamics of this gauge boson are captured by its kinematic term in the Lagrangian. It follows that this kinematic term arises from the Maxwell Lagrangian $\mathcal{L}_{\mathrm{Maxwell}}$ defined as:
 
 \begin{equation}
-    \mathcal{L}_{\mathrm{Maxwell}} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} \quad \mathrm{with} \, F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu
+    \mathcal{L}_{\mathrm{Maxwell}} = -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} \quad \mathrm{with} \, F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu \, .
 \end{equation}
 
 One could note that this vector field is, in fact, the massless photon, the gauge boson of electromagnetism. 
 
 \vspace{0.5 cm}
 
-The consistent QFT description of the electromagnetic interaction was developed independently by Richard Feynman, Julian Schwinger and Shin'ichir\={o} Tomonaga between 1946 and 1950, a work collectively known as quantum electrodynamics (QED) and summarised by the Lagrangian:
+The consistent QFT description of the electromagnetic interaction was developed independently by Richard Feynman, Julian Schwinger and Shin'ichir\={o} Tomonaga between 1946 and 1950~\cite{Tomonaga:1946eb, Schwinger:1948iu, Feynman:1949zx}, whose formulations were later shown to be equivalent by Freeman Dyson~\cite{Dyson:1949bp}, a work collectively known as quantum electrodynamics (QED) and summarised by the Lagrangian:
 
 \begin{equation}
 \begin{split}
@@ -152,7 +146,7 @@ The consistent QFT description of the electromagnetic interaction was developed 
     &= i \overline{\psi}\gamma^\mu \partial_\mu \psi 
     - m \overline{\psi} \psi 
     - Q_\mathrm{em} \overline{\psi} \gamma^\mu A_\mu \psi 
-    -\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
+    -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} \, .
 \end{split}
 \end{equation}
 
@@ -161,9 +155,7 @@ This theory is referred to as the U(1)$_\mathrm{em}$ because the QED Lagrangian 
 
 \subsection{Weak interaction}
 
-One thing that QED failed to describe is the change in the particles' flavour in a given process.
-
-First modelled by Enrico Fermi in 1933, neutron decay and later muon decay were explained by introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ that describes the interaction. As this vision breaks unitarity at high energies, with each new Fermi vertex adding a square-energy term, one could say that this theory was a first step toward a hidden interaction that could be probed at higher energies.
+One thing that QED failed to describe is the change in the particles' flavour in a given process. First modelled by Enrico Fermi in 1933, neutron decay and later muon decay were explained by introducing a coupling constant $G_F\, \mathrm{[GeV^{-2}]}$ that describes the interaction. As this vision breaks unitarity at high energies, with each new Fermi vertex adding a square-energy term, one could say that this theory was a first step toward a hidden interaction that could be probed at higher energies.
 
 To address the unitarity issue and follow QED examples, it was supposed that the interaction was mediated by a massive charged gauge boson, later identified as the $W^\pm$ bosons. Because these interactions occur at short distances, the term ``weak'' has been adopted to describe such processes.
 
@@ -356,15 +348,11 @@ One could also remark that, after performing this basis change, substituting $W_
 \begin{equation}
     Q_\mathrm{em} = g_W \sin\theta_W = g' \cos\theta_W,
 \end{equation}
-showing that electromagnetism is not an independent interaction but emerges after electroweak symmetry breaking.
-
-Finally, the last terms of $\mathcal{L}_{\mathrm{Higgs}}$ describe the Higgs self-interactions and give the Higgs boson a mass, with $m_H~=~v\sqrt{2\lambda}$.
+showing that electromagnetism is not an independent interaction but emerges after electroweak symmetry breaking. Finally, the last terms of $\mathcal{L}_{\mathrm{Higgs}}$ describe the Higgs self-interactions and give the Higgs boson a mass, with $m_H~=~v\sqrt{2\lambda}$.
 
 \vspace{0.5 cm}
 
-So far, the BEH mechanism generates masses for the three weak bosons while leaving the photon massless. However, fermions remain massless after symmetry breaking, as an explicit Dirac mass term $-m\bar{\psi}\psi = -m\left(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R\right)$ couples left-handed doublets to right-handed singlets and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. The same Higgs doublet $\phi$, however, allows the construction of gauge-invariant Yukawa couplings among left-handed doublets, right-handed singlets, and the Higgs field, which dynamically generate fermion masses after symmetry breaking.
-
-The Yukawa Lagrangian takes the general form:
+So far, the BEH mechanism generates masses for the three weak bosons while leaving the photon massless. However, fermions remain massless after symmetry breaking, as an explicit Dirac mass term $-m\bar{\psi}\psi = -m\left(\bar{\psi}_R\psi_L + \bar{\psi}_L\psi_R\right)$ couples left-handed doublets to right-handed singlets and is therefore not invariant under $\mathrm{SU}(2)_L \otimes \mathrm{U}(1)_Y$. The same Higgs doublet $\phi$, however, allows the construction of gauge-invariant Yukawa couplings among left-handed doublets, right-handed singlets, and the Higgs field, which dynamically generate fermion masses after symmetry breaking. The Yukawa Lagrangian takes the general form:
 \begin{equation}
     \mathcal{L}_{\mathrm{Yukawa}} = - y^f_{ij}\, \overline{\psi}_{L,i}\, \phi\, \psi_{R,j} + \mathrm{h.c.} \, ,
 \end{equation}
@@ -464,7 +452,7 @@ Finally, the predictive power of the SM is strikingly illustrated in \cref{fig:C
 \subsection{Limitations of the Standard Model}
 \label{subsec:limitSM}
 
-Despite its remarkable predictive success, the SM leaves several experimental observations unexplained and suffers from several theoretical shortcomings, providing strong motivation for physics beyond the Standard Model (BSM).
+Despite its remarkable predictive success, the SM leaves several experimental observations unexplained and suffers from several theoretical shortcomings, providing strong motivation for BSM physics.
 
 \vspace{0.5 cm}
 \noindent\textbf{Neutrino masses and oscillations}
@@ -476,15 +464,15 @@ In the SM, neutrinos are strictly massless, as lepton number is an accidental sy
 \noindent\textbf{Matter--antimatter asymmetry}
 \vspace{0.5 cm}
 
-The SM predicts that matter and antimatter should have been produced in equal amounts at the Big Bang, while the observable universe is composed almost entirely of matter. This asymmetry requires, as formulated by Andrei Sakharov in 1967, baryon-number violation, a departure from thermal equilibrium, and $C$ and $CP$ violation. While the SM contains a source of $CP$ violation through the complex phase of the CKM matrix, it is insufficient by several orders of magnitude to account for the observed baryon asymmetry of the universe. Additional sources of $CP$ violation that would also satisfy the other two Sakharov conditions, beyond those present in the SM, are therefore required.
+The SM predicts that matter and antimatter should have been produced in equal amounts at the Big Bang, while the observable universe is composed almost entirely of matter. This asymmetry requires, as formulated by Andrei Sakharov in 1967~\cite{Sakharov:1967dj}, baryon-number violation, $C$ and $CP$ violation, and a departure from thermal equilibrium. While the SM contains a source of $CP$ violation through the complex phase of the CKM matrix, it is insufficient by several orders of magnitude to account for the observed baryon asymmetry of the universe. Additional sources of $CP$ violation that would also satisfy the other two Sakharov conditions, beyond those present in the SM, are therefore required.
 
 \vspace{0.5 cm}
 \noindent\textbf{Dark matter and dark energy}
 \vspace{0.5 cm}
 
-Multiple independent cosmological observations indicate the existence of a cold, non-interacting, non-luminous, non-baryonic form of matter that accounts for approximately 27\% of the energy content of the universe. None of the SM particles has the required properties: stability on cosmological timescales, small electromagnetic and strong interactions, and the correct density, making dark matter one of the most convincing arguments for BSM physics.
+Multiple independent cosmological observations indicate the existence of a cold, non-interacting, non-luminous, non-baryonic form of matter that accounts for approximately 27\% of the energy content of the universe~\cite{Planck2020, Clowe_2006}. None of the SM particles has the required properties: stability on cosmological timescales, small electromagnetic and strong interactions, and the correct density, making dark matter one of the most convincing arguments for BSM physics.
 
-Observations of Type Ia supernovae in 1998 revealed that the expansion of the universe is accelerating \cite{Riess1998, Perlmutter1999}, attributed to a form of energy of unknown origin, namely dark energy, which constitutes approximately 68\% of the total energy budget. Similarly, no SM particle can account for dark energy, and the vacuum energy estimated from QFT exceeds the observed value by some 120 orders of magnitude.
+Observations of Type Ia supernovae in 1998 revealed that the expansion of the universe is accelerating~\cite{Riess1998, Perlmutter1999}, attributed to a form of energy of unknown origin, namely dark energy, which constitutes approximately 68\% of the total energy budget. Similarly, no SM particle can account for dark energy, and the vacuum energy estimated from QFT exceeds the observed value by some 120 orders of magnitude.
 
 \vspace{0.5 cm}
 \noindent\textbf{The hierarchy problem}
@@ -589,7 +577,7 @@ Astrophysical and cosmological observations indicate the necessity of cold dark 
 \section{Long-lived particles}
 \label{sec:llp}
 
-In the MSSM, as in other extensions of the SM, new states are predicted with decay lengths long enough to leave a distinct experimental signature relative to the prompt particles of the SM. These long-lived particles (LLPs) span an enormous range of lifetimes, from the picosecond to cosmological scales, and require dedicated reconstruction strategies that go well beyond those used in standard prompt searches. This section motivates the search for LLPs at colliders, explores the experimental signatures they leave in a general-purpose detector such as CMS, and ultimately focuses on the class of long-lived states relevant to this thesis: heavy stable charged particles.
+In the MSSM, as in other extensions of the SM, new states are predicted with decay lengths long enough to leave a distinct experimental signature relative to the \textit{prompt}\footnote{A particle is defined as \textit{prompt} if it decays sufficiently close to the IP such that, within the vertex resolution of the detector, its decay products appear to originate from that location. In the CMS experiment, this corresponds to proper decay lengths below $\mathcal{O}(10)\,\mu$m, where no displacement can be resolved, and the particle is reconstructed solely through its decay products.} particles of the SM. These long-lived particles (LLPs) span an enormous range of lifetimes, from the picosecond to cosmological scales, and require dedicated reconstruction strategies that go well beyond those used in standard prompt searches. This section motivates the search for LLPs at colliders, explores the experimental signatures they leave in a general-purpose detector such as CMS, and ultimately focuses on the class of long-lived states relevant to this thesis: heavy stable charged particles.
 
 
 \subsection{Lifetime regimes}
@@ -624,9 +612,9 @@ If the only allowed decay channel proceeds through a strongly suppressed couplin
     {1536\,\pi^{3}}\; f(m_{\tilde{f}})\;\,,
     \label{eq:rpv_neutralino}
 \end{equation}
-where $\lambda$ denotes one of the trilinear RPV couplings, $c_f$ is a colour factor, $g$ the relevant gauge coupling, and $f(m_{\tilde{f}})$ a function of dimension $m^{-4}$ encoding the dependence on the intermediate sfermion masses.
+where $\lambda$ denotes one of the trilinear RPV couplings, $c_f$ is a colour factor, $g$ the relevant gauge coupling, and $f(m_{\tilde{f}})$ a function encoding the dependence on the intermediate sfermion masses.
 
-What makes the neutralino long-lived is the smallness of $\lambda$, with the lifetime inversely proportional to $1/\lambda^2$. For couplings in the range $\lambda \lesssim 10^{-2}$, the decay length becomes macroscopic and can leave a displaced vertex in the tracker; for even smaller values, the $\tilde{\chi}^0_1$ escapes the detector entirely, behaving as an effectively stable particle contributing to missing transverse energy.
+What makes the neutralino long-lived is the smallness of $\lambda$, with the lifetime proportional to $1/\lambda^2$. For couplings in the range $\lambda \lesssim 10^{-2}$, the decay length becomes macroscopic and can leave a displaced vertex in the tracker; for even smaller values, the $\tilde{\chi}^0_1$ escapes the detector entirely, behaving as an effectively stable particle contributing to missing transverse energy.
 
 
 \vspace{0.5 cm}
@@ -660,7 +648,7 @@ LLP searches within the CMS detector are, by construction, signature-driven: the
 \begin{itemize}
     \item \textbf{Displaced vertices.} A neutral LLP decaying inside the tracker volume into charged SM particles produces a vertex displaced by hundreds of micrometres to several metres from the PV. Specialised algorithms identify groups of objects that converge towards a common secondary point, among which the specific final states are displaced dijets~\cite{PhysRevD.109.112005, Collaboration_2025}, displaced leptons~\cite{CMS:2019qjk, 2024baababazed} or displaced photons~\cite{PhysRevD.100.112003}.
     \item \textbf{Disappearing tracks.} In compressed spectra scenarios, a charged particle decays into a nearly invisible neutral state plus a very soft pion of negligible $p_T$. This results in a high-quality track in the innermost pixel layers that abruptly stops in the strip tracker, with no associated calorimeter or muon-system activity~\cite{2020135502}, but with MET~\cite{PhysRevD.109.112005}.
-    \item \textbf{Delayed signals.} Heavy LLPs are typically produced with $\beta\gamma\lesssim 1$, leading to measurable delays in the calorimeter timing or in dedicated muon-system measurements. Such searches could be done using the scouting dataset, without being constrained by the trigger~\cite{cmscollaboration2026searchheavylonglivedcharged}, or using new triggers developed for Run--3~\cite{cmscollaboration2026strategyperformancecmslonglived}.
+    \item \textbf{Delayed signals.} Heavy LLPs are typically produced with $\beta\gamma\lesssim 1$, leading to measurable delays in the calorimeter timing or in dedicated muon-system measurements with respect to activity from particles travelling at the speed of light from the IP. Such searches could be done using the scouting dataset, without being constrained by the trigger~\cite{cmscollaboration2026searchheavylonglivedcharged}, or using new triggers developed for Run--3~\cite{cmscollaboration2026strategyperformancecmslonglived}.
     \item \textbf{Long isolated tracks.} Charged LLPs whose decay length exceeds the detector size traverse the entire apparatus and leave a single, continuous, high-momentum track from the pixel layers to the muon chambers. This is the topology relevant to this analysis, which is discussed in detail later.
     \item \textbf{Muon detector showers.} A neutral LLP traversing the calorimeters and solenoid without interacting can decay inside the steel flux-return yoke of the muon system. The resulting hadronic or electromagnetic shower deposits a high-multiplicity cluster of hits in the surrounding chambers, using the muon detector as a sampling calorimeter sensitive to sub-GeV masses and long decay lengths beyond the reach of inner-tracker techniques~\cite{PhysRevD.110.032007, PhysRevD.110.012004}.
 \end{itemize}
@@ -674,7 +662,7 @@ LLP searches within the CMS detector are, by construction, signature-driven: the
 
 The CMS collaboration has developed dedicated analyses targeting each of these signatures. The experimental challenges differ markedly across the decay length range. Still, the underlying logic is the same: identify a kinematic or topological feature that has no counterpart in the prompt SM background.
 
-A summary of the current CMS reach is given in \cref{fig:LLP_summary_search}, which compiles the proper decay lengths excluded at 95\% CL by a representative selection of long-lived search analyses. The searches are organised into three blocks: R-parity-violating SUSY, R-parity-conserving SUSY, and exotic Higgs decays together with dark-sector models. Together, they span roughly ten orders of magnitude in $c\tau$, from a few tens of nanometres to several kilometres, which gives a sense of how diverse the experimental strategies spectrum is.
+A summary of the current CMS reach is given in \cref{fig:LLP_summary_search}, which compiles the proper decay lengths excluded at 95\% CL by a representative selection of long-lived search analyses. The searches are organised into three blocks: R-parity-violating SUSY, R-parity-conserving SUSY, and exotic Higgs decays together with dark-sector models. Together, they span roughly ten orders of magnitude in $c\tau$, from a few tens of nanometres to several kilometres, which gives a sense of how diverse the spectrum of experimental strategies is.
 
 
 \begin{figure}[p]
@@ -799,8 +787,7 @@ Another type of HSCPs interacts only via the electroweak force and propagates th
 
 \vspace{0.5 cm}
 
-The theoretical cross-section for HSCP production spans more than ten orders of magnitude at $\sqrt{s} = 13.6\,\mathrm{TeV}$, depending on the particle types and their masses; \cref{fig:xsec_theory} shows these results. 
-The contrasts arise from strong versus electroweak production. At this energy, quark-antiquark fusion with gluon emission is favoured over Drell-Yan processes, producing more hadron-like HSCPs. In addition, the gluino-gluon interaction, due to its colour-octet structure, boosts gluino production cross sections to about ten times those of squarks at equal mass, making these hypothetical particles the favoured HSCPs at the LHC. On the other hand, tau' couplings increase with electric charge, whereas stau couplings are lower than those of tau.
+The theoretical cross-section for HSCP production spans more than ten orders of magnitude at $\sqrt{s} = 13.6\,\mathrm{TeV}$, depending on the particle types and their masses. \cref{fig:xsec_theory} shows these NNLO\textsubscript{approx}+NNLL\footnote{The Next-to-Next Leading Order (NNLO) designates the fixed-order expansion in the strong coupling constant $\alpha_\mathrm{s}$, truncated two orders beyond the Born term and, in this context, limited to its dominant soft-gluon and Coulomb contributions, hence the label ``approx''. The Next-to-Next Leading Logarithm (NNLL) denotes the all-order resummation of logarithms of the particle velocity that become significant near the production threshold, retaining the three leading towers of such logarithms and matching the fixed-order result.} pair-production cross sections. The contrasts arise from strong versus electroweak production. At this energy, quark-antiquark fusion with gluon emission is favoured over Drell-Yan processes, producing more hadron-like HSCPs. In addition, the gluino-gluon interaction, due to its colour-octet structure, boosts gluino production cross sections to about ten times those of squarks at equal mass, making these hypothetical particles the favoured HSCPs at the LHC. On the other hand, $\tau'$ couplings increase with electric charge, whereas stau couplings are lower than those of tau.
 
 \begin{figure}[h]
     \centering
@@ -808,7 +795,6 @@ The contrasts arise from strong versus electroweak production. At this energy, q
     \caption{Theoretical NNLO\textsubscript{approx}+NNLL pair-production cross sections at $\sqrt{s} = 13.6~\mathrm{TeV}$ for gluinos, stops, staus and single- or double-charged tau-prime as a function of the particle mass. Shaded bands indicate the total theoretical uncertainty from the quadrature combination of scale and PDF variations. Theoretical cross-sections can be found in~\cite{10.21468/SciPostPhysCore.7.4.072, Fiaschi_2023}.}
     \label{fig:xsec_theory}
 \end{figure}
-
 
 \subsubsection{HSCP signal simulation}
 
