@@ -12,7 +12,7 @@ The straightforward nature of the HSCP signature is reflected in the analytical 
 
 The motivation for this search arises from the larger Run--3 dataset collected at a higher centre-of-mass energy, and the limitations identified in its Run--2 predecessor~\cite{HSCP_Run2}. The previous analysis relied on muon triggers, which are not optimal for slow-moving R-hadrons. In addition, this search was confined to the barrel region ($|\eta|<1$), further restricting the signal acceptance.
 
-The present analysis targets R-hadrons produced via gluino pair production, whose experimental signature consists of a high-momentum, highly ionising track accompanied by missing transverse energy (MET). This missing energy may originate from intrinsic signal properties, mis-reconstruction of these particles, or detector effects. Triggering on MET therefore recovers the neutral-escape topology missed by the muon-based selection. Meanwhile, the tracker acceptance is extended to its full pseudorapidity range so that no signal track is excluded for geometrical reasons.
+The present analysis targets R-hadrons produced via gluino pair production, whose experimental signature consists of a high-momentum, highly ionising track accompanied by MET. This missing energy may originate from intrinsic signal properties, mis-reconstruction of these particles, or detector effects. Triggering on MET therefore recovers the neutral-escape topology missed by the muon-based selection. Meanwhile, the tracker acceptance is extended to its full pseudorapidity range so that no signal track is excluded for geometrical reasons.
 
 \vspace{0.5 cm}
 
@@ -84,7 +84,7 @@ $t\bar{t}\to 2\ell2\nu$                & $98.1^{+2.4}_{-3.5}$   & \colorbox{ttco
 $W (\to \mu\nu)$ + jets     & $20\,790 \pm 91$  & \colorbox{wcol}{\phantom{x}} \\
 \bottomrule
 \end{tabular}
-\caption{Monte Carlo samples used for the 2024 analysis with their production cross sections.}
+\caption{MC samples used for the 2024 analysis with their production cross sections. A distinct colour is assigned to each sample for the purpose of displaying the MC histograms.}
 \label{tab:mc_samples_2024}
 \end{table}
 
@@ -99,7 +99,8 @@ In addition to their complementarity, the selection of these two estimators is j
 \subsection{The d\textit{E}/d\textit{x} pixel discriminator \texorpdfstring{$F_{\text{pixel}}$}{Fpixel}}
 
 In this analysis, the pixel information is exploited via $F_{\text{pixel}}$, which quantifies the compatibility of a track with a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
-These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function $V(Q)$ templates to model the charge distribution of MIPs.
+These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function\footnote{Alreay discussed in \cref{sec:interactionWithMatter}, the Vavilov distribution is the exact description of these energy loss fluctuations for an absorber of finite thickness. It depends on $\beta^2$ and on
+$\kappa = \xi/E_{\max}$, the ratio of the mean energy loss to the maximum single-collision transfer, and reduces to the Landau distribution for $\kappa \to 0$~\cite{VavilovFunctionPixels}.} $V(Q)$ templates to model the charge distribution of MIPs.
 
 \vspace{0.5 cm}
 
@@ -120,7 +121,7 @@ The quantity $\alpha_n$ decreases if a single layer is strongly ionising, and be
 \begin{figure}[h!]
     \centering
     \includegraphics[width=.7\textwidth]{Images/Ch4/vavilov_charge.pdf}
-    \caption{Example of charge deposits in pixel sensors at $\eta=2.4$, with the distribution (in black) fitted using a Vavilov function (in red). The tail distribution $p_Q$ is shown in filled grey.}
+    \caption{Example of charge deposits in pixel sensors at $\eta=2.4$, with the distribution (black) fitted using a Vavilov function (red). The tail distribution $p_Q$ is shown in filled grey.}
     \label{fig:clustQ}
 \end{figure}
 
@@ -160,7 +161,7 @@ A single set of templates is used on the 2024 MC and signal samples, so it does 
    \centering
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInData_bis.pdf}
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.9cm 0},clip]{Images/Ch4/FpixelInSignal_bis.pdf}
-	\caption{$F_{\text{pixel}}$ distributions for 2024 data in the control region at low $p_T$ after the analysis pre-selection (see \cref{tab:preselection}) criteria (Left) and for an HSCP gluino after the analysis pre-selection (Right).}
+	\caption{$F_{\text{pixel}}$ distributions for 2024 data in the control region at low $p_T$ after the analysis pre-selection (see \cref{tab:preselection}) criteria (left) and for an HSCP gluino after the analysis pre-selection (right).}
    \label{fig:FpixelInSignalData}
 \end{figure}
 
@@ -177,7 +178,7 @@ The search for HSCPs relies on tracking anomalous d$E$/d$x$ deposits within dete
    \centering
 	\includegraphics[width=.49\linewidth,trim={1cm 0 1.7cm 0},clip]{Images/Ch4/Ih_Data_CDF.pdf}
     \includegraphics[width=.49\linewidth,trim={1cm 0 1.7cm 0},clip]{Images/Ch4/Ih_Signal_CDF.pdf}
-	\caption{$I_h$ distributions with the analysis pre-selection criteria (with a cut of $F_{\text{pixel}}<0.9$) for 2024 data (Left) and with the full analysis pre-selection for a HSCP gluino at $m_{\tilde{g}}=2000$~GeV (Right), with their cumulative distribution functions. Note that the X-axis range is different, as HSCPs most likely ionise the material.}
+	\caption{$I_h$ distributions with the analysis pre-selection criteria (with a cut of $F_{\text{pixel}}<0.9$) for 2024 data (left) and with the full analysis pre-selection for a HSCP gluino at $m_{\tilde{g}}=2000$~GeV (right), with their cumulative distribution functions. Note that the $x$-axis range is different, as HSCPs most likely ionise the material.}
    \label{fig:IhSignalData}
 \end{figure}
 
@@ -225,7 +226,7 @@ Similarly, the composition of R-hadron pairs complicates the study because the f
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/Ch4/PairTypeStages_SingleMass__Notrigger_2000__PairTypeStages_bis.pdf}
-    \caption{Evolution of the HSCP pair-type composition across the analysis chain, for a gluino signal with $m_{\tilde{g}}=2000$~GeV: at the generated level (Black dots), further split by the number of matched HSCP candidates (0 in Blue up-triangles, 1 in Green down-triangles, or 2 in Pink stars).}
+    \caption{Evolution of the HSCP pair-type composition across the analysis chain, for a gluino signal with $m_{\tilde{g}}=2000$~GeV: at the generated level (black dots), further split by the number of matched HSCP candidates (0 in blue up-triangles, 1 in green down-triangles, or 2 in pink stars).}
     \label{fig:HSCPfractionPair}
 \end{figure}
 
@@ -280,7 +281,7 @@ The MET signature arising from the distinct properties of R-hadrons deserves fur
 
 \subsubsection{MET trigger strategy}
 
-The trigger decision relies on online quantities, specifically Calo MET at the L1 level and both Calo MET and PF MET at the HLT level. In contrast, the analysis selection employs their offline counterparts, namely Calo MET and PUppi MET. The finite-resolution difference between these quantities causes efficiency to increase gradually rather than exhibit a step function at the nominal threshold. The width and position of this efficiency rise are determined by the online resolution and the calibration of the online objects, neither of which is precisely reproduced in simulation. Consequently, even a small offset between data and simulation can result in a discrepancy in efficiency where the curve is steep, making it unreliable to predict the number of signal events accepted by the trigger from simulation within the Calo MET or PUppi MET range. Beyond the turn-on, in the \textit{trigger plateau}, the efficiency saturates and becomes flat. On this plateau, the ratio of the trigger efficiency in data to that in simulation, expressed as a function of one MET variable and known as the \textit{scale factor} (SF), is constant. Regions where the SFs are large and approximately constant are selected to characterise the trigger response. In contrast, small or non-constant SFs suggest a strong dependence of the data-to-simulation correction on the MET variables, rendering the correction of signal selection efficiency from simulation less reliable.
+The trigger decision relies on online quantities, specifically Calo MET at the L1 level and both Calo MET and PF MET at the HLT level. In contrast, the analysis selection employs their offline counterparts, namely Calo MET and PUppi MET. The finite-resolution difference between these quantities causes efficiency to increase gradually rather than exhibit a step function at the nominal threshold. The width and position of this efficiency rise are determined by the online resolution and the calibration of the online objects, neither of which is precisely reproduced in simulation. Consequently, even a small offset between data and simulation can result in a discrepancy in efficiency where the curve is steep, making it unreliable to predict the number of signal events accepted by the trigger from simulation within the Calo MET or PUppi MET range. Beyond the turn-on, in the \textit{trigger plateau}, the efficiency saturates and becomes flat. On this plateau, the ratio of the trigger efficiency in data to that in simulation, expressed as a function of one MET variable and known as the SF, is constant. Regions where the SFs are large and approximately constant are selected to characterise the trigger response. In contrast, small or non-constant SFs suggest a strong dependence of the data-to-simulation correction on the MET variables, rendering the correction of signal selection efficiency from simulation less reliable.
 
 This requirement is especially critical for the HSCP analysis, where, if no excess is observed, limits on the theoretical model are computed using a shape analysis. A flat plateau efficiency multiplies the mass spectrum by a constant, affecting only its overall normalisation and leaving both the signal shape and the data-driven background prediction unchanged. However, without scale-factor corrections and a selection applied to the plateau, the signal's accuracy near the turn-on point is uncertain, leading to uncertainty in counting signal events and, consequently, to unreliable exclusion limits.
 
@@ -337,7 +338,7 @@ Signal trigger efficiency is defined as the ratio of events that pass both the a
     \label{fig:triggerEffsig}
 \end{figure}
 
-Trigger efficiency SFs are determined using an orthogonal single-muon dataset. The efficiency of the logical \texttt{OR} of the MET triggers is evaluated in both data (2024 data passing a muon trigger stored in the Muon dataset) and MC ($W\to\mu\nu$), requiring exactly one tight, isolated muon ($p_T^\mu>30$~GeV and $I_{\text{rel}}^\mu<0.15$) that fires \texttt{HLT\_IsoMu27} (event with at least one isolated muon with $p_T^\mu>27$~GeV). Additionally, MET filters and analysis pre-selection criteria are applied, with the pixel-d$E$/d$x$ discriminator relaxed to $F_{\text{pixel}}<0.9$ to ensure MET distributions and kinematic properties similar to the signal. The results are shown in \cref{fig:triggerEffdataMC}. Both datasets exhibit similar trigger efficiencies as functions of Pseudo MET and PUppi MET (Top plots). Discrepancies are observed in the projections (bottom plots), as indicated by the lower-panel scale factors. The SFs become constant at $\approx250$~GeV for the Pseudo MET, and $\approx150$~GeV for PUppi MET.
+Trigger efficiency SFs are determined using an orthogonal single-muon dataset. The efficiency of the logical \texttt{OR} of the MET triggers is evaluated in both data (2024 data passing a muon trigger stored in the Muon dataset) and MC ($W\to\mu\nu$), requiring exactly one tight, isolated muon ($p_T^\mu>30$~GeV and $I_{\text{rel}}^\mu<0.15$) that fires \texttt{HLT\_IsoMu27} (event with at least one isolated muon with $p_T^\mu>27$~GeV). Additionally, MET filters and analysis pre-selection criteria are applied, with the pixel-d$E$/d$x$ discriminator relaxed to $F_{\text{pixel}}<0.9$ to ensure MET distributions and kinematic properties similar to the signal. The results are shown in \cref{fig:triggerEffdataMC}. Both datasets exhibit similar trigger efficiencies as functions of Pseudo MET and PUppi MET (top plots). Discrepancies are observed in the projections (bottom plots), as indicated by the lower-panel scale factors. The SFs become constant at $\approx250$~GeV for the Pseudo MET, and $\approx150$~GeV for PUppi MET.
 
 \begin{figure}[h!]
     \centering
@@ -346,7 +347,7 @@ Trigger efficiency SFs are determined using an orthogonal single-muon dataset. T
     \\
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/cRatio_orMETtrg_PseudoMET_TriggerEffCalib_bis.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/cRatio_orMETtrg_PUppiMET_TriggerEffCalib_bis.pdf}
-    \caption{Trigger efficiency as a function of the Pseudo MET and the PUppi MET in the 2024 Muon dataset (Top left) and in the $W\to\mu\nu$ MC (Top right), and the respective projections (Bottom).}
+    \caption{Trigger efficiency as a function of the Pseudo MET and the PUppi MET in the 2024 Muon dataset (top left) and in the $W\to\mu\nu$ MC (top right), and the respective projections (bottom).}
     \label{fig:triggerEffdataMC}
 \end{figure}
 
@@ -375,11 +376,11 @@ The efficiency in the regime where the SFs are constant for both MET variables i
     \texttt{orMETtrg} & PUppi MET & $0.37\pm0.02$ & $0.76\pm0.01$ & $0.82\pm0.02$ \\
     \hline
   \end{tabular}}
-  \caption{Trigger efficiencies for the signal (HSCP gluino with $m_{\tilde{g}}=2000$), data (2024 Muon dataset) and MC ($W\to\mu\nu$) for the 4 triggers separately and for a logical \texttt{OR} of them. The efficiencies are given after a lower cut on the observable (Pseudo MET > 250 GeV, PUppi MET > 150 GeV).}
+  \caption{Trigger efficiencies for the signal (HSCP gluino with $m_{\tilde{g}}=2000$), data (2024 Muon dataset) and MC ($W\to\mu\nu$) for the 4 triggers separately and for a logical \texttt{OR} of them. The efficiencies are given after a lower cut on the observable (Pseudo MET > 250~GeV, PUppi MET > 150~GeV).}
   \label{tab:TriggerEffMCdataSignal}
 \end{table}
 
-Both one-dimensional and two-dimensional (function of Pseudo MET and PUPPI MET) data/MC SFs are derived. The numerical values are presented in \cref{fig:triggerSF} on the left table for the one-dimensional SFs, and on the right plot for the two-dimensional case. The latter are computed as the data-to-MC ratio of the two two-dimensional trigger-efficiency plots in \cref{fig:triggerEffdataMC} (top row). Then, a custom binning groups bins to enhance the statistics.
+Both one-dimensional and two-dimensional (function of Pseudo MET and PUppi MET) data/MC SFs are derived. The numerical values are presented in \cref{fig:triggerSF} on the left table for the one-dimensional SFs, and on the right plot for the two-dimensional case. The latter are computed as the data-to-MC ratio of the two two-dimensional trigger-efficiency plots in \cref{fig:triggerEffdataMC} (top row). Then, a custom binning groups bins to enhance the statistics.
 
 \begin{figure}[h!]
     \centering
@@ -542,7 +543,7 @@ The distribution of six representative pre-selection variables (PUppi MET, $p_T$
     \\
     \includegraphics[width=0.49\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1Eff_ALL-16.pdf}
     \includegraphics[width=0.49\textwidth,trim={0.8cm 0 1.3cm 0},clip]{Images/Ch4/Nm1Eff_ALL-19.pdf}
-  \caption{Distributions of PUppi MET, $p_T$, $\eta$, $I_\textrm{rel}^\textrm{PF}$, $\sigma_{p_T}/p_T$ and $I_h$ in the N$-$1 configuration where all requirements are applied except the one displayed (right). The lower pads show the cumulative distributions (with the blue squares being the total MC ones), and the dashed lines indicate the applied cuts. The last bin groups the overflow bin.}
+  \caption{Distributions of PUppi MET, $p_T$, $\eta$, $I_\textrm{rel}^\textrm{PF}$, $\sigma_{p_T}/p_T$ and $I_h$ in the N$-$1 configuration where all requirements are applied except the one displayed. The lower pads show the cumulative distributions (with the blue squares being the total MC ones), and the dashed lines indicate the applied cuts. The last bin groups the overflow bin.}
   \label{fig:nminus1}
 \end{figure}
 
@@ -566,7 +567,7 @@ $C_\textrm{mass}$ represents the value of the ionisation plateau for MIP, while 
 
 Alternatively, the five-parameter empirical parametrisation described in \cref{eq:fitAtlas} and introduced in \cref{sec:dedxperf} models the complete $\beta\gamma$ dependence of energy loss, with mass values computed numerically using the Brent method (labelled $f^{\rm 5p}$).
 
-Both fit functions are evaluated using low-momentum 2024 data and $W$+jets MC samples, employing the same selection criteria as in \cref{fig:dedx_vs_p_2024} and applying the upstream saturation correction using the shape method. The results presented in \cref{fig:FitData_atlas_vs_KC}, which overlay the $W$+jets distribution of the $I_h$ estimator as a function of $p$ (left), demonstrate close agreement between the data (solid lines) and MC (dashed lines) for each parametrisation. However, the $f^{\rm KC}$ parametrisation fails to reproduce the observed behaviour: the two degrees of freedom are insufficient, resulting in a fit that diverges in the low-momentum region. Furthermore, both parametrisations derived from the $W$+jets sample fail to represent the gluino sample accurately. In particular, the high-ionisation region is, surprisingly, inadequately described.
+Both fit functions are evaluated using low-momentum 2024 data and $W$+jets MC samples, employing the same selection criteria as in \cref{fig:dedx_vs_p_2024} and applying the upstream saturation correction using the shape method. The results presented in \cref{fig:FitData_atlas_vs_KC}, which overlay the $W$+jets distribution of the $I_h$ estimator as a function of $p$ (left), demonstrate close agreement between the data (solid lines) and MC (dashed lines) for each parametrisation. However, the $f^{\rm KC}$ parametrisation of \cref{eq:fitKC} fails to reproduce the observed behaviour: the two degrees of freedom are insufficient, resulting in a fit that diverges in the low-momentum region. Furthermore, both parametrisations derived from the $W$+jets sample fail to represent the gluino sample accurately. In particular, the high-ionisation region is, surprisingly, inadequately described.
 
 \vspace{0.5 cm}
 
@@ -605,7 +606,7 @@ To evaluate this hypothesis, the \dedx{} estimator $I_h$ was recalculated using 
     \label{fig:TIBandALLbetagamma}
 \end{figure}
 
-These observations impose constraints on the calibration protocol. The parametrisation can be fitted either using only SM particles, in both data and MC, or using a combination of signal and SM particles. Both approaches were evaluated using the $f^\mathrm{KC}$ parametrisation and carried through to the computation of the signal limits (method is detailed later in \cref{sec:limits}). The signal and background yields obtained in both cases are consistent, and the resulting exclusion limits are nearly identical.
+These observations impose constraints on the calibration protocol. The parametrisation can be fitted either using only SM particles, in both data and MC, or using a combination of signal and SM particles. Both approaches were evaluated using the $f^\mathrm{KC}$ parametrisation and carried through to the computation of the signal limits (the method is later detailed in \cref{sec:limits}). The signal and background yields obtained in both cases are consistent, and the resulting exclusion limits are nearly identical.
 
 As the choice does not affect the final sensitivity, the parametrisation fitted solely on SM particles was adopted, separately for data and MC. This approach enables a direct comparison between the data and the MC distributions. However, a known limitation remains: a parametrisation derived exclusively from data or from the $W$+jets sample introduces a bias, causing the reconstructed signal mass to be systematically lower than the generated value.
 
@@ -663,7 +664,7 @@ $m_{\text{gen}}$ [GeV] & $m_{\text{reco}}$ [GeV] & width [GeV] & $\Delta m / m_{
 \section{Background estimation method}
 \label{sec:bkgmethod}
 
-The background estimation relied on the mass reconstruction of HSCP candidates. It allows prediction of the mass spectrum in the signal region. 
+The background estimation relies on the mass reconstruction of HSCP candidates. It allows prediction of the mass spectrum in the signal region. 
 
 \subsection{Method description}
 
@@ -724,7 +725,7 @@ An example of these templates for $1.20\leq\eta<1.44$ is presented in \cref{fig:
   \centering
   \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/Ih_bkgfit_proj_ih_eta10_bis.pdf}
   \includegraphics[width=0.49\linewidth,trim={0.2cm 0 1.5cm 0},clip]{Images/Ch4/oP_bkgfit_forfit_p_eta16_bis.pdf}
-  \caption{Example of templates for $1.20\leq\eta<1.44$ of the $I_h$ (Left) and $1/p$ (Right) distributions extracted in the control region $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.}
+  \caption{Example of templates for $1.20\leq\eta<1.44$ of the $I_h$ (left) and $1/p$ (right) distributions extracted in the control region $C$ used for the mass prediction. The red lines represent the fits performed on the tail of these distributions, used to minimise the effect of statistical fluctuations.}
   \label{fig:ih_oP_fit}
 \end{figure}
 
@@ -919,9 +920,9 @@ The total systematic uncertainties for three gluino mass hypotheses ($m_{\tilde{
 
 The prediction is performed in the signal region $D$, defined by $0.9 < F_\textrm{pixel} \leq 1.0$ and $p_T > 70$~GeV. The $F_\textrm{pixel}$ range for control region $C$ is extended from $0.3 < F_\textrm{pixel} \leq 0.8$ to $0.3 < F_\textrm{pixel} \leq 0.9$, as no signal contamination has been observed. Similarly, regions $A$ and $B$ are redefined as $0.3 < F_\textrm{pixel} \leq 0.9$ and $0.9 < F_\textrm{pixel} \leq 1.0$, respectively, both with $p_T < 70$~GeV.
 
-Predictions are presented in \cref{fig:abcd_mass_SR} for the 2024 data across various eta regimes, up to reconstructed masses of 300~GeV, as the full spectrum remains blinded. The prediction and observed data are in reasonable agreement. The uncertainty band, incorporating all background systematic uncertainties (as detailed in \cref{fig:systBkgPred}), is indicated in yellow.
+Predictions are presented in \cref{fig:abcd_mass_SR} for the 2024 data across various $\eta$ regimes, up to reconstructed masses of 300~GeV, as the full spectrum remains blinded. The prediction and observed data are in reasonable agreement. The uncertainty band, incorporating all background systematic uncertainties (as detailed in \cref{fig:systBkgPred}), is indicated in yellow.
 
-Mass distributions for several signal hypotheses (represented by coloured histograms) are shown, with higher amplitudes observed in the signal region, the relevant phase space for the signal. The sample at $m_{\tilde{g}}=2000$~GeV, previously excluded by the most recent CMS results, is also included and is derived using its theoretical cross-section.
+Mass distributions for several signal hypotheses (represented by coloured histograms) are shown, with higher amplitudes observed in the signal region, the relevant phase space for the signal. The sample at $m_{\tilde{g}}=2000$~GeV, previously excluded by the most recent CMS results, is also included.
 
 
 \begin{figure}[h!]

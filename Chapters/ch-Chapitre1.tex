@@ -245,7 +245,7 @@ One can then observe that increasing luminosity increases the pile-up per event.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\linewidth]{Images/Ch1/LumiOMS.pdf}
-    \caption{Evolution of the instantaneous luminosity recorded by CMS (Blue), the average pile-up (Red), and the two beam focusing parameters $\beta^{*}_x$ (Orange) and $\beta^{*}_y$ (Green) as a function of the time during a proton-proton data-taking period in 2025.}
+    \caption{Evolution of the instantaneous luminosity recorded by CMS (blue), the average pile-up (red), and the two beam focusing parameters $\beta^{*}_x$ (orange) and $\beta^{*}_y$ (green) as a function of the time during a proton-proton data-taking period in 2025.}
     \label{fig:lumiOMS}
 \end{figure}
 
@@ -506,7 +506,7 @@ Note that in 2017, an additional system was added in the inner endcap, namely th
 \begin{figure} [h]
     \centering
     \includegraphics[width=0.9\linewidth]{Images/Ch1/CMSmuonsystem.png}
-    \caption{Schematic view of a quarter of the longitudinal view of the CMS muon chambers. DTs (Yellow), CSCs (Green) and RPCs (Blue) are shown, in addition to the first Gas Electron Multiplier chamber (Red) in the forward region \cite{CMSmuonsystem}.}
+    \caption{Schematic view of a quarter of the longitudinal view of the CMS muon chambers. DTs (yellow), CSCs (green) and RPCs (blue) are shown, in addition to the first Gas Electron Multiplier chamber (red) in the forward region \cite{CMSmuonsystem}.}
     \label{fig:muonsystem}
 \end{figure}
 
@@ -668,12 +668,12 @@ As muon particles pass through the entire detector, muon tracking uses informati
 
 Tracks reconstructed exclusively using information from the muon chambers are referred to as \textit{standalone muons}. In contrast, candidates reconstructed solely in the tracker are labelled as \textit{tracker muons}. These originate from tracker tracks that are extrapolated to the muon system and loosely matched to DT and CSC segments. This approach reconstructs low-transverse-momentum muons, which are more likely to reach and match only the innermost muon station rather than multiple stations. \textit{Global muons}, on the other hand, are reconstructed by matching tracker and standalone muon tracks. The inner tracker track is extrapolated to the muon system and combined with a corresponding standalone muon candidate. This category is particularly relevant for muons with high transverse momentum ($p_T\gtrsim200$~GeV/$c$), as it combines information from both tracking systems to improve the momentum measurement.
 
-Despite this classification, cosmic muons produced by cosmic rays interacting with the Earth's atmosphere are not distinguished from muons originating from collision events. For example, \cref{fig:StandaloneANDGlobalmuon} presents two cosmic muons: one identified as a standalone muon (Left) and the other tagged as two global muons (Right). To exclude these anomalous trajectories, the transverse and longitudinal impact parameters, $d_{xy}$ and $d_z$, which quantify the distance of closest approach of the track to the primary vertex in the transverse plane and along the beam axis, respectively, are utilised. Muons from collision events typically exhibit small $d_{xy}$ and $d_z$ values, whereas cosmic muons, which do not originate from the interaction point, display significantly larger values for both parameters.
+Despite this classification, cosmic muons produced by cosmic rays interacting with the Earth's atmosphere are not distinguished from muons originating from collision events. For example, \cref{fig:StandaloneANDGlobalmuon} presents two cosmic muons: one identified as a standalone muon (left) and the other tagged as two global muons (right). To exclude these anomalous trajectories, the transverse and longitudinal impact parameters, $d_{xy}$ and $d_z$, which quantify the distance of closest approach of the track to the primary vertex in the transverse plane and along the beam axis, respectively, are utilised. Muons from collision events typically exhibit small $d_{xy}$ and $d_z$ values, whereas cosmic muons, which do not originate from the interaction point, display significantly larger values for both parameters.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\linewidth]{Images/Ch1/StandaloneAndGlobalmuons.pdf}
-    \caption{Transverse view of the CMS detector showing the reconstruction of two cosmic muons: one leaving only muon chamber hits and thus reconstructed as a standalone muon (Left), and the other leaving inner tracker hits in addition and therefore labelled as two global muons (Right) \cite{StandaloneANDGlobalmuon}.}
+    \caption{Transverse view of the CMS detector showing the reconstruction of two cosmic muons: one leaving only muon chamber hits and thus reconstructed as a standalone muon (left), and the other leaving inner tracker hits in addition and therefore labelled as two global muons (right) \cite{StandaloneANDGlobalmuon}.}
     \label{fig:StandaloneANDGlobalmuon}
 \end{figure}
 
@@ -727,7 +727,7 @@ Finally, a mini-isolation variable is built to target muons produced in the deca
 
 \vspace{0.5 cm}
 
-Muon reconstruction and identification performance is assessed in data using the \textit{tag-and-probe} method applied to $Z^0 \to \mu\mu$ and $J/\psi \to \mu\mu$ resonances, which provide unbiased muon samples with well-controlled kinematics. A well-identified \textit{tag} muon is paired with a loosely selected \textit{probe} muon to form a resonance candidate; the efficiency of a given selection is then measured on the probe. The ratio of efficiencies measured in data and simulation, known as a \textit{scale factor}, is used to correct the simulation in physics analyses. For Run--3 data, the reconstruction efficiency for tracker and global muons exceeds 99\% over the full detector acceptance~\cite{MuonreconstructionCMS}, while the tight identification efficiency is typically above 95\% in the barrel and above 85\% in the endcap regions, as measured on 2022 and 2023 datasets~\cite{CMS-DP-2024-067}. The PF isolation efficiency for prompt muons passing tight identification is above 95\% and shows good stability against pile-up.
+Muon reconstruction and identification performance is assessed in data using the \textit{tag-and-probe} method applied to $Z^0 \to \mu\mu$ and $J/\psi \to \mu\mu$ resonances, which provide unbiased muon samples with well-controlled kinematics. A well-identified \textit{tag} muon is paired with a loosely selected \textit{probe} muon to form a resonance candidate; the efficiency of a given selection is then measured on the probe. The ratio of efficiencies measured in data and simulation, known as a \textit{scale factor} (SF), is used to correct the simulation in physics analyses. For Run--3 data, the reconstruction efficiency for tracker and global muons exceeds 99\% over the full detector acceptance~\cite{MuonreconstructionCMS}, while the tight identification efficiency is typically above 95\% in the barrel and above 85\% in the endcap regions, as measured on 2022 and 2023 datasets~\cite{CMS-DP-2024-067}. The PF isolation efficiency for prompt muons passing tight identification is above 95\% and shows good stability against pile-up.
 
 Residual biases in the transverse momentum measurement arising from detector misalignment and imperfect knowledge of the magnetic field are corrected using the \textit{Rochester correction} algorithm~\cite{RochesterAlgorithm}, which derives $p_T$-dependent correction factors in bins of charge, $\eta$, and $\phi$ by constraining the reconstructed $Z^0 \to \mu\mu$ invariant mass to the reference distribution obtained from simulation. For Run--3, dedicated momentum calibration results using the full 2022, 2023 and 2024 datasets have been produced~\cite{CMS-DP-2024-067}, yielding a relative $p_T$ resolution of 1.3--2.0\% in the barrel for muons with $20 < p_T < 100$~GeV/$c$, and better than 6\% in the endcaps~\cite{MuonreconstructionCMS}.
 
@@ -801,7 +801,7 @@ Since the resulting $\tau_h$ candidates are easily confused with quark- or gluon
 Commonly named MET (for Missing $E_T$), the missing transverse energy results from taking the magnitude of the missing transverse momentum, which is the negative vectorial sum of the transverse momentum of all reconstructed objects:
 
 \begin{equation}
-    E^{\mathrm{miss}}_T = \left|\overrightarrow{p_T^\textrm{miss}} \right|\, ,
+    E^{\mathrm{miss}}_T = \left\|\overrightarrow{p_T^\textrm{miss}} \right\|\, ,
     \label{eq:metEnergy}
 \end{equation}
 with
@@ -825,7 +825,7 @@ Closely related to the missing transverse energy are several scalar quantities d
 \end{equation}
 By analogy with the MET, the missing $H_T$ (MHT) is defined as the magnitude of the negative vectorial sum of the transverse momenta of the selected jets:
 \begin{equation}
-    \mathrm{MHT} = H_T^\mathrm{miss} = \left| -\sum_{\mathrm{jets}} \overrightarrow{p_{T_j}} \right| \, .
+    \mathrm{MHT} = H_T^\mathrm{miss} = \left\| -\sum_{\mathrm{jets}} \overrightarrow{p_{T_j}} \right\| \, .
     \label{eq:mht}
 \end{equation}
 Unlike MET, which is built from all PF candidates, MHT relies exclusively on reconstructed jets and is therefore more sensitive to jet selection and thresholds. A variant, MHT$^\mathrm{NoMu}$, is computed by excluding muons from the vectorial sum, so that real muon activity does not contribute to the MHT.
@@ -852,7 +852,7 @@ This type dependence also governs the reconstruction efficiency. Isolated muons 
     \\
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 0 0},clip]{Images/Ch1/CompareKinematics_ETA_bis.pdf}
     \includegraphics[width=0.49\linewidth,trim={0.8cm 0 0 0},clip]{Images/Ch1/CompareKinematics_PHI_bis.pdf}
-    \caption{Comparison of the kinematics in the 2024 MET \textsc{MiniAOD} dataset, computed from the PF algorithm and from track information: $p_T$ of PF muon candidates (Top left), $p_T$ of PF pion candidates (Top right), $\eta$ (Bottom left), and $\phi$ (Bottom right).}
+    \caption{Comparison of the kinematics in the 2024 MET \textsc{MiniAOD} dataset, computed from the PF algorithm and from track information: $p_T$ of PF muon candidates (top left), $p_T$ of PF pion candidates (top right), $\eta$ (bottom left), and $\phi$ (bottom right).}
     \label{fig:PFcompTrack}
 \end{figure}
 
