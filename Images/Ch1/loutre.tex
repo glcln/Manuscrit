@@ -1,0 +1,63 @@
+% ---------------------------------------------------------------
+%  loutre.tex --- loutre assise de profil (TikZ)
+%
+%  Usage :  \pic[<options>] at (x,y) {loutre};
+%           (le point d'ancrage est sous les pattes, au sol)
+%
+%  Options :  couleur loutre=<couleur>      defaut : black
+%             ventre loutre=<couleur>       defaut : white  (oeil, truffe)
+%             halo loutre=<couleur>         defaut : white
+%             avec halo loutre=true|false   defaut : true
+%             scale=<h>   ->  hauteur de la loutre assise ~= <h> cm
+%             xscale=-<h> ->  loutre tournee vers la gauche
+% ---------------------------------------------------------------
+\usetikzlibrary{calc}
+\newif\ifLoutreHalo
+\colorlet{LoutreCouleur}{black}
+\colorlet{LoutreVentre}{white}
+\colorlet{LoutreHaloCouleur}{white}
+\tikzset{
+  couleur loutre/.code = {\colorlet{LoutreCouleur}{#1}},
+  ventre loutre/.code  = {\colorlet{LoutreVentre}{#1}},
+  halo loutre/.code    = {\colorlet{LoutreHaloCouleur}{#1}},
+  avec halo loutre/.is if = LoutreHalo,
+  avec halo loutre = true,
+}
+\newcommand{\LoutreTracer}[2]{% #1 = couleur, #2 = surepaisseur
+  \begin{scope}[line join=round, line cap=round]
+    % queue
+    \draw[fill=#1, draw=#1, line width=#2]
+      (-0.05,0.24) .. controls (-0.38,0.26) and (-0.70,0.23) .. (-0.97,0.12)
+                   .. controls (-1.03,0.06) and (-0.94,0.00) .. (-0.84,0.02)
+                   .. controls (-0.56,0.07) and (-0.25,0.04) .. (-0.02,0.03) -- cycle;
+    % oreille
+    \draw[fill=#1, draw=#1, line width=#2] (0.155,0.945) circle[radius=0.052];
+    % corps + tete
+    \draw[fill=#1, draw=#1, line width=#2]
+      plot[smooth cycle, tension=0.65] coordinates {
+        (0.28,0.97) (0.45,0.94) (0.56,0.86) (0.62,0.76) (0.60,0.69)
+        (0.50,0.65) (0.42,0.60) (0.38,0.42) (0.41,0.14) (0.32,0.03)
+        (-0.05,0.02) (-0.18,0.13) (-0.10,0.46) (0.01,0.77) (0.12,0.93)};
+    % pattes avant repliees sur la poitrine
+    \draw[fill=#1, draw=#1, line width=#2]
+      (0.35,0.46) .. controls (0.47,0.44) and (0.49,0.35) .. (0.43,0.31)
+                  .. controls (0.37,0.28) and (0.33,0.34) .. (0.33,0.40) -- cycle;
+    % patte arriere
+    \draw[fill=#1, draw=#1, line width=#2] (0.38,0.07) ellipse[x radius=0.14, y radius=0.055];
+    % moustaches
+    \draw[draw=#1, line width={\dimexpr#2+0.35pt\relax}]
+      (0.56,0.75) -- (0.84,0.82)  (0.57,0.72) -- (0.87,0.71)  (0.56,0.69) -- (0.82,0.60);
+  \end{scope}
+}
+\tikzset{
+  loutre/.pic={
+    \ifLoutreHalo \LoutreTracer{LoutreHaloCouleur}{2.6pt}\fi
+    \LoutreTracer{LoutreCouleur}{0.2pt}
+    % separation des pattes avant
+    \draw[LoutreVentre, line width=0.4pt, line cap=round]
+      (0.345,0.44) .. controls (0.43,0.44) and (0.47,0.39) .. (0.455,0.335);
+    % oeil + truffe
+    \fill[LoutreVentre] (0.44,0.82) circle[radius=0.033];
+    \fill[LoutreVentre] (0.585,0.755) circle[radius=0.028];
+  },
+}

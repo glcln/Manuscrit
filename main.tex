@@ -99,12 +99,9 @@
 %% ---------------------------------------------------------------
 \def\mathbi#1{\boldsymbol{#1}}
 
-%\include{Chapters/ch-Résumé}
-%\include{Chapters/ch-Abstract}
-
 \pagenumbering{gobble}
 \renewcommand{\contentsname}{Contents}
-\tableofcontents
+{\hypersetup{linkcolor=black}\tableofcontents}
 
 \include{Chapters/ch-Introduction}
 
@@ -118,6 +115,7 @@
 \cleardoublepage
 \include{Chapters/ch-Chapitre4}
 
+
 \include{Chapters/ch-Conclusion}
 
 
@@ -128,6 +126,10 @@
 
 \bibliographystyle{unsrtnat}
 \bibliography{biblio}
+
+\cleardoublepage
+\include{Chapters/ch-ChapitreFR.tex}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 
 %\newpage 

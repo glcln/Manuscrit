@@ -16,14 +16,14 @@
 %% Templates for author's name and thesis title (for front and back covers)
 \newcommand{\authorFirstname}{Gaël\xspace}
 \newcommand{\authorName}{COULON\xspace}
-\newcommand{\thesisTitle}{Recherche de particules exotiques fortement ionisantes dans l'expérience CMS}
+\newcommand{\thesisTitle}{Recherche de nouvelles particules \`a long temps de vie et fortement ionisantes avec l'expérience CMS}
 \newcommand{\thesisSubTitle}{}
 
 
 %% Load packages
 \PassOptionsToPackage{T1}{fontenc}\RequirePackage{fontenc} % Standard package for selecting font encodings
 \PassOptionsToPackage{comma,square,numbers,sort&compress}{natbib}\RequirePackage{natbib} % Flexible bibliography support
-\PassOptionsToPackage{english}{babel}\RequirePackage{babel} % Multilingual support
+\PassOptionsToPackage{french, english}{babel}\RequirePackage{babel} % Multilingual support
 \RequirePackage{fancyhdr} % Extensive control of page headers and footers
 \RequirePackage{graphicx} % Enhanced support for graphics
 \RequirePackage[dvipsnames]{xcolor} % Driver-independent color extensions
@@ -35,6 +35,8 @@
 \PassOptionsToPackage{most}{tcolorbox}\RequirePackage{tcolorbox} % Coloured boxes
 \PassOptionsToPackage{nottoc}{tocbibind}\RequirePackage{tocbibind}  % Add bibliography/index/contents to Table of Contents
 \RequirePackage{minitoc} % Produce a table of contents for each chapter, part or section
+\let\oldminitoc\minitoc
+\renewcommand{\minitoc}{{\hypersetup{linkcolor=black}\oldminitoc}}
 \PassOptionsToPackage{title}{appendix}\RequirePackage[toc,page]{appendix} % Extra control of appendices
 \RequirePackage{geometry} % Flexible and complete interface to document dimensions
 \RequirePackage{lineno} % Line numbers on paragraphs
@@ -132,13 +134,15 @@
 \newcommand{\mycolor}[2]{\color{#1}#2\color{black}\xspace}
 \newcommand{\red}[1]{\color{red}#1\color{black}\xspace}
 
+\input{Images/Ch1/grimpeur.tex}
+\input{Images/Ch1/loutre.tex}
 
 %% Change hyperlinks style
 \hypersetup
 {
     colorlinks=true,
-    linkcolor=black,
-    linktocpage=false, % to have the link on the page number in toc
+    linkcolor=DodgerBlue,
+    linktocpage=false,
     filecolor=magenta,
     urlcolor=DodgerBlue,
     citecolor=DodgerBlue,

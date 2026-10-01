@@ -6,7 +6,7 @@ The calibration described in this appendix was carried out by Caroline Collard (
 
 \vspace{0.5 cm}
 
-The harmonic estimator $I_h$ depends on a calibrated measurement of charge per unit path length in each silicon module. For Run--2 Ultra-Legacy (UL) samples, this charge remained stable throughout the data-taking period after time-dependence corrections performed by the CMS Tracker Detector Performance Group (DPG). In contrast, Run--3 samples have not yet been reprocessed from Prompt data to UL samples. Therefore, $I_h$ exhibits instability, necessitating a dedicated calibration for the 2022--2024 data.
+The harmonic estimator $I_h$ depends on a calibrated measurement of charge per unit path length in each silicon module. For Run--2 Ultra-Legacy (UL) samples, this charge remained stable throughout the data-taking period after time-dependent corrections performed by the CMS Tracker Detector Performance Group (DPG). In contrast, Run--3 samples have not yet been reprocessed from prompt data to UL samples. Therefore, $I_h$ is unstable, necessitating a dedicated calibration of the 2022--2024 data.
 
 \cref{fig:app_stab_nocalib} presents a comparison of $I_h$ stability between the two Runs. The mean value of $I_h$, obtained from a Gaussian fit, is plotted as a function of the run number for Run--2 and the integrated luminosity for Run--3. In Run--2, the variation remains approximately 0.3\%, whereas in Run--3, $\langle I_h \rangle$ decreases by several percent. This discrepancy arises from differences in reprocessing (UL samples or not) and detector ageing, with the latter being more pronounced in Run--3. 
 
@@ -14,11 +14,11 @@ The harmonic estimator $I_h$ depends on a calibrated measurement of charge per u
     \centering
      \includegraphics[width=0.47\textwidth,trim={0.8cm 0 0.5cm 0},clip]{Images/App/Ih_vs_RunNumber_Run2.pdf}
      \includegraphics[width=0.47\textwidth,trim={0.8cm 0 0.5cm 0},clip]{Images/App/Ih_vs_Lumi_Run3_beforeCorr.pdf}
-    \caption{Distribution showing the stability of $I_h$ over time. Left: Calibrated $I_h$ on Run--2, from 2017--2018 Single Muon UL AOD samples with $p_T>55$~GeV and $|\eta|<1$. Right: Uncalibrated $I_h$ Run--3, from 2022--2024 ZMu skim Prompt Reco AOD samples with $25<p_T<55$~GeV and $|\eta|<2.4$.}
+    \caption{Distribution showing the stability of $I_h$ over time. Left: Calibrated $I_h$ on Run--2, from 2017--2018 Single Muon UL AOD samples with $p_{\mathrm{T}}>55$~GeV and $|\eta|<1$. Right: Uncalibrated $I_h$ Run--3, from 2022--2024 ZMu skim Prompt Reco AOD samples with $25<p_{\mathrm{T}}<55$~GeV and $|\eta|<2.4$.}
     \label{fig:app_stab_nocalib}
 \end{figure}
 
-The d$E$/d$x$ information for $p_T<50$~GeV is available exclusively in the AOD format. Consequently, calibration is performed using this format and is derived from the ZMu skim\footnote{The ZMu skim is a centrally produced subset of CMS data that selects $Z\to\mu\mu$ candidate events, retained in AOD format. This dataset provides a clean sample of well-identified muon tracks across a broad $p_T$ range.}, which provides access to muon tracks with lower $p_T$ than those included in the HSCP analysis pre-selection. Standard quality and isolation criteria are applied to the tracks, with a slightly relaxed selection for per-layer calibration to increase statistical power.
+The d$E$/d$x$ information for $p_{\mathrm{T}}<50$~GeV is available exclusively in the AOD format. Consequently, calibration is performed using this format and is derived from the ZMu skim\footnote{The ZMu skim is a centrally produced subset of CMS data that selects $Z\to\mu\mu$ candidate events, retained in AOD format. This dataset provides a clean sample of well-identified muon tracks across a broad $p_{\mathrm{T}}$ range.}, which provides access to muon tracks with lower $p_{\mathrm{T}}$ than those included in the HSCP analysis pre-selection. Standard quality and isolation criteria are applied to the tracks, with a slightly relaxed selection for per-layer calibration to increase statistical power.
 
 Luminosity binning is selected to ensure sufficient events per bin for fitting while keeping the bins thin enough to monitor changes, such as irradiation damage, or incidentally, new gain settings or HV adjustments. This approach results in bins of 3 to 5~fb$^{-1}$.
 
