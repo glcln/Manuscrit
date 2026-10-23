@@ -30,7 +30,7 @@ which is an empirical expression depending on the $\beta\gamma$ regime with $x=\
 
 \vspace{0.5 cm}
 
-The average stopping power $\langle \dedx \rangle $ is usually depicted in [MeV $\mathrm{g}^{-1}\,\mathrm{cm}^2$], and is valid for $0.1 \lesssim \beta\gamma \lesssim 1000$. By multiplying this value by the material density, the average ionisation loss is therefore expressed in [MeV/cm]. The mean energy deposit per unit of length value depends on $p/M$, so that for slow-moving particles and/or heavy ones, \dedx\, decreases as $-\ln(p/M)$ before reaching a minimum at around $1$--$5$ MeV/cm for $\beta\gamma\approx3-4$ (for material with $Z$ between 6 and 83), and gradually increases at large $p/M$ due to the relativistic-regime term induced by $\delta(\beta\gamma)$. \cref{fig:BetheBloch} shows the energy deposition per unit distance travelled for different particles passing through silicon according to \cref{eq:BetheBloch_formula}.
+The average stopping power $\langle \dedx \rangle $ is usually depicted in [MeV $\mathrm{g}^{-1}\,\mathrm{cm}^2$], and is valid for $0.1 \lesssim \beta\gamma \lesssim 1000$. By multiplying this value by the material density, the average ionisation loss is therefore expressed in [MeV/cm]. The mean energy deposit per unit of length value depends on $p/M$, so that for slow-moving particles ($\beta\approx\beta\gamma$) and/or heavy ones, \dedx\, decreases as $-1/\beta^2=-M^2/p^2)$ before reaching a minimum at around $1$--$5$ MeV/cm for $\beta\gamma\approx3-4$ (for material with $Z$ between 6 and 83), and gradually increases at large $p/M$ due to the relativistic-regime term induced by the logarithm term. \cref{fig:BetheBloch} shows the energy deposition per unit distance travelled for different particles passing through silicon according to \cref{eq:BetheBloch_formula}.
 
 
 \begin{figure}[h!]
@@ -44,7 +44,7 @@ The average stopping power $\langle \dedx \rangle $ is usually depicted in [MeV 
 
 Most of the reconstructed particles in the CMS detector are low-energy and release some of their energy at the curve's minimum. The silicon tracker has been optimised to detect such particles, labelled as Minimum Ionising Particles (MIPs).
 
-Note that for highly relativistic particles at $\beta\gamma\approx1000$, the average deposit is 2.5 times the MIP. Thus, by measuring the \dedx\,information and the track momentum, one could identify the particle's $\beta\gamma$ regime. This information will later be used to distinguish energy deposits induced by SM processes from those caused by HSCPs.
+Note that for highly relativistic particles at $\beta\gamma\approx1000$, the average deposit is 1.5 times the MIP. Thus, by measuring the \dedx\,information and the track momentum, one could identify the particle's $\beta\gamma$ regime. This information will later be used to distinguish energy deposits induced by SM processes from those caused by HSCPs.
 
 \vspace{0.5 cm}
 
@@ -238,7 +238,7 @@ Following these subtractions, strips that return negative ADC values are set to 
 \begin{itemize}
     \item Strips with a digitised signal below 254~ADC counts are left unchanged;
     \item Those with a digitised signal between 254 and 1023~ADC counts are set to 254;
-    \item Strips above 1024~ADC counts are assigned a value of 255.
+    \item Strips above 1023~ADC counts are assigned a value of 255.
 \end{itemize}
 Strips with zero ADC counts or low $S/N$ values are suppressed entirely, thereby reducing the overall data rate.
 
@@ -250,7 +250,7 @@ In addition to signal digitisation, the Front-End Controllers (FEC) distribute g
 
 Finally, one can convert the charge collected in the ADC to MeV by knowing the electron-hole energy-pair creation of the semiconductor and the effective gain of the readout chain (APV25 + FED), the latter being determined experimentally during calibration data-taking periods:
 \begin{equation}
-    Q[\mathrm{ADC \,\, counts}]= 3.62 \cdot10^{-6} \times 265 \times Q[\mathrm{MeV}] \, .
+    Q[\mathrm{MeV}]= 3.62 \cdot10^{-6} \times 265 \times Q[\mathrm{ADC\,\,counts}] \, .
     \label{eq:ADCfactorToMeV}
 \end{equation}
 
@@ -401,7 +401,7 @@ In addition to the MC--muon sample, three distinct 2018 samples are considered. 
     \label{tab:samples}
 \end{table}
 
-The fraction of saturated clusters for a \textit{HighPurity} muon track with at least 8 \dedx{} clusters (to ensure good reconstruction) is given in \cref{tab:WjetHSCPsat} (top) for each sample. Heavier particles, such as gluinos, deposit more energy, leading to a larger saturation fraction. In these cases, 44\% of \dedx\ clusters are saturated. For muons, saturation affects 8.5--10\% of clusters per track in data and simulation. Less than 1\% of saturated clusters have at least one strip with a charge greater than 1024~ADC counts. Furthermore, \cref{tab:WjetHSCPsat} (bottom) presents the distribution of saturated clusters according to the number of consecutive saturated strips.
+The fraction of saturated clusters for a \textit{HighPurity} muon track with at least 8 \dedx{} clusters (to ensure good reconstruction) is given in \cref{tab:WjetHSCPsat} (top) for each sample. Heavier particles, such as gluinos, deposit more energy, leading to a larger saturation fraction. In these cases, 44\% of \dedx\ clusters are saturated. For muons, saturation affects 8.5--10\% of clusters per track in data and simulation. Less than 1\% of saturated clusters have at least one strip with a charge greater than 1023~ADC counts. Furthermore, \cref{tab:WjetHSCPsat} (bottom) presents the distribution of saturated clusters according to the number of consecutive saturated strips.
 
 \newpage
 
@@ -901,7 +901,7 @@ The shape correction results in some cases to over-corrected charge, primarily o
     \label{fig:miscorrectedLR}
 \end{figure}
 
-Secondly, beyond the criteria used for shape categorisation, it is possible to incorporate the charge barycentre into the correction process, particularly for the \textit{Left} and \textit{Right} clusters, where asymmetry may be more pronounced. I attempted to reconstruct the saturated maximum by evaluating the difference between the strip index of the maximum and the barycentre. However, this approach resulted in less effective cluster selection, achieving a similar correction rate to the basic method (approximately two-thirds of saturated clusters were corrected). It led to $\approx$20\% of corrected clusters exhibiting $Q_\mathrm{bar.\,corr}/Q_\mathrm{true}>1.05$. This limitation results from the model employed, in which the saturated maximum $S$ is corrected solely based on the difference between the position of the saturated strip $i_\mathrm{max}$ and the barycenter of the cluster $b_\mathrm{cluster}$: $S_\mathrm{bar.\,corr} \propto |i_\mathrm{max} - b_\mathrm{cluster}|$. A more robust model could be considered.
+Secondly, beyond the criteria used for shape categorisation, it is possible to incorporate the charge barycentre into the correction process, particularly for the \textit{Left} and \textit{Right} clusters, where asymmetry may be more pronounced. I attempted to reconstruct the saturated maximum by evaluating the difference between the strip index of the maximum and the barycentre. However, this approach resulted in less effective cluster selection, achieving a similar correction rate to the basic method (approximately two-thirds of saturated clusters were corrected). It led to $\approx$20\% of corrected clusters exhibiting $Q_\mathrm{bar.\,corr}/Q_\mathrm{true}>1.05$. This limitation results from the model employed, in which the saturated maximum $S$ is corrected solely based on the difference between the position of the saturated strip $i_\mathrm{max}$ and the barycentre of the cluster $b_\mathrm{cluster}$: $S_\mathrm{bar.\,corr} \propto |i_\mathrm{max} - b_\mathrm{cluster}|$. A more robust model could be considered.
 
 \vspace{0.5 cm}
 

@@ -56,7 +56,8 @@ At this point, reaching significantly higher energies with a linear accelerator 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1.\linewidth,trim={25cm 2cm 12cm 8cm},clip]{Images/Ch1/CCC-v2017.png}
+    %\includegraphics[width=1.\linewidth,trim={25cm 2cm 12cm 8cm},clip]{Images/Ch1/CCC-v2017.png}
+    \includegraphics[width=1.\linewidth]{Images/Ch1/accel complex-v2022 complex.png}
     \caption{The CERN accelerator complex, showing the chain of accelerators leading to the LHC. The LHC is represented by the large ring on the top of the sketch, with the four major experiments indicated by yellow dots \cite{CernComplexAccelerator_ref}.}
     \label{fig:CERNComplexAccelerator}
 \end{figure}
@@ -194,7 +195,7 @@ Physicists use the \textit{integrated luminosity} $L$ as a normalisation factor,
     \label{eq:intlumi}
 \end{equation}
 
-At the LHC, the integrated luminosity is usually defined in inverse femtobarn $\mathrm{fb}^{-1}$ ($1\,\mathrm{fb}^{-1} = 10^{-39} \, \mathrm{cm}^2$) to better compare with the magnitude of the cross sections of particle physics processes. 
+At the LHC, the integrated luminosity is usually defined in inverse femtobarn $\mathrm{fb}^{-1}$ ($1\,\mathrm{fb}^{-1} = 10^{-39} \, \mathrm{cm}^{-2}$) to better compare with the magnitude of the cross sections of particle physics processes. 
 
 In practice, three distinct luminosity quantities are defined. The \textit{delivered luminosity} corresponds to the total luminosity produced by the LHC at the interaction point. The \textit{recorded luminosity} is the fraction actually recorded by the detector, accounting for trigger and data-acquisition dead time. Finally, only the data recorded while every sub-detector was fully operational are used for physics analysis. This certification is performed at the granularity of a luminosity section, corresponding to about 23~s of data-taking, so that periods affected by a hardware failure or degraded performance in any sub-system are discarded. The integrated luminosity is then recomputed over the validated sections only. A comparison of the \textit{validated integrated luminosity} recorded by CMS over the years of data-taking is presented in \cref{fig:intlumi}. Summed over the period 2010 to 2026, the integrated luminosity is close to 504 $\mathrm{fb}^{-1}$.
 
@@ -221,13 +222,13 @@ Monitoring the real-time value of the instantaneous luminosity is tricky if usin
 At the LHC, the reference collision process is the proton inelastic scattering with $\sigma_{\textrm{inel}}=68.6 \, \pm 0.5 \, (\textrm{syst.}) \, \pm \, 3.2 \, (\textrm{lumi}) \, \textrm{mb}$, measured in the Run--2 data at a centre-of-mass energy of 13 TeV \cite{pileUPxsection}. As the rate is also defined as the number of collisions, one can also define it as:
 
 \begin{equation}
-    \textrm{R}_{\textrm{ref}} = \mu \cdot f_{\textrm{rev}}
+    \textrm{R}_{\textrm{ref}} = \mu \cdot n_b \cdot f_{\textrm{rev}}
     \label{eq:pu_rate}
 \end{equation}
 with $\mu$ the mean number of interactions per bunch crossing at the IP, namely the \textit{pile-up} (PU). Finally, the instantaneous luminosity is defined as:
 
 \begin{equation}
-    \mathscr{L} = \frac{\mu \cdot f_{\textrm{rev}}}{\sigma_{\textrm{inel}}}\, .
+    \mathscr{L} = \frac{\mu \cdot n_b \cdot f_{\textrm{rev}}}{\sigma_{\textrm{inel}}}\, .
     \label{eq:lumi_measured}
 \end{equation}
 
@@ -262,18 +263,18 @@ Run--1 (2009-2013) marked the first completed operational stage of the LHC. Duri
 
 After the first LS that lasted 3 years, the superconducting magnets and detector systems were upgraded to support higher luminosity. Run--2 (2015-2018) started with a centre-of-mass energy of 13 TeV and a bunch spacing of 50 ns, then halved the bunch spacing for the rest of the period. CMS then recorded a validated integrated luminosity of about 138 $\textrm{fb}^{-1}$.
 
-Run--3 (2022-2026) raised the centre-of-mass energy to 13.6 TeV (still below the expected 14 TeV at the LHC's design). So far, this period has been marked by a spectacular data collection campaign. CMS has recorded a total validated integrated luminosity of about 310 $\textrm{fb}^{-1}$, corresponding respectively to 35 $\textrm{fb}^{-1}$, 28 $\textrm{fb}^{-1}$, 110 $\textrm{fb}^{-1}$, 111 $\textrm{fb}^{-1}$ and 28 $\textrm{fb}^{-1}$ from 2022 to 2026.
+Run--3 (2022-2026) raised the centre-of-mass energy to 13.6 TeV (still below the expected 14 TeV at the LHC's design). So far, this period has been marked by a spectacular data collection campaign. CMS has recorded a total validated integrated luminosity of about 310 $\textrm{fb}^{-1}$, corresponding respectively to 35 $\textrm{fb}^{-1}$, 28 $\textrm{fb}^{-1}$, 109 $\textrm{fb}^{-1}$, 111 $\textrm{fb}^{-1}$ and 28 $\textrm{fb}^{-1}$ from 2022 to 2026.
 
 \vspace{0.5 cm}
 
-At the end of Run--3, the transition to the High Luminosity LHC (HL--LHC) will begin during the LS3, which is planned to last 4 years. With the large detectors and accelerator upgrades \cite{HLLHC_TDR}, the expected instantaneous luminosity will increase by a factor of 5 to 7.5, and the centre-of-mass energy will reach 14 TeV. Over the 12 years of planned operations, HL--LHC is expected to deliver a total of 3\,000-4\,000~$\textrm{fb}^{-1}$. The schedule for the LHC is shown in \cref{fig:LHCschedule}.
+At the end of Run--3, the transition to the High Luminosity LHC (HL-LHC) will begin during the LS3, which is planned to last 4 years. With the large detectors and accelerator upgrades \cite{HLLHC_TDR}, the expected instantaneous luminosity will increase by a factor of 5 to 7.5, and the centre-of-mass energy will reach 14 TeV. Over the 12 years of planned operations, HL-LHC is expected to deliver a total of 3\,000-4\,000~$\textrm{fb}^{-1}$. The schedule for the LHC is shown in \cref{fig:LHCschedule}.
 
 \clearpage
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\linewidth]{Images/Ch1/LHCschedule.pdf}
-    \caption{LHC operational phases and luminosity schedule, as planned for the HL--LHC upgrade \cite{HLLHC_TDR}.}
+    \caption{LHC operational phases and luminosity schedule, as planned for the HL-LHC upgrade \cite{HLLHC_TDR}.}
     \label{fig:LHCschedule}
 \end{figure}
 
@@ -294,7 +295,7 @@ Due to its cylindrical detector shape, the partial spherical coordinate system i
     \label{eq:pseudorapidity}
 \end{equation}
 
-Note that a particle at the origin in the transverse plane has pseudorapidity zero, and as the particle approaches the $z$--axis, its pseudorapidity tends toward infinity. This quantity is invariant under Lorentz boosts along the beam axis, meaning that the difference in pseudorapidity $\Delta \eta$ between two particles remains unchanged in all inertial frames related by longitudinal boosts.
+Note that a particle at the origin in the transverse plane has pseudorapidity zero, and as the particle approaches the $z$--axis, its pseudorapidity tends toward infinity. The difference in pseudorapidity $\Delta \eta$ between two particles is invariant under Lorentz boosts along the beam axis, meaning that $\Delta \eta$ remains unchanged in all inertial frames related by longitudinal boosts.
 
 \vspace{0.5 cm}
 
@@ -517,7 +518,7 @@ CMS's calorimeter system absorbs most Standard Model particles produced in colli
 
 With all of that, the muon system, or the so-called muon chambers, is the last CMS sub-detector~\cite{CMSmuonsystem}. It was designed to have three functions: efficient muon identification, precise momentum measurement, and triggering capability. The high-field solenoidal magnet and flux-return yoke enable these functions. Muon chambers are located outside the solenoid coil and the HO calorimeter. They are interspaced between the iron plates forming the return yoke of the magnet. A layout of the muon system is shown in \cref{fig:muonsystem}. It is divided into three sub-systems: the Drift Tubes (DTs) in the barrel region, the Cathode Strip Chambers (CSCs) in the forward region, and the Resistive Plate Chambers (RPCs). The Muon Barrel (MB) consists of four wheels along the beam pipe, each divided into twelve 30° segments to cover the volume of the CMS detector, while the Muon Endcap (ME) is divided into rings in the transverse plane.
 
-Note that in 2017, an additional system was added in the inner endcap, namely the Gas Electron Multiplier system (GEM), to gain operational experience and perform a preliminary investigation of detector performance for the HL--LHC program \cite{CMSmuonsystem}. However, this system has not yet been used for physics analyses.
+Note that in 2017, an additional system was added in the inner endcap, namely the Gas Electron Multiplier system (GEM), to gain operational experience and perform a preliminary investigation of detector performance for the HL-LHC program \cite{CMSmuonsystem}. However, this system has not yet been used for physics analyses.
 
 \vspace{0.5cm}
 
@@ -550,7 +551,7 @@ Located in the endcap, where particle flux is higher, the CSCs are dedicated det
 \noindent \textbf{Resistive plate chambers}
 \vspace{0.5 cm}
 
-RPCs are designed to address the need for very fast response times to keep up with the 25 ns bunch-crossing rate. Their detection principle is similar to the CSCs' one, a gas mixture (95.2\% $\textrm{C}_2\textrm{H}_2\textrm{F}_4$, 4.5\% isobutane $\textrm{C}_4\textrm{H}_{10}$ and 0.3\% $\textrm{SF}_6$) in a 2~mm gap is surrounded by parallel laminated bakelite plates. This offers a time resolution of about 3 ns at the cost of poorer spatial resolution, on top of containing fluorinated greenhouse gases\footnote{Both fluorinated components are potent greenhouse gases, making the RPC systems the largest contributor to the direct greenhouse gas emissions of the LHC experiments. Ongoing R\&D within the RPC aims at replacing it ahead of the HL--LHC~\cite{RPCecolo}.}. The system is composed of six wheels mounted with DTs in the MB and four in each endcap between CSC modules, totalling $480+576$ chambers \cite{RPCs}.
+RPCs are designed to address the need for very fast response times to keep up with the 25 ns bunch-crossing rate. Their detection principle is similar to the CSCs' one, a gas mixture (95.2\% $\textrm{C}_2\textrm{H}_2\textrm{F}_4$, 4.5\% isobutane $\textrm{C}_4\textrm{H}_{10}$ and 0.3\% $\textrm{SF}_6$) in a 2~mm gap is surrounded by parallel laminated bakelite plates. This offers a time resolution of about 3 ns at the cost of poorer spatial resolution, on top of containing fluorinated greenhouse gases\footnote{Both fluorinated components are potent greenhouse gases, making the RPC systems the largest contributor to the direct greenhouse gas emissions of the LHC experiments. Ongoing R\&D within the RPC aims at replacing it ahead of the HL-LHC~\cite{RPCecolo}.}. The system is composed of six wheels mounted with DTs in the MB and four in each endcap between CSC modules, totalling $480+576$ chambers \cite{RPCs}.
 
 
 \subsection{Trigger system}
@@ -617,7 +618,7 @@ Data scouting addresses the same bandwidth constraint from a different angle. Ra
 \section{Event reconstruction, identification and calibration}
 \label{sec:EventReconstruction}
 
-Among the various particles produced at each proton--proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $e^\pm$, the charged hadrons (proton $p^\pm$, pions $\pi^\pm$, kaons $K^\pm$), the neutral ones (neutron $n$, neutral pion $\pi^0$), and the photons $\gamma$. Depending on the physics interaction, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
+Among the various particles produced at each proton--proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $e^\pm$, the charged hadrons (proton $p^\pm$, pions $\pi^\pm$, kaons $K^\pm$), the neutral ones (neutron $n$, neutral pion $K^0_L$), and the photons $\gamma$. Depending on the physics interaction, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
 
 The CMS Particle Flow (PF) algorithm performs a complete reconstruction of events. This algorithm, detailed in the section below, reconstructs the basic particles listed above by looking for tracker hits, energy deposits within the calorimeters, or muon chamber hits. Afterwards, the PF particles are used to reconstruct more complex objects.
 
@@ -902,10 +903,10 @@ Event generators such as \textsc{MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca} compu
 After hadronisation, the interaction of the produced particles with the detector material is then simulated using \textsc{Geant4}~\cite{Agostinelli:2003hh}. This toolkit models the detector response (signal digitisation) of particles travelling through matter. The resulting simulated detector signals are processed with the same reconstruction algorithms as collision data, allowing simulated events to be analysed in the same way as recorded data.
 
 
-\section[CMS Phase--2 upgrade for HL--LHC campaigns]{CMS Phase--2 upgrade for HL--LHC \\ campaigns}
+\section[CMS Phase--2 upgrade for HL-LHC campaigns]{CMS Phase--2 upgrade for HL-LHC \\ campaigns}
 \label{sec:HLLHC}
 
-On June 14 2026, the last collisions took place in the LHC before LS3. This initiates the Phase--2 upgrade of the CMS detector to sustain the future high luminosity program of the LHC, namely the HL--LHC, expected to last until 2041. The instantaneous luminosity is predicted to be at $5{-}7.5 \times 10^{34} \, \textrm{cm}^2\,\textrm{s}^{-1}$, which, integrated over then ten year period of time, would give an integrated luminosity of 3\,000 $\textrm{fb}^{-1}$ \cite{HLLHCplans}. 
+On June 14 2026, the last collisions took place in the LHC before LS3. This initiates the Phase--2 upgrade of the CMS detector to sustain the future high luminosity program of the LHC, namely the HL-LHC, expected to last until 2041. The instantaneous luminosity is predicted to be at $5{-}7.5 \times 10^{34} \, \textrm{cm}^2\,\textrm{s}^{-1}$, which, integrated over then ten year period of time, would give an integrated luminosity of 3\,000 $\textrm{fb}^{-1}$ \cite{HLLHCplans}. 
 
 This upgrade will result in an increase in pile-up up to 200 simultaneous interactions per bunch crossing. Therefore, most detector upgrades aim to improve granularity to handle this particle flux and higher radiation levels.
 
@@ -922,7 +923,7 @@ The Phase--2 inner tracker will continue to provide energy-loss-per-unit-length 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\linewidth]{Images/Ch1/The_CMS_Tracker_Upgrade_for_the_High-Luminosity_LH-1.pdf}
-    \caption{Sketch of one quarter of the CMS tracker layout for HL--LHC in the $r-z$ view. Inner tracker $1\times2$ and $2\times2$ readout chip modules are shown in green and orange, respectively. Outer tracker pixel-strip (PS) and strip-strip (2S) modules in blue and red~\cite{Phase2Tracker}.}
+    \caption{Sketch of one quarter of the CMS tracker layout for HL-LHC in the $r-z$ view. Inner tracker $1\times2$ and $2\times2$ readout chip modules are shown in green and orange, respectively. Outer tracker pixel-strip (PS) and strip-strip (2S) modules in blue and red~\cite{Phase2Tracker}.}
     \label{fig:phase2tracker}
 \end{figure}
 
@@ -954,7 +955,7 @@ The muon system will be equipped with new front-end and back-end electronics, an
 \noindent \textbf{Trigger, DAQ and PF algorithm}
 \vspace{0.5 cm}
 
-The level--1 trigger will be deeply redesigned to incorporate tracking information already at the hardware trigger stage, enabling more refined online selections. The L1 output rate will be increased from 100 kHz to 750 kHz, and the HLT output rate from 2.6 kHz to 7.5 kHz, to accommodate the higher event complexity expected under HL--LHC conditions \cite{Phase2L1trigger}.
+The level--1 trigger will be deeply redesigned to incorporate tracking information already at the hardware trigger stage, enabling more refined online selections. The L1 output rate will be increased from 100 kHz to 750 kHz, and the HLT output rate from 2.6 kHz to 7.5 kHz, to accommodate the higher event complexity expected under HL-LHC conditions \cite{Phase2L1trigger}.
 
 \vspace{0.5 cm}
 

@@ -90,7 +90,7 @@ Dans une couche mince de silicium, la charge déposée fluctue fortement d'un mo
 
 Les capteurs du trajectographe sont des jonctions p--n : des pistes implantées p$^+$ sur un substrat de type n, polarisées en inverse pour être entièrement déplétées. Une MIP y crée environ 70 paires électron-trou par micromètre. Le signal induit sur les pistes est mis en forme par les puces APV25, qui lisent chacune 128 pistes, puis transmis par fibre optique aux cartes FED, qui le numérisent sur 10~bits, soustraient le piédestal et le bruit de mode commun.
 
-Avant stockage, l'amplitude est réduite de 10 à 8~bits : les pistes en dessous de 254 coups ADC sont conservées telles quelles, celles comprises entre 254 et 1023 coups sont fixées à 254, et celles au-delà de 1024 coups à 255. Les pistes adjacentes sont ensuite regroupées en amas (\textit{clusters}). Deux effets élargissent un amas : le partage de charge, lorsque la particule traverse le capteur à un angle d'incidence élevé, et la diaphonie capacitive (\textit{cross-talk}) entre pistes voisines. Cette dernière redistribue une fraction connue de la charge de la piste centrale vers ses voisines immédiates ($x_1$) et ses secondes voisines ($x_2$), avec $x_0+2x_1+2x_2=1$ ; une particule d'incidence quasi perpendiculaire au module produit ainsi un amas symétrique en forme de pyramide. Les paramètres de diaphonie, mesurés en 2010 puis en 2018~\cite{Xtalk2018CMS}, diminuent avec l'âge des capteurs.
+Avant stockage, l'amplitude est réduite de 10 à 8~bits : les pistes en dessous de 254 coups ADC sont conservées telles quelles, celles comprises entre 254 et 1023 coups sont fixées à 254, et celles au-delà de 1023 coups à 255. Les pistes adjacentes sont ensuite regroupées en amas (\textit{clusters}). Deux effets élargissent un amas : le partage de charge, lorsque la particule traverse le capteur à un angle d'incidence élevé, et la diaphonie capacitive (\textit{cross-talk}) entre pistes voisines. Cette dernière redistribue une fraction connue de la charge de la piste centrale vers ses voisines immédiates ($x_1$) et ses secondes voisines ($x_2$), avec $x_0+2x_1+2x_2=1$ ; une particule d'incidence quasi perpendiculaire au module produit ainsi un amas symétrique en forme de pyramide. Les paramètres de diaphonie, mesurés en 2010 puis en 2018~\cite{Xtalk2018CMS}, diminuent avec l'âge des capteurs.
 
 \subsection{L'estimateur \texorpdfstring{$I_h$}{Ih} et la saturation des amas}
 
@@ -168,8 +168,6 @@ La validation principale utilise des muons issus de désintégrations de bosons 
 \end{figure}
 
 Certaines limites de ma méthode demeurent. Les coefficients ont été calibrés et validés dans différents régimes de charge, sur un échantillon MC--muon de taille limitée. Par ailleurs, une partie des amas \textit{Left} et \textit{Right}, où la charge est fortement partagée entre le maximum et ses voisines, est surcorrigée, et la modification des critères de classification dégrade en contrepartie la correction des amas \textit{Center}. Une régression par un réseau de neurones peu profond, prenant en entrée la forme de l'amas, les charges voisines et la position de son barycentre, permettrait de se passer de cette classification.
-
-\clearpage
 
 \begin{table}[h!]
     \centering

@@ -160,7 +160,7 @@
 \setlength{\mtcindent}{24pt} 
 \renewcommand{\mtcfont}{\small\rm} 
 \renewcommand{\mtcSfont}{\small\bf} 
-\renewcommand{\mtctitle}{Content}
+\renewcommand{\mtctitle}{Contents}
 
 
 %% Section configuration | Change the numerotations of sections
