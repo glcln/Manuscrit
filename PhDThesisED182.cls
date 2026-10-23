@@ -50,7 +50,7 @@
 \usetikzlibrary{arrows.meta} % for arrow size
 \usetikzlibrary{3d} % for canvas is
 \usetikzlibrary{patterns.meta}
-\usetikzlibrary{decorations.markings, decorations.pathmorphing}
+\usetikzlibrary{decorations.markings, decorations.pathmorphing, backgrounds}
 \RequirePackage[outline]{contour} % glow around text
 \contourlength{0.9pt}
 \usetikzlibrary{bending} % for arrow head angle

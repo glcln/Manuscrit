@@ -1,0 +1,480 @@
+\chapter*{Remerciements}
+\markboth{REMERCIEMENTS}{REMERCIEMENTS}
+\raggedbottom % fenêtres calées en haut de page (rétabli à la fin du fichier)
+
+% ======================================================================
+%  Fenêtres de discussion en TikZ
+%  Seul tikz est requis (déjà chargé par la classe PhDThesisED182).
+%  Usage :  \chattheme{<clé>}
+%           \begin{chatwindow}[Titre]
+%             \usermsg{...} \botmsg{...}
+%             \chattopic{<clé>}{<titre>}   % change de thème dans la même fenêtre
+%             \usermsg{...} \botmsg{...}
+%           \end{chatwindow}
+%  Clés   :  chaleureux, hscp, delire, touchant, escalade, magnifique
+% ======================================================================
+\usetikzlibrary{calc,backgrounds}
+
+% --- Couleurs ----------------------------------------------------------
+\definecolor{chatframe}{HTML}{C8CDD5}
+\definecolor{chatbar}{HTML}{EEF1F5}
+\definecolor{chatbg}{HTML}{FFFFFF}
+\definecolor{chatuser}{HTML}{DDE8F7}
+\definecolor{chatbot}{HTML}{F3F4F6}
+\definecolor{chataccent}{HTML}{2E5E8C}
+\definecolor{chattext}{HTML}{1F242B}
+\definecolor{chatmuted}{HTML}{7C8490}
+\definecolor{chatmacred}{HTML}{FF605C}
+\definecolor{chatmacyellow}{HTML}{FFBD44}
+\definecolor{chatmacgreen}{HTML}{00CA4E}
+
+% --- Thèmes : un logo et une couleur par conversation ------------------
+\definecolor{chatchaleureux}{HTML}{C8693A}
+\definecolor{chathscp}{HTML}{2E5E8C}
+\definecolor{chatdelire}{HTML}{7A4CC0}
+\definecolor{chattouchant}{HTML}{BE4F66}
+\definecolor{chatescalade}{HTML}{3A8657}
+\definecolor{chatmagnifique}{HTML}{5E2C83}
+\definecolor{chattongue}{HTML}{E5677D}
+\definecolor{chatrope}{HTML}{F2C94C}
+\definecolor{chatnightin}{HTML}{A4489A}
+\definecolor{chatnightout}{HTML}{2A1450}
+\definecolor{chatgoldA}{HTML}{FFE39A}
+\definecolor{chatgoldB}{HTML}{E2A62C}
+
+\newcommand{\chatlogo}{chaleureux}
+\colorlet{chatlogobg}{chatchaleureux}
+\colorlet{chatlogofg}{white}
+% Change le logo, le bouton d'envoi et la teinte des bulles de l'assistant
+\newcommand{\chattheme}[1]{%
+  \renewcommand{\chatlogo}{#1}%
+  \colorlet{chataccent}{chat#1}%
+  \colorlet{chatlogobg}{chat#1}%
+  \colorlet{chatbot}{chat#1!7!white}}
+
+% --- Noms affichés -----------------------------------------------------
+\newcommand{\chatuserinitials}{GC}
+\newcommand{\chatbotname}{Assistant}
+\newcommand{\chatplaceholder}{Écrire un message\dots}
+
+% --- Dimensions --------------------------------------------------------
+\newlength{\chatW}
+\newlength{\chatuserW}
+\newlength{\chatbotW}
+\newlength{\chatpad}  \setlength{\chatpad}{4mm}
+\newlength{\chatgap}  \setlength{\chatgap}{5mm}
+\newcommand{\chatfont}{\small}
+
+\tikzset{
+  chat bubble/.style={rounded corners=2.5mm, inner xsep=3mm, inner ysep=2.5mm,
+                      font=\chatfont, text=chattext},
+  chat user/.style={chat bubble, fill=chatuser},
+  chat bot/.style={chat bubble, fill=chatbot, text width=\chatbotW, align=justify},
+}
+
+% --- Logos -------------------------------------------------------------
+% \chatdrawlogo{<clé>}{<position>}{<rayon en cm>}
+\newcommand{\chatdrawlogo}[3]{%
+  \begin{scope}[shift={(#2)}, scale=#3]
+    \def\chatlw{#3}%
+    \csname chatlogo#1\endcsname
+  \end{scope}}
+
+\tikzset{
+  logo thin/.style ={draw=chatlogofg, line width=\chatlw*1.6pt,
+                     line cap=round, line join=round},
+  logo thick/.style={draw=chatlogofg, line width=\chatlw*4.4pt, line cap=round},
+}
+\newcommand{\chatlogodisc}{\fill[chatlogobg] (0,0) circle (1);}
+\newcommand{\chatheartpath}{(0,-1) .. controls (-.35,-.65) and (-1,-.25) .. (-1,.25)
+  .. controls (-1,.7) and (-.45,.95) .. (0,.5) .. controls (.45,.95) and (1,.7) .. (1,.25)
+  .. controls (1,-.25) and (.35,-.65) .. (0,-1) -- cycle}
+\newcommand{\chatsparkle}[3]{%
+  \fill[chatgoldA] (#1,#2+#3) .. controls (#1,#2) .. (#1+#3,#2)
+    .. controls (#1,#2) .. (#1,#2-#3) .. controls (#1,#2) .. (#1-#3,#2)
+    .. controls (#1,#2) .. cycle;}
+
+% Chaleureux : une tasse fumante
+\newcommand{\chatlogochaleureux}{\chatlogodisc
+  \begin{scope}[shift={(-.04,-.06)}]
+    \fill[chatlogofg] (-.42,.1) -- (-.42,-.26) to[out=-90,in=180] (-.24,-.44)
+      -- (.08,-.44) to[out=0,in=-90] (.26,-.26) -- (.26,.1) -- cycle;
+    \draw[chatlogofg, line width=\chatlw*3.2pt]
+      (.22,.0) to[out=0,in=90] (.45,-.12) to[out=-90,in=0] (.22,-.28);
+    \foreach \xo in {-.28,-.08,.12}
+      \draw[logo thin] plot[domain=0:1, samples=40, smooth]
+        ({\xo+.055*sin(\x*540)}, {.25+.36*\x});
+    \begin{scope}[shift={(-.08,-.14)}, scale=.15]
+      \fill[chatlogobg] \chatheartpath;
+    \end{scope}
+  \end{scope}}
+
+% HSCP : une particule lourde et très ionisante, à côté d'une trace ordinaire
+\tikzset{logo faint/.style={draw=chatlogofg, draw opacity=.45,
+                            line width=\chatlw*1.2pt, line cap=round}}
+\newcommand{\chatlogohscp}{\chatlogodisc
+  \begin{scope}
+    \clip (0,0) circle (.84);
+    \foreach \r in {.42,.78,1.14}
+      \draw[logo faint] (-.62,-.62) ++(0:\r) arc[start angle=0, end angle=90, radius=\r];
+    \draw[logo thin] (-.62,-.62) to[bend left=40] ++(10:.42);
+    \draw[logo thick] (-.62,-.62) -- ++(45:1.7);
+  \end{scope}}
+
+% Délire : un clin d'œil et la langue tirée
+\newcommand{\chatlogodelire}{\chatlogodisc
+  \begin{scope}[rotate=12]
+    \fill[chatlogofg] (-.3,.26) circle (.11);
+    \draw[chatlogofg, line width=\chatlw*3.2pt, line cap=round]
+      (.12,.22) to[out=70,in=110] (.44,.22);
+    \begin{scope}
+      \clip (-.52,-.04) -- (.52,-.04)
+        arc[start angle=0, end angle=-180, x radius=.52, y radius=.44] -- cycle;
+      \fill[chatlogofg] (-.6,-.6) rectangle (.6,0);
+      \fill[chattongue] (.16,-.5) circle (.22);
+    \end{scope}
+  \end{scope}}
+
+% Touchant : une maison, un cœur
+\newcommand{\chatlogotouchant}{\chatlogodisc
+  \fill[chatlogofg] (.2,.18) rectangle (.33,.42);
+  \fill[chatlogofg] (-.56,-.02) -- (0,.5) -- (.56,-.02) -- (.38,-.02)
+    -- (.38,-.5) -- (-.38,-.5) -- (-.38,-.02) -- cycle;
+  \begin{scope}[shift={(0,-.23)}, scale=.18]
+    \fill[chatlogobg] \chatheartpath;
+  \end{scope}}
+
+% Escalade : un mousqueton et sa corde
+\newcommand{\chatlogoescalade}{\chatlogodisc
+  \begin{scope}
+    \clip (0,0) circle (.86);
+    \draw[chatrope, line width=\chatlw*3pt, line cap=round]
+      (-.95,.02) to[out=-35,in=180] (-.2,-.36) to[out=0,in=120] (.5,-.95);
+  \end{scope}
+  \begin{scope}[rotate=-28, shift={(.03,0)}]
+    \draw[chatlogofg, line width=\chatlw*3.8pt, line cap=round]
+      (.17,.3) arc[start angle=0, end angle=180, radius=.21]
+      -- (-.25,-.32) arc[start angle=180, end angle=360, radius=.17]
+      -- (.09,-.25);
+    \draw[chatlogofg, line width=\chatlw*2pt, line cap=round] (.115,-.17) -- (.165,.2);
+  \end{scope}}
+
+% Magnifique : un cœur doré sous un ciel étoilé
+\newcommand{\chatlogomagnifique}{%
+  \shade[inner color=chatnightin, outer color=chatnightout] (0,0) circle (1);
+  \begin{scope}[shift={(0,-.02)}, scale=.44]
+    \shade[top color=chatgoldA, bottom color=chatgoldB] \chatheartpath;
+  \end{scope}
+  \chatsparkle{.56}{.5}{.17}
+  \chatsparkle{-.58}{-.44}{.12}
+  \fill[chatgoldA] (-.55,.45) circle (.04) (.64,-.34) circle (.035) (.12,.74) circle (.03);}
+
+% --- Avatars -----------------------------------------------------------
+\newcommand{\chatbotavatar}[1]{\chatdrawlogo{\chatlogo}{#1}{.3}}
+\newcommand{\chatuseravatar}[1]{%
+  \node[circle, fill=chatmuted, text=white, minimum size=6mm, inner sep=0pt,
+        font=\scriptsize\bfseries] at (#1) {\chatuserinitials};}
+
+% --- Messages ----------------------------------------------------------
+\newsavebox{\chatbox}
+\newif\ifchatwrap
+\newcommand{\usermsg}[1]{%
+  \par\vspace{\chatgap}\noindent
+  \sbox{\chatbox}{\normalfont\chatfont #1}%
+  \ifdim\wd\chatbox>\chatuserW \chatwraptrue \else \chatwrapfalse \fi
+  \begin{tikzpicture}
+    \path (0,0) -- (\chatW,0);
+    \coordinate (chatA) at (\chatW-3mm,-3mm);
+    \chatuseravatar{chatA}
+    \ifchatwrap
+      \node[chat user, anchor=north east, text width=\chatuserW, align=flush left]
+           at ($(chatA)+(-4.5mm,3mm)$) {\strut#1};
+    \else
+      \node[chat user, anchor=north east] at ($(chatA)+(-4.5mm,3mm)$) {\strut#1};
+    \fi
+  \end{tikzpicture}\par\nopagebreak
+}
+
+% Bulle de l'assistant sécable : le texte est composé, découpé ligne par
+% ligne, puis chaque ligne est posée sur une tranche de fond colorée.
+% La page peut se couper entre deux lignes (jamais après la première ni
+% avant la dernière ligne d'un paragraphe).
+\newbox\chatrawbox \newbox\chataccbox \newbox\chatoutbox
+\newbox\chatlinebox \newbox\chatscratchbox
+\newcount\chatabove \newcount\chatbelow \newcount\chatbelowtwo
+\newif\ifchatpar \newif\ifchatfound \newif\ifchatagain
+\newlength{\chatbubW}
+
+\newcommand{\chatcleanup}{%
+  \chatagainfalse
+  \ifnum\lastnodetype=11
+    \ifnum\gluestretchorder\lastskip>0 \chatpartrue\fi
+    \chatfoundtrue\unskip\chatagaintrue
+  \else\ifnum\lastnodetype=12
+    \unkern\chatagaintrue
+  \else\ifnum\lastnodetype=13
+    \chatfoundtrue\unpenalty\chatagaintrue
+  \fi\fi\fi
+  \ifchatagain\expandafter\chatcleanup\fi}
+
+\newcommand{\chatpassA}{%
+  \global\setbox\chatlinebox=\lastbox
+  \ifvoid\chatlinebox\else
+    \chatparfalse\chatfoundfalse\chatcleanup
+    \global\setbox\chataccbox=\vbox{%
+      \ifchatfound\ifchatpar\penalty2 \else\penalty1 \fi\fi
+      \box\chatlinebox\unvbox\chataccbox}%
+    \expandafter\chatpassA
+  \fi}
+
+\newcommand{\chatslice}{%
+  \hbox to \chatW{\hskip7.5mm
+    \rlap{\smash{\color{chatbot}\vrule width\chatbubW
+          height\dimexpr\ht\strutbox+.4pt depth\dimexpr\dp\strutbox+.4pt}}%
+    \vrule width0pt height\ht\strutbox depth\dp\strutbox
+    \hskip3mm{\color{chattext}\smash{\box\chatlinebox}}\hss}}
+\newcommand{\chatgapslice}{%
+  \hbox to \chatW{\hskip7.5mm
+    \rlap{\smash{\color{chatbot}\vrule width\chatbubW height\dimexpr.6em+.4pt depth.4pt}}%
+    \vrule width0pt height.6em depth0pt\hss}}
+\newcommand{\chattopcap}{\hbox{\begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle (\chatW,2.5mm);
+    \clip[rounded corners=2.5mm] (7.5mm,-2.5mm) rectangle (\chatW,2.5mm);
+    \fill[chatbot] (7.5mm,-.4pt) rectangle (\chatW,2.5mm);
+  \end{tikzpicture}}}
+\newcommand{\chatbottomcap}{\hbox{\begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle (\chatW,2.5mm);
+    \clip[rounded corners=2.5mm] (7.5mm,0) rectangle (\chatW,5mm);
+    \fill[chatbot] (7.5mm,0) rectangle (\chatW,\dimexpr2.5mm+.4pt);
+  \end{tikzpicture}}}
+\newcommand{\chatbotheader}{\hbox{\begin{tikzpicture}
+    \useasboundingbox (0,-7.5mm) rectangle (\chatW,0);
+    \coordinate (chatA) at (3mm,-3mm);
+    \chatbotavatar{chatA}
+    \node[anchor=west, font=\chatfont\bfseries, text=chattext, inner sep=0pt]
+         at ($(chatA)+(4.5mm,0)$) {\chatbotname};
+  \end{tikzpicture}}}
+
+\newcommand{\chatpassB}{%
+  \global\setbox\chatlinebox=\lastbox
+  \ifvoid\chatlinebox\else
+    \chatabove=\lastpenalty \unpenalty
+    \global\setbox\chatoutbox=\vbox{%
+      \chatslice
+      \ifnum\chatbelow=0 \nointerlineskip\chatbottomcap
+      \else\ifnum\chatbelow=2 \penalty0 \nointerlineskip\chatgapslice
+      \else
+        \ifnum\chatabove=1 \ifnum\chatbelowtwo=1 \penalty0 \else\penalty10000 \fi
+        \else\penalty10000 \fi
+      \fi\fi
+      \unvbox\chatoutbox}%
+    \chatbelowtwo=\chatbelow \chatbelow=\chatabove
+    \expandafter\chatpassB
+  \fi}
+
+\newcommand{\botmsg}[1]{%
+  \par\vspace{\chatgap}%
+  \begingroup
+    \chatfont
+    \setlength{\chatbubW}{\dimexpr\chatW-7.5mm\relax}%
+    \setbox\chatrawbox=\vbox{\ifdefined\nolinenumbers\nolinenumbers\fi
+      \hsize=\chatbotW \parindent=0pt
+      \leftskip=0pt \rightskip=0pt \parskip=0pt plus 1fil #1\par}%
+    \global\setbox\chataccbox=\vbox{}%
+    \setbox\chatscratchbox=\vbox{\unvbox\chatrawbox \chatcleanup \chatpassA}%
+    \global\setbox\chatoutbox=\vbox{}%
+    \setbox\chatscratchbox=\vbox{\unvbox\chataccbox
+      \chatbelow=0 \chatbelowtwo=0 \chatpassB}%
+    \chatbotheader
+    \nointerlineskip\chattopcap
+    \nointerlineskip\unvbox\chatoutbox
+  \endgroup
+  \par
+}
+
+\newcommand{\chatinputfield}{%
+  \par\nopagebreak\vspace{\chatgap}\noindent
+  \begin{tikzpicture}
+    \node[draw=chatframe, rounded corners=3mm, minimum height=8mm,
+          text width=\dimexpr\chatW-6mm-.4pt\relax, inner xsep=3mm, align=left,
+          anchor=north west, font=\chatfont, text=chatmuted] (chatIn)
+         at (.2pt,0) {\chatplaceholder};
+    \coordinate (chatS) at ($(chatIn.east)+(-4.5mm,0)$);
+    \fill[chataccent] (chatS) circle (2.6mm);
+    \draw[white, line width=.7pt, line cap=round, line join=round]
+      ($(chatS)+(0,-1.3mm)$) -- ($(chatS)+(0,1.3mm)$)
+      ($(chatS)+(-1.1mm,.3mm)$) -- ($(chatS)+(0,1.3mm)$) -- ($(chatS)+(1.1mm,.3mm)$);
+  \end{tikzpicture}\par
+}
+
+% --- Séparateur de thème ----------------------------------------------
+% \chattopic{<clé>}{<titre>} : change de logo/couleur et affiche une ligne
+% de séparation avec le titre, comme un séparateur de date dans une appli.
+\newcommand{\chatsection}[1]{%
+  \par\vspace{1.6\chatgap}\noindent
+  \begin{tikzpicture}
+    \path (0,0) -- (\chatW,0);
+    \node[font=\scriptsize\bfseries, text=chatlogobg, inner xsep=2.5mm]
+         (chatSec) at (.5\chatW,0) {\MakeUppercase{#1}};
+    \draw[chatframe] (0,0) -- (chatSec.west) (chatSec.east) -- (\chatW,0);
+  \end{tikzpicture}\par\nopagebreak
+}
+\newcommand{\chattopic}[2]{\chattheme{#1}}
+
+% --- Bulle système (fin de crédits) ------------------------------------
+% \chatnotice{<titre>}{<texte>}{<bouton>}
+\definecolor{chatnoticebg}{HTML}{FFF7E8}
+\definecolor{chatnoticeframe}{HTML}{EFCB8C}
+\definecolor{chatnoticeicon}{HTML}{D48C1F}
+\newcommand{\chatnoticeurl}{https://www.youtube.com/watch?v=dQw4w9WgXcQ}
+\newcommand{\chatnotice}[3]{%
+  \par\nopagebreak\vspace{\chatgap}\noindent
+  \begin{tikzpicture}
+    \path (0,0) -- (\chatW,0);
+    \node[anchor=north west, text width=\dimexpr\chatW-50mm\relax, inner sep=0pt,
+          font=\chatfont, text=chattext, align=left] (chatT) at (11mm,-3mm)
+         {{\bfseries #1}\par\smallskip #2};
+    \node[anchor=east, fill=chatnoticeicon, rounded corners=3mm,
+          font=\chatfont\bfseries, inner sep=0pt]
+         at (\chatW-3mm,0 |- chatT.center)
+         {\href{\chatnoticeurl}{\rule[-2.6mm]{0pt}{7.4mm}\hspace*{3.5mm}%
+           \textcolor{white}{#3}\hspace*{3.5mm}}};
+    \fill[chatnoticeicon] (5.5mm,0 |- chatT.center) circle (2.6mm);
+    \node[text=white, font=\small\bfseries] at (5.5mm,0 |- chatT.center) {!};
+    \begin{scope}[on background layer]
+      \draw[chatnoticeframe, fill=chatnoticebg, rounded corners=2.5mm, line width=.4pt]
+        (.2pt,-.2pt) rectangle ($(\chatW-.2pt,0 |- chatT.south)+(0,-3mm)$);
+    \end{scope}
+  \end{tikzpicture}\par
+}
+
+% --- Fenêtre sécable -----------------------------------------------------
+\newtcolorbox{chatwindow}[1][Nouvelle conversation]{%
+  enhanced jigsaw, breakable,
+  colback=chatbg, colframe=chatframe, boxrule=.4pt, arc=3mm,
+  colbacktitle=chatbar, coltitle=chatmuted, fonttitle=\chatfont\bfseries,
+  title={#1}, halign title=center, toptitle=1.5mm, bottomtitle=1.5mm,
+  boxsep=0pt, left=\chatpad, right=\chatpad, top=0pt, bottom=\chatpad,
+  pad at break=2mm,
+  before skip=0pt, after skip=\bigskipamount,
+  overlay unbroken and first={%
+    \foreach \col [count=\i from 0] in {chatmacred,chatmacyellow,chatmacgreen}
+      \fill[\col] ([xshift=\chatpad+\i*4mm]title.west) circle (1.2mm);},
+  before upper={%
+    \setlength{\chatW}{\linewidth}%
+    \setlength{\chatbotW}{\dimexpr\chatW-13.5mm\relax}%
+    \setlength{\chatuserW}{\dimexpr.8\chatW-6mm\relax}%
+    \setlength{\parskip}{0pt}},
+  after upper={\chatinputfield},
+}
+% ======================================================================
+
+
+% ----------------------------------------------------------------------
+
+\vspace{-0.5 cm}
+
+Prompts réalisés par mes soins avec une IA (Intelligence Approximative).
+
+\vspace{0.5 cm}
+
+\chattheme{chaleureux}
+\begin{chatwindow}[Remerciements]
+  \usermsg{Il ne reste plus que les remerciements\dots{} Par où commencer\,?}
+  \botmsg{Par ces mots, peut-être~: les derniers que j'écris, et pourtant les premiers que vous lirez. Ils sont le point final de ce travail, et ils tiennent en cinq lettres, simples mais élégantes. Un mot que je vais répéter bien des fois dans ces pages, et qui ne suffira pourtant jamais à dire combien chacune des personnes qui suivent m'a aidé, à sa manière, à accomplir ce que j'ai fait et à devenir celui que je suis~: m-e-r-c-i.}
+
+% ----------------------------------------------------------------------
+\chattopic{chaleureux}{Caroline}
+  \usermsg{Commençons par Caroline, ma directrice de thèse.}
+  \botmsg{Merci, Caroline. Cette aventure a été fantastique, et qu'est-ce qu'elle est passée vite\,! Je me revois encore dans ton bureau, il y a trois ans et demi, et me voilà aujourd'hui. Je crois avoir enfin pris mon envol, et je te dois beaucoup, pour ne pas dire tout, de la réussite professionnelle de cette thèse. Ta pédagogie, ton écoute et surtout ton suivi ont été exceptionnels, et il m'aura fallu ces trois années pour mesurer à quel point. Merci pour ton temps, ce temps que tu partages déjà entre tant de responsabilités et que tu as toujours su me consacrer. Je ne me suis jamais senti jugé, bien au contraire~: je me sentais fier chaque fois que j'apercevais ton sourire, dans un coin d'amphithéâtre ou de bureau. Si je continue aujourd'hui dans ce domaine, c'est grâce à toi. Reste celle que tu es. Merci, énormément.}
+
+% ----------------------------------------------------------------------
+\chattopic{chaleureux}{Le jury}
+  \usermsg{Maintenant, mon jury. J'étais terrifié le jour J.}
+  \botmsg{Merci à vous, chers membres du jury, Louis, Lucia, Joanny et Gaëlle. J'étais tellement angoissé à l'idée de présenter mon travail devant vous\,! Et pourtant, qu'est-ce que je suis heureux aujourd'hui, et surtout fier, d'avoir pu vous montrer ce que j'ai fait. Merci Boris~: tu es le meilleur président de jury que j'aurais pu avoir. C'est à toi que j'ai pensé immédiatement, et c'était ma façon de te remercier d'être cette personne si dévouée aux étudiants, qui a toujours le mot pour rire. Et merci d'avoir ajouté une chemise (à carreaux\,!) à ma penderie\,!}
+
+% ----------------------------------------------------------------------
+\chattopic{chaleureux}{L'équipe CMS de l'IPHC}
+  \usermsg{Au tour de l'équipe CMS de l'IPHC.}
+  \botmsg{Plus largement, merci à toute l'équipe CMS de l'IPHC. Anne-Catherine, merci pour ta bienveillance, pour ton temps, et pour ce sourire quotidien qui apportait un peu de douceur à chaque journée. Merci \'Eric, alias M.~Crack-en-n'importe-quel-sujet, à qui j'ai emprunté bien des heures pour que tu m'expliques les choses, toujours avec calme et clairvoyance. Merci à Jeremy, Jean-Laurent, Ulrich et Daniel pour votre sympathie et pour vos conseils, toujours bienveillants, lors de mes présentations. Merci Aurore pour ces discussions pleines de sagesse sur les chemins que je pourrais emprunter dans la recherche. Thanks a lot to Gourab, our second Mr.~Good-at-Everything: it was a real pleasure to meet you. Thanks Armin, for your unfailing kindness.
+
+  Un petit mot pour celui qui a autant d'élégance dans ses chemises que dans ses mots~: merci Pierre\,! Merci à Loïc, Julien, Florian et Giulio pour votre gentillesse et votre énergie. Et merci à tous ceux que j'ai croisés, de près ou de loin, pendant ces trois années au laboratoire, le temps d'une discussion ou d'un simple bonjour~: chacun de ces moments a compté.}
+  \usermsg{J'ai fait le tour du labo, ou bien il manque encore des personnes\,?}
+  \botmsg{Merci enfin à celles et ceux qu'on oublie trop souvent, mais sans qui rien de ce travail n'aurait été possible. Yannick, Jérôme et \'Eric, merci d'avoir gardé la grille de calcul en vie (et moi avec, ahah) quand j'étais en plein rush. Nadine, merci d'être la formidable gestionnaire que tu es\,! Et merci à Christophe d'avoir préparé l'amphithéâtre aux petits soins pour ma soutenance.}
+
+% ----------------------------------------------------------------------
+\chattopic{hscp}{HSCP team}
+  \usermsg{Now the HSCP team. In English, please!}
+  \botmsg{I am deeply grateful to the international HSCP team: these three years alongside you have given me expertise I never thought I would have. Special thanks to Todd, for always taking the time to listen. Grace and Ryan, thank you for your invaluable advice and your help: you were always there for me whenever I needed it. Emery, thank you for guiding me through the miniAOD framework, and for staying patient even when I asked too much. Tamas, thank you for more or less everything HSCP-related: your knowledge of the simulation and of the framework got me out of trouble more times than I can count. The next generation is in good hands: Tiziano, I hope your thesis makes you as proud as mine has made me, and you are already doing remarkable work! Thanks also to the rest of the team, whose feedback on my regular presentations shaped much of the
+  physicist I am today.
+
+  Thank you Fikri, half man, half CMSSW, for pulling me through the MET calibration saga. And Martin, your kindness and warmth have stayed with me, and they always will.}
+
+% ----------------------------------------------------------------------
+\chattopic{delire}{Les anciens du labo}
+  \usermsg{Place aux anciens du labo, devenus des amis. Garde toutes mes blagues, même les mauvaises.}
+  \botmsg{C'est le moment de sourire, et de se dire que la relève a peut-être été assurée. Merci aux trois piliers de cette équipe, ceux qui, entre bêtises et sérieux, m'ont aidé à garder le cap.
+  
+  Raph, merci pour ta bonne humeur constante, et ne m'en veux pas d'avoir cassé ta tasse à café (bon, deux, admettons). Ton énergie et ton insouciance m’ont porté. Merci d'être qui tu es, je dois une grande part de ma réussite à ton travail et à ta personne.
+  
+  Ponpon, qu'est-ce que je suis heureux de te compter parmi mes amis\,! Toi, le bout de Meuse du labo, d'une gentillesse et d'une persévérance comme on en voit rarement, bien plus solide qu'une cheville (en tout cas, d'après ce que j'ai vu). Merci aussi à Thierry et Régine pour cette parenthèse meusienne, le temps d'un week-end, à se faire exploiter aux mirabelliers et à être forcés de manger ces (succulentes) tartes. J'y ai vu les plus grosses courgettes de ma vie (non, pas la tienne, Thierry)\,!
+  
+  Merci Paul\,! Pour tous ces 11-0 et ces 3 sets à 0 que j'ai encaissés avec le sourire, pour ces heures à refaire le monde pendant les pauses, et tout simplement pour celui que tu es\,!}
+  \usermsg{Et Kalu, évidemment\,!}
+  \botmsg{Kalu\,!! T'es mon idole, mec. Trop content de te connaître. Nos parenthèses grimpe, à lancer les crashs plus qu'à tomber dessus, vont me manquer.}
+
+% ----------------------------------------------------------------------
+\chattopic{delire}{Les compagnons de route}
+  \usermsg{Les compagnons de route, maintenant. Personne ne comprendra la moitié des blagues, c'est normal.}
+  \botmsg{Merci aux compagnons du M2, et d'au-delà~: nos chemins se sont séparés, et pourtant je pense à vous, Arthur, Mattéo et Lucie\,!
+  
+  Thomas, merci d'avoir été là. Mes souvenirs de thèse sont pleins de toi, du sauveur de bourdons en Bretagne au mangeur inconditionnel de galettes des rois, sans oublier le randonneur des pierriers de l'extrême à Benasque (désolé, encore…). Corentin, tu savais que Jean-Marie Mortensen s'était réellement cassé un doigt de pied en donnant un coup dans doudou\,? Je l'ai lu sur pedantix.bzz. Merci à vous deux~: sans vous, l'aventure aurait été bien plus triste, et ce fut un vrai bonheur de traverser cette thèse en votre compagnie. Merci Oscar, pour l'image de Breton irréductible que tu as laissée aux JRJC, et Martin (et feu Roger), pour ton sourire et ces soirées à SOS\,!
+
+  Place à la relève, qui fera, je vous le souhaite, des thèses à la hauteur de ce que vous êtes. Cyril, la bonne humeur incarnée qui connait les règles de tous les jeux, mais aux goûts douteux (les Balistos, sans déconner\,?!)\,; Mattéo, l'expert en physique des particules, mais pas en problèmes de physique de L1 (l'avion sur un tapis roulant décolle, andouille)\,; et Clara (Caillera plutôt), la petite étoile montante. Emile, un bras (droit) de fer, un cœur (gauche) tendre, qui se rejoignent pour former un cercle. Nos discussions (et surtout nos conneries) m'ont aidé à devenir celui que je suis aujourd'hui.}
+
+% ----------------------------------------------------------------------
+\chattopic{delire}{Les amis}
+  \usermsg{Les amis, maintenant.}
+  \botmsg{Sam, merci pour ces balades inoubliables à ratisser les Vosges à la recherche de champignons et de myrtilles~: ces souvenirs-là sont ancrés en moi pour toujours. Merci pour tout, je suis si heureux de te compter parmi mes amis. Merci Benoît, tu es pour moi une vraie source d'inspiration, et dans tellement de domaines. Merci Aude et Nadia pour vos doux conseils et vos oreilles toujours tendues, toujours prêtes à prendre le temps d'écouter. Merci Antoine et Marine, ce duo de force tranquille toujours souriant~: je ne vous souhaite que du bonheur\,! Merci Eleonore pour ces soirées partagées, ces discussions entre deux rayons de chaussures et tous ces sourires que tu as distribués du début à la fin\,! Merci Elisa et Marius, comme je vous chéris~: j'apprécie chacun des moments passés avec vous.}
+  \usermsg{Et ceux qui sont là depuis toujours.}
+  \botmsg{À ceux qui sont là depuis le début, à ceux que j'ai un peu délaissés sans jamais les oublier, parce que vous avez été, vous aussi, une partie de ma vie. Merci Etienne, Yoann, Antoine, Alex, Julien, et surtout Mattéo, pour tous ces souvenirs d'enfance et pour avoir suivi, chacun à votre façon, ce que je devenais. Je vous souhaite à tous de vous accomplir et d'être heureux~: si je suis celui que je suis aujourd'hui, c'est en partie grâce à vous. Mattéo, c'est fou ce qu'on est devenus\,; on a continué, on n'a jamais lâché, et je suis tellement heureux de te côtoyer encore aujourd'hui.}
+
+% ----------------------------------------------------------------------
+\chattopic{touchant}{Ma famille}
+  \usermsg{Ma famille, maintenant.}
+  \botmsg{Je suis fébrile au moment d'écrire ces lignes, celles qui s'adressent aux personnes les plus importantes depuis toujours~: mon papa et ma maman. Je suis si fier d'être votre fils, ce fils un peu cabossé, souvent penseur et jamais sûr de lui, qui a pourtant accompli quelque chose de grand. J'ai toujours été écouté, encouragé et chéri par vous, et je mesure chaque jour la chance que c'est. Merci, merci du fond du cœur. Merci à toi, ma petite sœur chérie~: qu'est-ce que je suis fier de toi\,! Tu es quelqu'un de fantastique, et ni la distance ni le temps n'effacent ce que je pense de toi, toi que j'ai connue toute petite et que je vois aujourd'hui accomplir de si belles choses.}
+  \usermsg{Ça y est, les larmes coulent\dots}
+  \botmsg{Je pense fort à vous, mamie Françoise et papi Gérard, mamie Annie et papi René, vous qui avez fait de moi celui que je suis. Je n'ai jamais été aussi heureux que de vous voir tous réunis pour l'aboutissement de ce travail. Je vous aime tous très fort.}
+  \usermsg{Sans oublier le reste de la famille. Et les boules de poils\,!}
+  \botmsg{Merci au reste de ma famille, à mes tontons, mes tatas et mes cousins. Merci Robert, merci Marie-Ange~: je n'ai jamais oublié votre «~aller aussi loin que tu peux, t'en as dans la tête toi~», et je ne me suis jamais arrêté. Et à ceux qui ne pourront ni comprendre ce que j'ai fait, ni le lire~: Niels, merci pour ces balades où c'est toi qui me promenais, je pense, et Zizou (non, pas le joueur), pour ces ronrons au bord du lit.}
+
+% ----------------------------------------------------------------------
+\chattopic{touchant}{Ma seconde maison}
+  \usermsg{La seconde maison, celle que Martha m'a fait découvrir.}
+  \botmsg{Merci, Adèle et Emmanuel, pour votre douceur et pour toutes ces attentions, petites et grandes, qui ne sont jamais passées inaperçues. Dès le premier jour, vous m'avez accueilli et accepté tel que je suis, et je ne me suis jamais senti étranger chez vous. Merci, Laurence, pour ta compagnie et ces (très) belles vacances que tu nous as offertes et que j'ai réellement appréciées. J'ai maintenant une superbe veste, qui me rappelle chaque jour qui vous êtes et tout ce que je vous dois.}
+
+% ----------------------------------------------------------------------
+\chattopic{chaleureux}{Mes professeurs}
+  \usermsg{Il me reste ceux qui m'ont fait aimer la physique.}
+  \botmsg{À ceux qui, par leur personnalité, leur pédagogie et leur attitude, m'ont fait découvrir le monde de la physique. M.~Fruet, vous en êtes, je crois, le pilier fondateur~: ce professeur enjoué et passionné à qui j'ai volé (emprunté, plutôt) l'envie de me lancer dans ces études. Au plaisir de vous recroiser sur un tapis d'escalade, ou lors d'un cours, qui sait\,! M.~Brottier, M.~Carrot et Mme~Verant, vous êtes trois professeurs exceptionnels, avec qui j'ai adoré apprendre, comprendre et réfléchir. Merci à vous\,! Merci Mme~Cordan~: sans ce stage au CERN il y a cinq ans, je n'en serais pas là, et votre douceur comme votre pédagogie m'ont beaucoup inspiré.}
+
+% ----------------------------------------------------------------------
+\chattopic{escalade}{La grimpe}
+  \usermsg{Maintenant, la grimpe.}
+  \botmsg{À l'un des volets importants de ma vie~: le monde de l'escalade. À ceux que j'ai rencontrés au détour d'un bloc et qui sont devenus des amis~: vous vous reconnaîtrez dans ces lignes. Merci Elian et Noah, les deux loustiques avec qui j'ai progressé~: vous m'avez porté (sûrement à la force de vos biceps) et entraîné dans ces innombrables séances nocturnes. Vous remarquerez d'ailleurs qu'il m'aura fallu autant de temps pour boucler cette thèse que pour réussir ma première traction à un bras\dots{}mince. Merci Flo, Léo, Peter, Thomas, et au reste de la troupe, jamais bien loin, pour ces défis et ces bêtises en tout genre~: j'ai savouré chacun de ces moments avec vous. Nico et Hugo, la one-arm avant le bac, fallait le faire quand même\,! Je suis trop content de vous connaître, et trop fier de vous. Merci Julian (un grand J pour un petit marseillais)\,; Kilian, Coco et Julie, pour ces premiers souvenirs d'escalade\,; Jérôme, le faux docteur\,; et Antoine, pour m'avoir fait découvrir qu'avoir sa vie suspendue au bout d'un coinceur est terrifiant.}
+  \usermsg{Et les salles, et mes coachs\,?}
+  \botmsg{Merci à Block'Out pour cette B14, ces 16 B13, 52 B12 et 134 B11 que j'ai réussi à enchaîner, tous ouverts par vos soins (oui, j'ai compté). Merci à Louis, qui m'a entraîné pendant près d'un an et m'a convaincu que la discipline est la mère de la réussite. Merci à Escalade Alsace pour ces parenthèses quotidiennes, et à tous ces grimpeurs locaux qui me mettent des étoiles plein les yeux. Merci, Pierre B.~: tu ne peux même pas imaginer à quel point je suis fier d'avoir été entraîné par toi. Cette salle de muscu vétuste de l'ASCPA m'a marqué à vie, et si j'ai aujourd'hui des rêves aussi hauts dans ce sport, c'est parce que tu m'en as fait prendre conscience.}
+
+% ----------------------------------------------------------------------
+\chattopic{magnifique}{Martha}
+  \usermsg{Et enfin, Martha.}
+  \botmsg{Finir par le plus beau~: celle que je veux voir chaque matin en ouvrant les yeux. Martha, ces derniers mots sont pour toi (tu as le droit de les partager avec Bil). Tu as vécu cette thèse de l'autre côté, celui qu'aucun de ces chapitres ne raconte. Tu as eu droit aux soirées tardives, aux projets sans cesse repoussés, à mes silences et à mes doutes, et à mes longues explications de physique que tu écoutais quand même. Rien de tout cela ne t'a fait reculer. Avec une patience que je n'ai pas toujours méritée, tu as su me ramener à la vie quand je m'y perdais, et tu as cru en moi bien plus souvent que je n'y croyais moi-même.
+
+  J'ai passé trois ans à chercher des particules stables (qui n'existent même pas d'ailleurs), alors que la stabilité, c'est toi qui me l'as apportée. Ce manuscrit te doit bien plus que ces quelques lignes ne sauraient le dire. Merci pour tout ce que tu as porté sans jamais rien demander en retour. La suite, je la veux avec toi.}
+  \chatnotice{Crédits de thèse épuisés}{Vous avez utilisé tous vos crédits de thèse. Passez à l'abonnement Post-Doc pour aller au-delà.}{Passer à Post-Doc}
+  \renewcommand{\chatplaceholder}{Crédits épuisés\dots}
+  \colorlet{chataccent}{chatframe}
+\end{chatwindow}
+
+\clearpage
+\flushbottom

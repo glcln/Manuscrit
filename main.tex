@@ -99,6 +99,10 @@
 %% ---------------------------------------------------------------
 \def\mathbi#1{\boldsymbol{#1}}
 
+\cleardoublepage
+\include{Chapters/ch-Remerciements}
+\cleardoublepage
+
 \pagenumbering{gobble}
 \renewcommand{\contentsname}{Contents}
 {\hypersetup{linkcolor=black}\tableofcontents}
@@ -107,13 +111,13 @@
 
 \adjustmtc  % to avoid minitoc position issue in the following chapters
 
-% \include{Chapters/ch-Chapitre1}
-% \cleardoublepage
-% \include{Chapters/ch-Chapitre2}
-% \cleardoublepage
-% \include{Chapters/ch-Chapitre3}
-% \cleardoublepage
-% \include{Chapters/ch-Chapitre4}
+\include{Chapters/ch-Chapitre1}
+\cleardoublepage
+\include{Chapters/ch-Chapitre2}
+\cleardoublepage
+\include{Chapters/ch-Chapitre3}
+\cleardoublepage
+\include{Chapters/ch-Chapitre4}
 
 
 \include{Chapters/ch-Conclusion}
@@ -129,14 +133,9 @@
 
 \cleardoublepage
 \include{Chapters/ch-ChapitreFR.tex}
+\cleardoublepage
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
-
-%\newpage 
-%\listoffigures \mtcaddchapter    % do not forget "\mtcaddchapter" (ohterwise, conflict with minitoc)
-
-%\newpage 
-%\listoftables \mtcaddchapter     % do not forget "\mtcaddchapter" (ohterwise, conflict with minitoc)
 
 \cleardoublepage
 \include{Covers/BackCover}
