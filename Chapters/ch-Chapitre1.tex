@@ -359,7 +359,7 @@ The readout electronics are synchronised with the 25~ns LHC bunch crossing clock
 \noindent \textbf{Pixel tracker}
 \vspace{0.5 cm}
 
-At the start of the LHC, the pixel detector was made of three barrel layers and two disks in each forward region. During the winter break in 2016-2017, the pixel detector was upgraded with an additional barrel layer, and an endcap disk on top of a change in the pixel supports, shifting from on-board to off-board electronics, along with the implementation of a $\textrm{CO}_2$ cooling system \cite{pixeldetector}. A layout of the pixel tracker is presented in \cref{fig:pixeltracker}.
+At the start of the LHC, the pixel detector was made of three barrel layers and two disks in each forward region. During the winter break in 2016-2017, the pixel detector was upgraded with an additional barrel layer, and an endcap disk on top of a change in the pixel supports, shifting from on-board to off-board electronics, along with the implementation of a $\textrm{CO}_2$ cooling system~\cite{CMSPhase1Pixel2021}. A layout of the pixel tracker is presented in \cref{fig:pixeltracker}.
 
 The four barrel pixel layers (BPIX) cover radial distances from 2.9 to 16~cm from the IP, while the three forward disks (FPIX) are set between 29.1 and 51.6~cm from the centre longitudinally with a coverage up to $|\eta|<2.5$. The BPIX is made of 1\,184 modules, while the FPIX has 672. Each module features a lattice of $160 \times 416$ pixels cells within a rectangular active area of $16.2 \times 64.8 \, \textrm{mm}^2$, with each cell measuring $100 \times 150 \, \mu\textrm{m}^2$ with a thickness of 285~$\mu\textrm{m}$. This fine granularity provides hit resolutions of approximately 40~$\mu\textrm{m}$ and 75~$\mu\textrm{m}$ in the transverse and longitudinal directions.
 
@@ -370,7 +370,7 @@ This first part of the tracker ensures reconstruction of the primary vertex, the
 \begin{figure}[h!]
     \centering
     \input{Images/Ch1/PixelTracker.tex}
-    \caption{Layout of the pixel tracker compared to the original detector layout in longitudinal view \cite{pixeldetector}.}
+    \caption{Layout of the pixel tracker compared to the original detector layout in longitudinal view~\cite{CMSPhase1Pixel2021}.}
     \label{fig:pixeltracker}
 \end{figure}
 
@@ -440,7 +440,7 @@ The ECAL is divided into three sections: the Barrel ECAL (EB), covering a pseudo
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{Images/Ch1/ECALgloballayout.pdf}
-    \caption{Schematic view of the CMS ECAL, showing the barrel region composed of lead tungstate crystals, and the two endcap regions equipped with supercrystals (groups of several crystals combined to form larger readout units). \cite{CMSecalphoto}.}
+    \caption{Schematic view of the CMS ECAL, showing the barrel region composed of lead tungstate crystals, and the two endcap regions equipped with supercrystals (groups of several crystals combined to form larger readout units)~\cite{CMSecalphoto}.}
     \label{fig:ECAL}
 \end{figure}
 
@@ -618,7 +618,7 @@ Data scouting addresses the same bandwidth constraint from a different angle. Ra
 \section{Event reconstruction, identification and calibration}
 \label{sec:EventReconstruction}
 
-Among the various particles produced at each proton--proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $e^\pm$, the charged hadrons (proton $p,\overline{p}$, pions $\pi^\pm$, kaons $K^\pm$), the neutral ones (neutron $n$, neutral pion $K^0_L$), and the photons $\gamma$. Depending on the physics interaction, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
+Among the various particles produced at each proton--proton collision, only a few of them are stable at the detector scale: the muons $\mu^\pm$, the electrons $e^\pm$, the charged hadrons (proton $p,\overline{p}$, pions $\pi^\pm$, kaons $K^\pm$), the neutral ones (neutron $n$, neutral kaon $K^0_L$), and the photons $\gamma$. Depending on the physics interaction, they leave different experimental signatures within the CMS detector. A representation of various particles travelling inside CMS is shown on \cref{fig:CMSslicePF}.
 
 The CMS Particle Flow (PF) algorithm performs a complete reconstruction of events. This algorithm, detailed in the section below, reconstructs the basic particles listed above by looking for tracker hits, energy deposits within the calorimeters, or muon chamber hits. Afterwards, the PF particles are used to reconstruct more complex objects.
 
@@ -651,7 +651,7 @@ Hit measurement relies on energy deposits of charged particles within the matter
 
 A similar algorithm is applied for pixel hits. A cluster is defined as a pixel cell with $S/N>6$, and adjacent pixels are grouped if they satisfy $S/N>5$. Globally, the pixel cluster shall meet the $S/N>10$ criterion.
 
-After all, the pixel-hit resolution in Run--3 is about 40~$\mu$m and 75~$\mu$m in the $r{-}\phi$ and $z$ coordinates, respectively~\cite{pixelHitresolution}, while varying from 15~$\mu$m to 40~$\mu$m for the $z$ coordinate on strip modules, depending on the strip pitch~\cite{stripHitresolution}. Globally, the $S/N$ values evolve, decreasing with increasing integrated luminosity due to radiation damage~\cite{stripHitresolution}.
+After all, the pixel-hit resolution in Run--3 is about 40~$\mu$m and 75~$\mu$m in the $r{-}\phi$ and $z$ coordinates, respectively~\cite{pixelHitresolution}, while varying from 15~$\mu$m to 40~$\mu$m for the $z$ coordinate on strip modules, depending on the strip pitch~\cite{CMS-DP-2024-101}. Globally, the $S/N$ values evolve, decreasing with increasing integrated luminosity due to radiation damage~\cite{CMS-DP-2024-101}.
 
 \subsubsection{Seed generation}
 
@@ -734,12 +734,12 @@ The PF algorithm also provides dedicated isolation criteria for the muon reconst
 
 The numerator sums the transverse momenta of all charged hadrons (ch. had.), plus a pile-up-corrected neutral contribution. This neutral term, taken under the max operator, adds the neutral hadron (neut. had.) and photon (ph.) transverse energies while subtracting the estimated pile-up contribution, which approximates the neutral pile-up energy using the charged tracks associated with other primary vertices and considered as pile-up (ch. had. PU). The $\max(0,\cdot)$ ensures this corrected neutral term never goes negative, preventing unphysical values. A small value of $I_{\textrm{rel}}^\mu$ indicates an isolated muon, typical of \textit{prompt muons} coming from the primary vertex. In contrast, a large value suggests the muon is embedded in a jet.
 
-A tracker-based isolation variable is similarly defined, relying solely on charged PF candidates with track information. The tracker isolation $I_{\textrm{trk}}^\mu$ sums the transverse momenta of all tracks within a cone of radius $\Delta R < 0.3$ around the muon direction:
+A tracker-based isolation variable is similarly defined, relying solely on charged PF candidates with track information. The tracker isolation $I_{\textrm{trk}}^\mu$ sums the transverse momenta of charged PF candidates within a cone of radius $\Delta R < 0.3$ around the muon direction:
 \begin{equation}
     I_{\textrm{trk}}^\mu = \sum_{\substack{i \,\in\, \Delta R < 0.3 \\ i \,\neq\, \mu}} p_{\mathrm{T},i}\, ,
     \label{eq:TrkisoMu}
 \end{equation}
-where the sum runs over all tracks $i$ reconstructed within the cone, excluding the muon track itself. A smaller cone radius than the one used for $I_{\textrm{rel}}^\mu$ is chosen to reduce pile-up contamination further. Rather than applying an explicit pile-up subtraction term as in \cref{eq:PFisoMu}, pile-up mitigation here relies directly on requiring that each track originate from the same primary vertex as the muon. The tracker isolation is a purely tracking-based, calorimeter-independent variable, where a small value of $I_{\textrm{trk}}^\mu$ indicates that the muon is well isolated from other charged activity, as expected for prompt muons. In contrast, a large value indicates that the muon is embedded in a jet.
+where the sum runs over all charged PF candidates $i$ within the cone, excluding the muon track itself. A smaller cone radius than the one used for $I_{\textrm{rel}}^\mu$ is chosen to reduce pile-up contamination further. Rather than applying an explicit pile-up subtraction term as in \cref{eq:PFisoMu}, pile-up mitigation here relies directly on requiring that each track originate from the same primary vertex as the muon. The tracker isolation is a purely tracking-based, calorimeter-independent variable, where a small value of $I_{\textrm{trk}}^\mu$ indicates that the muon is well isolated from other charged activity, as expected for prompt muons. In contrast, a large value indicates that the muon is embedded in a jet.
 
 Finally, a mini-isolation variable is built to target muons produced in the decay chain of a boosted object using \cref{eq:PFisoMu}, but with a variable cone radius given by:
 
@@ -814,7 +814,7 @@ While the previously introduced jets are reconstructed from PF candidates, an al
 
 \vspace{0.5 cm}
 
-Reconstructed jets can be further classified by parton flavour using dedicated tagging algorithms. Heavy-flavour jets originating from $b$ or $c$ quarks are characterised by the presence of long-lived hadrons that travel a measurable distance before decaying, producing secondary vertices displaced from the primary interaction point and tracks with large impact parameter significance. These signatures, combined with additional variables such as the jet constituent kinematics and the presence of soft leptons, are exploited by multivariate algorithms to discriminate heavy-flavour jets from light-flavour ones. The Run--2 reference algorithm in CMS is \textsc{DeepJet}~\cite{DeepJet}, a deep neural network that processes the full list of jet constituents and returns a flavour probability score, against which a working point is applied to define the final jet flavour tag. For Run--3, \textsc{DeepJet} has been superseded by the Unified Particle Transformer (\textsc{UParT})~\cite{UParT}, a transformer-based architecture that introduces pairwise interaction features between jet constituents and secondary vertices, and employs adversarial training to improve robustness against simulation mismodelling. Beyond $b$- and $c$-jet tagging, \textsc{UParT} performs quark-gluon separation and hadronic $\tau$ classification within a single unified model. The model also incorporates an initial attempt at $s$-jet identification by dividing the standard light-flavour training class into distinct $u$, $d$, and $s$ categories~\cite{CMS-DP-2024-066}. This $s$-jet classifier is currently exploratory, achieving an $s$-jet efficiency of approximately 20\% with a misidentification probability of $10^{-3}$, and is not utilised in my present analysis.
+Reconstructed jets can be further classified by parton flavour using dedicated tagging algorithms. Heavy-flavour jets originating from $b$ or $c$ quarks are characterised by the presence of long-lived hadrons that travel a measurable distance before decaying, producing secondary vertices displaced from the primary interaction point and tracks with large impact parameter significance. These signatures, combined with additional variables such as the jet constituent kinematics and the presence of soft leptons, are exploited by multivariate algorithms to discriminate heavy-flavour jets from light-flavour ones. The Run--2 reference algorithm in CMS is \textsc{DeepJet}~\cite{DeepJet}, a deep neural network that processes the full list of jet constituents and returns a flavour probability score, against which a working point is applied to define the final jet flavour tag. For Run--3, \textsc{DeepJet} has been superseded by the Unified Particle Transformer (\textsc{UParT})~\cite{UParT}, a transformer-based architecture that introduces pairwise interaction features between jet constituents and secondary vertices, and employs adversarial training to improve robustness against simulation mismodelling. Beyond $b$- and $c$-jet tagging, \textsc{UParT} performs quark-gluon separation and hadronic $\tau$ classification within a single unified model. The model also incorporates an initial attempt at $s$-jet identification by dividing the standard light-flavour training class into distinct $u$, $d$, and $s$ categories~\cite{UParT}. This $s$-jet classifier is currently exploratory, achieving an $s$-jet efficiency of approximately 20\% with a misidentification probability of $10^{-3}$, and is not utilised in my present analysis.
 
 
 \subsubsection{Tau leptons}

@@ -100,7 +100,7 @@ In addition to their complementarity, the selection of these two estimators is j
 
 In this analysis, the pixel information is exploited via $F_{\text{pixel}}$, which quantifies the compatibility of a track with a MIP deposit. The pixel cluster shape and the charge distribution of MIPs are modelled from \texttt{PixelAV} simulations~\cite{1495807}, which reproduce charge deposition, transport, and collection processes in pixel sensors. 
 These simulations are periodically tuned to data using large-$\eta$ tracks to provide angle-dependent models that yield different Vavilov function\footnote{As already discussed in \cref{sec:interactionWithMatter}, the Vavilov distribution is the exact description of these energy-loss fluctuations for an absorber of finite thickness. It depends on $\beta^2$ and on
-$\kappa = \xi/W_{\max}$, the ratio of the mean energy loss to the maximum single-collision transfer, and reduces to the Landau distribution for $\kappa \to 0$~\cite{VavilovFunctionPixels}.} $V(Q)$ templates to model the charge distribution of MIPs.
+$\kappa = \xi/W_{\max}$, the ratio of the Landau parameter to the maximum single-collision transfer, and reduces to the Landau distribution for $\kappa \to 0$~\cite{VavilovFunctionPixels}.} $V(Q)$ templates to model the charge distribution of MIPs.
 
 \vspace{0.5 cm}
 
@@ -695,7 +695,7 @@ In contrast, the signal phase space is predominantly populated at higher $p_{\ma
   \label{fig:scheme_ABCDmass}
 \end{figure}
 
-Using the dependency between $F_\textrm{pixel}$ and $p_{\mathrm{T}}$, the number of events in the SR $D$ is computed from the event counts in regions $A$, $B$, and $C$ as follows:
+% Using the independence between $F_\textrm{pixel}$ and $p_{\mathrm{T}}$, the number of events in the SR $D$ is computed from the event counts in regions $A$, $B$, and $C$ as follows:
 \begin{equation}
 	{\rm yield}(D)= {\rm yield}(B)\times {\rm yield}(C)/{\rm yield}(A). 
 \label{eq:normalisation}
@@ -1283,7 +1283,7 @@ Analysis of nuisance parameter impacts (\cref{sec:limits:impacts}) indicates tha
 
 The exclusion sensitivity is dominated by the barrel channel, which is effectively background-free (\cref{tab:expectedyield}). In this regime, the counting experiment can be modelled as a Poisson process. Thus the expected signal yield $N_s$ is expressed as: $N_s = \sigma\,\varepsilon\,\mathcal{L}$, where $\varepsilon$ denotes the signal efficiency. In addition, in the exclusion-relevant region, the theoretical cross section $\sigma^{\rm th}(m)$ is locally well approximated by an exponential function: $\sigma^{\rm th}(m) \approx \sigma_0\, e^{-m/m_0}$. The slope parameter is determined from \cref{tab:signal_samples}: between $2200$ and $2600$~GeV, the cross section decreases by a factor of approximately $5.83$:
 \begin{equation}
-    5.83 = \frac{\sigma^{\rm th}(2200)}{\sigma^{\rm th}(2600)} = \exp\left(\frac{ 400}{m_0} \right) \quad  \Rightarrow \quad m_0 = \frac{400~\textrm{GeV}}{\ln(5.83)} \approx 227~\textrm{GeV} \, ,    
+    5.83 = \frac{\sigma^{\rm th}(2200)}{\sigma^{\rm th}(2600)} = \exp\left(\frac{ 400}{m_0} \right) \quad  \Rightarrow \quad m_0 = \frac{400~\textrm{GeV}}{\ln(5.83)} \approx 223~\textrm{GeV} \, ,    
 \end{equation}
 This result indicates that the cross section decreases by a factor of $e$ for every approximately $227$~GeV increase in mass.
 
