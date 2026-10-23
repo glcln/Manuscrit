@@ -25,6 +25,17 @@
 \setcounter{section}{0}
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\counterwithin*{figure}{section}
+\counterwithin*{table}{section}
+\counterwithin*{equation}{section}
+\setcounter{figure}{0}\setcounter{table}{0}\setcounter{equation}{0}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\theHsection}{resume.\Roman{section}}
+\renewcommand{\theHfigure}{resume.\Roman{section}.\arabic{figure}}
+\renewcommand{\theHtable}{resume.\Roman{section}.\arabic{table}}
+\renewcommand{\theHequation}{resume.\Roman{section}.\arabic{equation}}
 
 Ma thèse, intitulée «~Recherche de nouvelles particules à long temps de vie et fortement ionisantes avec l'expérience CMS~», a été préparée au sein du groupe CMS de l'Institut Pluridisciplinaire Hubert Curien (IPHC) de Strasbourg, sous la direction de Caroline Collard. Elle porte sur la recherche de particules lourdes, chargées et stables à l'échelle du détecteur (\textit{Heavy Stable Charged Particles}, HSCP) dans les collisions proton--proton enregistrées par l'expérience CMS (\textit{Compact Muon Solenoid}) au LHC (\textit{Large Hadron Collider}) pendant le Run--3. Ce résumé reprend l'ensemble des chapitres du manuscrit, rédigé en anglais, dans le même ordre.
 
@@ -466,6 +477,9 @@ Le second volet est la recherche elle-même, que j'ai conçue presque entièreme
 \endgroup
 
 % retour à la numérotation standard pour les chapitres suivants
+\counterwithout*{figure}{section}
+\counterwithout*{table}{section}
+\counterwithout*{equation}{section}
 \renewcommand{\thesection}{\thechapter.\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \setcounter{section}{0}
