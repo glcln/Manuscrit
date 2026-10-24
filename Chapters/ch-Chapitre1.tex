@@ -52,7 +52,7 @@ Technically, the LHC operates by accelerating and colliding two counter-rotating
 
 The LHC ring is the final stage of a larger accelerator complex, depicted in \cref{fig:CERNComplexAccelerator}. The chain starts with LINAC4, an 86~m long linear accelerator installed 12~m below ground. Hydrogen gas is injected into a caesium plasma source, in which negative hydrogen ions H$^-$ are formed by attaching an additional electron to the hydrogen atoms. These ions are accelerated to 160~MeV over the length of the machine.
 
-At this point, reaching significantly higher energies with a linear accelerator would require additional accelerating structures along the beam line, thereby making the machine longer. A synchrotron avoids this limitation by reusing the same cavities over many successive turns, so that the beam energy can be raised gradually without a comparable growth in size. The beam is thus transferred to the Proton Synchrotron Booster (PSB), where the H$^-$ ions cross a thin carbon foil that strips both electrons and leaves bare protons. This charge-exchange injection allows the incoming beam to be superimposed on the circulating one over many turns, accumulating a much higher intensity than a direct proton injection would permit. The protons are accelerated to 2~GeV in the PSB, then to 26~GeV in the PS, and finally to 450~GeV in the SPS, which serves as the LHC injector. Bunch trains are finally transferred into the two LHC rings, where the beams circulate in opposite directions, following a filling scheme that fixes their longitudinal positions. Once both rings are filled, the beams are ramped to their nominal energy of 6.8~TeV.
+At this point, reaching significantly higher energies with a linear accelerator would require additional accelerating structures along the beam line, thereby making the machine longer. A synchrotron avoids this limitation by reusing the same cavities over many successive turns, so that the beam energy can be raised gradually without a comparable growth in size. The beam is thus transferred to the Proton Synchrotron Booster (PSB), where the H$^-$ ions cross a thin carbon foil that strips both electrons and leaves bare protons. This charge-exchange injection allows the incoming beam to be superimposed on the circulating one over many turns, accumulating a much higher intensity than a direct proton injection would permit. The protons are accelerated to 2~GeV in the PSB, then to 26~GeV in the PS, and finally to 450~GeV in the SPS, which serves as the LHC injector. Bunch trains are finally transferred into the two LHC rings, where the beams circulate in opposite directions, following a filling scheme that fixes their longitudinal positions. Once both rings are filled, the beams are ramped to their Run--3 energy of 6.8~TeV.
 
 \begin{figure}[h!]
     \centering
@@ -475,7 +475,7 @@ Technically speaking, the HCAL granularity, as the ECAL's one, is defined by the
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\linewidth]{Images/Ch1/CMSHcalrun3.png}
-    \caption{Layout of one quarter of a longitudinal slice of the CMS HCAL in the $r{-}z$ view, showing the location of the HCAL barrel (HB), endcap (HE), outer barrel (HO) and forward (HF) calorimeters. Within a tower, layers with the same colour are routed to the same silicon photomultiplier. The location of the frontend electronics is indicated by the letters FEE \cite{CMShcal}.}
+    \caption{Layout of one quarter of a longitudinal slice of the CMS HCAL in the $r{-}z$ view, showing the location of the HCAL barrel (HB), endcap (HE), outer barrel (HO) and forward (HF) calorimeters. Within a tower, layers with the same colour are routed to the same silicon photomultiplier. The location of the frontend electronics is indicated by the letters FEE~\cite{CMShcal}.}
     \label{fig:CMShcal}
 \end{figure}
 
@@ -545,7 +545,7 @@ As the muon rate is lower in the barrel region, drift-tube technology has been c
 
 \vspace{0.5 cm}
 
-Located in the endcap, where particle flux is higher, the CSCs are dedicated detectors that address these conditions with faster response times. A CSC module consists of a trapezoidal chamber formed by 7 layers of cathode strip planes. Between layers, the gap is filled with a mixture of $\textrm{CO}_2$, Ar, and $\textrm{CF}_4$ ionised by energetic muons passing through the chamber. As in a drift chamber, an electric field is generated between the edges and the 50~$\mu$m wire anode in the middle of the chambers. Each wire is spaced by $\approx$3.15~mm, for a total of about 100 wires per layer, allowing precise measurements in the $r{-}\phi$ plane with a response time of about 30~ns and a time resolution of about 2~ns. After all, 540~CSCs composed the four wheels (each made up of three rings in the first wheel and two in the others) to provide pseudorapidity coverage of $0.9<|\eta|<2.4$~\cite{CSCs}.
+Located in the endcap, where particle flux is higher, the CSCs are dedicated detectors that address these conditions with faster response times. A CSC module consists of a trapezoidal chamber formed by 7 layers of cathode strip planes. Between layers, the gap is filled with a mixture of $\textrm{CO}_2$, Ar, and $\textrm{CF}_4$ ionised by energetic muons passing through the chamber. As in a drift chamber, an electric field is generated between the edges and the 50~$\mu$m wire anode in the middle of the chambers. Each wire is spaced by $\approx$3.15~mm, for a total of about $\approx$100--1000 wires per layer, allowing precise measurements in the $r{-}\phi$ plane with a response time of about 30~ns and a time resolution of about 2~ns. After all, 540~CSCs composed the four wheels (each made up of three rings in the first wheel and two in the others) to provide pseudorapidity coverage of $0.9<|\eta|<2.4$~\cite{CSCs}.
 
 \vspace{0.5 cm}
 \noindent \textbf{Resistive plate chambers}
@@ -900,7 +900,7 @@ Within the simulation chain, the hard-scattering process is first described usin
 
 Event generators such as \textsc{MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca} compute the hard-process matrix elements and generate the outgoing particles. The subsequent evolution of the event, including initial- and final-state radiation, parton showering, and hadronisation, is typically handled by \textsc{Pythia}~\cite{Sjostrand:2014zea}. During this stage, coloured partons evolve into parton showers and eventually form colour-neutral hadrons through phenomenological hadronisation models.
 
-After hadronisation, the interaction of the produced particles with the detector material is then simulated using the CMS software in \textsc{Geant4}~\cite{Agostinelli:2003hh}. This toolkit models the detector response (signal digitisation) of particles travelling through matter. The resulting simulated detector signals are processed with the same reconstruction algorithms as collision data, allowing simulated events to be analysed in the same way as recorded data.
+After hadronisation, the interaction of the produced particles with the detector material is then simulated with \textsc{Geant4}~\cite{Agostinelli:2003hh} within the CMS software (CMSSW). \textsc{Geant4} models the passage of particles through matter, and the detector response (digitisation) is then emulated by CMSSW. This toolkit models the detector response (signal digitisation) of particles travelling through matter. The resulting simulated detector signals are processed with the same reconstruction algorithms as collision data, allowing simulated events to be analysed in the same way as recorded data.
 
 
 \section[CMS Phase-2 upgrade for HL-LHC campaigns]{CMS Phase-2 upgrade for HL-LHC \\ campaigns}
@@ -943,7 +943,7 @@ The existing endcap calorimeters will be replaced by the High-Granularity Calori
 \noindent \textbf{MIP timing detector}
 \vspace{0.5 cm}
 
-A new dedicated timing layer, the MIP Timing Detector (MTD), will be installed between the tracker and the calorimeters, covering $|\eta| < 3$. It will provide a time-of-flight resolution of 30 ps per track, enabling assignment of each charged particle to its originating bunch-crossing vertex and thereby substantially reducing the impact of pile-up on reconstruction~\cite{Phase2MTD}.
+A new dedicated timing layer, the MIP Timing Detector (MTD), will be installed between the tracker and the calorimeters, covering $|\eta| < 3$. It will provide a time-of-flight resolution of 30--60~ps per track, enabling assignment of each charged particle to its originating bunch-crossing vertex and thereby substantially reducing the impact of pile-up on reconstruction~\cite{Phase2MTD}.
 
 \vspace{0.5 cm}
 \noindent \textbf{Muon system}
