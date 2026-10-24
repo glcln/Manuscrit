@@ -238,7 +238,7 @@ Following these subtractions, strips that return negative ADC values are set to 
 \begin{itemize}
     \item Strips with a digitised signal below 254~ADC counts are left unchanged;
     \item Those with a digitised signal between 254 and 1022~ADC counts are set to 254;
-    \item Strips above 1023~ADC counts are assigned a value of 255.
+    \item Strips at 1023 ADC counts (10-bit overflow) are assigned a value of 255.
 \end{itemize}
 Strips with zero ADC counts or low $S/N$ values are suppressed entirely, thereby reducing the overall data rate.
 
@@ -338,7 +338,7 @@ To cope with the cumulative effects of permanent radiation damage, detectors can
 \subsection{Origin and definition of the saturation}
 \label{subsec:saturationdefinition}
 
-The dynamic range of the strip readout chain is limited and was designed for MIP-level signals. As detailed in \cref{subsec:readoutpipeline}, the 10-bit output of the FED is truncated to 8 bits before storage: strips digitised between 254 and 1022 counts are all assigned the value 254, and those above 1023 are assigned the value 255. Consequently, the recorded amplitude provides no information about the actual charge collected once this ceiling is reached. A strip storing one of these two values is considered \textit{saturated}, and a cluster containing at least one such strip is named as a \textit{saturated cluster}.
+The dynamic range of the strip readout chain is limited and was designed for MIP-level signals. As detailed in \cref{subsec:readoutpipeline}, the 10-bit output of the FED is truncated to 8 bits before storage: strips digitised between 254 and 1022 counts are all assigned the value 254, and those at 1023 (overflow) are assigned the value 255. Consequently, the recorded amplitude provides no information about the actual charge collected once this ceiling is reached. A strip storing one of these two values is considered \textit{saturated}, and a cluster containing at least one such strip is named as a \textit{saturated cluster}.
 
 \vspace{0.5 cm}
 
@@ -401,7 +401,7 @@ In addition to the MC--muon sample, three distinct 2018 samples are considered. 
     \label{tab:samples}
 \end{table}
 
-The fraction of saturated clusters for a \textit{HighPurity} muon track with at least 8 \dedx{} clusters (to ensure good reconstruction) is given in \cref{tab:WjetHSCPsat} (top) for each sample. Heavier particles, such as gluinos, deposit more energy, leading to a larger saturation fraction. In these cases, 44\% of \dedx\ clusters are saturated. For muons, saturation affects 8.8--10.2\% of clusters per track in data and simulation. Less than 1\% of saturated clusters have at least one strip with a charge greater than 1023~ADC counts. Furthermore, \cref{tab:WjetHSCPsat} (bottom) presents the distribution of saturated clusters according to the number of consecutive saturated strips.
+The fraction of saturated clusters for a \textit{HighPurity} muon track with at least 8 \dedx{} clusters (to ensure good reconstruction) is given in \cref{tab:WjetHSCPsat} (top) for each sample. Heavier particles, such as gluinos, deposit more energy, leading to a larger saturation fraction. In these cases, 44\% of \dedx\ clusters are saturated. For muons, saturation affects 8.8--10.2\% of clusters per track in data and simulation. Less than 1\% of saturated clusters have at least one strip at the 10-bit overflow (1023 ADC counts). Furthermore, \cref{tab:WjetHSCPsat} (bottom) presents the distribution of saturated clusters according to the number of consecutive saturated strips.
 
 \newpage
 
@@ -768,7 +768,7 @@ The cross-talk inversion is performed using the first neighbouring strips adjace
     Q_\mathrm{corr} = a_\mathrm{2strips} \cdot \frac{L_\mathrm{max}+R_\mathrm{max}}{2} \, ,
     \label{eq:twostripscorr}
 \end{equation}
-with $a_\mathrm{2strips}\approx16.31$. This value represents the inverse of the proportion of charge held by $L_\mathrm{max}$ and $R_\mathrm{max}$ relative to the total cluster charge, yielding 6.21\%. This value is lower compared to the fixed 10\% of the basic correction (cross-talk coefficient $x_1=0.1$ in \cref{subsec:basiccorr}) as the charge is concentrated on the two central saturated strips. The calibration of $a_\mathrm{2strips}$ was performed using the MC-muon sample. Due to the insufficient number of clusters with two consecutive saturated strips in this sample, the average cluster shape was used to estimate $a_\mathrm{2strips}$.
+with $a_\mathrm{2strips}\approx16.31$. This value represents the inverse of the proportion of charge held by $L_\mathrm{max}$ and $R_\mathrm{max}$ relative to the total cluster charge, yielding 6.13\%. This value is lower compared to the fixed 10\% of the basic correction (cross-talk coefficient $x_1=0.1$ in \cref{subsec:basiccorr}) as the charge is concentrated on the two central saturated strips. The calibration of $a_\mathrm{2strips}$ was performed using the MC-muon sample. Due to the insufficient number of clusters with two consecutive saturated strips in this sample, the average cluster shape was used to estimate $a_\mathrm{2strips}$.
 
 \vspace{0.5 cm}
 
@@ -926,7 +926,7 @@ The CMS Tracking Physics Object Group has approved the shape correction method f
 
 The procedure involves selecting all \textit{HighPurity} tracks with a $p_{\mathrm{T}}$ between 0.5 and 5~GeV/$c$ --- to observe the Bethe-Bloch rise at low $p$ --- originating from the primary vertex, and that have at least 10 \dedx\,deposits to compute the average ionisation using the $I_h$ estimator.
 
-The $I_h$ distribution for each $ p$-slice (of 0.02~GeV/$c$ width) is fitted using a Landau function to model the \dedx\,deposits of low-$p$ particles --- here $\pi^\pm$, $K^\pm$, $p^\pm$ and $D^\pm$ ---, convoluted with a Gaussian to mimic the thermal noise. Examples of the distributions are shown in \cref{fig:langausFit}. At low $p$ (top plot), a double Landau-Gaussian function is used to fit the multiple peaks.
+The $I_h$ distribution for each $ p$-slice (of 0.02~GeV/$c$ width) is fitted using a Landau function to model the \dedx\,deposits of low-$p$ particles --- here $\pi^\pm$, $K^\pm$, $p,\overline{p}$ and $D^\pm$ ---, convoluted with a Gaussian to mimic the thermal noise. Examples of the distributions are shown in \cref{fig:langausFit}. At low $p$ (top plot), a double Landau-Gaussian function is used to fit the multiple peaks.
 
 \begin{figure}[h!]
     \centering

@@ -516,9 +516,9 @@ CMS's calorimeter system absorbs most Standard Model particles produced in colli
 
 \vspace{0.5 cm}
 
-With all that said, the muon system, or so-called muon chambers, is the last CMS sub-detector~\cite{CMSmuonsystem}. It was designed to have three functions: efficient muon identification, precise momentum measurement, and triggering capability. The high-field solenoidal magnet and flux-return yoke enable these functions. Muon chambers are located outside the solenoid coil and the HO calorimeter. They are interspaced between the iron plates forming the return yoke of the magnet. A layout of the muon system is shown in \cref{fig:muonsystem}. It is divided into three sub-systems: the Drift Tubes (DTs) in the barrel region, the Cathode Strip Chambers (CSCs) in the forward region, and the Resistive Plate Chambers (RPCs). The Muon Barrel (MB) consists of five wheels along the beam pipe, each divided into twelve 30° segments to cover the volume of the CMS detector, while the Muon Endcap (ME) is divided into rings in the transverse plane.
+With all that said, the muon system, or so-called muon chambers, is the last CMS sub-detector~\cite{CMSmuonTDR, CMSRun3detector}. It was designed to have three functions: efficient muon identification, precise momentum measurement, and triggering capability. The high-field solenoidal magnet and flux-return yoke enable these functions. Muon chambers are located outside the solenoid coil and the HO calorimeter. They are interspaced between the iron plates forming the return yoke of the magnet. A layout of the muon system is shown in \cref{fig:muonsystem}. It is divided into three sub-systems: the Drift Tubes (DTs) in the barrel region, the Cathode Strip Chambers (CSCs) in the forward region, and the Resistive Plate Chambers (RPCs). The Muon Barrel (MB) consists of five wheels along the beam pipe, each divided into twelve 30° segments to cover the volume of the CMS detector, while the Muon Endcap (ME) is divided into rings in the transverse plane.
 
-Note that in 2017, an additional system was added in the inner endcap, namely the Gas Electron Multiplier system (GEM), to gain operational experience and perform a preliminary investigation of detector performance for the HL-LHC program \cite{CMSmuonsystem}. However, this system has not yet been used for physics analyses.
+Note that in 2017, an additional system was added in the inner endcap, namely the Gas Electron Multiplier system (GEM), to gain operational experience and perform a preliminary investigation of detector performance for the HL-LHC program~\cite{CMSmuonsystem}. However, this system has not yet been used for physics analyses.
 
 \vspace{0.5cm}
 
@@ -529,7 +529,7 @@ Because the particle flux is significantly lower than in the inner tracker, the 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\linewidth]{Images/Ch1/CMSmuonsystem.png}
-    \caption{Schematic view of a quarter of the longitudinal view of the CMS muon chambers. DTs (yellow), CSCs (green) and RPCs (blue) are shown, in addition to the first Gas Electron Multiplier chamber (red) in the forward region \cite{CMSmuonsystem}.}
+    \caption{Schematic view of a quarter of the longitudinal view of the CMS muon chambers. DTs (yellow), CSCs (green) and RPCs (blue) are shown, in addition to the first Gas Electron Multiplier chamber (red) in the forward region~\cite{CMSmuonsystem}.}
     \label{fig:muonsystem}
 \end{figure}
 
@@ -712,7 +712,7 @@ The PF algorithm aims to reconstruct particles and objects from an event by comb
 \subsubsection{Muons}
 \label{sec:muons}
 
-Thanks to the muon track procedure described in \cref{subsubsection:muon_track}, the CMS achieves a muon reconstruction efficiency greater than 99\% for both tracker and global muons~\cite{MuonreconstructionCMS}. If their $p_{\mathrm{T}}$ is below 200~GeV/$c$, the transverse momentum is measured primarily from the inner-track fit. In contrast, for higher $p_{\mathrm{T}}$, the global fit performed by the Tracker Plus First Muon Station (TPFMS) allows a better measurement~\cite{MuonFitalgorithm}. A standard approach for offline muon momentum reconstruction is the TuneP algorithm~\cite{MuonreconstructionCMS}, which dynamically selects the most appropriate track fit depending on the available inner tracker and muon chamber information.
+Thanks to the muon track procedure described in \cref{subsubsection:muon_track}, the CMS achieves a muon reconstruction efficiency greater than 99\% for both tracker and global muons~\cite{CMSmuonPerf2018}. If their $p_{\mathrm{T}}$ is below 200~GeV/$c$, the transverse momentum is measured primarily from the inner-track fit. In contrast, for higher $p_{\mathrm{T}}$, the global fit performed by the Tracker Plus First Muon Station (TPFMS) allows a better measurement~\cite{MuonFitalgorithm}. A standard approach for offline muon momentum reconstruction is the TuneP algorithm~\cite{MuonreconstructionCMS}, which dynamically selects the most appropriate track fit depending on the available inner tracker and muon chamber information.
 
 The track compatibility with one of three muon categories (tracker, standalone, or global muons) is assessed by looking at the $\chi^2$ score of the track fit and the number of hits. As for inner tracker tracks, muon tracks are also classified as a function of their quality using three different working points: \textit{loose}, \textit{medium}, or \textit{tight} muons, with each consecutive label being a subset of the previous one, with more stringent criteria.
 
